@@ -1,0 +1,6464 @@
+{
+  "schema_version": "1",
+  "total_budget": 1000.0,
+  "cash_balance": 447.49636816079783,
+  "markets": {
+    "will-trump-pardon-diddy-in-2025-669|No": {
+      "market_id": "will-trump-pardon-diddy-in-2025-669",
+      "outcome": "No",
+      "question": "Will Trump pardon Diddy in 2025?",
+      "parent_event_id": "22987",
+      "parent_event_label": "Who will Trump pardon in 2025?",
+      "resolution_datetime": "2025-12-31T12:00:00+00:00",
+      "resolution_days": 63.6693698742824,
+      "metadata": {
+        "id": "537904",
+        "question": "Will Trump pardon Diddy in 2025?",
+        "conditionId": "0xb80de907dbcdfc4efe8219c3f9544f02f4267556982a1013b641bf348aff21d4",
+        "slug": "will-trump-pardon-diddy-in-2025-669",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T12:00:00Z",
+        "liquidity": "20184.0594",
+        "startDate": "2025-04-17T22:19:38.775Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.085\", \"0.915\"]",
+        "volume": "433225.313158",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-04-17T22:09:42.805883Z",
+        "updatedAt": "2025-10-28T19:52:02.501978Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "Diddy",
+        "groupItemThreshold": "7",
+        "questionID": "0x7076d91e46666515ec41224c6bf41792fc137a79bee62089c3b9627fab0d9849",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.01,
+        "orderMinSize": 5,
+        "volumeNum": 433225.313158,
+        "liquidityNum": 20184.0594,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-04-17",
+        "hasReviewedDates": true,
+        "volume24hr": 9936.96849,
+        "volume1wk": 115387.324532,
+        "volume1mo": 207209.813565,
+        "volume1yr": 431665.1469989998,
+        "clobTokenIds": "[\"93425298759467682711704940688772441010955525019881668068016025097366958962368\", \"110772069756724332116648059385969433526059191442232057731782827132431473437246\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 9936.96849,
+        "volume1wkClob": 115387.324532,
+        "volume1moClob": 207209.813565,
+        "volume1yrClob": 431665.1469989998,
+        "volumeClob": 433225.313158,
+        "liquidityClob": 20184.0594,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "events": [
+          {
+            "id": "22987",
+            "ticker": "who-will-trump-pardon-in-2025",
+            "slug": "who-will-trump-pardon-in-2025",
+            "title": "Who will Trump pardon in 2025?",
+            "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2025-04-17T22:26:38.584911Z",
+            "creationDate": "2025-04-17T22:26:38.584909Z",
+            "endDate": "2025-12-31T12:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": true,
+            "restricted": true,
+            "liquidity": 224775.4564,
+            "volume": 7164783.510583,
+            "openInterest": 0,
+            "sortBy": "ascending",
+            "createdAt": "2025-04-17T22:09:39.914462Z",
+            "updatedAt": "2025-10-28T19:54:55.429767Z",
+            "competitive": 0.8852691218130312,
+            "volume24hr": 84631.565644,
+            "volume1wk": 1910081.3207050005,
+            "volume1mo": 4232995.804483003,
+            "volume1yr": 7153506.535759996,
+            "enableOrderBook": true,
+            "liquidityClob": 224775.4564,
+            "negRisk": false,
+            "commentCount": 288,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": false,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "gmpChartMode": "default",
+            "negRiskAugmented": false,
+            "featuredOrder": 10,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-04-17T22:18:29Z",
+        "cyom": false,
+        "competitive": 0.8530785472072341,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "clobRewards": [
+          {
+            "id": "39029",
+            "conditionId": "0xb80de907dbcdfc4efe8219c3f9544f02f4267556982a1013b641bf348aff21d4",
+            "assetAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewardsAmount": 0,
+            "rewardsDailyRate": 30,
+            "startDate": "2025-10-21",
+            "endDate": "2500-12-31"
+          }
+        ],
+        "rewardsMinSize": 100,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.01,
+        "oneDayPriceChange": 0.005,
+        "oneHourPriceChange": -0.005,
+        "oneWeekPriceChange": -0.065,
+        "oneMonthPriceChange": 0.035,
+        "lastTradePrice": 0.09,
+        "bestBid": 0.08,
+        "bestAsk": 0.09,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "seriesColor": "",
+        "showGmpSeries": false,
+        "showGmpOutcome": false,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.92,
+      "best_bid": 0.91,
+      "last_price": 0.915,
+      "last_volume": 433225.313158,
+      "order_book": {
+        "asks": [
+          [
+            0.92,
+            508.85
+          ],
+          [
+            0.93,
+            3027.7
+          ],
+          [
+            0.94,
+            6142.13
+          ],
+          [
+            0.95,
+            2864.99
+          ],
+          [
+            0.96,
+            6492.51
+          ],
+          [
+            0.97,
+            2384.46
+          ],
+          [
+            0.98,
+            10190.59
+          ],
+          [
+            0.99,
+            51805.0
+          ]
+        ],
+        "bids": [
+          [
+            0.91,
+            1974.6
+          ],
+          [
+            0.9,
+            1184.68
+          ],
+          [
+            0.89,
+            688.45
+          ],
+          [
+            0.88,
+            10.0
+          ],
+          [
+            0.87,
+            1811.61
+          ],
+          [
+            0.86,
+            1694.0
+          ],
+          [
+            0.84,
+            1026.0
+          ],
+          [
+            0.83,
+            1000.0
+          ],
+          [
+            0.82,
+            100.0
+          ],
+          [
+            0.8,
+            815.34
+          ],
+          [
+            0.79,
+            1540.0
+          ],
+          [
+            0.76,
+            2200.0
+          ],
+          [
+            0.74,
+            198.0
+          ],
+          [
+            0.72,
+            1102.48
+          ],
+          [
+            0.7,
+            994.85
+          ],
+          [
+            0.66,
+            5000.0
+          ],
+          [
+            0.51,
+            50.0
+          ],
+          [
+            0.5,
+            50.0
+          ],
+          [
+            0.36,
+            1666.0
+          ],
+          [
+            0.35,
+            2857.14
+          ],
+          [
+            0.33,
+            189.51
+          ],
+          [
+            0.27,
+            740.0
+          ],
+          [
+            0.26,
+            1384.0
+          ],
+          [
+            0.25,
+            500.0
+          ],
+          [
+            0.1,
+            6.14
+          ],
+          [
+            0.08,
+            55.0
+          ],
+          [
+            0.05,
+            1000.0
+          ],
+          [
+            0.04,
+            5.58
+          ],
+          [
+            0.02,
+            3362.41
+          ],
+          [
+            0.01,
+            1009.46
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:19:41Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:19:43Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:20:04Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:21:05Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:22:05Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:23:05Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:24:08Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:25:06Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:26:03Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:27:07Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:28:08Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:28:15Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:29:19Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:30:24Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:31:36Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:32:42Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:33:49Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:34:58Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:36:04Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:37:21Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:38:35Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:39:43Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:54:57Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:55:13Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        },
+        {
+          "timestamp": "2025-10-28T19:56:06Z",
+          "best_ask": 0.92,
+          "best_bid": 0.91,
+          "volume": 433225.313158
+        }
+      ],
+      "held_shares": 217.39130434782606,
+      "average_price": 0.92,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:06Z",
+      "next_buy_time": null
+    },
+    "will-trump-pardon-hunter-biden-in-2025-336|No": {
+      "market_id": "will-trump-pardon-hunter-biden-in-2025-336",
+      "outcome": "No",
+      "question": "Will Trump pardon Hunter Biden in 2025?",
+      "parent_event_id": "22987",
+      "parent_event_label": "Who will Trump pardon in 2025?",
+      "resolution_datetime": "2025-12-31T12:00:00+00:00",
+      "resolution_days": 63.669361575023146,
+      "metadata": {
+        "id": "537906",
+        "question": "Will Trump pardon Hunter Biden in 2025?",
+        "conditionId": "0x4080862f24218a65831fc4bb51395690c028fe3065d27b10da98e1a95ae02057",
+        "slug": "will-trump-pardon-hunter-biden-in-2025-336",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T12:00:00Z",
+        "liquidity": "14242.54836",
+        "startDate": "2025-04-17T22:20:13.799Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.02\", \"0.98\"]",
+        "volume": "203691.307902",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-04-17T22:09:43.570239Z",
+        "updatedAt": "2025-10-28T19:52:46.993102Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "Hunter Biden",
+        "groupItemThreshold": "9",
+        "questionID": "0x772da514fbc3cfbeec4436841bb48a8a131096a490eb4107c681607228f96c3c",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 203691.307902,
+        "liquidityNum": 14242.54836,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-04-17",
+        "hasReviewedDates": true,
+        "volume24hr": 480,
+        "volume1wk": 9797.969542,
+        "volume1mo": 37434.66967399999,
+        "volume1yr": 203691.307902,
+        "clobTokenIds": "[\"45494155234592016309088529752701815295481676470928899100355720647308761001589\", \"38171846649171058574948396834308756029514586963095138591202857593036559671610\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 480,
+        "volume1wkClob": 9797.969542,
+        "volume1moClob": 37434.66967399999,
+        "volume1yrClob": 203691.307902,
+        "volumeClob": 203691.307902,
+        "liquidityClob": 14242.54836,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "events": [
+          {
+            "id": "22987",
+            "ticker": "who-will-trump-pardon-in-2025",
+            "slug": "who-will-trump-pardon-in-2025",
+            "title": "Who will Trump pardon in 2025?",
+            "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2025-04-17T22:26:38.584911Z",
+            "creationDate": "2025-04-17T22:26:38.584909Z",
+            "endDate": "2025-12-31T12:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": true,
+            "restricted": true,
+            "liquidity": 224775.4564,
+            "volume": 7164783.510583,
+            "openInterest": 0,
+            "sortBy": "ascending",
+            "createdAt": "2025-04-17T22:09:39.914462Z",
+            "updatedAt": "2025-10-28T19:54:55.429767Z",
+            "competitive": 0.8852691218130312,
+            "volume24hr": 84631.565644,
+            "volume1wk": 1910081.3207050005,
+            "volume1mo": 4232995.804483003,
+            "volume1yr": 7153506.535759996,
+            "enableOrderBook": true,
+            "liquidityClob": 224775.4564,
+            "negRisk": false,
+            "commentCount": 288,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": false,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "gmpChartMode": "default",
+            "negRiskAugmented": false,
+            "featuredOrder": 10,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-04-17T22:19:03Z",
+        "cyom": false,
+        "competitive": 0.8127438231469442,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "rewardsMinSize": 100,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.002,
+        "oneWeekPriceChange": -0.0025,
+        "oneMonthPriceChange": -0.001,
+        "lastTradePrice": 0.02,
+        "bestBid": 0.019,
+        "bestAsk": 0.021,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "seriesColor": "",
+        "showGmpSeries": false,
+        "showGmpOutcome": false,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.981,
+      "best_bid": 0.979,
+      "last_price": 0.98,
+      "last_volume": 203691.307902,
+      "order_book": {
+        "asks": [
+          [
+            0.981,
+            632.0
+          ],
+          [
+            0.982,
+            536.06
+          ],
+          [
+            0.983,
+            4459.15
+          ],
+          [
+            0.984,
+            264.83
+          ],
+          [
+            0.985,
+            309.77
+          ],
+          [
+            0.993,
+            31.89
+          ],
+          [
+            0.994,
+            3756.75
+          ],
+          [
+            0.995,
+            7500.0
+          ],
+          [
+            0.996,
+            625.0
+          ],
+          [
+            0.997,
+            45.77
+          ],
+          [
+            0.998,
+            21273.17
+          ],
+          [
+            0.999,
+            51024.0
+          ]
+        ],
+        "bids": [
+          [
+            0.979,
+            249.63
+          ],
+          [
+            0.978,
+            333.6
+          ],
+          [
+            0.976,
+            31.99
+          ],
+          [
+            0.974,
+            107.35
+          ],
+          [
+            0.971,
+            251.26
+          ],
+          [
+            0.97,
+            392.17
+          ],
+          [
+            0.96,
+            700.0
+          ],
+          [
+            0.958,
+            200.0
+          ],
+          [
+            0.956,
+            8100.0
+          ],
+          [
+            0.955,
+            53.31
+          ],
+          [
+            0.953,
+            200.0
+          ],
+          [
+            0.952,
+            100.0
+          ],
+          [
+            0.951,
+            840.0
+          ],
+          [
+            0.94,
+            299.0
+          ],
+          [
+            0.93,
+            277.0
+          ],
+          [
+            0.92,
+            800.0
+          ],
+          [
+            0.88,
+            600.0
+          ],
+          [
+            0.201,
+            4975.12
+          ],
+          [
+            0.2,
+            200.0
+          ],
+          [
+            0.063,
+            11.54
+          ],
+          [
+            0.062,
+            5000.0
+          ],
+          [
+            0.002,
+            133.1
+          ],
+          [
+            0.001,
+            200005.06
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:19:58Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:20:02Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:20:05Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:21:05Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:22:07Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:23:07Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:24:09Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:25:07Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:26:04Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:27:07Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:28:08Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:28:15Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:29:21Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:30:25Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:31:38Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:32:43Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:33:50Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:34:59Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:36:05Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:37:22Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:38:36Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:39:44Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:54:57Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:55:14Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        },
+        {
+          "timestamp": "2025-10-28T19:56:07Z",
+          "best_ask": 0.981,
+          "best_bid": 0.979,
+          "volume": 203691.307902
+        }
+      ],
+      "held_shares": 0.0,
+      "average_price": null,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:07Z",
+      "next_buy_time": null
+    },
+    "will-trump-pardon-elon-musk-in-2025-917|No": {
+      "market_id": "will-trump-pardon-elon-musk-in-2025-917",
+      "outcome": "No",
+      "question": "Will Trump pardon Elon Musk in 2025?",
+      "parent_event_id": "22987",
+      "parent_event_label": "Who will Trump pardon in 2025?",
+      "resolution_datetime": "2025-12-31T12:00:00+00:00",
+      "resolution_days": 63.669353960300924,
+      "metadata": {
+        "id": "537905",
+        "question": "Will Trump pardon Elon Musk in 2025?",
+        "conditionId": "0x7df10a508471f20413b826f03a960fe5f47f45fa86cac9610ddeaf6f14345e50",
+        "slug": "will-trump-pardon-elon-musk-in-2025-917",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T12:00:00Z",
+        "liquidity": "3731.99467",
+        "startDate": "2025-04-17T22:20:03.616Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.0465\", \"0.9535\"]",
+        "volume": "239684.406265",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-04-17T22:09:43.190112Z",
+        "updatedAt": "2025-10-28T19:53:07.202414Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "Elon Musk",
+        "groupItemThreshold": "8",
+        "questionID": "0x7a4f657202d0864376c9b46ab4d2682539449dfe9eb9b130e0cd068f0770c3bb",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 239684.406265,
+        "liquidityNum": 3731.99467,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-04-17",
+        "hasReviewedDates": true,
+        "volume24hr": 3513.233169,
+        "volume1wk": 30126.16879499999,
+        "volume1mo": 56066.442975,
+        "volume1yr": 239166.43413200005,
+        "clobTokenIds": "[\"102204061198884008113426949004787735530797756684329553185817029599382632666018\", \"31401877921851864140363707241507503644295580802087381780931480092716027972824\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 3513.233169,
+        "volume1wkClob": 30126.16879499999,
+        "volume1moClob": 56066.442975,
+        "volume1yrClob": 239166.43413200005,
+        "volumeClob": 239684.406265,
+        "liquidityClob": 3731.99467,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "events": [
+          {
+            "id": "22987",
+            "ticker": "who-will-trump-pardon-in-2025",
+            "slug": "who-will-trump-pardon-in-2025",
+            "title": "Who will Trump pardon in 2025?",
+            "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2025-04-17T22:26:38.584911Z",
+            "creationDate": "2025-04-17T22:26:38.584909Z",
+            "endDate": "2025-12-31T12:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": true,
+            "restricted": true,
+            "liquidity": 224775.4564,
+            "volume": 7164783.510583,
+            "openInterest": 0,
+            "sortBy": "ascending",
+            "createdAt": "2025-04-17T22:09:39.914462Z",
+            "updatedAt": "2025-10-28T19:54:55.429767Z",
+            "competitive": 0.8852691218130312,
+            "volume24hr": 84631.565644,
+            "volume1wk": 1910081.3207050005,
+            "volume1mo": 4232995.804483003,
+            "volume1yr": 7153506.535759996,
+            "enableOrderBook": true,
+            "liquidityClob": 224775.4564,
+            "negRisk": false,
+            "commentCount": 288,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": false,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "gmpChartMode": "default",
+            "negRiskAugmented": false,
+            "featuredOrder": 10,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-04-17T22:18:53Z",
+        "cyom": false,
+        "competitive": 0.829419682004641,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "rewardsMinSize": 100,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.023,
+        "oneDayPriceChange": 0.0075,
+        "oneHourPriceChange": -0.0085,
+        "oneWeekPriceChange": 0.017,
+        "oneMonthPriceChange": 0.0215,
+        "lastTradePrice": 0.041,
+        "bestBid": 0.035,
+        "bestAsk": 0.058,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "seriesColor": "",
+        "showGmpSeries": false,
+        "showGmpOutcome": false,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.966,
+      "best_bid": 0.941,
+      "last_price": 0.9535,
+      "last_volume": 239684.406265,
+      "order_book": {
+        "asks": [
+          [
+            0.966,
+            295.0
+          ],
+          [
+            0.967,
+            201.27
+          ],
+          [
+            0.968,
+            140.47
+          ],
+          [
+            0.97,
+            187.29
+          ],
+          [
+            0.971,
+            328.4
+          ],
+          [
+            0.972,
+            280.94
+          ],
+          [
+            0.973,
+            1040.37
+          ],
+          [
+            0.974,
+            305.66
+          ],
+          [
+            0.975,
+            110.79
+          ],
+          [
+            0.976,
+            137.44
+          ],
+          [
+            0.977,
+            167.52
+          ],
+          [
+            0.978,
+            148.91
+          ],
+          [
+            0.979,
+            1114.68
+          ],
+          [
+            0.98,
+            3069.74
+          ],
+          [
+            0.981,
+            664.83
+          ],
+          [
+            0.982,
+            538.86
+          ],
+          [
+            0.984,
+            156.0
+          ],
+          [
+            0.985,
+            5.31
+          ],
+          [
+            0.986,
+            178.0
+          ],
+          [
+            0.988,
+            5.06
+          ],
+          [
+            0.99,
+            2222.0
+          ],
+          [
+            0.993,
+            14.76
+          ],
+          [
+            0.994,
+            6667.0
+          ],
+          [
+            0.995,
+            1500.0
+          ],
+          [
+            0.997,
+            28.46
+          ],
+          [
+            0.998,
+            30014.17
+          ],
+          [
+            0.999,
+            2680.0
+          ]
+        ],
+        "bids": [
+          [
+            0.941,
+            60.0
+          ],
+          [
+            0.927,
+            69.6
+          ],
+          [
+            0.926,
+            229.37
+          ],
+          [
+            0.925,
+            530.5
+          ],
+          [
+            0.924,
+            38.0
+          ],
+          [
+            0.92,
+            111.49
+          ],
+          [
+            0.9,
+            1000.0
+          ],
+          [
+            0.88,
+            100.0
+          ],
+          [
+            0.5,
+            16.57
+          ],
+          [
+            0.111,
+            9014.08
+          ],
+          [
+            0.11,
+            650.0
+          ],
+          [
+            0.1,
+            1000.0
+          ],
+          [
+            0.033,
+            7.65
+          ],
+          [
+            0.032,
+            1000.0
+          ],
+          [
+            0.002,
+            72.63
+          ],
+          [
+            0.001,
+            200166.02
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:20:55Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:20:59Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:21:07Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:22:08Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:23:08Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:24:10Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:25:07Z",
+          "best_ask": 0.967,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:26:05Z",
+          "best_ask": 0.966,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:27:08Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:28:09Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:28:16Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:29:22Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:30:26Z",
+          "best_ask": 0.965,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:31:39Z",
+          "best_ask": 0.965,
+          "best_bid": 0.942,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:32:45Z",
+          "best_ask": 0.965,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:33:51Z",
+          "best_ask": 0.965,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:35:00Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:36:06Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:37:24Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:38:37Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:39:46Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:54:58Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:55:14Z",
+          "best_ask": 0.967,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        },
+        {
+          "timestamp": "2025-10-28T19:56:07Z",
+          "best_ask": 0.966,
+          "best_bid": 0.941,
+          "volume": 239684.406265
+        }
+      ],
+      "held_shares": 0.0,
+      "average_price": null,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:07Z",
+      "next_buy_time": null
+    },
+    "will-trump-pardon-himself-in-2025-587|No": {
+      "market_id": "will-trump-pardon-himself-in-2025-587",
+      "outcome": "No",
+      "question": "Will Trump pardon Himself in 2025?",
+      "parent_event_id": "22987",
+      "parent_event_label": "Who will Trump pardon in 2025?",
+      "resolution_datetime": "2025-12-31T12:00:00+00:00",
+      "resolution_days": 63.66934645603009,
+      "metadata": {
+        "id": "537903",
+        "question": "Will Trump pardon Himself in 2025?",
+        "conditionId": "0xaf80eb06e5a3ed9663631da5b4e1f51f5df39e93b790a4a55d2ff503b1d0506c",
+        "slug": "will-trump-pardon-himself-in-2025-587",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T12:00:00Z",
+        "liquidity": "8967.88503",
+        "startDate": "2025-04-17T22:18:59.67Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+        "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.0405\", \"0.9595\"]",
+        "volume": "106688.502261",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-04-17T22:09:42.442509Z",
+        "updatedAt": "2025-10-28T19:46:36.149843Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "Himself",
+        "groupItemThreshold": "6",
+        "questionID": "0x0643a4de7655cba90b27800896688452537f764189519170523d97df4cf417b4",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 106688.502261,
+        "liquidityNum": 8967.88503,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-04-17",
+        "hasReviewedDates": true,
+        "volume24hr": 179.154482,
+        "volume1wk": 9842.650856000002,
+        "volume1mo": 57973.30320999999,
+        "volume1yr": 106630.68276100002,
+        "clobTokenIds": "[\"43002241875594551329998201014816929184665537867791713807770151553706956640750\", \"30976732321514571430530917097853043713565346834475660967667368382877317741850\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 179.154482,
+        "volume1wkClob": 9842.650856000002,
+        "volume1moClob": 57973.30320999999,
+        "volume1yrClob": 106630.68276100002,
+        "volumeClob": 106688.502261,
+        "liquidityClob": 8967.88503,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "events": [
+          {
+            "id": "22987",
+            "ticker": "who-will-trump-pardon-in-2025",
+            "slug": "who-will-trump-pardon-in-2025",
+            "title": "Who will Trump pardon in 2025?",
+            "description": "This market will resolve to \"Yes\" if the listed individual receives a presidential pardon, commutation, or reprieve from Donald Trump by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for whether the individual is pardoned or not will be official information from the US government, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2025-04-17T22:26:38.584911Z",
+            "creationDate": "2025-04-17T22:26:38.584909Z",
+            "endDate": "2025-12-31T12:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/who-will-trump-pardon-in-2025-sAHIYyGlOHvw.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": true,
+            "restricted": true,
+            "liquidity": 224775.4564,
+            "volume": 7164783.510583,
+            "openInterest": 0,
+            "sortBy": "ascending",
+            "createdAt": "2025-04-17T22:09:39.914462Z",
+            "updatedAt": "2025-10-28T19:54:55.429767Z",
+            "competitive": 0.8852691218130312,
+            "volume24hr": 84631.565644,
+            "volume1wk": 1910081.3207050005,
+            "volume1mo": 4232995.804483003,
+            "volume1yr": 7153506.535759996,
+            "enableOrderBook": true,
+            "liquidityClob": 224775.4564,
+            "negRisk": false,
+            "commentCount": 288,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": false,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "gmpChartMode": "default",
+            "negRiskAugmented": false,
+            "featuredOrder": 10,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-04-17T22:17:51Z",
+        "cyom": false,
+        "competitive": 0.8256682081204055,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "clobRewards": [
+          {
+            "id": "21412",
+            "conditionId": "0xaf80eb06e5a3ed9663631da5b4e1f51f5df39e93b790a4a55d2ff503b1d0506c",
+            "assetAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewardsAmount": 0,
+            "rewardsDailyRate": 1,
+            "startDate": "2025-04-17",
+            "endDate": "2500-12-31"
+          }
+        ],
+        "rewardsMinSize": 100,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.005,
+        "oneDayPriceChange": 0.0005,
+        "oneWeekPriceChange": 0.0065,
+        "oneMonthPriceChange": 0.004,
+        "lastTradePrice": 0.038,
+        "bestBid": 0.038,
+        "bestAsk": 0.043,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "seriesColor": "",
+        "showGmpSeries": false,
+        "showGmpOutcome": false,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.962,
+      "best_bid": 0.957,
+      "last_price": 0.9595,
+      "last_volume": 106688.502261,
+      "order_book": {
+        "asks": [
+          [
+            0.962,
+            11.19
+          ],
+          [
+            0.963,
+            271.0
+          ],
+          [
+            0.964,
+            331.44
+          ],
+          [
+            0.965,
+            10.0
+          ],
+          [
+            0.966,
+            885.92
+          ],
+          [
+            0.967,
+            1586.45
+          ],
+          [
+            0.969,
+            1958.0
+          ],
+          [
+            0.97,
+            984.0
+          ],
+          [
+            0.971,
+            326.0
+          ],
+          [
+            0.972,
+            20.0
+          ],
+          [
+            0.973,
+            92.0
+          ],
+          [
+            0.974,
+            3077.0
+          ],
+          [
+            0.975,
+            1063.4
+          ],
+          [
+            0.98,
+            252.0
+          ],
+          [
+            0.983,
+            9417.63
+          ],
+          [
+            0.984,
+            1600.0
+          ],
+          [
+            0.989,
+            8.61
+          ],
+          [
+            0.99,
+            30.0
+          ],
+          [
+            0.993,
+            14.38
+          ],
+          [
+            0.994,
+            6666.0
+          ],
+          [
+            0.998,
+            64.36
+          ],
+          [
+            0.999,
+            201019.0
+          ]
+        ],
+        "bids": [
+          [
+            0.957,
+            187.76
+          ],
+          [
+            0.956,
+            405.0
+          ],
+          [
+            0.955,
+            769.55
+          ],
+          [
+            0.954,
+            1000.0
+          ],
+          [
+            0.953,
+            105.0
+          ],
+          [
+            0.952,
+            222.0
+          ],
+          [
+            0.95,
+            675.0
+          ],
+          [
+            0.935,
+            200.0
+          ],
+          [
+            0.93,
+            388.0
+          ],
+          [
+            0.92,
+            235.0
+          ],
+          [
+            0.91,
+            800.0
+          ],
+          [
+            0.89,
+            900.0
+          ],
+          [
+            0.214,
+            12.0
+          ],
+          [
+            0.213,
+            12.0
+          ],
+          [
+            0.193,
+            4144.0
+          ],
+          [
+            0.191,
+            5235.6
+          ],
+          [
+            0.188,
+            120.28
+          ],
+          [
+            0.121,
+            9.0
+          ],
+          [
+            0.101,
+            2381.92
+          ],
+          [
+            0.1,
+            500.0
+          ],
+          [
+            0.007,
+            7.69
+          ],
+          [
+            0.006,
+            9.0
+          ],
+          [
+            0.004,
+            82.84
+          ],
+          [
+            0.003,
+            10000.0
+          ],
+          [
+            0.002,
+            10000.0
+          ],
+          [
+            0.001,
+            11.12
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:21:30Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:21:32Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:22:09Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:23:09Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:24:10Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:25:08Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:26:06Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:27:09Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:28:10Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:28:17Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:29:23Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:30:27Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:31:40Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:32:46Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:33:52Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:35:01Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:36:08Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:37:25Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:38:38Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:39:47Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106687.462761
+        },
+        {
+          "timestamp": "2025-10-28T19:54:59Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106688.502261
+        },
+        {
+          "timestamp": "2025-10-28T19:55:15Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106688.502261
+        },
+        {
+          "timestamp": "2025-10-28T19:56:08Z",
+          "best_ask": 0.962,
+          "best_bid": 0.957,
+          "volume": 106688.502261
+        }
+      ],
+      "held_shares": 3.3641125093761926e-05,
+      "average_price": 0.9619999999999999,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:08Z",
+      "next_buy_time": null
+    },
+    "will-trump-meet-with-xi-jinping-by-october-31|Yes": {
+      "market_id": "will-trump-meet-with-xi-jinping-by-october-31",
+      "outcome": "Yes",
+      "question": "Will Trump meet with Xi Jinping by October 31?",
+      "parent_event_id": "33495",
+      "parent_event_label": "Will Trump meet with Xi Jinping by October 31?",
+      "resolution_datetime": "2025-10-31T00:00:00+00:00",
+      "resolution_days": 2.169338742037037,
+      "metadata": {
+        "id": "566097",
+        "question": "Will Trump meet with Xi Jinping by October 31?",
+        "conditionId": "0xd63074a69db9fbe28c8a9f3bfe64d8c16eb39e302be281ad9e3a91081b7429f5",
+        "slug": "will-trump-meet-with-xi-jinping-by-october-31",
+        "resolutionSource": "",
+        "endDate": "2025-10-31T00:00:00Z",
+        "liquidity": "91887.58797",
+        "startDate": "2025-07-21T19:54:03.523122Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trump-meet-with-xi-jinping-before-august-BJ42T5fvDtPF.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trump-meet-with-xi-jinping-before-august-BJ42T5fvDtPF.jpg",
+        "description": "This market will resolve to \"Yes\" if Donald Trump meets with Xi Jinping between July 21, and October 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.\n\nA meeting is defined as any encounter where both listed individual and Trump are present and interact with each other in person.\n\nThe resolution source will be a consensus of credible reporting.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.9685\", \"0.0315\"]",
+        "volume": "5737479.881735",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "0x1db3FF22B20BD33B241C06F56a5c2a52E7aa3132",
+        "createdAt": "2025-07-21T18:46:58.991531Z",
+        "updatedAt": "2025-10-28T19:52:36.807892Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x157Ce2d672854c848c9b79C49a8Cc6cc89176a49",
+        "restricted": true,
+        "groupItemTitle": "",
+        "groupItemThreshold": "0",
+        "questionID": "0xcaeb20a76bf8facd6fd2bd11a62bc27a82511b05b62a9ba4946e359fc2ad6bb3",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 5737479.881735,
+        "liquidityNum": 91887.58797,
+        "endDateIso": "2025-10-31",
+        "startDateIso": "2025-07-21",
+        "hasReviewedDates": true,
+        "volume24hr": 512833.2610910008,
+        "volume1wk": 3630296.2327339877,
+        "volume1mo": 5513285.22987403,
+        "volume1yr": 5670711.608524036,
+        "clobTokenIds": "[\"105262774424181384217235131243691991570142517830871094752215145840362445762087\", \"96340419016329750070031659742502439684494696372249802246223670494758843453703\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 512833.2610910008,
+        "volume1wkClob": 3630296.2327339877,
+        "volume1moClob": 5513285.22987403,
+        "volume1yrClob": 5670711.608524036,
+        "volumeClob": 5737479.881735,
+        "liquidityClob": 91887.58797,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "negRiskRequestID": "",
+        "events": [
+          {
+            "id": "33495",
+            "ticker": "will-trump-meet-with-xi-jinping-by-october-31",
+            "slug": "will-trump-meet-with-xi-jinping-by-october-31",
+            "title": "Will Trump meet with Xi Jinping by October 31?",
+            "description": "This market will resolve to \"Yes\" if Donald Trump meets with Xi Jinping between July 21, and October 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nAn exchange of words, handshake, direct conversation, or other clear personal interaction between the named individuals will qualify as a meeting. Merely standing in proximity, making eye contact, or being present in the same room or event without direct interaction will not qualify.\n\nA meeting is defined as any encounter where both listed individual and Trump are present and interact with each other in person.\n\nThe resolution source will be a consensus of credible reporting.",
+            "resolutionSource": "",
+            "startDate": "2025-07-21T19:54:27.107679Z",
+            "creationDate": "2025-07-21T19:54:27.107675Z",
+            "endDate": "2025-10-31T00:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trump-meet-with-xi-jinping-before-august-BJ42T5fvDtPF.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-trump-meet-with-xi-jinping-before-august-BJ42T5fvDtPF.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": true,
+            "restricted": true,
+            "liquidity": 91887.58797,
+            "volume": 5737479.881735,
+            "openInterest": 0,
+            "createdAt": "2025-07-21T18:46:57.397256Z",
+            "updatedAt": "2025-10-28T19:54:55.418708Z",
+            "competitive": 0.8200134113193421,
+            "volume24hr": 512833.2610910008,
+            "volume1wk": 3630296.2327339877,
+            "volume1mo": 5513285.22987403,
+            "volume1yr": 5670711.608524036,
+            "enableOrderBook": true,
+            "liquidityClob": 91887.58797,
+            "commentCount": 751,
+            "series": [
+              {
+                "id": "10166",
+                "ticker": "trump-meet-xi-jinping",
+                "slug": "trump-meet-xi-jinping",
+                "title": "Trump meet Xi Jinping",
+                "seriesType": "single",
+                "recurrence": "monthly",
+                "image": "",
+                "icon": "",
+                "active": true,
+                "closed": false,
+                "archived": false,
+                "featured": false,
+                "restricted": true,
+                "createdAt": "2025-07-21T18:46:33.052415Z",
+                "updatedAt": "2025-10-28T19:54:59.771532Z",
+                "volume": 5737479.881735,
+                "liquidity": 91887.58797,
+                "commentCount": 653
+              }
+            ],
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": true,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "seriesSlug": "trump-meet-xi-jinping",
+            "negRiskAugmented": false,
+            "featuredOrder": 13,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-07-21T19:53:41Z",
+        "cyom": false,
+        "competitive": 0.8200134113193421,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "clobRewards": [
+          {
+            "id": "29532",
+            "conditionId": "0xd63074a69db9fbe28c8a9f3bfe64d8c16eb39e302be281ad9e3a91081b7429f5",
+            "assetAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewardsAmount": 0,
+            "rewardsDailyRate": 50,
+            "startDate": "2025-07-21",
+            "endDate": "2500-12-31"
+          }
+        ],
+        "rewardsMinSize": 200,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.003,
+        "oneDayPriceChange": 0.001,
+        "oneWeekPriceChange": 0.263,
+        "oneMonthPriceChange": 0.123,
+        "lastTradePrice": 0.971,
+        "bestBid": 0.967,
+        "bestAsk": 0.97,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "deployingTimestamp": "2025-07-21T19:53:04.238433Z",
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.97,
+      "best_bid": 0.968,
+      "last_price": 0.9685,
+      "last_volume": 5737479.881735,
+      "order_book": {
+        "asks": [
+          [
+            0.97,
+            1652.15
+          ],
+          [
+            0.971,
+            450.5
+          ],
+          [
+            0.972,
+            9813.39
+          ],
+          [
+            0.973,
+            10000.0
+          ],
+          [
+            0.974,
+            1460.0
+          ],
+          [
+            0.977,
+            1740.0
+          ],
+          [
+            0.978,
+            2015.58
+          ],
+          [
+            0.979,
+            8883.66
+          ],
+          [
+            0.98,
+            19349.98
+          ],
+          [
+            0.982,
+            2222.0
+          ],
+          [
+            0.986,
+            1792.81
+          ],
+          [
+            0.987,
+            237.03
+          ],
+          [
+            0.988,
+            35434.0
+          ],
+          [
+            0.989,
+            1250.0
+          ],
+          [
+            0.99,
+            1401.53
+          ],
+          [
+            0.995,
+            200.0
+          ],
+          [
+            0.996,
+            1100.0
+          ],
+          [
+            0.997,
+            2999.97
+          ],
+          [
+            0.998,
+            2349.99
+          ],
+          [
+            0.999,
+            24896.05
+          ]
+        ],
+        "bids": [
+          [
+            0.968,
+            47.0
+          ],
+          [
+            0.967,
+            510.0
+          ],
+          [
+            0.966,
+            644.86
+          ],
+          [
+            0.965,
+            800.0
+          ],
+          [
+            0.962,
+            638.6
+          ],
+          [
+            0.96,
+            4077.51
+          ],
+          [
+            0.959,
+            33.0
+          ],
+          [
+            0.958,
+            1250.0
+          ],
+          [
+            0.954,
+            10413.96
+          ],
+          [
+            0.953,
+            4133.89
+          ],
+          [
+            0.952,
+            3453.0
+          ],
+          [
+            0.951,
+            7002.73
+          ],
+          [
+            0.95,
+            8452.61
+          ],
+          [
+            0.949,
+            913.96
+          ],
+          [
+            0.945,
+            50.0
+          ],
+          [
+            0.943,
+            750.0
+          ],
+          [
+            0.941,
+            3013.0
+          ],
+          [
+            0.94,
+            5029.86
+          ],
+          [
+            0.936,
+            768.0
+          ],
+          [
+            0.935,
+            4500.0
+          ],
+          [
+            0.93,
+            10000.0
+          ],
+          [
+            0.92,
+            17039.19
+          ],
+          [
+            0.919,
+            20.83
+          ],
+          [
+            0.912,
+            1999.98
+          ],
+          [
+            0.91,
+            350.0
+          ],
+          [
+            0.9,
+            500.0
+          ],
+          [
+            0.89,
+            442.85
+          ],
+          [
+            0.879,
+            75.0
+          ],
+          [
+            0.87,
+            300.0
+          ],
+          [
+            0.86,
+            5499.99
+          ],
+          [
+            0.85,
+            300.0
+          ],
+          [
+            0.83,
+            13.25
+          ],
+          [
+            0.82,
+            50.0
+          ],
+          [
+            0.8,
+            100.41
+          ],
+          [
+            0.79,
+            9.94
+          ],
+          [
+            0.78,
+            100.0
+          ],
+          [
+            0.76,
+            400.0
+          ],
+          [
+            0.75,
+            1000.0
+          ],
+          [
+            0.74,
+            28.18
+          ],
+          [
+            0.72,
+            222.05
+          ],
+          [
+            0.71,
+            1056.5
+          ],
+          [
+            0.7,
+            230.0
+          ],
+          [
+            0.6,
+            239.51
+          ],
+          [
+            0.59,
+            10.0
+          ],
+          [
+            0.569,
+            1054.0
+          ],
+          [
+            0.568,
+            3344.0
+          ],
+          [
+            0.565,
+            535.0
+          ],
+          [
+            0.55,
+            200.0
+          ],
+          [
+            0.51,
+            1300.0
+          ],
+          [
+            0.5,
+            160.72
+          ],
+          [
+            0.41,
+            111.11
+          ],
+          [
+            0.37,
+            525.0
+          ],
+          [
+            0.31,
+            110.0
+          ],
+          [
+            0.3,
+            549.53
+          ],
+          [
+            0.257,
+            778.0
+          ],
+          [
+            0.25,
+            82.78
+          ],
+          [
+            0.24,
+            10.0
+          ],
+          [
+            0.211,
+            1706.0
+          ],
+          [
+            0.21,
+            500.0
+          ],
+          [
+            0.2,
+            33.38
+          ],
+          [
+            0.19,
+            100.0
+          ],
+          [
+            0.16,
+            24.0
+          ],
+          [
+            0.15,
+            523.74
+          ],
+          [
+            0.11,
+            285.71
+          ],
+          [
+            0.1,
+            284.7
+          ],
+          [
+            0.082,
+            5.0
+          ],
+          [
+            0.061,
+            5.39
+          ],
+          [
+            0.06,
+            285.0
+          ],
+          [
+            0.058,
+            77.28
+          ],
+          [
+            0.056,
+            830.0
+          ],
+          [
+            0.05,
+            57.14
+          ],
+          [
+            0.041,
+            62.0
+          ],
+          [
+            0.04,
+            2103.94
+          ],
+          [
+            0.03,
+            35.0
+          ],
+          [
+            0.02,
+            255.0
+          ],
+          [
+            0.011,
+            9.93
+          ],
+          [
+            0.01,
+            106.71
+          ],
+          [
+            0.005,
+            21.73
+          ],
+          [
+            0.002,
+            11.41
+          ],
+          [
+            0.001,
+            25775.83
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:24:02Z",
+          "best_ask": 0.971,
+          "best_bid": 0.961,
+          "volume": 5723982.67081
+        },
+        {
+          "timestamp": "2025-10-28T19:24:06Z",
+          "best_ask": 0.97,
+          "best_bid": 0.961,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:24:11Z",
+          "best_ask": 0.969,
+          "best_bid": 0.961,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:25:09Z",
+          "best_ask": 0.972,
+          "best_bid": 0.962,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:26:06Z",
+          "best_ask": 0.971,
+          "best_bid": 0.964,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:27:09Z",
+          "best_ask": 0.97,
+          "best_bid": 0.962,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:28:10Z",
+          "best_ask": 0.97,
+          "best_bid": 0.964,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:28:18Z",
+          "best_ask": 0.97,
+          "best_bid": 0.962,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:29:24Z",
+          "best_ask": 0.97,
+          "best_bid": 0.962,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:30:27Z",
+          "best_ask": 0.969,
+          "best_bid": 0.962,
+          "volume": 5727121.307323
+        },
+        {
+          "timestamp": "2025-10-28T19:31:41Z",
+          "best_ask": 0.968,
+          "best_bid": 0.963,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:32:47Z",
+          "best_ask": 0.968,
+          "best_bid": 0.962,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:33:53Z",
+          "best_ask": 0.968,
+          "best_bid": 0.962,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:35:03Z",
+          "best_ask": 0.968,
+          "best_bid": 0.963,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:36:09Z",
+          "best_ask": 0.969,
+          "best_bid": 0.967,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:37:26Z",
+          "best_ask": 0.969,
+          "best_bid": 0.964,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:38:39Z",
+          "best_ask": 0.969,
+          "best_bid": 0.965,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:39:49Z",
+          "best_ask": 0.969,
+          "best_bid": 0.966,
+          "volume": 5734358.576668
+        },
+        {
+          "timestamp": "2025-10-28T19:55:00Z",
+          "best_ask": 0.97,
+          "best_bid": 0.968,
+          "volume": 5737479.881735
+        },
+        {
+          "timestamp": "2025-10-28T19:55:16Z",
+          "best_ask": 0.97,
+          "best_bid": 0.968,
+          "volume": 5737479.881735
+        },
+        {
+          "timestamp": "2025-10-28T19:56:09Z",
+          "best_ask": 0.97,
+          "best_bid": 0.968,
+          "volume": 5737479.881735
+        }
+      ],
+      "held_shares": 206.00752832131823,
+      "average_price": 0.9708383068799891,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:09Z",
+      "next_buy_time": null
+    },
+    "will-manchester-united-win-the-202526-english-premier-league|No": {
+      "market_id": "will-manchester-united-win-the-202526-english-premier-league",
+      "outcome": "No",
+      "question": "Will Manchester United win the 2025\u201326 English Premier League?",
+      "parent_event_id": "33507",
+      "parent_event_label": "English Premier League Winner ",
+      "resolution_datetime": "2026-05-27T00:00:00+00:00",
+      "resolution_days": 210.16933084568288,
+      "metadata": {
+        "id": "566191",
+        "question": "Will Manchester United win the 2025\u201326 English Premier League?",
+        "conditionId": "0x7cab9da787443beec1eb5e399afd46fffdc27b5f00e0293a1d6a9996c948ac52",
+        "slug": "will-manchester-united-win-the-202526-english-premier-league",
+        "resolutionSource": "",
+        "endDate": "2026-05-27T00:00:00Z",
+        "liquidity": "70416.81257",
+        "startDate": "2025-07-24T00:08:17.020091Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-man-united-win-the-202526-english-premier-league--l9zruvtPXRY.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/will-man-united-win-the-202526-english-premier-league--l9zruvtPXRY.jpg",
+        "description": "This is a polymarket on whether the listed club will win the 2025\u201326 English Premier League.\n\nThis market will resolve to \"Yes\" if the listed club is officially crowned the winner of the 2025\u201326 English Premier League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed club to win the league (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 English Premier League season is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from the English Premier League. A consensus of credible reporting may also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.0415\", \"0.9585\"]",
+        "volume": "1703701.000504",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-07-21T21:13:01.538956Z",
+        "updatedAt": "2025-10-28T19:49:49.431578Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x2F5e3684cb1F318ec51b00Edba38d79Ac2c0aA9d",
+        "restricted": true,
+        "groupItemTitle": "Man United",
+        "groupItemThreshold": "5",
+        "questionID": "0x7e28615c2891a109d17806497bdc7c6e3d2afe3cfd0261f147bf9188637b6b05",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 1703701.000504,
+        "liquidityNum": 70416.81257,
+        "endDateIso": "2026-05-27",
+        "startDateIso": "2025-07-24",
+        "hasReviewedDates": true,
+        "volume24hr": 17572.857106,
+        "volume1wk": 102406.33989500001,
+        "volume1mo": 538785.2466520001,
+        "volume1yr": 1701967.2605039997,
+        "clobTokenIds": "[\"104703024930333088676348985791917820961321007256563252112325887594434753360311\", \"69429452008596084475331004303150653813137901578427372535854805107059343376988\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 17572.857106,
+        "volume1wkClob": 102406.33989500001,
+        "volume1moClob": 538785.2466520001,
+        "volume1yrClob": 1701967.2605039997,
+        "volumeClob": 1703701.000504,
+        "liquidityClob": 70416.81257,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": true,
+        "negRiskMarketID": "0x7e28615c2891a109d17806497bdc7c6e3d2afe3cfd0261f147bf9188637b6b00",
+        "negRiskRequestID": "0x54de8687f4aed9574e88031d54464f0902aa9e373df1a3e4a147fc0c94a23f18",
+        "events": [
+          {
+            "id": "33507",
+            "ticker": "english-premier-league-winner",
+            "slug": "english-premier-league-winner",
+            "title": "English Premier League Winner ",
+            "description": "This is a polymarket to predict which club will win the 2025\u201326 English Premier League (soccer).",
+            "resolutionSource": "",
+            "startDate": "2025-07-24T00:09:44.861615Z",
+            "creationDate": "2025-07-24T00:09:44.861605Z",
+            "endDate": "2026-05-27T00:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/english-premier-league-winner-VFcNkpZeA9Sz.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/english-premier-league-winner-VFcNkpZeA9Sz.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": false,
+            "restricted": true,
+            "liquidity": 3470421.92888,
+            "volume": 80607251.478036,
+            "openInterest": 0,
+            "sortBy": "price",
+            "createdAt": "2025-07-21T21:12:57.822973Z",
+            "updatedAt": "2025-10-28T19:54:55.243691Z",
+            "competitive": 0.9846153846153846,
+            "volume24hr": 1860550.5013270003,
+            "volume1wk": 7914227.3677269975,
+            "volume1mo": 53281675.07030309,
+            "volume1yr": 80400698.9826541,
+            "enableOrderBook": true,
+            "liquidityClob": 3470421.92888,
+            "negRisk": true,
+            "negRiskMarketID": "0x7e28615c2891a109d17806497bdc7c6e3d2afe3cfd0261f147bf9188637b6b00",
+            "commentCount": 8,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": false,
+            "enableNegRisk": true,
+            "automaticallyActive": true,
+            "gmpChartMode": "default",
+            "negRiskAugmented": true,
+            "pendingDeployment": false,
+            "deploying": false,
+            "deployingTimestamp": "2025-07-24T00:02:34.915178Z"
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-07-24T00:07:54Z",
+        "cyom": false,
+        "competitive": 0.8262945091283853,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "rewardsMinSize": 0,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.007,
+        "oneDayPriceChange": -0.0055,
+        "oneHourPriceChange": 0.0005,
+        "oneWeekPriceChange": 0.0195,
+        "oneMonthPriceChange": 0.03,
+        "lastTradePrice": 0.046,
+        "bestBid": 0.038,
+        "bestAsk": 0.045,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "seriesColor": "",
+        "showGmpSeries": false,
+        "showGmpOutcome": false,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "deployingTimestamp": "2025-07-24T00:03:48.166871Z",
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.962,
+      "best_bid": 0.955,
+      "last_price": 0.9585,
+      "last_volume": 1703701.000504,
+      "order_book": {
+        "asks": [
+          [
+            0.962,
+            236.0
+          ],
+          [
+            0.963,
+            1758.87
+          ],
+          [
+            0.964,
+            750.0
+          ],
+          [
+            0.965,
+            45.01
+          ],
+          [
+            0.969,
+            1250.0
+          ],
+          [
+            0.971,
+            86.0
+          ],
+          [
+            0.973,
+            92.0
+          ],
+          [
+            0.974,
+            2000.0
+          ],
+          [
+            0.975,
+            140.0
+          ],
+          [
+            0.977,
+            2000.0
+          ],
+          [
+            0.978,
+            454.64
+          ],
+          [
+            0.979,
+            12000.0
+          ],
+          [
+            0.98,
+            10.23
+          ],
+          [
+            0.981,
+            400.0
+          ],
+          [
+            0.982,
+            350.0
+          ],
+          [
+            0.984,
+            6523.8
+          ],
+          [
+            0.985,
+            300.01
+          ],
+          [
+            0.986,
+            5.25
+          ],
+          [
+            0.987,
+            350.0
+          ],
+          [
+            0.989,
+            200.0
+          ],
+          [
+            0.993,
+            8073.19
+          ],
+          [
+            0.997,
+            11000.0
+          ],
+          [
+            0.998,
+            200000.0
+          ],
+          [
+            0.999,
+            422719.0
+          ]
+        ],
+        "bids": [
+          [
+            0.955,
+            219.53
+          ],
+          [
+            0.954,
+            148.3
+          ],
+          [
+            0.952,
+            913.81
+          ],
+          [
+            0.951,
+            23632.12
+          ],
+          [
+            0.95,
+            100.0
+          ],
+          [
+            0.948,
+            263.75
+          ],
+          [
+            0.947,
+            250.0
+          ],
+          [
+            0.946,
+            2000.0
+          ],
+          [
+            0.943,
+            1000.01
+          ],
+          [
+            0.942,
+            2000.0
+          ],
+          [
+            0.932,
+            15.0
+          ],
+          [
+            0.931,
+            20.0
+          ],
+          [
+            0.93,
+            1815.58
+          ],
+          [
+            0.92,
+            1282.21
+          ],
+          [
+            0.91,
+            1000.0
+          ],
+          [
+            0.88,
+            10.0
+          ],
+          [
+            0.86,
+            1616.25
+          ],
+          [
+            0.77,
+            100.0
+          ],
+          [
+            0.742,
+            50.0
+          ],
+          [
+            0.741,
+            16.26
+          ],
+          [
+            0.74,
+            100.0
+          ],
+          [
+            0.7,
+            420.66
+          ],
+          [
+            0.67,
+            100.0
+          ],
+          [
+            0.66,
+            100.0
+          ],
+          [
+            0.651,
+            700.0
+          ],
+          [
+            0.65,
+            100.0
+          ],
+          [
+            0.64,
+            100.0
+          ],
+          [
+            0.63,
+            100.0
+          ],
+          [
+            0.62,
+            100.0
+          ],
+          [
+            0.611,
+            3141.0
+          ],
+          [
+            0.61,
+            741.0
+          ],
+          [
+            0.52,
+            100.0
+          ],
+          [
+            0.51,
+            200.0
+          ],
+          [
+            0.42,
+            200.0
+          ],
+          [
+            0.33,
+            400.0
+          ],
+          [
+            0.3,
+            200.0
+          ],
+          [
+            0.287,
+            7777.0
+          ],
+          [
+            0.286,
+            15000.0
+          ],
+          [
+            0.27,
+            500.0
+          ],
+          [
+            0.113,
+            12.11
+          ],
+          [
+            0.112,
+            9000.0
+          ],
+          [
+            0.11,
+            1000.0
+          ],
+          [
+            0.07,
+            1000.0
+          ],
+          [
+            0.035,
+            11.72
+          ],
+          [
+            0.034,
+            40000.0
+          ],
+          [
+            0.03,
+            8400.0
+          ],
+          [
+            0.002,
+            90.44
+          ],
+          [
+            0.001,
+            21000006.42
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:25:23Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:25:26Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:26:07Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:27:10Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:28:11Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:28:18Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:29:25Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:30:28Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:31:42Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703070.950504
+        },
+        {
+          "timestamp": "2025-10-28T19:32:48Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703266.890504
+        },
+        {
+          "timestamp": "2025-10-28T19:33:55Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703266.890504
+        },
+        {
+          "timestamp": "2025-10-28T19:35:04Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703266.890504
+        },
+        {
+          "timestamp": "2025-10-28T19:36:10Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703266.890504
+        },
+        {
+          "timestamp": "2025-10-28T19:37:27Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703266.890504
+        },
+        {
+          "timestamp": "2025-10-28T19:38:40Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703266.890504
+        },
+        {
+          "timestamp": "2025-10-28T19:39:50Z",
+          "best_ask": 0.961,
+          "best_bid": 0.955,
+          "volume": 1703465.010504
+        },
+        {
+          "timestamp": "2025-10-28T19:55:00Z",
+          "best_ask": 0.962,
+          "best_bid": 0.955,
+          "volume": 1703701.000504
+        },
+        {
+          "timestamp": "2025-10-28T19:55:16Z",
+          "best_ask": 0.962,
+          "best_bid": 0.955,
+          "volume": 1703701.000504
+        },
+        {
+          "timestamp": "2025-10-28T19:56:09Z",
+          "best_ask": 0.962,
+          "best_bid": 0.955,
+          "volume": 1703701.000504
+        }
+      ],
+      "held_shares": 0.0,
+      "average_price": null,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:09Z",
+      "next_buy_time": null
+    },
+    "xi-jinping-out-in-2025|No": {
+      "market_id": "xi-jinping-out-in-2025",
+      "outcome": "No",
+      "question": "Xi Jinping out in 2025?",
+      "parent_event_id": "26857",
+      "parent_event_label": "Xi Jinping out in 2025?",
+      "resolution_datetime": "2025-12-31T23:55:00+00:00",
+      "resolution_days": 64.16585030185185,
+      "metadata": {
+        "id": "551963",
+        "question": "Xi Jinping out in 2025?",
+        "conditionId": "0xf2ce8d3897ac5009a131637d3575f1f91c579bd08eecce6ae2b2da0f32bbe6f1",
+        "slug": "xi-jinping-out-in-2025",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T23:55:00Z",
+        "liquidity": "878015.80562",
+        "startDate": "2025-06-12T19:41:07.661Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/xi-jinping-out-in-2025-EjF4SM20eaa3.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/xi-jinping-out-in-2025-EjF4SM20eaa3.jpg",
+        "description": "This market will resolve to \"Yes\" if China's General Secretary of the Communist Party, Xi Jinping, is removed from power for any length of time between June 12 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nCCP General Secretary Xi Jinping will be considered removed from power if he announces his resignation from his role as General Secretary, or is otherwise dismissed, detained, disqualified, or otherwise loses his position or is prevented from fulfilling his duties as General Secretary within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.0395\", \"0.9605\"]",
+        "volume": "43914987.373207",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-06-12T17:36:33.023005Z",
+        "updatedAt": "2025-10-28T19:50:15.755418Z",
+        "new": false,
+        "featured": true,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "",
+        "groupItemThreshold": "0",
+        "questionID": "0x26278b28ec125b422960cda90b7d9c27da0bbef8723fbdbd331c3fd674200ffa",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "umaResolutionStatus": "disputed",
+        "volumeNum": 43914987.373207,
+        "liquidityNum": 878015.80562,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-06-12",
+        "hasReviewedDates": true,
+        "volume24hr": 794772.535634996,
+        "volume1wk": 9499003.346496029,
+        "volume1mo": 30006559.148451388,
+        "volume1yr": 43821341.78851602,
+        "clobTokenIds": "[\"114304586861386186441621124384163963092522056897081085884483958561365015034812\", \"112744882674787019048577842008042029962234998947364561417955402912669471494485\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 794772.535634996,
+        "volume1wkClob": 9499003.346496029,
+        "volume1moClob": 30006559.148451388,
+        "volume1yrClob": 43821341.78851602,
+        "volumeClob": 43914987.373207,
+        "liquidityClob": 878015.80562,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "negRiskRequestID": "",
+        "events": [
+          {
+            "id": "26857",
+            "ticker": "xi-jinping-out-in-2025",
+            "slug": "xi-jinping-out-in-2025",
+            "title": "Xi Jinping out in 2025?",
+            "description": "This market will resolve to \"Yes\" if China's General Secretary of the Communist Party, Xi Jinping, is removed from power for any length of time between June 12 and December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nCCP General Secretary Xi Jinping will be considered removed from power if he announces his resignation from his role as General Secretary, or is otherwise dismissed, detained, disqualified, or otherwise loses his position or is prevented from fulfilling his duties as General Secretary within this market's timeframe.\n\nThe primary resolution source for this market will be a consensus of credible reporting.",
+            "resolutionSource": "",
+            "startDate": "2025-06-12T19:42:33.049064Z",
+            "creationDate": "2025-06-12T19:42:33.049062Z",
+            "endDate": "2025-12-31T23:55:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/xi-jinping-out-in-2025-EjF4SM20eaa3.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/xi-jinping-out-in-2025-EjF4SM20eaa3.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": false,
+            "restricted": true,
+            "liquidity": 878015.80562,
+            "volume": 43914987.373207,
+            "openInterest": 0,
+            "createdAt": "2025-06-12T17:36:32.163802Z",
+            "updatedAt": "2025-10-28T19:54:51.087549Z",
+            "competitive": 0.8250414944306605,
+            "volume24hr": 794772.535634996,
+            "volume1wk": 9499003.346496029,
+            "volume1mo": 30006559.148451388,
+            "volume1yr": 43821341.78851602,
+            "enableOrderBook": true,
+            "liquidityClob": 878015.80562,
+            "commentCount": 675,
+            "series": [
+              {
+                "id": "10150",
+                "ticker": "xi-jinping-out",
+                "slug": "xi-jinping-out",
+                "title": "Xi Jinping out",
+                "seriesType": "single",
+                "recurrence": "monthly",
+                "image": "",
+                "icon": "",
+                "active": true,
+                "closed": false,
+                "archived": false,
+                "featured": false,
+                "restricted": true,
+                "createdAt": "2025-07-03T20:26:34.992616Z",
+                "updatedAt": "2025-10-28T19:54:59.74955Z",
+                "volume": 46043874.110972,
+                "liquidity": 1006684.93862,
+                "commentCount": 611
+              }
+            ],
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": true,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "seriesSlug": "xi-jinping-out",
+            "negRiskAugmented": false,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-06-12T19:40:43Z",
+        "cyom": false,
+        "competitive": 0.8250414944306605,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "clobRewards": [
+          {
+            "id": "26439",
+            "conditionId": "0xf2ce8d3897ac5009a131637d3575f1f91c579bd08eecce6ae2b2da0f32bbe6f1",
+            "assetAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewardsAmount": 0,
+            "rewardsDailyRate": 30,
+            "startDate": "2025-06-11",
+            "endDate": "2500-12-31"
+          }
+        ],
+        "rewardsMinSize": 200,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.001,
+        "oneHourPriceChange": 0.001,
+        "oneWeekPriceChange": -0.0265,
+        "oneMonthPriceChange": -0.0265,
+        "lastTradePrice": 0.039,
+        "bestBid": 0.039,
+        "bestAsk": 0.04,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[\"proposed\", \"disputed\"]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "deployingTimestamp": "2025-06-12T19:40:09.75705Z",
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.961,
+      "best_bid": 0.96,
+      "last_price": 0.9605,
+      "last_volume": 43914987.373207,
+      "order_book": {
+        "asks": [
+          [
+            0.961,
+            333055.8
+          ],
+          [
+            0.962,
+            18836.68
+          ],
+          [
+            0.963,
+            11006.51
+          ],
+          [
+            0.964,
+            89686.6
+          ],
+          [
+            0.965,
+            44112.85
+          ],
+          [
+            0.966,
+            46239.7
+          ],
+          [
+            0.967,
+            49649.72
+          ],
+          [
+            0.968,
+            8591.38
+          ],
+          [
+            0.969,
+            12477.67
+          ],
+          [
+            0.97,
+            23672.73
+          ],
+          [
+            0.971,
+            5042.84
+          ],
+          [
+            0.972,
+            313.92
+          ],
+          [
+            0.973,
+            50300.0
+          ],
+          [
+            0.974,
+            50400.0
+          ],
+          [
+            0.975,
+            4310.16
+          ],
+          [
+            0.976,
+            30660.0
+          ],
+          [
+            0.977,
+            9879.0
+          ],
+          [
+            0.978,
+            64257.18
+          ],
+          [
+            0.979,
+            101455.0
+          ],
+          [
+            0.98,
+            387035.57
+          ],
+          [
+            0.981,
+            1159.57
+          ],
+          [
+            0.982,
+            1105.0
+          ],
+          [
+            0.983,
+            1205.36
+          ],
+          [
+            0.984,
+            1300.0
+          ],
+          [
+            0.985,
+            3622.0
+          ],
+          [
+            0.986,
+            24858.0
+          ],
+          [
+            0.987,
+            51600.0
+          ],
+          [
+            0.988,
+            252296.0
+          ],
+          [
+            0.989,
+            2760834.45
+          ],
+          [
+            0.99,
+            92820.81
+          ],
+          [
+            0.991,
+            1005.29
+          ],
+          [
+            0.992,
+            1000.0
+          ],
+          [
+            0.993,
+            1006.88
+          ],
+          [
+            0.994,
+            3200.0
+          ],
+          [
+            0.995,
+            106026.14
+          ],
+          [
+            0.996,
+            206008.99
+          ],
+          [
+            0.997,
+            905006.04
+          ],
+          [
+            0.998,
+            832078.31
+          ],
+          [
+            0.999,
+            19386.75
+          ]
+        ],
+        "bids": [
+          [
+            0.96,
+            515.72
+          ],
+          [
+            0.959,
+            11763.35
+          ],
+          [
+            0.958,
+            32424.37
+          ],
+          [
+            0.957,
+            550.0
+          ],
+          [
+            0.956,
+            1216.0
+          ],
+          [
+            0.955,
+            5400.0
+          ],
+          [
+            0.954,
+            100.0
+          ],
+          [
+            0.953,
+            5655.7
+          ],
+          [
+            0.952,
+            10100.0
+          ],
+          [
+            0.951,
+            10300.0
+          ],
+          [
+            0.95,
+            32093.3
+          ],
+          [
+            0.948,
+            10000.0
+          ],
+          [
+            0.947,
+            10000.0
+          ],
+          [
+            0.946,
+            10000.0
+          ],
+          [
+            0.944,
+            6666.0
+          ],
+          [
+            0.943,
+            1791.67
+          ],
+          [
+            0.942,
+            500.0
+          ],
+          [
+            0.941,
+            25400.0
+          ],
+          [
+            0.94,
+            17910.0
+          ],
+          [
+            0.939,
+            200.0
+          ],
+          [
+            0.936,
+            2000.0
+          ],
+          [
+            0.935,
+            5100.0
+          ],
+          [
+            0.934,
+            20000.0
+          ],
+          [
+            0.933,
+            50.0
+          ],
+          [
+            0.931,
+            300.0
+          ],
+          [
+            0.93,
+            21777.25
+          ],
+          [
+            0.926,
+            15000.0
+          ],
+          [
+            0.925,
+            20000.0
+          ],
+          [
+            0.924,
+            25000.0
+          ],
+          [
+            0.922,
+            500.0
+          ],
+          [
+            0.92,
+            20202.14
+          ],
+          [
+            0.91,
+            5041.96
+          ],
+          [
+            0.902,
+            500.0
+          ],
+          [
+            0.9,
+            18162.83
+          ],
+          [
+            0.89,
+            2310.0
+          ],
+          [
+            0.88,
+            914.18
+          ],
+          [
+            0.87,
+            7512.76
+          ],
+          [
+            0.86,
+            137.0
+          ],
+          [
+            0.85,
+            3050.0
+          ],
+          [
+            0.84,
+            43037.5
+          ],
+          [
+            0.821,
+            500.0
+          ],
+          [
+            0.82,
+            1500.0
+          ],
+          [
+            0.81,
+            54000.0
+          ],
+          [
+            0.8,
+            2576.5
+          ],
+          [
+            0.77,
+            530.0
+          ],
+          [
+            0.722,
+            134.62
+          ],
+          [
+            0.721,
+            300.0
+          ],
+          [
+            0.72,
+            54000.0
+          ],
+          [
+            0.7,
+            1015.69
+          ],
+          [
+            0.67,
+            100.0
+          ],
+          [
+            0.64,
+            32.0
+          ],
+          [
+            0.61,
+            34000.0
+          ],
+          [
+            0.6,
+            1075.0
+          ],
+          [
+            0.581,
+            1032.0
+          ],
+          [
+            0.58,
+            30029.38
+          ],
+          [
+            0.57,
+            54300.0
+          ],
+          [
+            0.511,
+            2348.33
+          ],
+          [
+            0.51,
+            49000.0
+          ],
+          [
+            0.5,
+            631.5
+          ],
+          [
+            0.46,
+            54000.0
+          ],
+          [
+            0.36,
+            99000.0
+          ],
+          [
+            0.35,
+            1000.0
+          ],
+          [
+            0.32,
+            160128.0
+          ],
+          [
+            0.3,
+            96.92
+          ],
+          [
+            0.286,
+            698.0
+          ],
+          [
+            0.281,
+            1280.0
+          ],
+          [
+            0.28,
+            72000.0
+          ],
+          [
+            0.263,
+            490.0
+          ],
+          [
+            0.25,
+            142.85
+          ],
+          [
+            0.22,
+            78000.0
+          ],
+          [
+            0.2,
+            58857.14
+          ],
+          [
+            0.17,
+            190000.0
+          ],
+          [
+            0.16,
+            512.0
+          ],
+          [
+            0.15,
+            56685.95
+          ],
+          [
+            0.111,
+            5.0
+          ],
+          [
+            0.11,
+            89000.0
+          ],
+          [
+            0.1,
+            119.9
+          ],
+          [
+            0.096,
+            205.0
+          ],
+          [
+            0.08,
+            2048.0
+          ],
+          [
+            0.07,
+            199000.0
+          ],
+          [
+            0.041,
+            5.91
+          ],
+          [
+            0.04,
+            8192.0
+          ],
+          [
+            0.03,
+            5.0
+          ],
+          [
+            0.02,
+            32768.0
+          ],
+          [
+            0.011,
+            12.1
+          ],
+          [
+            0.01,
+            1132701.26
+          ],
+          [
+            0.002,
+            22.01
+          ],
+          [
+            0.001,
+            2553.01
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:26:47Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:26:51Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:27:11Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:28:12Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:28:19Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:29:26Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:30:29Z",
+          "best_ask": 0.961,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:31:43Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43913498.694631
+        },
+        {
+          "timestamp": "2025-10-28T19:32:49Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:33:56Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:35:05Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:36:11Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:37:28Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:38:42Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:39:51Z",
+          "best_ask": 0.96,
+          "best_bid": 0.959,
+          "volume": 43914139.824555
+        },
+        {
+          "timestamp": "2025-10-28T19:55:01Z",
+          "best_ask": 0.961,
+          "best_bid": 0.96,
+          "volume": 43914987.373207
+        },
+        {
+          "timestamp": "2025-10-28T19:55:17Z",
+          "best_ask": 0.961,
+          "best_bid": 0.96,
+          "volume": 43914987.373207
+        },
+        {
+          "timestamp": "2025-10-28T19:56:10Z",
+          "best_ask": 0.961,
+          "best_bid": 0.96,
+          "volume": 43914987.373207
+        }
+      ],
+      "held_shares": 0.0161813811728204,
+      "average_price": 0.961,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:10Z",
+      "next_buy_time": null
+    },
+    "will-the-us-confirm-that-aliens-exist-in-2025|No": {
+      "market_id": "will-the-us-confirm-that-aliens-exist-in-2025",
+      "outcome": "No",
+      "question": "Will the US confirm that aliens exist in 2025?",
+      "parent_event_id": "16166",
+      "parent_event_label": "Will the US confirm that aliens exist in 2025?",
+      "resolution_datetime": "2025-12-31T12:00:00+00:00",
+      "resolution_days": 63.6693147257176,
+      "metadata": {
+        "id": "516925",
+        "question": "Will the US confirm that aliens exist in 2025?",
+        "conditionId": "0x2df7bb9bb2d044408af2a3ef947fd1eb7f5a167d7322cdbb410588af4974ab4e",
+        "slug": "will-the-us-confirm-that-aliens-exist-in-2025",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T12:00:00Z",
+        "liquidity": "161864.35088",
+        "startDate": "2024-12-31T18:51:24.874Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/alien+head.jpeg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/alien+head.jpeg",
+        "description": "This market will resolve to \"Yes\" if the President of the United States, any member of the Cabinet of the United States, any member of the Joint Chiefs of Staff, or any US federal agency definitively states that extraterrestrial life or technology exists by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be official information from the government of the United States, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.046\", \"0.954\"]",
+        "volume": "4299220.04765",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2024-12-31T15:54:17.745217Z",
+        "updatedAt": "2025-10-28T19:52:41.608773Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "",
+        "groupItemThreshold": "0",
+        "questionID": "0xe370a76c89af0036c9a26bdbfe38287e4c2cc4ad49a6454c8cf672a9747a526b",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 4299220.04765,
+        "liquidityNum": 161864.35088,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2024-12-31",
+        "hasReviewedDates": true,
+        "volume24hr": 84719.963301,
+        "volume1wk": 233516.05068300007,
+        "volume1mo": 1040133.0913579996,
+        "volume1yr": 4295073.277335005,
+        "clobTokenIds": "[\"27489607967254830440928740057210075156058938975022466608385700336406661385026\", \"70406907421182777894755898121094257783634079266094899167387730323864532067451\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 84719.963301,
+        "volume1wkClob": 233516.05068300007,
+        "volume1moClob": 1040133.0913579996,
+        "volume1yrClob": 4295073.277335005,
+        "volumeClob": 4299220.04765,
+        "liquidityClob": 161864.35088,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "events": [
+          {
+            "id": "16166",
+            "ticker": "will-the-us-confirm-that-aliens-exist-in-2025",
+            "slug": "will-the-us-confirm-that-aliens-exist-in-2025",
+            "title": "Will the US confirm that aliens exist in 2025?",
+            "description": "This market will resolve to \"Yes\" if the President of the United States, any member of the Cabinet of the United States, any member of the Joint Chiefs of Staff, or any US federal agency definitively states that extraterrestrial life or technology exists by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market will be official information from the government of the United States, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2024-12-31T18:51:46.112989Z",
+            "creationDate": "2024-12-31T18:51:46.112986Z",
+            "endDate": "2025-12-31T12:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/alien+head.jpeg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/alien+head.jpeg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": false,
+            "restricted": true,
+            "liquidity": 161864.35088,
+            "volume": 4299220.04765,
+            "openInterest": 0,
+            "createdAt": "2024-12-31T15:54:17.027174Z",
+            "updatedAt": "2025-10-28T19:54:55.057926Z",
+            "competitive": 0.8291076480205885,
+            "volume24hr": 84719.963301,
+            "volume1wk": 233516.05068300007,
+            "volume1mo": 1040133.0913579996,
+            "volume1yr": 4295073.277335005,
+            "enableOrderBook": true,
+            "liquidityClob": 161864.35088,
+            "commentCount": 225,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": true,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "negRiskAugmented": false,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2024-12-31T18:50:12Z",
+        "cyom": false,
+        "competitive": 0.8291076480205885,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "clobRewards": [
+          {
+            "id": "12403",
+            "conditionId": "0x2df7bb9bb2d044408af2a3ef947fd1eb7f5a167d7322cdbb410588af4974ab4e",
+            "assetAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewardsAmount": 0,
+            "rewardsDailyRate": 5,
+            "startDate": "2024-12-28",
+            "endDate": "2500-12-31"
+          }
+        ],
+        "rewardsMinSize": 200,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.002,
+        "oneDayPriceChange": 0.011,
+        "oneHourPriceChange": -0.001,
+        "oneWeekPriceChange": 0.001,
+        "oneMonthPriceChange": -0.004,
+        "lastTradePrice": 0.047,
+        "bestBid": 0.045,
+        "bestAsk": 0.047,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.955,
+      "best_bid": 0.954,
+      "last_price": 0.954,
+      "last_volume": 4299220.04765,
+      "order_book": {
+        "asks": [
+          [
+            0.955,
+            513.66
+          ],
+          [
+            0.956,
+            1773.23
+          ],
+          [
+            0.957,
+            1464.7
+          ],
+          [
+            0.958,
+            1001.52
+          ],
+          [
+            0.959,
+            543.24
+          ],
+          [
+            0.96,
+            4100.01
+          ],
+          [
+            0.962,
+            223.45
+          ],
+          [
+            0.963,
+            1449.26
+          ],
+          [
+            0.964,
+            200.0
+          ],
+          [
+            0.965,
+            265.63
+          ],
+          [
+            0.966,
+            2940.5
+          ],
+          [
+            0.967,
+            14.0
+          ],
+          [
+            0.968,
+            2345.0
+          ],
+          [
+            0.969,
+            311.0
+          ],
+          [
+            0.97,
+            7408.5
+          ],
+          [
+            0.971,
+            1690.0
+          ],
+          [
+            0.972,
+            15082.3
+          ],
+          [
+            0.973,
+            2263.83
+          ],
+          [
+            0.974,
+            3700.43
+          ],
+          [
+            0.975,
+            12888.89
+          ],
+          [
+            0.976,
+            831.24
+          ],
+          [
+            0.977,
+            275.92
+          ],
+          [
+            0.978,
+            20805.0
+          ],
+          [
+            0.979,
+            11027.34
+          ],
+          [
+            0.98,
+            3847.96
+          ],
+          [
+            0.981,
+            22684.74
+          ],
+          [
+            0.982,
+            5608.92
+          ],
+          [
+            0.985,
+            4700.0
+          ],
+          [
+            0.986,
+            29204.76
+          ],
+          [
+            0.987,
+            4000.0
+          ],
+          [
+            0.988,
+            20200.0
+          ],
+          [
+            0.989,
+            12010.96
+          ],
+          [
+            0.99,
+            1160.82
+          ],
+          [
+            0.991,
+            6000.0
+          ],
+          [
+            0.992,
+            2521.49
+          ],
+          [
+            0.993,
+            12344.0
+          ],
+          [
+            0.994,
+            10007.17
+          ],
+          [
+            0.995,
+            22000.0
+          ],
+          [
+            0.996,
+            1234.0
+          ],
+          [
+            0.997,
+            7899.84
+          ],
+          [
+            0.998,
+            65060.91
+          ],
+          [
+            0.999,
+            903915.28
+          ]
+        ],
+        "bids": [
+          [
+            0.954,
+            500.0
+          ],
+          [
+            0.953,
+            9187.16
+          ],
+          [
+            0.952,
+            2630.61
+          ],
+          [
+            0.951,
+            2500.0
+          ],
+          [
+            0.95,
+            4078.65
+          ],
+          [
+            0.949,
+            500.01
+          ],
+          [
+            0.948,
+            500.0
+          ],
+          [
+            0.947,
+            2692.78
+          ],
+          [
+            0.945,
+            500.0
+          ],
+          [
+            0.944,
+            250.0
+          ],
+          [
+            0.942,
+            10000.0
+          ],
+          [
+            0.941,
+            6505.0
+          ],
+          [
+            0.94,
+            2540.0
+          ],
+          [
+            0.939,
+            700.0
+          ],
+          [
+            0.938,
+            320.39
+          ],
+          [
+            0.937,
+            16391.67
+          ],
+          [
+            0.936,
+            6000.0
+          ],
+          [
+            0.935,
+            2000.0
+          ],
+          [
+            0.934,
+            980.18
+          ],
+          [
+            0.933,
+            6000.0
+          ],
+          [
+            0.931,
+            6500.0
+          ],
+          [
+            0.93,
+            13200.0
+          ],
+          [
+            0.929,
+            8000.0
+          ],
+          [
+            0.928,
+            9777.77
+          ],
+          [
+            0.927,
+            10000.0
+          ],
+          [
+            0.926,
+            13000.0
+          ],
+          [
+            0.925,
+            1000.0
+          ],
+          [
+            0.923,
+            200.0
+          ],
+          [
+            0.915,
+            1167.57
+          ],
+          [
+            0.9,
+            5.0
+          ],
+          [
+            0.823,
+            67.56
+          ],
+          [
+            0.82,
+            82.0
+          ],
+          [
+            0.801,
+            500.0
+          ],
+          [
+            0.8,
+            594.78
+          ],
+          [
+            0.75,
+            11.36
+          ],
+          [
+            0.701,
+            500.0
+          ],
+          [
+            0.7,
+            5.0
+          ],
+          [
+            0.69,
+            4000.0
+          ],
+          [
+            0.663,
+            6000.0
+          ],
+          [
+            0.65,
+            295.88
+          ],
+          [
+            0.601,
+            500.0
+          ],
+          [
+            0.6,
+            5.0
+          ],
+          [
+            0.583,
+            1028.0
+          ],
+          [
+            0.582,
+            8591.06
+          ],
+          [
+            0.563,
+            6000.0
+          ],
+          [
+            0.561,
+            500.0
+          ],
+          [
+            0.512,
+            8.0
+          ],
+          [
+            0.4,
+            100.0
+          ],
+          [
+            0.29,
+            5678.0
+          ],
+          [
+            0.289,
+            692.0
+          ],
+          [
+            0.288,
+            1250.0
+          ],
+          [
+            0.287,
+            7000.0
+          ],
+          [
+            0.256,
+            16.0
+          ],
+          [
+            0.173,
+            4354.0
+          ],
+          [
+            0.171,
+            2000.0
+          ],
+          [
+            0.17,
+            5000.0
+          ],
+          [
+            0.128,
+            64.0
+          ],
+          [
+            0.112,
+            5.0
+          ],
+          [
+            0.111,
+            6000.0
+          ],
+          [
+            0.095,
+            540.0
+          ],
+          [
+            0.064,
+            256.0
+          ],
+          [
+            0.061,
+            5687.0
+          ],
+          [
+            0.033,
+            8.53
+          ],
+          [
+            0.032,
+            1024.0
+          ],
+          [
+            0.021,
+            5000.0
+          ],
+          [
+            0.02,
+            2096.83
+          ],
+          [
+            0.016,
+            4096.0
+          ],
+          [
+            0.011,
+            9.12
+          ],
+          [
+            0.01,
+            5678.0
+          ],
+          [
+            0.008,
+            16384.0
+          ],
+          [
+            0.005,
+            20005.87
+          ],
+          [
+            0.004,
+            77881.0
+          ],
+          [
+            0.003,
+            100000.0
+          ],
+          [
+            0.002,
+            262151.5
+          ],
+          [
+            0.001,
+            1552385.0
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:27:02Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:27:12Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:28:12Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:28:20Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:29:28Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:30:29Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:31:44Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:32:50Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:33:57Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:35:07Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:36:13Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:37:29Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:38:43Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:39:52Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4298827.281694
+        },
+        {
+          "timestamp": "2025-10-28T19:55:02Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4299220.04765
+        },
+        {
+          "timestamp": "2025-10-28T19:55:18Z",
+          "best_ask": 0.955,
+          "best_bid": 0.953,
+          "volume": 4299220.04765
+        },
+        {
+          "timestamp": "2025-10-28T19:56:11Z",
+          "best_ask": 0.955,
+          "best_bid": 0.954,
+          "volume": 4299220.04765
+        }
+      ],
+      "held_shares": 157.06806282722513,
+      "average_price": 0.955,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:11Z",
+      "next_buy_time": null
+    },
+    "will-china-invade-taiwan-in-2025|No": {
+      "market_id": "will-china-invade-taiwan-in-2025",
+      "outcome": "No",
+      "question": "Will China invade Taiwan in 2025?",
+      "parent_event_id": "17413",
+      "parent_event_label": "Will China invade Taiwan in 2025?",
+      "resolution_datetime": "2025-12-31T12:00:00+00:00",
+      "resolution_days": 63.66930627341435,
+      "metadata": {
+        "id": "520630",
+        "question": "Will China invade Taiwan in 2025?",
+        "conditionId": "0xcb1531b00e984865530f13e4ce35bcbc7d71615af98827b5e9aee2ca2984b626",
+        "slug": "will-china-invade-taiwan-in-2025",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T12:00:00Z",
+        "liquidity": "169624.96609",
+        "startDate": "2025-01-29T00:13:22.603Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/china-invades-taiwan-in-2025-CCSd9dX2mrea.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/china-invades-taiwan-in-2025-CCSd9dX2mrea.jpg",
+        "description": "This market will resolve to \"Yes\" if China commences a military offensive intended to establish control over any portion of the Republic of China (Taiwan) by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nTerritory under the administration of the Republic of China including any inhabited islands will qualify, however uninhabited islands will not qualify. \n\nThe resolution source for this market will be will be official confirmation by China, Taiwan, the United Nations, or any permanent member of the UN Security Council, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.034\", \"0.966\"]",
+        "volume": "6745852.703383",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-01-28T16:46:22.373024Z",
+        "updatedAt": "2025-10-28T19:47:55.160468Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x6A9D222616C90FcA5754cd1333cFD9b7fb6a4F74",
+        "restricted": true,
+        "groupItemTitle": "",
+        "groupItemThreshold": "0",
+        "questionID": "0xbb03ba4b05a4b5bc50c50f0745f4d09ef9db0a594157b5800a771b48688715e7",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 6745852.703383,
+        "liquidityNum": 169624.96609,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-01-29",
+        "hasReviewedDates": true,
+        "volume24hr": 76892.69521899999,
+        "volume1wk": 312457.45842499926,
+        "volume1mo": 1296905.684437006,
+        "volume1yr": 6744112.59201497,
+        "clobTokenIds": "[\"31744904918540551255746477870591988696765533508454358136402838182759217759615\", \"49010495637862170738452849338203533534144987310283354999689656599763786454625\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 76892.69521899999,
+        "volume1wkClob": 312457.45842499926,
+        "volume1moClob": 1296905.684437006,
+        "volume1yrClob": 6744112.59201497,
+        "volumeClob": 6745852.703383,
+        "liquidityClob": 169624.96609,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "events": [
+          {
+            "id": "17413",
+            "ticker": "will-china-invade-taiwan-in-2025",
+            "slug": "will-china-invade-taiwan-in-2025",
+            "title": "Will China invade Taiwan in 2025?",
+            "description": "This market will resolve to \"Yes\" if China commences a military offensive intended to establish control over any portion of the Republic of China (Taiwan) by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nTerritory under the administration of the Republic of China including any inhabited islands will qualify, however uninhabited islands will not qualify. \n\nThe resolution source for this market will be will be official confirmation by China, Taiwan, the United Nations, or any permanent member of the UN Security Council, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2025-01-29T00:14:07.953519Z",
+            "creationDate": "2025-01-29T00:14:07.953516Z",
+            "endDate": "2025-12-31T12:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/china-invades-taiwan-in-2025-CCSd9dX2mrea.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/china-invades-taiwan-in-2025-CCSd9dX2mrea.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": false,
+            "restricted": true,
+            "liquidity": 169624.96609,
+            "volume": 6745852.703383,
+            "openInterest": 0,
+            "createdAt": "2025-01-28T16:46:21.20506Z",
+            "updatedAt": "2025-10-28T19:54:42.804768Z",
+            "competitive": 0.8215873725307192,
+            "volume24hr": 76892.69521899999,
+            "volume1wk": 312457.45842499926,
+            "volume1mo": 1296905.684437006,
+            "volume1yr": 6744112.59201497,
+            "enableOrderBook": true,
+            "liquidityClob": 169624.96609,
+            "commentCount": 45,
+            "series": [
+              {
+                "id": "10171",
+                "ticker": "china-invade-taiwan",
+                "slug": "china-invade-taiwan",
+                "title": "China invade Taiwan",
+                "seriesType": "single",
+                "recurrence": "monthly",
+                "image": "",
+                "icon": "",
+                "active": true,
+                "closed": false,
+                "archived": false,
+                "featured": false,
+                "restricted": true,
+                "createdAt": "2025-07-24T22:44:22.501114Z",
+                "updatedAt": "2025-10-28T19:54:58.709762Z",
+                "volume": 7416586.046842,
+                "liquidity": 341627.91179,
+                "commentCount": 220
+              }
+            ],
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": true,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "seriesSlug": "china-invade-taiwan",
+            "negRiskAugmented": false,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-01-29T00:12:11Z",
+        "cyom": false,
+        "competitive": 0.8215873725307192,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "clobRewards": [
+          {
+            "id": "14391",
+            "conditionId": "0xcb1531b00e984865530f13e4ce35bcbc7d71615af98827b5e9aee2ca2984b626",
+            "assetAddress": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewardsAmount": 0,
+            "rewardsDailyRate": 3,
+            "startDate": "2025-01-29",
+            "endDate": "2500-12-31"
+          }
+        ],
+        "rewardsMinSize": 200,
+        "rewardsMaxSpread": 3.5,
+        "spread": 0.002,
+        "oneDayPriceChange": 0.0015,
+        "oneHourPriceChange": -0.0005,
+        "oneWeekPriceChange": 0.0045,
+        "oneMonthPriceChange": 0.0005,
+        "lastTradePrice": 0.034,
+        "bestBid": 0.033,
+        "bestAsk": 0.035,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.967,
+      "best_bid": 0.965,
+      "last_price": 0.966,
+      "last_volume": 6745852.703383,
+      "order_book": {
+        "asks": [
+          [
+            0.967,
+            1795.42
+          ],
+          [
+            0.968,
+            313.0
+          ],
+          [
+            0.969,
+            9306.36
+          ],
+          [
+            0.97,
+            14901.49
+          ],
+          [
+            0.971,
+            39307.88
+          ],
+          [
+            0.972,
+            15253.22
+          ],
+          [
+            0.973,
+            1253.0
+          ],
+          [
+            0.974,
+            147721.3
+          ],
+          [
+            0.975,
+            3100.71
+          ],
+          [
+            0.976,
+            356.0
+          ],
+          [
+            0.977,
+            19780.0
+          ],
+          [
+            0.978,
+            16.0
+          ],
+          [
+            0.979,
+            321.56
+          ],
+          [
+            0.98,
+            1279.0
+          ],
+          [
+            0.982,
+            103.19
+          ],
+          [
+            0.983,
+            11203.67
+          ],
+          [
+            0.985,
+            8028.46
+          ],
+          [
+            0.986,
+            9929.61
+          ],
+          [
+            0.987,
+            7701.38
+          ],
+          [
+            0.988,
+            202721.1
+          ],
+          [
+            0.989,
+            9296.0
+          ],
+          [
+            0.99,
+            525817.22
+          ],
+          [
+            0.991,
+            6.0
+          ],
+          [
+            0.992,
+            59.62
+          ],
+          [
+            0.993,
+            45715.0
+          ],
+          [
+            0.994,
+            1881.47
+          ],
+          [
+            0.995,
+            11295.42
+          ],
+          [
+            0.996,
+            707.97
+          ],
+          [
+            0.997,
+            1210.68
+          ],
+          [
+            0.998,
+            1016.11
+          ],
+          [
+            0.999,
+            126886.09
+          ]
+        ],
+        "bids": [
+          [
+            0.965,
+            211.94
+          ],
+          [
+            0.964,
+            1111.82
+          ],
+          [
+            0.963,
+            630.0
+          ],
+          [
+            0.962,
+            210.0
+          ],
+          [
+            0.961,
+            5236.94
+          ],
+          [
+            0.96,
+            1105.0
+          ],
+          [
+            0.959,
+            16055.0
+          ],
+          [
+            0.958,
+            2000.0
+          ],
+          [
+            0.955,
+            3350.0
+          ],
+          [
+            0.952,
+            15555.0
+          ],
+          [
+            0.95,
+            3192.49
+          ],
+          [
+            0.949,
+            1792.81
+          ],
+          [
+            0.945,
+            200.0
+          ],
+          [
+            0.942,
+            200.0
+          ],
+          [
+            0.94,
+            1700.0
+          ],
+          [
+            0.932,
+            378.78
+          ],
+          [
+            0.93,
+            5400.0
+          ],
+          [
+            0.92,
+            235.71
+          ],
+          [
+            0.915,
+            400.0
+          ],
+          [
+            0.91,
+            12.0
+          ],
+          [
+            0.9,
+            572.77
+          ],
+          [
+            0.89,
+            10.0
+          ],
+          [
+            0.88,
+            150.0
+          ],
+          [
+            0.87,
+            5.0
+          ],
+          [
+            0.86,
+            10.0
+          ],
+          [
+            0.85,
+            198.88
+          ],
+          [
+            0.83,
+            11544.8
+          ],
+          [
+            0.82,
+            12214.8
+          ],
+          [
+            0.8,
+            340.0
+          ],
+          [
+            0.751,
+            88.84
+          ],
+          [
+            0.75,
+            100.0
+          ],
+          [
+            0.701,
+            136.25
+          ],
+          [
+            0.7,
+            136.25
+          ],
+          [
+            0.62,
+            10000.0
+          ],
+          [
+            0.6,
+            49.44
+          ],
+          [
+            0.591,
+            1014.0
+          ],
+          [
+            0.59,
+            10000.0
+          ],
+          [
+            0.56,
+            10000.0
+          ],
+          [
+            0.53,
+            10000.0
+          ],
+          [
+            0.512,
+            8.0
+          ],
+          [
+            0.51,
+            123.0
+          ],
+          [
+            0.5,
+            10000.0
+          ],
+          [
+            0.471,
+            4246.28
+          ],
+          [
+            0.47,
+            10000.0
+          ],
+          [
+            0.44,
+            10000.0
+          ],
+          [
+            0.41,
+            10000.0
+          ],
+          [
+            0.4,
+            279.99
+          ],
+          [
+            0.38,
+            10000.0
+          ],
+          [
+            0.35,
+            10000.0
+          ],
+          [
+            0.32,
+            10000.0
+          ],
+          [
+            0.3,
+            35.0
+          ],
+          [
+            0.29,
+            10000.0
+          ],
+          [
+            0.265,
+            754.0
+          ],
+          [
+            0.26,
+            10000.0
+          ],
+          [
+            0.256,
+            16.0
+          ],
+          [
+            0.23,
+            10000.0
+          ],
+          [
+            0.21,
+            166.67
+          ],
+          [
+            0.2,
+            10000.0
+          ],
+          [
+            0.18,
+            10400.0
+          ],
+          [
+            0.16,
+            10378.79
+          ],
+          [
+            0.14,
+            10000.0
+          ],
+          [
+            0.128,
+            64.0
+          ],
+          [
+            0.12,
+            10000.0
+          ],
+          [
+            0.101,
+            5.88
+          ],
+          [
+            0.1,
+            10000.0
+          ],
+          [
+            0.097,
+            10.0
+          ],
+          [
+            0.095,
+            110.0
+          ],
+          [
+            0.094,
+            200.0
+          ],
+          [
+            0.08,
+            10000.0
+          ],
+          [
+            0.064,
+            256.0
+          ],
+          [
+            0.06,
+            10000.0
+          ],
+          [
+            0.041,
+            5.23
+          ],
+          [
+            0.04,
+            10000.0
+          ],
+          [
+            0.032,
+            1024.0
+          ],
+          [
+            0.02,
+            10000.0
+          ],
+          [
+            0.017,
+            6.05
+          ],
+          [
+            0.016,
+            4096.0
+          ],
+          [
+            0.01,
+            10718.44
+          ],
+          [
+            0.008,
+            16384.0
+          ],
+          [
+            0.005,
+            11.25
+          ],
+          [
+            0.004,
+            65536.0
+          ],
+          [
+            0.002,
+            262154.06
+          ],
+          [
+            0.001,
+            1052385.0
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:27:22Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745591.720982
+        },
+        {
+          "timestamp": "2025-10-28T19:27:38Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745591.720982
+        },
+        {
+          "timestamp": "2025-10-28T19:28:13Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745591.720982
+        },
+        {
+          "timestamp": "2025-10-28T19:28:20Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745591.720982
+        },
+        {
+          "timestamp": "2025-10-28T19:29:29Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:30:30Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:31:45Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:32:51Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:33:58Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:35:08Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:36:14Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:37:30Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745602.067413
+        },
+        {
+          "timestamp": "2025-10-28T19:38:44Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745635.603383
+        },
+        {
+          "timestamp": "2025-10-28T19:39:53Z",
+          "best_ask": 0.966,
+          "best_bid": 0.964,
+          "volume": 6745635.603383
+        },
+        {
+          "timestamp": "2025-10-28T19:55:02Z",
+          "best_ask": 0.967,
+          "best_bid": 0.965,
+          "volume": 6745852.703383
+        },
+        {
+          "timestamp": "2025-10-28T19:55:18Z",
+          "best_ask": 0.967,
+          "best_bid": 0.965,
+          "volume": 6745852.703383
+        },
+        {
+          "timestamp": "2025-10-28T19:56:11Z",
+          "best_ask": 0.967,
+          "best_bid": 0.965,
+          "volume": 6745852.703383
+        }
+      ],
+      "held_shares": 0.0,
+      "average_price": null,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:11Z",
+      "next_buy_time": null
+    },
+    "interstellar-object-an-alien|No": {
+      "market_id": "interstellar-object-an-alien",
+      "outcome": "No",
+      "question": "Interstellar object confirmed aliens?",
+      "parent_event_id": "30835",
+      "parent_event_label": "Interstellar object confirmed aliens?",
+      "resolution_datetime": "2025-12-31T00:00:00+00:00",
+      "resolution_days": 63.169298038692126,
+      "metadata": {
+        "id": "559825",
+        "question": "Interstellar object confirmed aliens?",
+        "conditionId": "0xc1c4e7857dfd1fe47c1e6a11813aaca3f622a5f47769cd765be8c7a8336af555",
+        "slug": "interstellar-object-an-alien",
+        "resolutionSource": "",
+        "endDate": "2025-12-31T00:00:00Z",
+        "liquidity": "36928.43168",
+        "startDate": "2025-07-04T13:27:10.732444Z",
+        "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/interstellar-object-an-alien-UozHg4LpqglF.jpg",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/interstellar-object-an-alien-UozHg4LpqglF.jpg",
+        "description": "An interstellar object named \"A11pl3Z\" is projected to travel deep within the solar system, reaching its closest point to the Sun on October 29. You can read more about that here: https://www.nytimes.com/2025/07/02/science/interstellar-object-a11pi3z.html\n\nThis market will resolve to \"Yes\" if the President of the United States, any member of the Cabinet of the United States, any member of the Joint Chiefs of Staff, or any US federal agency definitively states that the interstellar object named A11pl3Z either contains or is extraterrestrial life or technology by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nMembers of the Cabinet of the United States are limited to include the heads of the 15 government agencies as of the creation of this market, as well as the Administrator of the EPA, the Director of National Intelligence, the Chief of Staff, OMB Director, CIA Director, US Trade Representative, Ambassador to the UN, Chair of the Council of Economic Advisers, SBA Administrator, and OSTP Director.\n\nThe primary resolution source for this market will be official information from the government of the United States, however a consensus of credible reporting will also be used.",
+        "outcomes": "[\"Yes\", \"No\"]",
+        "outcomePrices": "[\"0.043\", \"0.957\"]",
+        "volume": "268401.790179",
+        "active": true,
+        "closed": false,
+        "marketMakerAddress": "",
+        "createdAt": "2025-07-03T23:07:27.730339Z",
+        "updatedAt": "2025-10-28T19:54:19.774026Z",
+        "new": false,
+        "featured": false,
+        "submitted_by": "0x91430CaD2d3975766499717fA0D66A78D814E5c5",
+        "archived": false,
+        "resolvedBy": "0x157Ce2d672854c848c9b79C49a8Cc6cc89176a49",
+        "restricted": true,
+        "groupItemTitle": "",
+        "groupItemThreshold": "0",
+        "questionID": "0x8fe044cb056ac9e65e39427a85714a14ee4f6590878212b3205a9e1e8d203c68",
+        "enableOrderBook": true,
+        "orderPriceMinTickSize": 0.001,
+        "orderMinSize": 5,
+        "volumeNum": 268401.790179,
+        "liquidityNum": 36928.43168,
+        "endDateIso": "2025-12-31",
+        "startDateIso": "2025-07-04",
+        "hasReviewedDates": true,
+        "volume24hr": 37984.278356,
+        "volume1wk": 106227.76887000001,
+        "volume1mo": 179359.66152099997,
+        "volume1yr": 267031.608317,
+        "clobTokenIds": "[\"61760528616479661808037564191552690192373467478798081794724062354745005823748\", \"23548181446245041653069828042185650684563743512359959909405337958307023325206\"]",
+        "umaBond": "500",
+        "umaReward": "5",
+        "volume24hrClob": 37984.278356,
+        "volume1wkClob": 106227.76887000001,
+        "volume1moClob": 179359.66152099997,
+        "volume1yrClob": 267031.608317,
+        "volumeClob": 268401.790179,
+        "liquidityClob": 36928.43168,
+        "customLiveness": 0,
+        "acceptingOrders": true,
+        "negRisk": false,
+        "negRiskRequestID": "",
+        "events": [
+          {
+            "id": "30835",
+            "ticker": "interstellar-object-an-alien",
+            "slug": "interstellar-object-an-alien",
+            "title": "Interstellar object confirmed aliens?",
+            "description": "An interstellar object named \"A11pl3Z\" is projected to travel deep within the solar system, reaching its closest point to the Sun on October 29. You can read more about that here: https://www.nytimes.com/2025/07/02/science/interstellar-object-a11pi3z.html\n\nThis market will resolve to \"Yes\" if the President of the United States, any member of the Cabinet of the United States, any member of the Joint Chiefs of Staff, or any US federal agency definitively states that the interstellar object named A11pl3Z either contains or is extraterrestrial life or technology by December 31, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nMembers of the Cabinet of the United States are limited to include the heads of the 15 government agencies as of the creation of this market, as well as the Administrator of the EPA, the Director of National Intelligence, the Chief of Staff, OMB Director, CIA Director, US Trade Representative, Ambassador to the UN, Chair of the Council of Economic Advisers, SBA Administrator, and OSTP Director.\n\nThe primary resolution source for this market will be official information from the government of the United States, however a consensus of credible reporting will also be used.",
+            "resolutionSource": "",
+            "startDate": "2025-07-04T13:28:36.307243Z",
+            "creationDate": "2025-07-04T13:28:36.307239Z",
+            "endDate": "2025-12-31T00:00:00Z",
+            "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/interstellar-object-an-alien-UozHg4LpqglF.jpg",
+            "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/interstellar-object-an-alien-UozHg4LpqglF.jpg",
+            "active": true,
+            "closed": false,
+            "archived": false,
+            "new": false,
+            "featured": false,
+            "restricted": true,
+            "liquidity": 36928.43168,
+            "volume": 268401.790179,
+            "openInterest": 0,
+            "createdAt": "2025-07-03T23:07:26.355421Z",
+            "updatedAt": "2025-10-28T19:54:52.472727Z",
+            "competitive": 0.8272331780065169,
+            "volume24hr": 37984.278356,
+            "volume1wk": 106227.76887000001,
+            "volume1mo": 179359.66152099997,
+            "volume1yr": 267031.608317,
+            "enableOrderBook": true,
+            "liquidityClob": 36928.43168,
+            "commentCount": 42,
+            "cyom": false,
+            "showAllOutcomes": true,
+            "showMarketImages": true,
+            "enableNegRisk": false,
+            "automaticallyActive": true,
+            "negRiskAugmented": false,
+            "pendingDeployment": false,
+            "deploying": false
+          }
+        ],
+        "ready": false,
+        "funded": false,
+        "acceptingOrdersTimestamp": "2025-07-04T13:26:48Z",
+        "cyom": false,
+        "competitive": 0.8272331780065169,
+        "pagerDutyNotificationEnabled": false,
+        "approved": true,
+        "rewardsMinSize": 0,
+        "rewardsMaxSpread": 0,
+        "spread": 0.006,
+        "oneDayPriceChange": 0.0095,
+        "oneHourPriceChange": -0.002,
+        "oneWeekPriceChange": 0.01,
+        "oneMonthPriceChange": 0.0165,
+        "lastTradePrice": 0.047,
+        "bestBid": 0.04,
+        "bestAsk": 0.046,
+        "automaticallyActive": true,
+        "clearBookOnStart": true,
+        "manualActivation": false,
+        "negRiskOther": false,
+        "umaResolutionStatuses": "[]",
+        "pendingDeployment": false,
+        "deploying": false,
+        "deployingTimestamp": "2025-07-04T13:26:16.222711Z",
+        "rfqEnabled": false,
+        "holdingRewardsEnabled": false,
+        "feesEnabled": false
+      },
+      "best_ask": 0.96,
+      "best_bid": 0.954,
+      "last_price": 0.957,
+      "last_volume": 268401.790179,
+      "order_book": {
+        "asks": [
+          [
+            0.96,
+            219.95
+          ],
+          [
+            0.961,
+            799.31
+          ],
+          [
+            0.962,
+            4700.0
+          ],
+          [
+            0.963,
+            200.0
+          ],
+          [
+            0.964,
+            5.0
+          ],
+          [
+            0.965,
+            959.32
+          ],
+          [
+            0.966,
+            100.0
+          ],
+          [
+            0.968,
+            752.0
+          ],
+          [
+            0.969,
+            1443.94
+          ],
+          [
+            0.97,
+            5254.57
+          ],
+          [
+            0.971,
+            180.0
+          ],
+          [
+            0.972,
+            85.0
+          ],
+          [
+            0.973,
+            88.23
+          ],
+          [
+            0.974,
+            3077.0
+          ],
+          [
+            0.975,
+            250.0
+          ],
+          [
+            0.976,
+            195.0
+          ],
+          [
+            0.977,
+            275.0
+          ],
+          [
+            0.979,
+            422.25
+          ],
+          [
+            0.98,
+            200.0
+          ],
+          [
+            0.981,
+            8922.0
+          ],
+          [
+            0.983,
+            1000.0
+          ],
+          [
+            0.985,
+            228.13
+          ],
+          [
+            0.986,
+            8.97
+          ],
+          [
+            0.988,
+            507.18
+          ],
+          [
+            0.989,
+            205.0
+          ],
+          [
+            0.99,
+            7416.87
+          ],
+          [
+            0.991,
+            445.01
+          ],
+          [
+            0.992,
+            3841.77
+          ],
+          [
+            0.993,
+            45726.0
+          ],
+          [
+            0.994,
+            1280.58
+          ],
+          [
+            0.996,
+            22.43
+          ],
+          [
+            0.997,
+            9333.39
+          ],
+          [
+            0.998,
+            20015.18
+          ],
+          [
+            0.999,
+            503834.0
+          ]
+        ],
+        "bids": [
+          [
+            0.954,
+            119.67
+          ],
+          [
+            0.953,
+            230.53
+          ],
+          [
+            0.952,
+            397.7
+          ],
+          [
+            0.951,
+            317.81
+          ],
+          [
+            0.95,
+            3000.0
+          ],
+          [
+            0.948,
+            139.24
+          ],
+          [
+            0.947,
+            100.0
+          ],
+          [
+            0.946,
+            859.11
+          ],
+          [
+            0.937,
+            963.0
+          ],
+          [
+            0.936,
+            200.0
+          ],
+          [
+            0.935,
+            400.0
+          ],
+          [
+            0.934,
+            600.0
+          ],
+          [
+            0.933,
+            800.0
+          ],
+          [
+            0.932,
+            1000.0
+          ],
+          [
+            0.931,
+            1500.0
+          ],
+          [
+            0.93,
+            3000.0
+          ],
+          [
+            0.928,
+            1000.0
+          ],
+          [
+            0.926,
+            20.0
+          ],
+          [
+            0.925,
+            100.0
+          ],
+          [
+            0.922,
+            1000.0
+          ],
+          [
+            0.921,
+            84.74
+          ],
+          [
+            0.92,
+            100.0
+          ],
+          [
+            0.917,
+            100.0
+          ],
+          [
+            0.914,
+            180.0
+          ],
+          [
+            0.912,
+            1125.0
+          ],
+          [
+            0.902,
+            250.0
+          ],
+          [
+            0.887,
+            150.0
+          ],
+          [
+            0.853,
+            1000.0
+          ],
+          [
+            0.852,
+            300.0
+          ],
+          [
+            0.851,
+            222.0
+          ],
+          [
+            0.85,
+            200.0
+          ],
+          [
+            0.81,
+            350.0
+          ],
+          [
+            0.8,
+            200.0
+          ],
+          [
+            0.752,
+            1000.0
+          ],
+          [
+            0.751,
+            500.0
+          ],
+          [
+            0.75,
+            250.0
+          ],
+          [
+            0.741,
+            400.0
+          ],
+          [
+            0.74,
+            2974.86
+          ],
+          [
+            0.71,
+            500.0
+          ],
+          [
+            0.562,
+            1000.0
+          ],
+          [
+            0.25,
+            3599.0
+          ],
+          [
+            0.152,
+            2000.0
+          ],
+          [
+            0.151,
+            3000.0
+          ],
+          [
+            0.15,
+            1400.0
+          ],
+          [
+            0.121,
+            20826.41
+          ],
+          [
+            0.12,
+            927.08
+          ],
+          [
+            0.081,
+            8.17
+          ],
+          [
+            0.08,
+            927.09
+          ],
+          [
+            0.016,
+            16.35
+          ],
+          [
+            0.015,
+            5000.0
+          ],
+          [
+            0.013,
+            100000.0
+          ],
+          [
+            0.012,
+            300000.0
+          ],
+          [
+            0.004,
+            100000.0
+          ],
+          [
+            0.003,
+            21.11
+          ],
+          [
+            0.002,
+            1000000.0
+          ],
+          [
+            0.001,
+            3824.11
+          ]
+        ]
+      },
+      "price_history": [
+        {
+          "timestamp": "2025-10-28T19:27:49Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:27:54Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:28:14Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:28:21Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:29:30Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:30:31Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:31:46Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:32:52Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:33:59Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:35:09Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:36:15Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:37:32Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:38:45Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:39:54Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:55:03Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:55:19Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        },
+        {
+          "timestamp": "2025-10-28T19:56:12Z",
+          "best_ask": 0.96,
+          "best_bid": 0.954,
+          "volume": 268401.790179
+        }
+      ],
+      "held_shares": 2.591717884513282,
+      "average_price": 0.9599999999999999,
+      "realized_profit": 0.0,
+      "last_fetch_ts": "2025-10-28T19:56:12Z",
+      "next_buy_time": null
+    }
+  },
+  "strategy_priority": [
+    "will-trump-pardon-diddy-in-2025-669|No",
+    "will-trump-pardon-hunter-biden-in-2025-336|No",
+    "will-trump-pardon-elon-musk-in-2025-917|No",
+    "will-trump-pardon-himself-in-2025-587|No",
+    "will-trump-meet-with-xi-jinping-by-october-31|Yes",
+    "will-manchester-united-win-the-202526-english-premier-league|No",
+    "xi-jinping-out-in-2025|No",
+    "will-the-us-confirm-that-aliens-exist-in-2025|No",
+    "will-china-invade-taiwan-in-2025|No",
+    "interstellar-object-an-alien|No"
+  ],
+  "trade_log": [
+    {
+      "timestamp": "2025-10-28T19:28:14Z",
+      "mode": "live",
+      "action": "BUY",
+      "market_id": "will-trump-meet-with-xi-jinping-by-october-31",
+      "question": "Will Trump meet with Xi Jinping by October 31?",
+      "outcome": "Yes",
+      "shares": 206.00752832131823,
+      "price": 0.9708383068799891,
+      "value": 200.0,
+      "g_before": null,
+      "g_after": 0.009098180109974922,
+      "slippage_bps": 8.642338968960495,
+      "reasons": [
+        "rotation"
+      ],
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-10-28T19:28:14Z",
+      "mode": "live",
+      "action": "BUY",
+      "market_id": "will-trump-pardon-diddy-in-2025-669",
+      "question": "Will Trump pardon Diddy in 2025?",
+      "outcome": "No",
+      "shares": 217.39130434782606,
+      "price": 0.92,
+      "value": 200.0,
+      "g_before": null,
+      "g_after": 0.0012642116486169983,
+      "slippage_bps": 0.0,
+      "reasons": [
+        "rotation"
+      ],
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-10-28T19:28:14Z",
+      "mode": "live",
+      "action": "BUY",
+      "market_id": "will-the-us-confirm-that-aliens-exist-in-2025",
+      "question": "Will the US confirm that aliens exist in 2025?",
+      "outcome": "No",
+      "shares": 157.06806282722513,
+      "price": 0.955,
+      "value": 150.0,
+      "g_before": null,
+      "g_after": 0.0006978576798848272,
+      "slippage_bps": 0.0,
+      "reasons": [
+        "rotation"
+      ],
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-10-28T19:28:21Z",
+      "mode": "live",
+      "action": "BUY",
+      "market_id": "interstellar-object-an-alien",
+      "question": "Interstellar object confirmed aliens?",
+      "outcome": "No",
+      "shares": 2.591717884513282,
+      "price": 0.9599999999999999,
+      "value": 2.4880491691327506,
+      "g_before": null,
+      "g_after": 0.0006235008945103195,
+      "slippage_bps": -1.1102230246251565e-12,
+      "reasons": [
+        "rotation"
+      ],
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-10-28T19:29:30Z",
+      "mode": "live",
+      "action": "BUY",
+      "market_id": "xi-jinping-out-in-2025",
+      "question": "Xi Jinping out in 2025?",
+      "outcome": "No",
+      "shares": 0.0161813811728204,
+      "price": 0.961,
+      "value": 0.015550307307080402,
+      "g_before": null,
+      "g_after": 0.0005983112366913317,
+      "slippage_bps": 0.0,
+      "reasons": [
+        "rotation"
+      ],
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-10-28T19:30:31Z",
+      "mode": "live",
+      "action": "BUY",
+      "market_id": "will-trump-pardon-himself-in-2025-587",
+      "question": "Will Trump pardon Himself in 2025?",
+      "outcome": "No",
+      "shares": 3.3641125093761926e-05,
+      "price": 0.9619999999999999,
+      "value": 3.236276234019897e-05,
+      "g_before": null,
+      "g_after": 0.000587141630465318,
+      "slippage_bps": -1.1102230246251565e-12,
+      "reasons": [
+        "rotation"
+      ],
+      "metadata": {}
+    }
+  ],
+  "active_freezes": {},
+  "last_decision": {
+    "timestamp": "2025-10-28T19:56:12Z",
+    "buys": [],
+    "sells": [],
+    "rejections": [
+      {
+        "type": "skip",
+        "market_id": "will-trump-meet-with-xi-jinping-by-october-31",
+        "question": "Will Trump meet with Xi Jinping by October 31?",
+        "outcome": "Yes",
+        "side": "Yes",
+        "rank": 1,
+        "reasons": [
+          "allocation_cap"
+        ],
+        "g": 0.009421216803567292,
+        "details": {
+          "max_notional": 15000.0,
+          "max_allocation_pct": 0.2,
+          "already_invested": 200.0
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "will-trump-pardon-diddy-in-2025-669",
+        "question": "Will Trump pardon Diddy in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 2,
+        "reasons": [
+          "delta_threshold"
+        ],
+        "g": 0.0012645913781293766,
+        "details": {
+          "g_required": 0.0013645913781293766,
+          "g_current": 0.0012645913781293766,
+          "delta_threshold": 0.0001
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "will-the-us-confirm-that-aliens-exist-in-2025",
+        "question": "Will the US confirm that aliens exist in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 3,
+        "reasons": [
+          "delta_threshold"
+        ],
+        "g": 0.0006980672897139899,
+        "details": {
+          "g_required": 0.00079806728971399,
+          "g_current": 0.0006980672897139899,
+          "delta_threshold": 0.0001
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "interstellar-object-an-alien",
+        "question": "Interstellar object confirmed aliens?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 4,
+        "reasons": [
+          "delta_threshold"
+        ],
+        "g": 0.0006236888289685542,
+        "details": {
+          "g_required": 0.000723688828968556,
+          "g_current": 0.000623688828968556,
+          "delta_threshold": 0.0001
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "xi-jinping-out-in-2025",
+        "question": "Xi Jinping out in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 5,
+        "reasons": [
+          "delta_threshold"
+        ],
+        "g": 0.0005984816506331953,
+        "details": {
+          "g_required": 0.0006984816506331954,
+          "g_current": 0.0005984816506331953,
+          "delta_threshold": 0.0001
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "will-trump-pardon-himself-in-2025-587",
+        "question": "Will Trump pardon Himself in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 6,
+        "reasons": [
+          "delta_threshold"
+        ],
+        "g": 0.000587303590517116,
+        "details": {
+          "g_required": 0.0006873035905171177,
+          "g_current": 0.0005873035905171177,
+          "delta_threshold": 0.0001
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "will-trump-pardon-elon-musk-in-2025-917",
+        "question": "Will Trump pardon Elon Musk in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 7,
+        "reasons": [
+          "portfolio_cap"
+        ],
+        "g": 0.0005243784171026708,
+        "details": {
+          "parent_cap_pct": 0.2,
+          "month_cap_pct": 0.35,
+          "parent_usage": 197.82611915107844,
+          "month_usage": 350.1570840760028
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "will-china-invade-taiwan-in-2025",
+        "question": "Will China invade Taiwan in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 8,
+        "reasons": [
+          "portfolio_cap"
+        ],
+        "g": 0.0005086890138248958,
+        "details": {
+          "parent_cap_pct": 0.2,
+          "month_cap_pct": 0.35,
+          "parent_usage": 0.0,
+          "month_usage": 350.1570840760028
+        }
+      },
+      {
+        "type": "skip",
+        "market_id": "will-trump-pardon-hunter-biden-in-2025-336",
+        "question": "Will Trump pardon Hunter Biden in 2025?",
+        "outcome": "No",
+        "side": "No",
+        "rank": 9,
+        "reasons": [
+          "portfolio_cap"
+        ],
+        "g": 0.000290752015182104,
+        "details": {
+          "parent_cap_pct": 0.2,
+          "month_cap_pct": 0.35,
+          "parent_usage": 197.82611915107844,
+          "month_usage": 350.1570840760028
+        }
+      }
+    ],
+    "opportunities": [
+      {
+        "market_id": "will-trump-meet-with-xi-jinping-by-october-31",
+        "outcome": "Yes",
+        "question": "Will Trump meet with Xi Jinping by October 31?",
+        "best_ask": 0.97,
+        "resolution_days": 2.169338742037037,
+        "g": 0.009421216803567292,
+        "capacity_value": 1602.5855000000001,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 1
+      },
+      {
+        "market_id": "will-trump-pardon-diddy-in-2025-669",
+        "outcome": "No",
+        "question": "Will Trump pardon Diddy in 2025?",
+        "best_ask": 0.92,
+        "resolution_days": 63.6693698742824,
+        "g": 0.0012645913781293766,
+        "capacity_value": 468.14200000000005,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 2
+      },
+      {
+        "market_id": "will-the-us-confirm-that-aliens-exist-in-2025",
+        "outcome": "No",
+        "question": "Will the US confirm that aliens exist in 2025?",
+        "best_ask": 0.955,
+        "resolution_days": 63.6693147257176,
+        "g": 0.0006980672897139899,
+        "capacity_value": 490.54529999999994,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 3
+      },
+      {
+        "market_id": "interstellar-object-an-alien",
+        "outcome": "No",
+        "question": "Interstellar object confirmed aliens?",
+        "best_ask": 0.96,
+        "resolution_days": 63.169298038692126,
+        "g": 0.0006236888289685542,
+        "capacity_value": 211.152,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 4
+      },
+      {
+        "market_id": "xi-jinping-out-in-2025",
+        "outcome": "No",
+        "question": "Xi Jinping out in 2025?",
+        "best_ask": 0.961,
+        "resolution_days": 64.16585030185185,
+        "g": 0.0005984816506331953,
+        "capacity_value": 320066.6238,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 5
+      },
+      {
+        "market_id": "will-trump-pardon-himself-in-2025-587",
+        "outcome": "No",
+        "question": "Will Trump pardon Himself in 2025?",
+        "best_ask": 0.962,
+        "resolution_days": 63.66934645603009,
+        "g": 0.000587303590517116,
+        "capacity_value": 10.76478,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 6
+      },
+      {
+        "market_id": "will-trump-pardon-elon-musk-in-2025-917",
+        "outcome": "No",
+        "question": "Will Trump pardon Elon Musk in 2025?",
+        "best_ask": 0.966,
+        "resolution_days": 63.669353960300924,
+        "g": 0.0005243784171026708,
+        "capacity_value": 284.96999999999997,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 7
+      },
+      {
+        "market_id": "will-china-invade-taiwan-in-2025",
+        "outcome": "No",
+        "question": "Will China invade Taiwan in 2025?",
+        "best_ask": 0.967,
+        "resolution_days": 63.66930627341435,
+        "g": 0.0005086890138248958,
+        "capacity_value": 1736.17114,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 8
+      },
+      {
+        "market_id": "will-trump-pardon-hunter-biden-in-2025-336",
+        "outcome": "No",
+        "question": "Will Trump pardon Hunter Biden in 2025?",
+        "best_ask": 0.981,
+        "resolution_days": 63.669361575023146,
+        "g": 0.000290752015182104,
+        "capacity_value": 619.992,
+        "slippage_bps": null,
+        "status": "eligible",
+        "reasons": [],
+        "rank": 9
+      },
+      {
+        "market_id": "will-manchester-united-win-the-202526-english-premier-league",
+        "outcome": "No",
+        "question": "Will Manchester United win the 2025\u201326 English Premier League?",
+        "best_ask": 0.962,
+        "resolution_days": 210.16933084568288,
+        "g": 0.00017985821718484777,
+        "capacity_value": 227.03199999999998,
+        "slippage_bps": null,
+        "status": "blocked",
+        "reasons": [
+          "day_bounds"
+        ],
+        "rank": null
+      }
+    ]
+  },
+  "mode": "live"
+}
