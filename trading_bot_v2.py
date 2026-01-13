@@ -778,6 +778,8 @@ class TradingBotApp(tk.Tk):
             on_trade=self._on_bot_trade,
             on_opportunity=self._on_bot_opportunity,
             on_message=self._on_bot_message,
+            on_positions_updated=self._on_bot_positions_updated,
+            on_scan_complete=self._on_bot_scan_complete,
         )
         
         # Initialize insider detector - SIMPLE: just trades over $10k
@@ -1397,13 +1399,27 @@ class TradingBotApp(tk.Tk):
                 fg=realized_color
             )
             
-            # Row 3: Update Timers
+            # Row 3: Update Timers - Read DIRECTLY from bot's timestamps for accuracy
             now = time.time()
             holdings_interval = self.bot.config.price_update_interval
             scan_interval = self.bot.config.scan_interval_seconds
             
-            holdings_remaining = max(0, holdings_interval - (now - self._last_holdings_update))
-            scan_remaining = max(0, scan_interval - (now - self._last_scan_update))
+            # Use bot's internal timestamps (set at START of operation) for accurate countdown
+            bot_holdings_time = getattr(self.bot, '_last_holdings_update_time', self._last_holdings_update)
+            bot_scan_time = getattr(self.bot, '_last_market_scan_time', self._last_scan_update)
+            
+            holdings_elapsed = now - bot_holdings_time
+            scan_elapsed = now - bot_scan_time
+            holdings_remaining = max(0, holdings_interval - holdings_elapsed)
+            scan_remaining = max(0, scan_interval - scan_elapsed)
+            
+            # DEBUG: Log timer values every 5 seconds when at 0
+            if holdings_remaining == 0 or scan_remaining == 0:
+                print(f"[UI TIMER DEBUG] now={now:.2f} | bot_holdings_time={bot_holdings_time:.2f} | bot_scan_time={bot_scan_time:.2f}")
+                print(f"[UI TIMER DEBUG] holdings_interval={holdings_interval}s | scan_interval={scan_interval}s")
+                print(f"[UI TIMER DEBUG] holdings_elapsed={holdings_elapsed:.1f}s | scan_elapsed={scan_elapsed:.1f}s")
+                print(f"[UI TIMER DEBUG] holdings_remaining={holdings_remaining:.1f}s | scan_remaining={scan_remaining:.1f}s")
+                print(f"[UI TIMER DEBUG] bot.is_running()={self.bot.is_running()} | bot._running={self.bot._running}")
             
             if self.bot.is_running():
                 self.ov_holdings_timer_card.value_label.configure(text=f"{holdings_remaining:.0f}s")
@@ -3840,6 +3856,16 @@ class TradingBotApp(tk.Tk):
         """Handle bot trade events (thread-safe)."""
         self.message_queue.put(("trade", trade))
     
+    def _on_bot_positions_updated(self) -> None:
+        """Handle bot position price updates (thread-safe)."""
+        print(f"[UI CALLBACK DEBUG] _on_bot_positions_updated() called at {time.time():.2f}, putting to queue")
+        self.message_queue.put(("holdings_updated", None))
+    
+    def _on_bot_scan_complete(self) -> None:
+        """Handle bot scan completion (thread-safe)."""
+        print(f"[UI CALLBACK DEBUG] _on_bot_scan_complete() called at {time.time():.2f}, putting to queue")
+        self.message_queue.put(("scan_detected", None))
+    
     def _on_bot_opportunity(self, opportunity: MarketOpportunity) -> None:
         """Handle new opportunity discovered - also add to insider monitoring."""
         self.market_opportunities[f"{opportunity.market_id}|{opportunity.outcome}"] = opportunity
@@ -3892,8 +3918,14 @@ class TradingBotApp(tk.Tk):
                     # Defer market display update
                     self.after(500, self._update_markets_display)
                 
+                elif msg_type == "scan_detected":
+                    # Bot's automatic scan completed (detected from message)
+                    print(f"[UI MSG DEBUG] Received 'scan_detected' message at {time.time():.2f}")
+                    self._on_scan_completed()
+                
                 elif msg_type == "holdings_updated":
                     # Update overview timer for holdings
+                    print(f"[UI MSG DEBUG] Received 'holdings_updated' message at {time.time():.2f}")
                     self._on_holdings_updated()
                 
                 elif msg_type == "insider_alert":
@@ -4483,8 +4515,9 @@ class TradingBotApp(tk.Tk):
         
         def fast_update():
             """FAST LOOP: Updates held positions every 5 seconds."""
-            # Update held positions in background (PRIORITY - these are our money!)
-            if not self._position_update_pending:
+            # Only update positions in background if bot is NOT running
+            # When bot is running, it handles position updates via _run_loop
+            if not self.bot.is_running() and not self._position_update_pending:
                 self._position_update_pending = True
                 threading.Thread(target=self._background_position_update, daemon=True).start()
             

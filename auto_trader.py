@@ -287,6 +287,8 @@ class AutoTradingBot:
         on_trade: Optional[Callable[[BotTrade], None]] = None,
         on_opportunity: Optional[Callable[[MarketOpportunity], None]] = None,
         on_message: Optional[Callable[[str, str], None]] = None,
+        on_positions_updated: Optional[Callable[[], None]] = None,
+        on_scan_complete: Optional[Callable[[], None]] = None,
     ):
         self.config = config or BotConfig()
         self.storage_path = storage_path or Path("bot_state.json")
@@ -295,6 +297,8 @@ class AutoTradingBot:
         self.on_trade = on_trade
         self.on_opportunity = on_opportunity
         self.on_message = on_message  # (message, type)
+        self.on_positions_updated = on_positions_updated  # Called after position prices updated
+        self.on_scan_complete = on_scan_complete  # Called after market scan completes
         
         # State
         self.cash_balance: float = self.config.initial_capital
@@ -314,6 +318,10 @@ class AutoTradingBot:
         self._buys_paused = False  # When True, skip new buy trades but allow sells
         self._thread: Optional[threading.Thread] = None
         self._trade_counter = 0
+        
+        # Timing - track when operations ACTUALLY occur (for UI sync)
+        self._last_holdings_update_time: float = 0.0
+        self._last_market_scan_time: float = 0.0
         
         # Market tracking for diversity
         self._scanned_times: Dict[str, datetime] = {}  # market_id -> last scan time
@@ -401,15 +409,16 @@ class AutoTradingBot:
     
     def scan_markets(self) -> List[MarketOpportunity]:
         """Scan Polymarket for trading opportunities."""
-        self._log("Scanning new markets for opportunities...", "info")
-        
+        print(f"[TIMING DEBUG] scan_markets() ENTER at {time.time():.2f}")
         opportunities = []
         skipped_owned = 0
         now = datetime.now(timezone.utc)
         
         try:
             # Fetch active markets from Polymarket API
+            fetch_start = time.time()
             markets = self._fetch_active_markets()
+            print(f"[TIMING DEBUG] scan_markets() _fetch_active_markets took {time.time() - fetch_start:.2f}s, got {len(markets)} markets")
             
             owned_market_ids = {t.market_id for t in self.open_trades.values()}
             
@@ -441,8 +450,8 @@ class AutoTradingBot:
             # Log summary
             buy_count = sum(1 for o in opportunities if o.decision == BotDecision.BUY)
             self._log(
-                f"Analyzed {len(opportunities)} markets | {buy_count} BUY signals | "
-                f"Skipped {skipped_owned} owned | {len(self.open_trades)} positions open",
+                f"📊 Analyzed {len(opportunities)} markets | {buy_count} BUY signals | "
+                f"Skipped {skipped_owned} owned",
                 "success"
             )
             
@@ -450,9 +459,20 @@ class AutoTradingBot:
             cutoff = now - timedelta(hours=1)
             self._scanned_times = {k: v for k, v in self._scanned_times.items() if v > cutoff}
             
+            # Notify UI that scan completed
+            print(f"[TIMING DEBUG] scan_markets() done, calling on_scan_complete callback at {time.time():.2f}")
+            if self.on_scan_complete:
+                try:
+                    self.on_scan_complete()
+                    print(f"[TIMING DEBUG] scan_markets() on_scan_complete callback fired successfully")
+                except Exception as e:
+                    print(f"[TIMING DEBUG] scan_markets() on_scan_complete callback ERROR: {e}")
+            
         except Exception as e:
             self._log(f"❌ Scan failed: {e}", "error")
+            print(f"[TIMING DEBUG] scan_markets() ERROR: {e}")
         
+        print(f"[TIMING DEBUG] scan_markets() EXIT at {time.time():.2f}")
         return opportunities
     
     def _fetch_active_markets(self) -> List[Dict]:
@@ -1053,92 +1073,122 @@ class AutoTradingBot:
         return trade
     
     def update_positions(self) -> None:
-        """Update prices and check stop-loss/take-profit for open positions.
-        PRIORITY SYSTEM: Held positions update FAST, others update slower."""
+        """Update prices and check stop-loss/take-profit for open positions."""
+        print(f"[TIMING DEBUG] update_positions() ENTER at {time.time():.2f}")
         
-        if not self.open_trades:
+        # Prevent concurrent calls with a lock
+        if not hasattr(self, '_update_positions_lock'):
+            import threading
+            self._update_positions_lock = threading.Lock()
+        
+        if not self._update_positions_lock.acquire(blocking=False):
+            print(f"[TIMING DEBUG] update_positions() SKIPPED - already running")
             return
         
-        # ALL held positions get updated every call (priority)
-        market_slugs = list(set(trade.market_id for trade in self.open_trades.values()))
-        
-        # Fetch ALL held position prices (no limit - these are critical)
-        market_prices = {}  # market_id -> {outcome -> price}
-        
-        for slug in market_slugs:
-            try:
-                url = f"{GAMMA_API_BASE}/markets"
-                response = requests.get(url, params={"slug": slug}, timeout=5)  # 5s timeout for held positions
-                if response.ok:
-                    data = response.json()
-                    market_data = data[0] if isinstance(data, list) and data else data if isinstance(data, dict) else None
+        try:
+            if not self.open_trades:
+                print(f"[TIMING DEBUG] update_positions() no open trades")
+                return
+            
+            # Collect all token IDs from held positions
+            token_to_trade = {}  # token_id -> trade
+            for trade in self.open_trades.values():
+                if trade.token_id:
+                    token_to_trade[trade.token_id] = trade
+            
+            print(f"[TIMING DEBUG] update_positions() updating {len(token_to_trade)} positions with token IDs...")
+            
+            # Use CLOB /price endpoint with PARALLEL requests via ThreadPoolExecutor
+            # This fetches all prices concurrently in ~0.3-0.5s instead of sequentially
+            prices_by_token = {}
+            fetch_start = time.time()
+            
+            if token_to_trade:
+                from concurrent.futures import ThreadPoolExecutor, as_completed
+                
+                def fetch_single_price(token_id):
+                    """Fetch price for a single token."""
+                    try:
+                        url = f"{CLOB_API_BASE}/price"
+                        response = requests.get(url, params={"token_id": token_id}, timeout=(0.5, 1.0))
+                        if response.ok:
+                            data = response.json()
+                            # Response format: {"price": "0.55"} or similar
+                            if isinstance(data, dict) and "price" in data:
+                                return token_id, float(data["price"])
+                            elif isinstance(data, (int, float, str)):
+                                return token_id, float(data)
+                    except Exception:
+                        pass
+                    return token_id, None
+                
+                # Fetch all prices in parallel (max 10 concurrent requests)
+                with ThreadPoolExecutor(max_workers=10) as executor:
+                    futures = {executor.submit(fetch_single_price, tid): tid for tid in token_to_trade.keys()}
+                    for future in as_completed(futures, timeout=2.0):
+                        try:
+                            token_id, price = future.result()
+                            if price is not None:
+                                prices_by_token[token_id] = price
+                        except Exception:
+                            pass
+                
+                print(f"[TIMING DEBUG] update_positions() PARALLEL fetched {len(prices_by_token)}/{len(token_to_trade)} prices in {time.time() - fetch_start:.2f}s")
+            
+            fetch_duration = time.time() - fetch_start
+            print(f"[TIMING DEBUG] update_positions() price fetch took {fetch_duration:.2f}s")
+            
+            # Update all positions with fetched prices (or cached)
+            for trade_id, trade in list(self.open_trades.items()):
+                try:
+                    market_key = f"{trade.market_id}|{trade.outcome}"
+                    current_price = None
                     
-                    if market_data:
-                        prices = market_data.get("outcomePrices")
-                        outcomes = market_data.get("outcomes")
-                        
-                        if prices and outcomes:
-                            try:
-                                if isinstance(prices, str):
-                                    prices = json.loads(prices)
-                                if isinstance(outcomes, str):
-                                    outcomes = json.loads(outcomes)
-                                
-                                market_prices[slug] = {
-                                    outcomes[i]: float(prices[i]) 
-                                    for i in range(len(outcomes)) 
-                                    if i < len(prices)
-                                }
-                            except Exception:
-                                pass
-            except requests.Timeout:
-                self._log(f"⚠️ Timeout fetching {slug} - using cached price", "alert")
-                continue
-            except Exception:
-                continue
-        
-        # Now update all positions with fetched prices
-        for trade_id, trade in list(self.open_trades.items()):
-            try:
-                market_key = f"{trade.market_id}|{trade.outcome}"
-                current_price = None
-                
-                # Use batch-fetched price
-                if trade.market_id in market_prices:
-                    current_price = market_prices[trade.market_id].get(trade.outcome)
-                
-                # Fallback to scanned markets if API fetch failed
-                if current_price is None and market_key in self.scanned_markets:
-                    opp = self.scanned_markets[market_key]
-                    current_price = opp.price
-                
-                # Final fallback to current price if all else failed
-                if current_price is None:
-                    current_price = trade.current_price
-                
-                # Update trade
-                trade.current_price = current_price
-                trade.pnl = (current_price - trade.entry_price) * trade.shares
-                trade.pnl_pct = (current_price - trade.entry_price) / trade.entry_price if trade.entry_price > 0 else 0
-                
-                # Different thresholds for swing vs long trades
-                if trade.trade_type == "swing":
-                    stop_loss = self.config.swing_stop_loss_pct
-                    take_profit = self.config.swing_take_profit_pct
-                else:
-                    stop_loss = self.config.stop_loss_pct
-                    take_profit = self.config.take_profit_pct
-                
-                # Check stop-loss
-                if trade.pnl_pct <= -stop_loss:
-                    self._close_trade(trade, current_price, "stop_loss")
-                
-                # Check take-profit
-                elif trade.pnl_pct >= take_profit:
-                    self._close_trade(trade, current_price, "take_profit")
-                
-            except Exception:
-                continue
+                    # First try: Use batch-fetched CLOB price (by token_id)
+                    if trade.token_id and trade.token_id in prices_by_token:
+                        try:
+                            current_price = float(prices_by_token[trade.token_id])
+                        except (ValueError, TypeError):
+                            pass
+                    
+                    # Second try: Use cached price from scan_markets()
+                    if current_price is None and market_key in self.scanned_markets:
+                        current_price = self.scanned_markets[market_key].price
+                    
+                    # Last resort: Keep existing price
+                    if current_price is None:
+                        current_price = trade.current_price
+                    
+                    trade.current_price = current_price
+                    trade.pnl = (current_price - trade.entry_price) * trade.shares
+                    trade.pnl_pct = (current_price - trade.entry_price) / trade.entry_price if trade.entry_price > 0 else 0
+                    
+                    if trade.trade_type == "swing":
+                        stop_loss = self.config.swing_stop_loss_pct
+                        take_profit = self.config.swing_take_profit_pct
+                    else:
+                        stop_loss = self.config.stop_loss_pct
+                        take_profit = self.config.take_profit_pct
+                    
+                    if trade.pnl_pct <= -stop_loss:
+                        self._close_trade(trade, current_price, "stop_loss")
+                    elif trade.pnl_pct >= take_profit:
+                        self._close_trade(trade, current_price, "take_profit")
+                except Exception:
+                    continue
+            
+            # Notify UI
+            print(f"[TIMING DEBUG] update_positions() done, calling callback at {time.time():.2f}")
+            if self.on_positions_updated:
+                try:
+                    self.on_positions_updated()
+                    print(f"[TIMING DEBUG] update_positions() callback fired")
+                except Exception as e:
+                    print(f"[TIMING DEBUG] update_positions() callback ERROR: {e}")
+                    
+        finally:
+            self._update_positions_lock.release()
+            print(f"[TIMING DEBUG] update_positions() EXIT at {time.time():.2f}")
     
     def _close_trade(self, trade: BotTrade, exit_price: float, reason: str) -> None:
         """Close a trade with realistic execution simulation."""
@@ -1390,6 +1440,14 @@ class AutoTradingBot:
             return
         
         self._running = True
+        # Initialize timestamps so UI timers work immediately
+        now = time.time()
+        self._last_holdings_update_time = now
+        self._last_market_scan_time = now
+        print(f"[TIMING DEBUG] start() called at {now:.2f}")
+        print(f"[TIMING DEBUG] _last_holdings_update_time set to {self._last_holdings_update_time:.2f}")
+        print(f"[TIMING DEBUG] _last_market_scan_time set to {self._last_market_scan_time:.2f}")
+        
         self._thread = threading.Thread(target=self._run_loop, daemon=True)
         self._thread.start()
         
@@ -1404,59 +1462,118 @@ class AutoTradingBot:
         return self._running
     
     def _run_loop(self) -> None:
-        """Main trading loop."""
+        """Main trading loop with separate timers for holdings updates and market scans."""
+        # Initialize from instance variables (set in start()) for proper timing
+        last_holdings_update = self._last_holdings_update_time
+        last_market_scan = self._last_market_scan_time
+        
+        loop_count = 0
+        print(f"[TIMING DEBUG] _run_loop started at {time.time():.2f}")
+        print(f"[TIMING DEBUG] Initial last_holdings_update: {last_holdings_update:.2f}")
+        print(f"[TIMING DEBUG] Initial last_market_scan: {last_market_scan:.2f}")
+        print(f"[TIMING DEBUG] price_update_interval: {self.config.price_update_interval}s")
+        print(f"[TIMING DEBUG] scan_interval_seconds: {self.config.scan_interval_seconds}s")
+        
         while self._running:
             try:
-                # First, ALWAYS check if we need to clean up stagnant positions
-                positions_used = len(self.open_trades)
-                positions_limit = self.config.max_positions
-                long_count = sum(1 for t in self.open_trades.values() if getattr(t, 'trade_type', 'long') == "long")
-                cash_low = self.cash_balance < 200  # Less than $200 cash
-                at_long_limit = long_count >= self.config.max_long_term_positions
-                near_capacity = positions_used >= (positions_limit - 3)
+                loop_start = time.time()
+                now = loop_start
+                loop_count += 1
                 
-                # Clean up if at any limit
-                if near_capacity or cash_low or at_long_limit:
-                    self._log(f"📊 Capacity check: {positions_used}/{positions_limit} pos, {long_count}/{self.config.max_long_term_positions} long, ${self.cash_balance:.0f} cash", "info")
-                    freed = self._cleanup_stagnant_positions(min_positions_to_free=8)
-                    if freed == 0 and near_capacity:
-                        # Force sell the worst performers if still at capacity
-                        self._force_sell_worst_performers(count=5)
+                # Calculate time since last operations
+                holdings_elapsed = now - last_holdings_update
+                scan_elapsed = now - last_market_scan
+                holdings_remaining = self.config.price_update_interval - holdings_elapsed
+                scan_remaining = self.config.scan_interval_seconds - scan_elapsed
                 
-                # Scan for opportunities
-                opportunities = self.scan_markets()
+                # Log every loop iteration
+                print(f"[LOOP #{loop_count}] now={now:.2f} | Holdings: elapsed={holdings_elapsed:.1f}s, remaining={holdings_remaining:.1f}s | Scan: elapsed={scan_elapsed:.1f}s, remaining={scan_remaining:.1f}s")
                 
-                # Execute trades on ALL buy opportunities (not just top 5)
-                buy_opportunities = [o for o in opportunities if o.decision == BotDecision.BUY]
-                executed = 0
+                # Check if it's time to update holdings (more frequent)
+                if holdings_elapsed >= self.config.price_update_interval:
+                    print(f"[TIMING DEBUG] >>> HOLDINGS UPDATE TRIGGERED at {now:.2f} (elapsed={holdings_elapsed:.1f}s >= interval={self.config.price_update_interval}s)")
+                    # Reset timer FIRST so UI doesn't show 0 during the update
+                    last_holdings_update = now
+                    self._last_holdings_update_time = now  # For UI sync
+                    print(f"[TIMING DEBUG] >>> Holdings timer reset to {now:.2f}, _last_holdings_update_time set")
+                    
+                    num_positions = len(self.open_trades)
+                    if num_positions > 0:
+                        self._log(f"🔄 Refreshing {num_positions} held position(s)...", "info")
+                    
+                    update_start = time.time()
+                    self.update_positions()
+                    update_duration = time.time() - update_start
+                    print(f"[TIMING DEBUG] >>> update_positions() took {update_duration:.2f}s")
                 
-                # Check if buys are paused by UI
-                if self._buys_paused:
-                    if buy_opportunities:
-                        self._log(f"⏸️ Buys paused - skipping {len(buy_opportunities)} buy opportunities", "alert")
-                else:
-                    for opp in buy_opportunities[:20]:  # Try up to 20 opportunities
-                        result = self.execute_trade(opp)
-                        if result:
-                            executed += 1
-                            if executed >= 5:  # Max 5 trades per scan cycle
-                                break
+                # Check if it's time to scan for new opportunities (less frequent)
+                if scan_elapsed >= self.config.scan_interval_seconds:
+                    print(f"[TIMING DEBUG] >>> MARKET SCAN TRIGGERED at {now:.2f} (elapsed={scan_elapsed:.1f}s >= interval={self.config.scan_interval_seconds}s)")
+                    # Reset timer FIRST so UI doesn't show 0 during the scan
+                    last_market_scan = now
+                    self._last_market_scan_time = now  # For UI sync
+                    print(f"[TIMING DEBUG] >>> Scan timer reset to {now:.2f}, _last_market_scan_time set")
+                    
+                    self._log(f"🔍 Starting market scan (interval: {self.config.scan_interval_seconds}s)...", "info")
+                    
+                    # First, check if we need to clean up stagnant positions
+                    positions_used = len(self.open_trades)
+                    positions_limit = self.config.max_positions
+                    long_count = sum(1 for t in self.open_trades.values() if getattr(t, 'trade_type', 'long') == "long")
+                    cash_low = self.cash_balance < 200  # Less than $200 cash
+                    at_long_limit = long_count >= self.config.max_long_term_positions
+                    near_capacity = positions_used >= (positions_limit - 3)
+                    
+                    # Clean up if at any limit
+                    if near_capacity or cash_low or at_long_limit:
+                        self._log(f"📊 Capacity check: {positions_used}/{positions_limit} pos, {long_count}/{self.config.max_long_term_positions} long, ${self.cash_balance:.0f} cash", "info")
+                        freed = self._cleanup_stagnant_positions(min_positions_to_free=8)
+                        if freed == 0 and near_capacity:
+                            # Force sell the worst performers if still at capacity
+                            self._force_sell_worst_performers(count=5)
+                    
+                    # Scan for opportunities
+                    scan_start = time.time()
+                    opportunities = self.scan_markets()
+                    scan_duration = time.time() - scan_start
+                    print(f"[TIMING DEBUG] >>> scan_markets() took {scan_duration:.2f}s")
+                    
+                    # Execute trades on ALL buy opportunities (not just top 5)
+                    buy_opportunities = [o for o in opportunities if o.decision == BotDecision.BUY]
+                    executed = 0
+                    
+                    # Check if buys are paused by UI
+                    if self._buys_paused:
+                        if buy_opportunities:
+                            self._log(f"⏸️ Buys paused - skipping {len(buy_opportunities)} buy opportunities", "alert")
+                    else:
+                        for opp in buy_opportunities[:20]:  # Try up to 20 opportunities
+                            result = self.execute_trade(opp)
+                            if result:
+                                executed += 1
+                                if executed >= 5:  # Max 5 trades per scan cycle
+                                    break
+                    
+                    if buy_opportunities and executed == 0 and len(self.open_trades) >= positions_limit - 2:
+                        self._log(f"⚠️ At capacity ({positions_used}/{positions_limit}). Selling stagnant positions...", "alert")
+                        self._cleanup_stagnant_positions(min_positions_to_free=10)
+                    
+                    self._log(f"✅ Market scan complete - found {len(buy_opportunities)} opportunities, executed {executed} trades", "info")
+                    print(f"[TIMING DEBUG] >>> Full scan cycle complete")
                 
-                if buy_opportunities and executed == 0 and len(self.open_trades) >= positions_limit - 2:
-                    self._log(f"⚠️ At capacity ({positions_used}/{positions_limit}). Selling stagnant positions...", "alert")
-                    self._cleanup_stagnant_positions(min_positions_to_free=10)
+                # Calculate loop duration
+                loop_duration = time.time() - loop_start
+                if loop_duration > 0.5:
+                    print(f"[TIMING DEBUG] !!! Loop #{loop_count} took {loop_duration:.2f}s (SLOW)")
                 
-                # Update existing positions
-                self.update_positions()
-                
-                # Wait before next scan
-                for _ in range(self.config.scan_interval_seconds):
-                    if not self._running:
-                        break
-                    time.sleep(1)
+                # Sleep for 1 second before checking again
+                time.sleep(1)
                     
             except Exception as e:
                 self._log(f"Error in trading loop: {e}", "error")
+                print(f"[TIMING DEBUG] ERROR in loop: {e}")
+                import traceback
+                traceback.print_exc()
                 time.sleep(10)
     
     # -------------------------------------------------------------------------
