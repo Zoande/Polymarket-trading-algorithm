@@ -25,6 +25,13 @@ from polymarket_api import (
     get_best_bid,
 )
 
+# Import cloud sync for multi-user support
+try:
+    from cloud_sync import get_cloud_sync, CloudSync
+    CLOUD_SYNC_AVAILABLE = True
+except ImportError:
+    CLOUD_SYNC_AVAILABLE = False
+
 # Import news analyzer for sentiment-based trading
 try:
     from news_analyzer import NewsAnalyzer, MarketCategory, MarketSignal, get_market_category_display, CATEGORY_KEYWORDS
@@ -330,6 +337,13 @@ class AutoTradingBot:
                 cache_duration_minutes=10,
                 on_signal=self._on_news_signal,
             )
+        
+        # Cloud sync for multi-user support
+        self._cloud_sync: Optional[CloudSync] = None
+        if CLOUD_SYNC_AVAILABLE:
+            self._cloud_sync = get_cloud_sync()
+            if self._cloud_sync.is_enabled():
+                self._log("☁️ Cloud sync enabled", "info")
         
         self._load()
     
@@ -1573,7 +1587,7 @@ class AutoTradingBot:
         return list(reversed(self.closed_trades[-limit:]))
     
     def _save(self) -> None:
-        """Save bot state."""
+        """Save bot state to local file and cloud (if enabled)."""
         try:
             data = {
                 "cash_balance": self.cash_balance,
@@ -1588,15 +1602,35 @@ class AutoTradingBot:
                 "trade_log": self.trade_log[-100:],  # Save last 100 trade log entries
                 "market_categories": self._market_categories,
             }
+            
+            # Save to local file
             self.storage_path.write_text(json.dumps(data, indent=2))
-        except Exception:
+            
+            # Save to cloud if enabled
+            if self._cloud_sync and self._cloud_sync.is_enabled():
+                self._cloud_sync.save_state(data)
+                
+        except Exception as e:
             pass
     
     def _load(self) -> None:
-        """Load bot state."""
+        """Load bot state from cloud (if enabled) or local file."""
         try:
-            if self.storage_path.exists():
+            data = None
+            
+            # Try loading from cloud first if enabled
+            if self._cloud_sync and self._cloud_sync.is_enabled():
+                data = self._cloud_sync.load_state()
+                if data:
+                    self._log("☁️ Loaded state from cloud", "info")
+            
+            # Fall back to local file if cloud didn't return data
+            if data is None and self.storage_path.exists():
                 data = json.loads(self.storage_path.read_text())
+                self._log("💾 Loaded state from local file", "info")
+            
+            # Apply the loaded data
+            if data:
                 self.cash_balance = data.get("cash_balance", self.config.initial_capital)
                 self.open_trades = {k: BotTrade.from_dict(v) for k, v in data.get("open_trades", {}).items()}
                 self.closed_trades = [BotTrade.from_dict(t) for t in data.get("closed_trades", [])]
@@ -1608,7 +1642,8 @@ class AutoTradingBot:
                 self._trade_counter = data.get("trade_counter", 0)
                 self.trade_log = data.get("trade_log", [])
                 self._market_categories = data.get("market_categories", {})
-        except Exception:
+                
+        except Exception as e:
             pass
     
     def reset(self) -> None:

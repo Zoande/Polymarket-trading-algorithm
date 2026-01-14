@@ -1,4 +1,4 @@
-schema_version: '1'
+schema_version: "1"
 mode: dry_run
 polling:
   interval_seconds: 60
@@ -23,7 +23,7 @@ global:
 markets:
   default:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -48,7 +48,7 @@ markets:
     cooldown_minutes: 15
   will-trump-pardon-diddy-in-2025-669:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -73,7 +73,7 @@ markets:
     cooldown_minutes: 15
   russia-x-ukraine-ceasefire-in-2025:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -98,7 +98,7 @@ markets:
     cooldown_minutes: 15
   will-trump-meet-with-xi-jinping-by-october-31:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -123,7 +123,7 @@ markets:
     cooldown_minutes: 15
   will-trump-pardon-hunter-biden-in-2025-336:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -148,7 +148,7 @@ markets:
     cooldown_minutes: 15
   will-trump-pardon-himself-in-2025-587:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -173,7 +173,7 @@ markets:
     cooldown_minutes: 15
   will-trump-pardon-elon-musk-in-2025-917:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -198,7 +198,7 @@ markets:
     cooldown_minutes: 15
   will-manchester-united-win-the-202526-english-premier-league:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -223,7 +223,7 @@ markets:
     cooldown_minutes: 15
   xi-jinping-out-in-2025:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -248,7 +248,7 @@ markets:
     cooldown_minutes: 15
   will-the-us-confirm-that-aliens-exist-in-2025:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -273,7 +273,7 @@ markets:
     cooldown_minutes: 15
   will-china-invade-taiwan-in-2025:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -298,7 +298,7 @@ markets:
     cooldown_minutes: 15
   interstellar-object-an-alien:
     enabled: true
-    side: 'yes'
+    side: "yes"
     auto_buy: true
     auto_sell: true
     max_allocation_pct: 0.2
@@ -321,3 +321,24 @@ markets:
     max_per_month_pct: null
     auto_buy_drop_freeze: true
     cooldown_minutes: 15
+
+# =============================================================================
+# CLOUD SYNC CONFIGURATION
+# =============================================================================
+# Enable this to sync bot data with your friend in real-time using Supabase.
+#
+# Setup Instructions:
+# 1. Create a free account at https://supabase.com
+# 2. Create a new project (any name, any region)
+# 3. Go to Settings > API in your project
+# 4. Copy 'Project URL' and paste it below as supabase_url
+# 5. Copy 'anon public' key and paste it below as supabase_key
+# 6. Go to SQL Editor and run the create_tables.sql file
+# 7. Set enabled: true below
+# 8. Share the same URL and key with your friend!
+#
+cloud_sync:
+  enabled: true
+  supabase_url: "https://xjjzmkxiallexvkrqtna.supabase.co"
+  supabase_key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhqanpta3hpYWxsZXh2a3JxdG5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0MTY2NjQsImV4cCI6MjA4Mzk5MjY2NH0.SHfSaFCvs7U9_9UjiGhpOxkHgyo5tRmhhV3VBA52hRc"
+  bot_instance_id: "shared_bot"

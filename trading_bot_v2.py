@@ -1122,161 +1122,99 @@ class TradingBotApp(tk.Tk):
         row1 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
         row1.pack(fill=tk.X, padx=10, pady=5)
         
+        # Starting Capital (reference point)
+        self.ov_starting_card = self._create_overview_card(
+            row1, "🏦 Starting Capital", "$10,000.00", "Initial investment", wide=True
+        )
+        self.ov_starting_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
         # Total Portfolio Value (Big hero card)
         self.ov_portfolio_card = self._create_overview_card(
-            row1, "💰 Total Portfolio", "$0.00", "Cash + Positions", wide=True
+            row1, "💰 Current Value", "$0.00", "Cash + Open Positions", wide=True
         )
         self.ov_portfolio_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # Profit/Loss Card
+        # Total Profit/Loss Card (the key number!)
         self.ov_profit_card = self._create_overview_card(
-            row1, "📈 Total Return", "$0.00 (0.0%)", "From initial capital", wide=True
+            row1, "📈 Total Profit/Loss", "$0.00 (0.0%)", "Realized + Unrealized", wide=True
         )
         self.ov_profit_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         # =====================================================================
-        # Row 2: Cash & Position Values
+        # Row 2: Cash & Position Breakdown
         # =====================================================================
         row2 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
         row2.pack(fill=tk.X, padx=10, pady=5)
         
         self.ov_cash_card = self._create_overview_card(
-            row2, "💵 Cash Balance", "$0.00", "Available to trade"
+            row2, "💵 Cash Available", "$0.00", "Ready to trade"
         )
         self.ov_cash_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         self.ov_positions_value_card = self._create_overview_card(
-            row2, "📊 Positions Value", "$0.00", "Current market value"
+            row2, "📊 In Positions", "$0.00", "Invested in markets"
         )
         self.ov_positions_value_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_realized_card = self._create_overview_card(
+            row2, "✅ Realized P&L", "$0.00", "From closed trades"
+        )
+        self.ov_realized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         self.ov_unrealized_card = self._create_overview_card(
             row2, "📉 Unrealized P&L", "$0.00", "Open positions gain/loss"
         )
         self.ov_unrealized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        self.ov_realized_card = self._create_overview_card(
-            row2, "✅ Realized P&L", "$0.00", "Closed trades profit"
-        )
-        self.ov_realized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
         # =====================================================================
-        # Row 3: Update Timers
+        # Row 3: Trading Performance
         # =====================================================================
         row3 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
         row3.pack(fill=tk.X, padx=10, pady=5)
         
-        self.ov_holdings_timer_card = self._create_overview_card(
-            row3, "⏱️ Holdings Update", "—", "Price refresh for positions"
+        self.ov_positions_count_card = self._create_overview_card(
+            row3, "📋 Open Positions", "0 / 0", "Current / Maximum"
         )
-        self.ov_holdings_timer_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        self.ov_positions_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        self.ov_scan_timer_card = self._create_overview_card(
-            row3, "🔍 Market Scan", "—", "New opportunity search"
+        self.ov_total_trades_card = self._create_overview_card(
+            row3, "🔢 Total Trades", "0", "All-time trades"
         )
-        self.ov_scan_timer_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        self.ov_total_trades_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        self.ov_last_scan_card = self._create_overview_card(
-            row3, "📡 Last Scan", "Never", "Most recent scan time"
+        self.ov_win_rate_card = self._create_overview_card(
+            row3, "🏆 Win Rate", "0%", "Wins / Losses"
         )
-        self.ov_last_scan_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        self.ov_win_rate_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        self.ov_markets_scanned_card = self._create_overview_card(
-            row3, "🔎 Markets Analyzed", "0", "This session"
+        self.ov_avg_pnl_card = self._create_overview_card(
+            row3, "📊 Avg Position P&L", "0%", "Open positions average"
         )
-        self.ov_markets_scanned_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        self.ov_avg_pnl_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         # =====================================================================
-        # Row 4: Position Stats
+        # Row 4: Best/Worst & Alerts
         # =====================================================================
         row4 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
         row4.pack(fill=tk.X, padx=10, pady=5)
         
-        self.ov_positions_count_card = self._create_overview_card(
-            row4, "📋 Open Positions", "0 / 0", "Current / Maximum"
-        )
-        self.ov_positions_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_swing_count_card = self._create_overview_card(
-            row4, "⚡ Swing Trades", "0 / 0", "Short-term positions"
-        )
-        self.ov_swing_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_long_count_card = self._create_overview_card(
-            row4, "📅 Long-Term", "0 / 0", "Positions > 7 days"
-        )
-        self.ov_long_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_cash_reserve_card = self._create_overview_card(
-            row4, "🛡️ Cash Reserve", "0%", "Uninvested portion"
-        )
-        self.ov_cash_reserve_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        # =====================================================================
-        # Row 5: Performance Stats
-        # =====================================================================
-        row5 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
-        row5.pack(fill=tk.X, padx=10, pady=5)
-        
-        self.ov_win_rate_card = self._create_overview_card(
-            row5, "🏆 Win Rate", "0%", "Winning / Total trades"
-        )
-        self.ov_win_rate_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_total_trades_card = self._create_overview_card(
-            row5, "🔢 Total Trades", "0", "Lifetime trades"
-        )
-        self.ov_total_trades_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_avg_pnl_card = self._create_overview_card(
-            row5, "📊 Avg Position P&L", "0%", "Average open position"
-        )
-        self.ov_avg_pnl_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_largest_position_card = self._create_overview_card(
-            row5, "⚠️ Largest Position", "0%", "% of portfolio"
-        )
-        self.ov_largest_position_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        # =====================================================================
-        # Row 6: Best/Worst Performers
-        # =====================================================================
-        row6 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
-        row6.pack(fill=tk.X, padx=10, pady=5)
-        
         self.ov_best_position_card = self._create_overview_card(
-            row6, "🚀 Best Performer", "—", "Highest P&L %", wide=True
+            row4, "🚀 Best Position", "—", "Highest gain"
         )
         self.ov_best_position_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
         self.ov_worst_position_card = self._create_overview_card(
-            row6, "📉 Worst Performer", "—", "Lowest P&L %", wide=True
+            row4, "📉 Worst Position", "—", "Biggest loss"
         )
         self.ov_worst_position_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # =====================================================================
-        # Row 7: Expiring Positions & Signals
-        # =====================================================================
-        row7 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
-        row7.pack(fill=tk.X, padx=10, pady=5)
-        
         self.ov_expiring_soon_card = self._create_overview_card(
-            row7, "⏳ Expiring < 24h", "0", "Positions resolving soon"
+            row4, "⏳ Expiring < 24h", "0", "Resolving soon"
         )
         self.ov_expiring_soon_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        self.ov_expiring_week_card = self._create_overview_card(
-            row7, "📅 Expiring < 7d", "0", "Resolving this week"
-        )
-        self.ov_expiring_week_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_buy_signals_card = self._create_overview_card(
-            row7, "💡 Buy Signals", "0", "Recent opportunities"
-        )
-        self.ov_buy_signals_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
         self.ov_alerts_card = self._create_overview_card(
-            row7, "🔔 Active Alerts", "0", "Insider activity alerts"
+            row4, "🔔 Active Alerts", "0", "Insider activity"
         )
         self.ov_alerts_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
@@ -1356,8 +1294,17 @@ class TradingBotApp(tk.Tk):
             positions_value = sum(t.shares * t.current_price for t in self.bot.open_trades.values())
             portfolio_value = stats['portfolio_value']
             initial_capital = self.bot.config.initial_capital
-            profit_dollars = portfolio_value - initial_capital
-            profit_pct = (profit_dollars / initial_capital * 100) if initial_capital > 0 else 0
+            
+            # TRUE Total profit = Portfolio Value - Starting Capital
+            # This is the most accurate measure of profit/loss
+            total_profit = portfolio_value - initial_capital
+            total_profit_pct = (total_profit / initial_capital * 100) if initial_capital > 0 else 0
+            
+            # Unrealized P&L (current gains/losses on open positions)
+            unrealized_pnl = stats['unrealized_pnl']
+            
+            # Realized P&L from tracking (may be inaccurate, but show it for reference)
+            tracked_realized_pnl = stats['total_pnl']
             
             # Update bot status
             if self.bot.is_running():
@@ -1367,76 +1314,42 @@ class TradingBotApp(tk.Tk):
                 self.overview_status_dot.configure(fg=Theme.TEXT_MUTED)
                 self.overview_status_text.configure(text="Bot Idle", fg=Theme.TEXT_MUTED)
             
-            # Row 1: Portfolio & Profit
+            # Row 1: Starting Capital, Current Value, Total Profit
+            self.ov_starting_card.value_label.configure(text=f"${initial_capital:,.2f}")
             self.ov_portfolio_card.value_label.configure(text=f"${portfolio_value:,.2f}")
             
-            profit_color = Theme.ACCENT_GREEN if profit_dollars >= 0 else Theme.ACCENT_RED
-            profit_sign = "+" if profit_dollars >= 0 else ""
+            profit_color = Theme.ACCENT_GREEN if total_profit >= 0 else Theme.ACCENT_RED
+            profit_sign = "+" if total_profit >= 0 else ""
             self.ov_profit_card.value_label.configure(
-                text=f"{profit_sign}${profit_dollars:,.2f} ({profit_sign}{profit_pct:.1f}%)",
+                text=f"{profit_sign}${total_profit:,.2f} ({profit_sign}{total_profit_pct:.1f}%)",
                 fg=profit_color
             )
             
-            # Row 2: Cash & Positions
+            # Row 2: Cash, Positions Value, Realized P&L, Unrealized P&L
             self.ov_cash_card.value_label.configure(text=f"${stats['cash_balance']:,.2f}")
             self.ov_positions_value_card.value_label.configure(text=f"${positions_value:,.2f}")
             
-            unrealized = stats['unrealized_pnl']
-            unrealized_color = Theme.ACCENT_GREEN if unrealized >= 0 else Theme.ACCENT_RED
-            unrealized_sign = "+" if unrealized >= 0 else ""
-            self.ov_unrealized_card.value_label.configure(
-                text=f"{unrealized_sign}${unrealized:,.2f}",
-                fg=unrealized_color
-            )
-            
-            realized = stats['total_pnl']
-            realized_color = Theme.ACCENT_GREEN if realized >= 0 else Theme.ACCENT_RED
-            realized_sign = "+" if realized >= 0 else ""
+            realized_color = Theme.ACCENT_GREEN if tracked_realized_pnl >= 0 else Theme.ACCENT_RED
+            realized_sign = "+" if tracked_realized_pnl >= 0 else ""
             self.ov_realized_card.value_label.configure(
-                text=f"{realized_sign}${realized:,.2f}",
+                text=f"{realized_sign}${tracked_realized_pnl:,.2f}",
                 fg=realized_color
             )
             
-            # Row 3: Update Timers
-            now = time.time()
-            holdings_interval = self.bot.config.price_update_interval
-            scan_interval = self.bot.config.scan_interval_seconds
+            unrealized_color = Theme.ACCENT_GREEN if unrealized_pnl >= 0 else Theme.ACCENT_RED
+            unrealized_sign = "+" if unrealized_pnl >= 0 else ""
+            self.ov_unrealized_card.value_label.configure(
+                text=f"{unrealized_sign}${unrealized_pnl:,.2f}",
+                fg=unrealized_color
+            )
             
-            holdings_remaining = max(0, holdings_interval - (now - self._last_holdings_update))
-            scan_remaining = max(0, scan_interval - (now - self._last_scan_update))
-            
-            if self.bot.is_running():
-                self.ov_holdings_timer_card.value_label.configure(text=f"{holdings_remaining:.0f}s")
-                self.ov_scan_timer_card.value_label.configure(text=f"{scan_remaining:.0f}s")
-            else:
-                self.ov_holdings_timer_card.value_label.configure(text="Paused")
-                self.ov_scan_timer_card.value_label.configure(text="Paused")
-            
-            # Last scan time from bot's scanned markets
-            if self.bot._scanned_times:
-                last_scan_time = max(self.bot._scanned_times.values())
-                last_scan_str = last_scan_time.strftime("%H:%M:%S")
-                self.ov_last_scan_card.value_label.configure(text=last_scan_str)
-            
-            self.ov_markets_scanned_card.value_label.configure(text=str(len(self.bot.scanned_markets)))
-            
-            # Row 4: Position Stats
+            # Row 3: Position Stats & Performance
             open_count = len(self.bot.open_trades)
             max_positions = self.bot.config.max_positions
             self.ov_positions_count_card.value_label.configure(text=f"{open_count} / {max_positions}")
             
-            swing_count = sum(1 for t in self.bot.open_trades.values() if getattr(t, 'trade_type', 'long') == 'swing')
-            long_count = open_count - swing_count
-            max_swing = self.bot.config.max_swing_positions
-            max_long = self.bot.config.max_long_term_positions
+            self.ov_total_trades_card.value_label.configure(text=str(stats['total_trades']))
             
-            self.ov_swing_count_card.value_label.configure(text=f"{swing_count} / {max_swing}")
-            self.ov_long_count_card.value_label.configure(text=f"{long_count} / {max_long}")
-            
-            cash_reserve_pct = (stats['cash_balance'] / portfolio_value * 100) if portfolio_value > 0 else 100
-            self.ov_cash_reserve_card.value_label.configure(text=f"{cash_reserve_pct:.1f}%")
-            
-            # Row 5: Performance Stats
             win_rate = stats['win_rate']
             self.ov_win_rate_card.value_label.configure(
                 text=f"{win_rate:.1f}%",
@@ -1445,8 +1358,6 @@ class TradingBotApp(tk.Tk):
             self.ov_win_rate_card.subtitle_label.configure(
                 text=f"{stats['winning_trades']}W / {stats['losing_trades']}L"
             )
-            
-            self.ov_total_trades_card.value_label.configure(text=str(stats['total_trades']))
             
             # Average P&L of open positions
             if self.bot.open_trades:
@@ -1459,22 +1370,7 @@ class TradingBotApp(tk.Tk):
             else:
                 self.ov_avg_pnl_card.value_label.configure(text="—", fg=Theme.TEXT_PRIMARY)
             
-            # Largest position
-            if self.bot.open_trades and portfolio_value > 0:
-                largest = max(self.bot.open_trades.values(), key=lambda t: t.shares * t.current_price)
-                largest_pct = (largest.shares * largest.current_price) / portfolio_value * 100
-                self.ov_largest_position_card.value_label.configure(
-                    text=f"{largest_pct:.1f}%",
-                    fg=Theme.ACCENT_YELLOW if largest_pct > self.bot.config.max_portfolio_pct * 100 else Theme.TEXT_PRIMARY
-                )
-                self.ov_largest_position_card.subtitle_label.configure(
-                    text=largest.question[:25] + "..."
-                )
-            else:
-                self.ov_largest_position_card.value_label.configure(text="—")
-                self.ov_largest_position_card.subtitle_label.configure(text="No positions")
-            
-            # Row 6: Best/Worst Performers
+            # Row 4: Best/Worst Performers, Expiring, Alerts
             if self.bot.open_trades:
                 sorted_by_pnl = sorted(self.bot.open_trades.values(), key=lambda t: t.pnl_pct, reverse=True)
                 
@@ -1483,42 +1379,31 @@ class TradingBotApp(tk.Tk):
                     text=f"+{best.pnl_pct*100:.1f}%" if best.pnl_pct >= 0 else f"{best.pnl_pct*100:.1f}%",
                     fg=Theme.ACCENT_GREEN if best.pnl_pct >= 0 else Theme.ACCENT_RED
                 )
-                self.ov_best_position_card.subtitle_label.configure(text=best.question[:35] + "...")
+                self.ov_best_position_card.subtitle_label.configure(text=best.question[:30] + "...")
                 
                 worst = sorted_by_pnl[-1]
                 self.ov_worst_position_card.value_label.configure(
                     text=f"{worst.pnl_pct*100:+.1f}%",
                     fg=Theme.ACCENT_GREEN if worst.pnl_pct >= 0 else Theme.ACCENT_RED
                 )
-                self.ov_worst_position_card.subtitle_label.configure(text=worst.question[:35] + "...")
+                self.ov_worst_position_card.subtitle_label.configure(text=worst.question[:30] + "...")
             else:
                 self.ov_best_position_card.value_label.configure(text="—", fg=Theme.TEXT_PRIMARY)
                 self.ov_best_position_card.subtitle_label.configure(text="No positions")
                 self.ov_worst_position_card.value_label.configure(text="—", fg=Theme.TEXT_PRIMARY)
                 self.ov_worst_position_card.subtitle_label.configure(text="No positions")
             
-            # Row 7: Expiring & Signals
-            now_dt = datetime.now(timezone.utc)
+            # Expiring positions
             expiring_24h = 0
-            expiring_7d = 0
-            
             for trade in self.bot.open_trades.values():
                 days_left = getattr(trade, 'resolution_days', 999)
                 if days_left < 1:
                     expiring_24h += 1
-                if days_left < 7:
-                    expiring_7d += 1
             
             self.ov_expiring_soon_card.value_label.configure(
                 text=str(expiring_24h),
                 fg=Theme.ACCENT_RED if expiring_24h > 0 else Theme.TEXT_PRIMARY
             )
-            self.ov_expiring_week_card.value_label.configure(text=str(expiring_7d))
-            
-            # Buy signals from scanned markets
-            buy_signals = sum(1 for opp in self.bot.scanned_markets.values() 
-                             if opp.decision.value == 'buy')
-            self.ov_buy_signals_card.value_label.configure(text=str(buy_signals))
             
             # Alerts count
             alerts_count = len(self.insider_detector.get_alerts())
@@ -4397,7 +4282,7 @@ class TradingBotApp(tk.Tk):
                 self.trade_log_text.insert(tk.END, f"[{time_str}] ", "timestamp")
                 
                 result = entry.get('result', 'UNKNOWN')
-                pnl = entry.get('pnl', 0)
+                pnl = entry.get('pnl') or 0  # Handle None values
                 
                 if result == "WIN":
                     self.trade_log_text.insert(tk.END, "SELL ", "sell_win")
