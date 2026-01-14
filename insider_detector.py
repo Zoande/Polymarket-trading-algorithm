@@ -153,13 +153,22 @@ class InsiderDetector:
     - Unusual trading patterns before major events
     """
     
+    # Default data directory
+    _DEFAULT_DATA_DIR = Path(__file__).parent / "data"
+    
     def __init__(
         self,
         config: Optional[InsiderDetectorConfig] = None,
         storage_path: Optional[Path] = None,
     ):
         self.config = config or InsiderDetectorConfig()
-        self.storage_path = storage_path or Path("insider_alerts.json")
+        
+        # Use data directory for storage
+        if storage_path is None:
+            self._DEFAULT_DATA_DIR.mkdir(exist_ok=True)
+            self.storage_path = self._DEFAULT_DATA_DIR / "insider_alerts.json"
+        else:
+            self.storage_path = storage_path
         
         self.alerts: List[InsiderAlert] = []
         self.trader_profiles: Dict[str, TraderProfile] = {}

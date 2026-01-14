@@ -1,5 +1,12 @@
 schema_version: "1"
 mode: dry_run
+
+# Verbose logging settings - control bot "thoughts" visibility
+logging:
+  verbose_logging: true         # Show detailed bot activity
+  log_rejected_markets: true    # Log why markets are skipped
+  log_calculation_details: true # Log g-score, confidence breakdowns
+
 polling:
   interval_seconds: 60
   jitter_pct: 0.1

@@ -218,6 +218,11 @@ class BotConfig:
     use_news_analysis: bool = True  # Enable news sentiment analysis
     news_confidence_boost: float = 0.15  # Boost confidence when news aligns
     
+    # Verbose logging - shows detailed bot "thoughts" in activity panel
+    verbose_logging: bool = True  # Log all market evaluations
+    log_rejected_markets: bool = True  # Log why markets were skipped
+    log_calculation_details: bool = True  # Log g-score, confidence calculations
+    
     # Realistic execution simulation
     realistic_execution: bool = True  # Enable realistic order book simulation
     max_slippage_pct: float = 5.0  # Reject trades with > 5% slippage
@@ -287,6 +292,9 @@ class AutoTradingBot:
     
     EXCHANGE_FEE = 0.02  # 2% fee
     
+    # Default data directory
+    _DEFAULT_DATA_DIR = Path(__file__).parent / "data"
+    
     def __init__(
         self,
         config: Optional[BotConfig] = None,
@@ -296,7 +304,13 @@ class AutoTradingBot:
         on_message: Optional[Callable[[str, str], None]] = None,
     ):
         self.config = config or BotConfig()
-        self.storage_path = storage_path or Path("bot_state.json")
+        
+        # Use data directory for storage
+        if storage_path is None:
+            self._DEFAULT_DATA_DIR.mkdir(exist_ok=True)
+            self.storage_path = self._DEFAULT_DATA_DIR / "bot_state.json"
+        else:
+            self.storage_path = storage_path
         
         # Callbacks
         self.on_trade = on_trade
@@ -415,27 +429,41 @@ class AutoTradingBot:
     
     def scan_markets(self) -> List[MarketOpportunity]:
         """Scan Polymarket for trading opportunities."""
-        self._log("Scanning new markets for opportunities...", "info")
+        self._log("═" * 50, "info")
+        self._log("🔍 STARTING MARKET SCAN", "info")
+        self._log("═" * 50, "info")
         
         opportunities = []
         skipped_owned = 0
+        skipped_blacklist = 0
+        skipped_price = 0
+        skipped_time = 0
+        skipped_g_score = 0
+        evaluated_count = 0
         now = datetime.now(timezone.utc)
         
         try:
             # Fetch active markets from Polymarket API
             markets = self._fetch_active_markets()
+            self._log(f"📊 Fetched {len(markets)} active markets from API", "info")
             
             owned_market_ids = {t.market_id for t in self.open_trades.values()}
+            if self.config.verbose_logging:
+                self._log(f"📦 Currently holding {len(owned_market_ids)} positions", "info")
             
             for market in markets[:self.config.max_markets_per_scan]:
                 try:
                     market_id = market.get("slug") or str(market.get("id"))
+                    question = (market.get("question") or market.get("title", ""))[:50]
                     
                     # Skip if we already own this
                     if market_id in owned_market_ids:
                         skipped_owned += 1
+                        if self.config.log_rejected_markets:
+                            self._log(f"  ⏭️ SKIP (owned): {question}...", "info")
                         continue
                     
+                    evaluated_count += 1
                     opportunity = self._evaluate_market(market)
                     if opportunity:
                         # Mark as scanned
@@ -447,18 +475,42 @@ class AutoTradingBot:
                         if self.on_opportunity:
                             self.on_opportunity(opportunity)
                 except Exception as e:
+                    if self.config.verbose_logging:
+                        self._log(f"  ❌ Error evaluating market: {e}", "error")
                     continue
             
             # Sort by g_score (best opportunities first)
             opportunities.sort(key=lambda x: x.g_score, reverse=True)
             
-            # Log summary
+            # Log detailed summary
+            self._log("─" * 50, "info")
             buy_count = sum(1 for o in opportunities if o.decision == BotDecision.BUY)
-            self._log(
-                f"Analyzed {len(opportunities)} markets | {buy_count} BUY signals | "
-                f"Skipped {skipped_owned} owned | {len(self.open_trades)} positions open",
-                "success"
-            )
+            hold_count = sum(1 for o in opportunities if o.decision == BotDecision.HOLD)
+            skip_count = sum(1 for o in opportunities if o.decision == BotDecision.SKIP)
+            
+            self._log(f"📈 SCAN COMPLETE - Results:", "success")
+            self._log(f"   • Evaluated: {evaluated_count} markets", "info")
+            self._log(f"   • Opportunities found: {len(opportunities)}", "info")
+            self._log(f"   • BUY signals: {buy_count}", "success" if buy_count > 0 else "info")
+            self._log(f"   • HOLD signals: {hold_count}", "info")
+            self._log(f"   • SKIP signals: {skip_count}", "info")
+            self._log(f"   • Skipped (already owned): {skipped_owned}", "info")
+            self._log(f"   • Open positions: {len(self.open_trades)}", "info")
+            
+            # Log top opportunities
+            if opportunities and self.config.verbose_logging:
+                self._log("─" * 50, "info")
+                self._log("🏆 TOP 5 OPPORTUNITIES:", "info")
+                for i, opp in enumerate(opportunities[:5], 1):
+                    decision_emoji = "🟢" if opp.decision == BotDecision.BUY else "🟡"
+                    self._log(
+                        f"   {i}. {decision_emoji} G={opp.g_score:.4f} | ROI={opp.expected_roi:.1%} | "
+                        f"Conf={opp.confidence:.1%} | ${opp.price:.2f}",
+                        "info"
+                    )
+                    self._log(f"      └─ {opp.question[:60]}...", "info")
+            
+            self._log("═" * 50, "info")
             
             # Clean up old scanned times (keep only last hour)
             cutoff = now - timedelta(hours=1)
@@ -612,14 +664,19 @@ class AutoTradingBot:
         """Evaluate a market for trading opportunity."""
         market_id = market.get("slug") or str(market.get("id"))
         question = market.get("question") or market.get("title", "Unknown")
+        short_question = question[:45]
         
         # Skip blacklisted
         if market_id in self.blacklist:
+            if self.config.log_rejected_markets:
+                self._log(f"  ⛔ SKIP (blacklisted): {short_question}...", "info")
             return None
         
         # Get resolution time
         end_date = market.get("endDate")
         if not end_date:
+            if self.config.log_rejected_markets:
+                self._log(f"  ⏭️ SKIP (no end date): {short_question}...", "info")
             return None
         
         try:
@@ -629,6 +686,8 @@ class AutoTradingBot:
         
         # Check day bounds
         if resolution_days < self.config.min_days or resolution_days > self.config.max_days:
+            if self.config.log_rejected_markets:
+                self._log(f"  ⏭️ SKIP (time: {resolution_days:.1f}d): {short_question}...", "info")
             return None
         
         # Get token IDs and prices
@@ -678,16 +737,22 @@ class AutoTradingBot:
             
             # Check price bounds
             if price < self.config.min_price or price > self.config.max_price:
+                if self.config.log_rejected_markets:
+                    self._log(f"  ⏭️ SKIP (price ${price:.2f}): {short_question}...", "info")
                 continue
             
             # Calculate g (growth rate)
             g_score = self._compute_g(price, resolution_days)
             if g_score is None or g_score < self.config.min_g_score:
+                if self.config.log_rejected_markets and g_score is not None:
+                    self._log(f"  ⏭️ SKIP (g={g_score:.5f} < {self.config.min_g_score}): {short_question}...", "info")
                 continue
             
             # Calculate expected ROI
             expected_roi = (1 - self.EXCHANGE_FEE) * ((1.0 - price) / price)
             if expected_roi < self.config.min_expected_roi:
+                if self.config.log_rejected_markets:
+                    self._log(f"  ⏭️ SKIP (ROI {expected_roi:.1%} < {self.config.min_expected_roi:.1%}): {short_question}...", "info")
                 continue
             
             if g_score > best_g:
@@ -696,6 +761,13 @@ class AutoTradingBot:
                 # Calculate confidence based on various factors
                 volume = float(market.get("volumeNum") or market.get("volume") or 0)
                 liquidity = float(market.get("liquidity") or volume * 0.1)
+                
+                # Log that we're evaluating this market
+                if self.config.log_calculation_details:
+                    self._log(f"  📊 EVALUATING: {short_question}...", "info")
+                    self._log(f"      └─ Price: ${price:.3f} | Outcome: {outcome}", "info")
+                    self._log(f"      └─ Days to resolve: {resolution_days:.1f}", "info")
+                    self._log(f"      └─ Volume: ${volume:,.0f} | Liquidity: ${liquidity:,.0f}", "info")
                 
                 confidence = self._calculate_confidence(
                     price=price,
@@ -779,46 +851,62 @@ class AutoTradingBot:
     ) -> float:
         """Calculate confidence score (0-1)."""
         score = 0.5  # Base confidence
+        breakdown = []  # Track confidence factors for logging
         
         # Volume factor (higher volume = more confidence)
         if volume > 100000:
             score += 0.12
+            breakdown.append(f"vol>100k: +12%")
         elif volume > 50000:
             score += 0.08
+            breakdown.append(f"vol>50k: +8%")
         elif volume > 10000:
             score += 0.05
+            breakdown.append(f"vol>10k: +5%")
         elif volume > 5000:
-            score += 0.03  # Still give small boost for smaller markets
+            score += 0.03
+            breakdown.append(f"vol>5k: +3%")
         
         # Liquidity factor
         if liquidity > 10000:
             score += 0.08
+            breakdown.append(f"liq>10k: +8%")
         elif liquidity > 5000:
             score += 0.05
+            breakdown.append(f"liq>5k: +5%")
         elif liquidity > 1000:
             score += 0.02
+            breakdown.append(f"liq>1k: +2%")
         
         # Price factor (mid-range prices are more reliable)
         if 0.20 <= price <= 0.70:
             score += 0.08
+            breakdown.append(f"price-mid: +8%")
         elif 0.10 <= price <= 0.85:
             score += 0.04
+            breakdown.append(f"price-ok: +4%")
         
         # Time factor (not too short, not too long)
         if 7 <= resolution_days <= 30:
             score += 0.08
+            breakdown.append(f"time-ideal: +8%")
         elif 3 <= resolution_days <= 60:
             score += 0.05
+            breakdown.append(f"time-good: +5%")
         elif 0.5 <= resolution_days <= 90:
             score += 0.02
+            breakdown.append(f"time-ok: +2%")
         
         # G-score factor
         if g_score > 0.01:
             score += 0.05
+            breakdown.append(f"g>0.01: +5%")
         elif g_score > 0.005:
             score += 0.03
+            breakdown.append(f"g>0.005: +3%")
         
         # News sentiment boost (if available)
+        news_boost = 0
         if self._news_analyzer and market_id and question:
             try:
                 signal = self._news_analyzer.get_cached_signal(market_id)
@@ -829,12 +917,20 @@ class AutoTradingBot:
                 if signal:
                     # Boost confidence if news aligns with our position
                     if signal.recommendation == "BUY" and signal.confidence > 0.5:
-                        score += self.config.news_confidence_boost * signal.confidence
-                        self._log(f"📰 News boost for {question[:30]}...: +{signal.confidence:.1%}", "info")
+                        news_boost = self.config.news_confidence_boost * signal.confidence
+                        score += news_boost
+                        breakdown.append(f"news: +{news_boost:.0%}")
             except Exception:
                 pass
         
-        return min(score, 0.95)
+        final_score = min(score, 0.95)
+        
+        # Log confidence breakdown if enabled
+        if self.config.log_calculation_details:
+            self._log(f"      └─ G-Score: {g_score:.5f} (min: {self.config.min_g_score})", "info")
+            self._log(f"      └─ Confidence: {final_score:.1%} = 50% base + [{', '.join(breakdown)}]", "info")
+        
+        return final_score
     
     def _make_decision(
         self,
@@ -850,6 +946,8 @@ class AutoTradingBot:
         # Check confidence threshold
         if confidence < self.config.confidence_threshold:
             reasons.append(f"Low confidence ({confidence:.1%})")
+            if self.config.log_calculation_details:
+                self._log(f"      └─ ❌ DECISION: SKIP (confidence {confidence:.1%} < {self.config.confidence_threshold:.1%})", "info")
             return BotDecision.SKIP, reasons
         
         # Strong buy signals
@@ -857,16 +955,22 @@ class AutoTradingBot:
             reasons.append(f"High g-score: {g_score:.4f}")
             reasons.append(f"Expected ROI: {expected_roi:.1%}")
             reasons.append(f"Good confidence: {confidence:.1%}")
+            if self.config.log_calculation_details:
+                self._log(f"      └─ 🟢 DECISION: STRONG BUY (g={g_score:.4f}, ROI={expected_roi:.1%}, conf={confidence:.1%})", "success")
             return BotDecision.BUY, reasons
         
         # Normal buy signals
         if g_score > self.config.min_g_score and expected_roi > self.config.min_expected_roi:
             reasons.append(f"G-score: {g_score:.4f}")
             reasons.append(f"Expected ROI: {expected_roi:.1%}")
+            if self.config.log_calculation_details:
+                self._log(f"      └─ 🟢 DECISION: BUY (g={g_score:.4f}, ROI={expected_roi:.1%})", "success")
             return BotDecision.BUY, reasons
         
         # Hold if we have position
         reasons.append("Doesn't meet buy criteria")
+        if self.config.log_calculation_details:
+            self._log(f"      └─ 🟡 DECISION: HOLD (criteria not met)", "info")
         return BotDecision.HOLD, reasons
     
     # -------------------------------------------------------------------------
@@ -878,6 +982,8 @@ class AutoTradingBot:
         if opportunity.decision != BotDecision.BUY:
             return None
         
+        short_question = opportunity.question[:40]
+        
         # Determine if this is a swing trade (short-term, high-volume market)
         is_swing = (
             self.config.swing_trade_enabled and
@@ -885,19 +991,26 @@ class AutoTradingBot:
             opportunity.resolution_days <= 7
         )
         
+        trade_type = "swing" if is_swing else "long"
+        
         # Count current positions by type (handle missing trade_type for old trades)
         swing_count = sum(1 for t in self.open_trades.values() if getattr(t, 'trade_type', 'long') == "swing")
         long_count = sum(1 for t in self.open_trades.values() if getattr(t, 'trade_type', 'long') == "long")
         
+        # Log trade attempt
+        if self.config.verbose_logging:
+            self._log(f"💰 TRADE ATTEMPT: {short_question}...", "info")
+            self._log(f"   └─ Type: {trade_type.upper()} | Price: ${opportunity.price:.3f} | G={opportunity.g_score:.4f}", "info")
+        
         # Check position limits - LOG WHY WE SKIP
         if is_swing and swing_count >= self.config.max_swing_positions:
-            self._log(f"Skip: Max swing positions ({swing_count}/{self.config.max_swing_positions})", "info")
+            self._log(f"   └─ ❌ SKIP: Max swing positions ({swing_count}/{self.config.max_swing_positions})", "info")
             return None
         if not is_swing and long_count >= self.config.max_long_term_positions:
-            self._log(f"Skip: Max long positions ({long_count}/{self.config.max_long_term_positions})", "info")
+            self._log(f"   └─ ❌ SKIP: Max long positions ({long_count}/{self.config.max_long_term_positions})", "info")
             return None
         if len(self.open_trades) >= self.config.max_positions:
-            self._log(f"Skip: Max total positions ({len(self.open_trades)}/{self.config.max_positions})", "info")
+            self._log(f"   └─ ❌ SKIP: Max total positions ({len(self.open_trades)}/{self.config.max_positions})", "info")
             return None
         
         market_key = f"{opportunity.market_id}|{opportunity.outcome}"
@@ -905,7 +1018,9 @@ class AutoTradingBot:
         # Check if already have position
         for trade in self.open_trades.values():
             if trade.market_id == opportunity.market_id and trade.outcome == opportunity.outcome:
-                return None  # Silent skip - already own this
+                if self.config.verbose_logging:
+                    self._log(f"   └─ ⏭️ SKIP: Already own this position", "info")
+                return None
         
         # Determine trade size
         is_test_trade = force_test or (
@@ -937,13 +1052,17 @@ class AutoTradingBot:
             trade_label = "LONG"
         
         if position_value < 5:
-            self._log(f"Skip: Position value too small (${position_value:.2f})", "info")
+            self._log(f"   └─ ❌ SKIP: Position value too small (${position_value:.2f})", "info")
             return None
         
         # Check cash balance
         if position_value > self.cash_balance:
-            self._log(f"Skip: Not enough cash (need ${position_value:.2f}, have ${self.cash_balance:.2f})", "info")
+            self._log(f"   └─ ❌ SKIP: Not enough cash (need ${position_value:.2f}, have ${self.cash_balance:.2f})", "info")
             return None
+        
+        # Log trade sizing decision
+        if self.config.verbose_logging:
+            self._log(f"   └─ 💵 Size: ${position_value:.2f} ({trade_label}) | Cash: ${self.cash_balance:.2f}", "info")
         
         # =====================================================================
         # REALISTIC EXECUTION SIMULATION
@@ -1054,11 +1173,17 @@ class AutoTradingBot:
         cat_emoji = {"sports": "🏈", "politics": "🏛️", "crypto": "₿", "entertainment": "🎬", 
                      "finance": "📈", "technology": "💻", "world_events": "🌍"}.get(category, "📋")
         
-        self._log(
-            f"[{trade_label}] BOUGHT '{opportunity.question[:30]}...' "
-            f"| ${actual_cost:.0f} @ ${actual_entry_price:.3f}{slippage_info} | Vol: ${opportunity.volume/1000:.0f}k | {days_str}",
-            "trade"
-        )
+        # Comprehensive trade execution log
+        self._log("─" * 50, "info")
+        self._log(f"✅ TRADE EXECUTED: {trade_label}", "success")
+        self._log(f"   📋 {opportunity.question[:55]}...", "info")
+        self._log(f"   💵 Cost: ${actual_cost:.2f} | Shares: {actual_shares:.1f} @ ${actual_entry_price:.3f}", "info")
+        self._log(f"   📊 G-Score: {opportunity.g_score:.4f} | ROI: {opportunity.expected_roi:.1%} | Conf: {opportunity.confidence:.1%}", "info")
+        self._log(f"   {cat_emoji} Category: {category} | ⏰ Resolves: {days_str} | 💰 Vol: ${opportunity.volume/1000:.0f}k", "info")
+        if slippage_info:
+            self._log(f"   ⚡ Execution: {slippage_info}", "info")
+        self._log(f"   💳 Cash remaining: ${self.cash_balance:.2f} | Positions: {len(self.open_trades)}", "info")
+        self._log("─" * 50, "info")
         
         if self.on_trade:
             self.on_trade(trade)
@@ -1130,10 +1255,23 @@ class AutoTradingBot:
                 if current_price is None:
                     current_price = trade.current_price
                 
+                # Track old values for logging significant changes
+                old_price = trade.current_price
+                old_pnl_pct = trade.pnl_pct if hasattr(trade, 'pnl_pct') else 0
+                
                 # Update trade
                 trade.current_price = current_price
                 trade.pnl = (current_price - trade.entry_price) * trade.shares
                 trade.pnl_pct = (current_price - trade.entry_price) / trade.entry_price if trade.entry_price > 0 else 0
+                
+                # Log significant price changes (>5% change)
+                price_change_pct = abs(current_price - old_price) / old_price if old_price > 0 else 0
+                if price_change_pct > 0.05 and self.config.verbose_logging:
+                    direction = "📈" if current_price > old_price else "📉"
+                    self._log(
+                        f"{direction} Price move: {trade.question[:35]}... ${old_price:.3f}→${current_price:.3f} ({price_change_pct:+.1%}) | P&L: {trade.pnl_pct:+.1%}",
+                        "info"
+                    )
                 
                 # Different thresholds for swing vs long trades
                 if trade.trade_type == "swing":
@@ -1145,10 +1283,12 @@ class AutoTradingBot:
                 
                 # Check stop-loss
                 if trade.pnl_pct <= -stop_loss:
+                    self._log(f"⚠️ STOP-LOSS triggered at {trade.pnl_pct:.1%} (threshold: -{stop_loss:.0%})", "alert")
                     self._close_trade(trade, current_price, "stop_loss")
                 
                 # Check take-profit
                 elif trade.pnl_pct >= take_profit:
+                    self._log(f"🎯 TAKE-PROFIT triggered at {trade.pnl_pct:.1%} (threshold: +{take_profit:.0%})", "success")
                     self._close_trade(trade, current_price, "take_profit")
                 
             except Exception:
@@ -1258,6 +1398,7 @@ class AutoTradingBot:
         
         pnl_str = f"+${trade.pnl:.2f}" if trade.pnl >= 0 else f"-${abs(trade.pnl):.2f}"
         result = "WIN" if trade.pnl >= 0 else "LOSS"
+        result_emoji = "🟢" if trade.pnl >= 0 else "🔴"
         
         # Add to trade log
         self._add_to_trade_log(
@@ -1269,10 +1410,15 @@ class AutoTradingBot:
             result=result,
         )
         
-        self._log(
-            f"[{result}] SOLD '{trade.question[:30]}...' - {reason.upper()}{slippage_info} - P&L: {pnl_str} ({trade.pnl_pct:+.1%})",
-            "trade"
-        )
+        # Comprehensive sell log
+        self._log("─" * 50, "info")
+        self._log(f"{result_emoji} POSITION CLOSED: {result} - {reason.upper()}", "success" if trade.pnl >= 0 else "error")
+        self._log(f"   📋 {trade.question[:55]}...", "info")
+        self._log(f"   💵 Entry: ${trade.entry_price:.3f} → Exit: ${actual_exit_price:.3f}{slippage_info}", "info")
+        self._log(f"   📊 Shares: {trade.shares:.1f} | Proceeds: ${proceeds:.2f}", "info")
+        self._log(f"   💰 P&L: {pnl_str} ({trade.pnl_pct:+.1%})", "success" if trade.pnl >= 0 else "error")
+        self._log(f"   💳 Cash now: ${self.cash_balance:.2f} | Positions: {len(self.open_trades)}", "info")
+        self._log("─" * 50, "info")
         
         if self.on_trade:
             self.on_trade(trade)
@@ -1398,21 +1544,57 @@ class AutoTradingBot:
     # Auto-Trading Loop
     # -------------------------------------------------------------------------
     
+    def _log_portfolio_summary(self) -> None:
+        """Log a comprehensive portfolio summary."""
+        if not self.config.verbose_logging:
+            return
+            
+        total_value = self.cash_balance
+        total_unrealized_pnl = 0
+        winning_positions = 0
+        losing_positions = 0
+        
+        for trade in self.open_trades.values():
+            position_value = trade.shares * trade.current_price
+            total_value += position_value
+            total_unrealized_pnl += trade.pnl
+            if trade.pnl >= 0:
+                winning_positions += 1
+            else:
+                losing_positions += 1
+        
+        win_rate = self.winning_trades / max(1, self.winning_trades + self.losing_trades) * 100
+        
+        self._log("╔" + "═" * 48 + "╗", "info")
+        self._log("║          📊 PORTFOLIO SUMMARY                  ║", "info")
+        self._log("╠" + "═" * 48 + "╣", "info")
+        self._log(f"║  💰 Total Value:     ${total_value:>12,.2f}           ║", "info")
+        self._log(f"║  💵 Cash Available:  ${self.cash_balance:>12,.2f}           ║", "info")
+        self._log(f"║  📈 Unrealized P&L:  ${total_unrealized_pnl:>+12,.2f}           ║", "info")
+        self._log(f"║  📊 Realized P&L:    ${self.total_pnl:>+12,.2f}           ║", "info")
+        self._log("╠" + "═" * 48 + "╣", "info")
+        self._log(f"║  📦 Open Positions:  {len(self.open_trades):>3} (🟢{winning_positions} / 🔴{losing_positions})        ║", "info")
+        self._log(f"║  ✅ Closed Trades:   {len(self.closed_trades):>3} ({win_rate:.0f}% win rate)        ║", "info")
+        self._log("╚" + "═" * 48 + "╝", "info")
+    
     def start(self) -> None:
         """Start auto-trading."""
         if self._running:
             return
         
         self._running = True
+        self._scan_count = 0  # Track scans for periodic summary
         self._thread = threading.Thread(target=self._run_loop, daemon=True)
         self._thread.start()
         
         self._log("Auto-trading bot started!", "success")
+        self._log_portfolio_summary()
     
     def stop(self) -> None:
         """Stop auto-trading."""
         self._running = False
         self._log("Auto-trading bot stopped", "info")
+        self._log_portfolio_summary()
     
     def is_running(self) -> bool:
         return self._running
@@ -1439,6 +1621,11 @@ class AutoTradingBot:
                 
                 # Scan for opportunities
                 opportunities = self.scan_markets()
+                self._scan_count = getattr(self, '_scan_count', 0) + 1
+                
+                # Log portfolio summary every 10 scans
+                if self._scan_count % 10 == 0:
+                    self._log_portfolio_summary()
                 
                 # Execute trades on ALL buy opportunities (not just top 5)
                 buy_opportunities = [o for o in opportunities if o.decision == BotDecision.BUY]

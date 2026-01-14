@@ -32,7 +32,7 @@
       "market_id": "khamenei-out-as-supreme-leader-of-iran-by-january-31",
       "question": "Khamenei out as Supreme Leader of Iran by January 31?",
       "token_id": "101434403359553929764780234916919166959889590658679054429843672204390513588056",
-      "added_at": "2026-01-14T11:24:48Z"
+      "added_at": "2026-01-14T20:17:59Z"
     },
     "will-trump-nominate-ron-paul-as-the-next-fed-chair": {
       "market_id": "will-trump-nominate-ron-paul-as-the-next-fed-chair",
@@ -65,7 +65,7 @@
       "market_id": "us-strikes-iran-by-january-16-2026-498-181-173-663",
       "question": "US strikes Iran by January 16, 2026?",
       "token_id": "71245395341640282981822050245876486438708685626052577722484604820158902803989",
-      "added_at": "2026-01-14T06:57:24Z"
+      "added_at": "2026-01-14T20:17:56Z"
     },
     "nba-sas-okc-2026-01-13": {
       "market_id": "nba-sas-okc-2026-01-13",
@@ -77,13 +77,13 @@
       "market_id": "us-strikes-iran-by-january-31-2026-165-644-953-482-164-893-945",
       "question": "US strikes Iran by January 31, 2026?",
       "token_id": "13294549611854156060952327202052855585194847446707854951585060180328600525494",
-      "added_at": "2026-01-14T11:24:47Z"
+      "added_at": "2026-01-14T20:17:53Z"
     },
     "will-the-iranian-regime-fall-by-january-31": {
       "market_id": "will-the-iranian-regime-fall-by-january-31",
       "question": "Will the Iranian regime fall by January 31?",
       "token_id": "7658808656738124231655982304932115710649774031219112698093176227109214699054",
-      "added_at": "2026-01-14T06:57:25Z"
+      "added_at": "2026-01-14T20:17:49Z"
     },
     "will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676": {
       "market_id": "will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676",
@@ -194,7 +194,7 @@
       "market_id": "khamenei-out-as-supreme-leader-of-iran-by-march-31",
       "question": "Khamenei out as Supreme Leader of Iran by March 31?",
       "token_id": "70771354585365381988139008309072205730081182435161568795508496003376222185889",
-      "added_at": "2026-01-14T07:24:44Z"
+      "added_at": "2026-01-14T20:17:55Z"
     },
     "will-the-buffalo-bills-win-super-bowl-2026": {
       "market_id": "will-the-buffalo-bills-win-super-bowl-2026",
@@ -1402,7 +1402,7 @@
       "market_id": "theo-fdv-above-1b-one-day-after-launch",
       "question": "Theo FDV above $1B one day after launch?",
       "token_id": "20578819632497094948919832231791927806037505104259258693847706947740485172298",
-      "added_at": "2026-01-14T11:24:48Z"
+      "added_at": "2026-01-14T20:17:52Z"
     },
     "will-joo-cotrim-figueiredo-win-the-1st-round-of-the-2026-portugal-presidential-election-in-the-lisbon-district": {
       "market_id": "will-joo-cotrim-figueiredo-win-the-1st-round-of-the-2026-portugal-presidential-election-in-the-lisbon-district",
@@ -1456,7 +1456,7 @@
       "market_id": "will-the-new-england-patriots-win-super-bowl-2026",
       "question": "Will the New England Patriots win Super Bowl 2026?",
       "token_id": "23108802207086798801173033667711295391410673134835650507670472347957366091390",
-      "added_at": "2026-01-14T06:54:48Z"
+      "added_at": "2026-01-14T20:56:54Z"
     },
     "will-tom-steyer-get-the-first-or-second-most-votes-in-the-2026-california-governor-primary-election": {
       "market_id": "will-tom-steyer-get-the-first-or-second-most-votes-in-the-2026-california-governor-primary-election",
@@ -1865,7 +1865,7 @@
       "market_id": "sea-cag-juv-2026-01-17-cag",
       "question": "Will Cagliari Calcio win on 2026-01-17?",
       "token_id": "108543732608459694742060991522866959582748515824772510589366361738782550020261",
-      "added_at": "2026-01-13T20:16:20Z"
+      "added_at": "2026-01-14T20:43:01Z"
     },
     "will-aston-villa-finish-in-the-top-4-of-the-epl-202526-standings": {
       "market_id": "will-aston-villa-finish-in-the-top-4-of-the-epl-202526-standings",
@@ -4495,6 +4495,2018 @@
       "question": "AI Industry Downturn by March 31, 2026?",
       "token_id": "61299930917982336025435641130574656076572546351772293236236392565933346041027",
       "added_at": "2026-01-13T22:44:56Z"
+    },
+    "will-elise-stefanik-win-the-2028-republican-presidential-nomination": {
+      "market_id": "will-elise-stefanik-win-the-2028-republican-presidential-nomination",
+      "question": "Will Elise Stefanik win the 2028 Republican presidential nomination?",
+      "token_id": "46762065358788748743762617584400316865170283087328708370205000691002445395596",
+      "volume": 8228929.733122,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-trump-nominate-bill-pulte-as-the-next-fed-chair": {
+      "market_id": "will-trump-nominate-bill-pulte-as-the-next-fed-chair",
+      "question": "Will Trump nominate Bill Pulte as the next Fed chair?",
+      "token_id": "8707393418896465550537491004148945001566800949202710797124018851880453264457",
+      "volume": 21773820.228131,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "nba-tor-ind-2026-01-14": {
+      "market_id": "nba-tor-ind-2026-01-14",
+      "question": "Raptors vs. Pacers",
+      "token_id": "13409645919418703562165477212065341512279921547494461478001930491306179801592",
+      "added_at": "2026-01-14T20:56:42Z"
+    },
+    "nba-uta-chi-2026-01-14": {
+      "market_id": "nba-uta-chi-2026-01-14",
+      "question": "Jazz vs. Bulls",
+      "token_id": "63101710507762176774755922872861085791953754689216395718738804635144610784107",
+      "volume": 955111.225045,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-roy-cooper-win-the-2028-democratic-presidential-nomination-286": {
+      "market_id": "will-roy-cooper-win-the-2028-democratic-presidential-nomination-286",
+      "question": "Will Roy Cooper win the 2028 Democratic presidential nomination?",
+      "token_id": "30732552320006664177902085971957467957450485111214036633872573588757974348601",
+      "volume": 12476721.013021,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-the-memphis-grizzlies-win-the-2026-nba-finals": {
+      "market_id": "will-the-memphis-grizzlies-win-the-2026-nba-finals",
+      "question": "Will the Memphis Grizzlies win the 2026 NBA Finals?",
+      "token_id": "14471701768196830630634668680091812585489580903183764961933738527738578243643",
+      "volume": 19708274.426378,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-evan-pettus-be-the-leader-of-venezuela-end-of-2026": {
+      "market_id": "will-evan-pettus-be-the-leader-of-venezuela-end-of-2026",
+      "question": "Will Evan Pettus be the leader of Venezuela end of 2026?",
+      "token_id": "29837838565073869827145553292583668903967817176034246371462591974518514238766",
+      "volume": 699545.0235,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "ethereum-up-or-down-january-14-3pm-et": {
+      "market_id": "ethereum-up-or-down-january-14-3pm-et",
+      "question": "Ethereum Up or Down - January 14, 3PM ET",
+      "token_id": "92985294014671403065625303071963234003129598121145327210009794280830094673100",
+      "volume": 502218.160906,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-trump-nominate-arthur-laffer-as-the-next-fed-chair": {
+      "market_id": "will-trump-nominate-arthur-laffer-as-the-next-fed-chair",
+      "question": "Will Trump nominate Arthur Laffer as the next Fed chair?",
+      "token_id": "102110965054889141204087078786638995691907331207010422719821820828048023654600",
+      "volume": 10023136.298664,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "us-strikes-iran-by-january-15-2026-652-612": {
+      "market_id": "us-strikes-iran-by-january-15-2026-652-612",
+      "question": "US strikes Iran by January 15, 2026?",
+      "token_id": "63895606811137777778164035323856866013451113033584421980103786609470037653963",
+      "volume": 1151157.615152,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-trump-nominate-philip-jefferson-as-the-next-fed-chair": {
+      "market_id": "will-trump-nominate-philip-jefferson-as-the-next-fed-chair",
+      "question": "Will Trump nominate Philip Jefferson as the next Fed chair?",
+      "token_id": "48736293153290177808826829086324607671667481734489071688928973450784973883505",
+      "volume": 5141300.440725,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "nba-den-dal-2026-01-14": {
+      "market_id": "nba-den-dal-2026-01-14",
+      "question": "Nuggets vs. Mavericks",
+      "token_id": "101476574642106380857162088291654749689613369410532648902003042224413504318958",
+      "added_at": "2026-01-14T20:56:45Z"
+    },
+    "will-sevilla-win-the-202526-la-liga": {
+      "market_id": "will-sevilla-win-the-202526-la-liga",
+      "question": "Will Sevilla win the 2025\u201326 La Liga?",
+      "token_id": "104364385439684219163817377040971595880501379287181011429785842872087429335711",
+      "volume": 3545732.809513,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "nba-cle-phi-2026-01-14": {
+      "market_id": "nba-cle-phi-2026-01-14",
+      "question": "Cavaliers vs. 76ers",
+      "token_id": "102093999549544027942043895425765362355543509399508012125620652089970203192230",
+      "added_at": "2026-01-14T20:56:47Z"
+    },
+    "bitcoin-up-or-down-january-14-3pm-et": {
+      "market_id": "bitcoin-up-or-down-january-14-3pm-et",
+      "question": "Bitcoin Up or Down - January 14, 3PM ET",
+      "token_id": "21486934479751078343952877023416941895967950141414450797715209655591015590162",
+      "volume": 406468.482999,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-bitcoin-reach-105k-in-january-2026": {
+      "market_id": "will-bitcoin-reach-105k-in-january-2026",
+      "question": "Will Bitcoin reach $105,000 in January?",
+      "token_id": "5890753752906002052534785499305647451620312211019774830504168272322511375782",
+      "added_at": "2026-01-14T20:58:33Z"
+    },
+    "will-ethereum-reach-4600-in-january-2026": {
+      "market_id": "will-ethereum-reach-4600-in-january-2026",
+      "question": "Will Ethereum reach $4,600 in January?",
+      "token_id": "27984456277874280390338361897928941670642907754100501787323559741852608915719",
+      "volume": 1516729.271134,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "nba-nyk-sac-2026-01-14": {
+      "market_id": "nba-nyk-sac-2026-01-14",
+      "question": "Knicks vs. Kings",
+      "token_id": "22122465653874781019676289016043243344051283701706410535159713745280277370361",
+      "added_at": "2026-01-14T20:56:50Z"
+    },
+    "will-bitcoin-reach-120k-in-january-2026": {
+      "market_id": "will-bitcoin-reach-120k-in-january-2026",
+      "question": "Will Bitcoin reach $120,000 in January?",
+      "token_id": "23954520594997768765877645026865162877108178537000661423769170112191516097356",
+      "volume": 2076032.906523,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-kim-kardashian-win-the-2028-republican-presidential-nomination": {
+      "market_id": "will-kim-kardashian-win-the-2028-republican-presidential-nomination",
+      "question": "Will Kim Kardashian win the 2028 Republican presidential nomination?",
+      "token_id": "10651968542740640896482407431367624536081358925965856338872110525887291512129",
+      "volume": 8996512.263964,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768506900": {
+      "market_id": "eth-updown-5m-1768506900",
+      "question": "Ethereum Up or Down - January 15, 2:55PM-3:00PM ET",
+      "token_id": "85902261731102087748431671072166001160444116871954500646870827347148304015572",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768506900": {
+      "market_id": "sol-updown-5m-1768506900",
+      "question": "Solana Up or Down - January 15, 2:55PM-3:00PM ET",
+      "token_id": "102691438808016397331284302439925662333001015448507938569480651004328086804421",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768506900": {
+      "market_id": "xrp-updown-5m-1768506900",
+      "question": "XRP Up or Down - January 15, 2:55PM-3:00PM ET",
+      "token_id": "102815715300995506347784320990926604706369756936157084534733557171576647662584",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768506900": {
+      "market_id": "btc-updown-5m-1768506900",
+      "question": "Bitcoin Up or Down - January 15, 2:55PM-3:00PM ET",
+      "token_id": "32417335855440284135210944888189161139856677435021902473817542360581934501167",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "us-mobileinternet-outages-caused-by-iran": {
+      "market_id": "us-mobileinternet-outages-caused-by-iran",
+      "question": "US mobile/internet outages caused by Iran?",
+      "token_id": "28435573844545233833807167539478636867626251624582194984681288753763270768824",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "us-forcibly-removes-khamenei-from-power-by-march-31": {
+      "market_id": "us-forcibly-removes-khamenei-from-power-by-march-31",
+      "question": "US forcibly removes Khamenei from power by March 31?",
+      "token_id": "83751741615482423548210430285996445637806152395299585281412857283206693411258",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-house-incumbents-not-win-in-more-than-fifteen-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-house-incumbents-not-win-in-more-than-fifteen-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic House incumbents not win in more than fifteen nominating elections in the 2026 cycle?",
+      "token_id": "101313263892942797820449986417343739651434504986390071424946051436429538023924",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-house-incumbents-not-win-in-between-ten-and-twelve-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-house-incumbents-not-win-in-between-ten-and-twelve-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic House incumbents not win in between ten and twelve nominating elections in the 2026 cycle?",
+      "token_id": "17972610624679517127262054229981683562086894472126949625769427736325964002189",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-house-incumbents-not-win-in-between-thirteen-and-fifteen-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-house-incumbents-not-win-in-between-thirteen-and-fifteen-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic House incumbents not win in between thirteen and fifteen nominating elections in the 2026 cycle?",
+      "token_id": "36087368699108837630068526518911366313227880114245979222947438453683556758111",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-house-incumbents-not-win-in-between-seven-and-nine-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-house-incumbents-not-win-in-between-seven-and-nine-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic House incumbents not win in between seven and nine nominating elections in the 2026 cycle?",
+      "token_id": "61569645404255728258034880900232154069864126111347760075858298497771392596261",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-house-incumbents-not-win-in-between-four-and-six-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-house-incumbents-not-win-in-between-four-and-six-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic House incumbents not win in between four and six nominating elections in the 2026 cycle?",
+      "token_id": "112512812049971030318594775213742917548833690085890279670946775909631461554878",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-house-incumbents-not-win-in-fewer-than-three-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-house-incumbents-not-win-in-fewer-than-three-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic House incumbents not win in fewer than three nominating elections in the 2026 cycle?",
+      "token_id": "4922858101891993317973090956426199126889194706037483998826954590755280826537",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768506600": {
+      "market_id": "sol-updown-5m-1768506600",
+      "question": "Solana Up or Down - January 15, 2:50PM-2:55PM ET",
+      "token_id": "68027319121523771682935927009809444198059301095076042843273136588306599358932",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768506600": {
+      "market_id": "eth-updown-5m-1768506600",
+      "question": "Ethereum Up or Down - January 15, 2:50PM-2:55PM ET",
+      "token_id": "96589435668738365644738613752779758887702575691159447917801996440361786820313",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768506600": {
+      "market_id": "xrp-updown-5m-1768506600",
+      "question": "XRP Up or Down - January 15, 2:50PM-2:55PM ET",
+      "token_id": "104897731073316250363146394484461954453489971124407044016340766224959260396647",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768506600": {
+      "market_id": "btc-updown-5m-1768506600",
+      "question": "Bitcoin Up or Down - January 15, 2:50PM-2:55PM ET",
+      "token_id": "103701514601735366045522036567076687930611325276649420491632784372926132467768",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-house-incumbents-not-win-in-more-than-fifteen-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-house-incumbents-not-win-in-more-than-fifteen-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican House incumbents not win in more than fifteen nominating elections in the 2026 cycle?",
+      "token_id": "43697661106139132419773585187886106203320732906584708348798041358649329039252",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-house-incumbents-not-win-in-between-seven-and-nine-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-house-incumbents-not-win-in-between-seven-and-nine-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican House incumbents not win in between seven and nine nominating elections in the 2026 cycle?",
+      "token_id": "89373461182969289579845172492872922158629123151223268658038449652837405119276",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-house-incumbents-not-win-in-between-thirteen-and-fifteen-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-house-incumbents-not-win-in-between-thirteen-and-fifteen-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican House incumbents not win in between thirteen and fifteen nominating elections in the 2026 cycle?",
+      "token_id": "30539481741900915205478863896530423654330693287078895672964604758297530843731",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-house-incumbents-not-win-in-between-ten-and-twelve-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-house-incumbents-not-win-in-between-ten-and-twelve-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican House incumbents not win in between ten and twelve nominating elections in the 2026 cycle?",
+      "token_id": "7803863184464146993115773330448529218170635474995115952766099510312723003472",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-house-incumbents-not-win-in-fewer-than-three-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-house-incumbents-not-win-in-fewer-than-three-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican House incumbents not win in fewer than three nominating elections in the 2026 cycle?",
+      "token_id": "104261134120343853622280944278231007806923775273920625091535282621751091388993",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "how-many-democratic-senate-incumbents-will-lose-more-than-four-nominating-elections-in-the-2026-cycle": {
+      "market_id": "how-many-democratic-senate-incumbents-will-lose-more-than-four-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic Senate incumbents not win in more than four nominating elections in the 2026 cycle?",
+      "token_id": "11853113819538008171515115538156739351424760377199362531292528198362870735348",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-senate-incumbents-not-win-in-exactly-three-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-senate-incumbents-not-win-in-exactly-three-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic Senate incumbents not win in exactly three nominating elections in the 2026 cycle?",
+      "token_id": "19786809551454884375866630595772425166527105166268927529033007128147776771548",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-senate-incumbents-not-win-in-exactly-four-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-senate-incumbents-not-win-in-exactly-four-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic Senate incumbents not win in exactly four nominating elections in the 2026 cycle?",
+      "token_id": "43348724835567200581736134257562779461624648463690015926489149039480420719881",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-house-incumbents-not-win-in-between-four-and-six-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-house-incumbents-not-win-in-between-four-and-six-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican House incumbents not win in between four and six nominating elections in the 2026 cycle?",
+      "token_id": "71990823545476172057397539228999083435242402644332688321711165550800328090716",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-senate-incumbents-win-all-their-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-senate-incumbents-win-all-their-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic Senate incumbents win all their nominating elections in the 2026 cycle?",
+      "token_id": "103985898194829307449653461161637243326370684460246055444724347882642172383340",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-senate-incumbents-not-win-in-exactly-two-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-democratic-senate-incumbents-not-win-in-exactly-two-nominating-elections-in-the-2026-cycle",
+      "question": "Will Democratic Senate incumbents not win in exactly two nominating elections in the 2026 cycle?",
+      "token_id": "96764835400081050213330198674078405318523525035215117935761636811547270254279",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-democratic-senate-incumbents-not-win-in-exactly-one-nominating-election-in-the-2026-cycle": {
+      "market_id": "will-democratic-senate-incumbents-not-win-in-exactly-one-nominating-election-in-the-2026-cycle",
+      "question": "Will Democratic Senate incumbents not win in exactly one nominating election in the 2026 cycle?",
+      "token_id": "64162053813749677626365810607018321056456602827695453804549279020944543781988",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-senate-incumbents-not-win-in-more-than-four-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-senate-incumbents-not-win-in-more-than-four-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican Senate incumbents not win in more than four nominating elections in the 2026 cycle?",
+      "token_id": "99949820195875612992810448039847840508153725698657233135087297464049362042096",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-15m-1768506300": {
+      "market_id": "eth-updown-15m-1768506300",
+      "question": "Ethereum Up or Down - January 15, 2:45PM-3:00PM ET",
+      "token_id": "99536946081160407800175054002345207515877028850866819540119671960766167366911",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-15m-1768506300": {
+      "market_id": "btc-updown-15m-1768506300",
+      "question": "Bitcoin Up or Down - January 15, 2:45PM-3:00PM ET",
+      "token_id": "104952186706754215363341147821456318090267805662013256988496517320996607797971",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-senate-incumbents-not-win-in-exactly-four-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-senate-incumbents-not-win-in-exactly-four-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican Senate incumbents not win in exactly four nominating elections in the 2026 cycle?",
+      "token_id": "40982291290098663489995146984129086254105650750610050784658023263219337668744",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-senate-incumbents-not-win-in-exactly-three-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-senate-incumbents-not-win-in-exactly-three-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican Senate incumbents not win in exactly three nominating elections in the 2026 cycle?",
+      "token_id": "13275343897819778860298610641923351374530256890451736198561181776186133508130",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-15m-1768506300": {
+      "market_id": "xrp-updown-15m-1768506300",
+      "question": "XRP Up or Down - January 15, 2:45PM-3:00PM ET",
+      "token_id": "4826427240664299375453316017653380533349964114959664258222003614904555445753",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-15m-1768506300": {
+      "market_id": "sol-updown-15m-1768506300",
+      "question": "Solana Up or Down - January 15, 2:45PM-3:00PM ET",
+      "token_id": "100269427158268678645449579667029404369972059016617984642976120750951935256789",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-senate-incumbents-not-win-in-exactly-two-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-senate-incumbents-not-win-in-exactly-two-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican Senate incumbents not win in exactly two nominating elections in the 2026 cycle?",
+      "token_id": "89706489272014519830482495343003902174114523098287660733837384909852080898452",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-senate-incumbents-not-win-in-exactly-one-nominating-election-in-the-2026-cycle": {
+      "market_id": "will-republican-senate-incumbents-not-win-in-exactly-one-nominating-election-in-the-2026-cycle",
+      "question": "Will Republican Senate incumbents not win in exactly one nominating election in the 2026 cycle?",
+      "token_id": "68000386383439445250763049994433314321054272178898123226578717057167871315433",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "will-republican-senate-incumbents-win-all-their-nominating-elections-in-the-2026-cycle": {
+      "market_id": "will-republican-senate-incumbents-win-all-their-nominating-elections-in-the-2026-cycle",
+      "question": "Will Republican Senate incumbents win all their nominating elections in the 2026 cycle?",
+      "token_id": "41854661401529481794091898784904268798746344680092598985833811747541514192789",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768506300": {
+      "market_id": "sol-updown-5m-1768506300",
+      "question": "Solana Up or Down - January 15, 2:45PM-2:50PM ET",
+      "token_id": "99004895701171451618954549633576376585245913804886592813411799825420630235601",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768506300": {
+      "market_id": "xrp-updown-5m-1768506300",
+      "question": "XRP Up or Down - January 15, 2:45PM-2:50PM ET",
+      "token_id": "70433135385478346282956384477150665377899507243659518942032518718473460581245",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768506300": {
+      "market_id": "btc-updown-5m-1768506300",
+      "question": "Bitcoin Up or Down - January 15, 2:45PM-2:50PM ET",
+      "token_id": "63691432905654828642196060165300316490959787422527555088290128139996282393654",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768506300": {
+      "market_id": "eth-updown-5m-1768506300",
+      "question": "Ethereum Up or Down - January 15, 2:45PM-2:50PM ET",
+      "token_id": "95698170583723872309664324148445446044743672683948167779511194185806988869854",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768506000": {
+      "market_id": "xrp-updown-5m-1768506000",
+      "question": "XRP Up or Down - January 15, 2:40PM-2:45PM ET",
+      "token_id": "108200308270001918004588540393516008060963308686990349281898451905861677316782",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768506000": {
+      "market_id": "sol-updown-5m-1768506000",
+      "question": "Solana Up or Down - January 15, 2:40PM-2:45PM ET",
+      "token_id": "100972033384121657503457942335972984307186651218141806108898050508989612595080",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768506000": {
+      "market_id": "eth-updown-5m-1768506000",
+      "question": "Ethereum Up or Down - January 15, 2:40PM-2:45PM ET",
+      "token_id": "59657214773246644511316775344126421724166644202449296405973795312718121209403",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768506000": {
+      "market_id": "btc-updown-5m-1768506000",
+      "question": "Bitcoin Up or Down - January 15, 2:40PM-2:45PM ET",
+      "token_id": "70357433649052341115672504659271935500814944308495759681500784511702613582849",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768505700": {
+      "market_id": "xrp-updown-5m-1768505700",
+      "question": "XRP Up or Down - January 15, 2:35PM-2:40PM ET",
+      "token_id": "25191403076594646268251724500975097110594641955024014698358707651256423128695",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768505700": {
+      "market_id": "eth-updown-5m-1768505700",
+      "question": "Ethereum Up or Down - January 15, 2:35PM-2:40PM ET",
+      "token_id": "9325460208467606088882491149716235902396756152071015100777492840596750123825",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768505700": {
+      "market_id": "btc-updown-5m-1768505700",
+      "question": "Bitcoin Up or Down - January 15, 2:35PM-2:40PM ET",
+      "token_id": "75119154872535470924708896693844521020329137029704178606986072413447320666890",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768505700": {
+      "market_id": "sol-updown-5m-1768505700",
+      "question": "Solana Up or Down - January 15, 2:35PM-2:40PM ET",
+      "token_id": "69811948893770953279648033996550006510529170493194128491359004124223802330577",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768487400": {
+      "market_id": "sol-updown-5m-1768487400",
+      "question": "Solana Up or Down - January 15, 9:30AM-9:35AM ET",
+      "token_id": "79881129074051741573020066054686857424270276331324787260164489785385581600137",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768495800": {
+      "market_id": "xrp-updown-5m-1768495800",
+      "question": "XRP Up or Down - January 15, 11:50AM-11:55AM ET",
+      "token_id": "76753226390484569024868477342649852630568229290561496640296236783086401764740",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768466100": {
+      "market_id": "sol-updown-5m-1768466100",
+      "question": "Solana Up or Down - January 15, 3:35AM-3:40AM ET",
+      "token_id": "113658587991099427195296581543839984277300021094972494886810320586962032780695",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768456800": {
+      "market_id": "eth-updown-5m-1768456800",
+      "question": "Ethereum Up or Down - January 15, 1:00AM-1:05AM ET",
+      "token_id": "35941595308789779120726144887495219277643474916652929156081353072951767768884",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768491900": {
+      "market_id": "xrp-updown-5m-1768491900",
+      "question": "XRP Up or Down - January 15, 10:45AM-10:50AM ET",
+      "token_id": "41473057298695980513626006488268219903483856126138561476081786718704813692842",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768457700": {
+      "market_id": "xrp-updown-5m-1768457700",
+      "question": "XRP Up or Down - January 15, 1:15AM-1:20AM ET",
+      "token_id": "56071280567153269113038133691286425232950950485354670548299032829474663992943",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768448700": {
+      "market_id": "eth-updown-5m-1768448700",
+      "question": "Ethereum Up or Down - January 14, 10:45PM-10:50PM ET",
+      "token_id": "67967961351783796368687648573416191258442586321354576296450417793767366966100",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768461300": {
+      "market_id": "btc-updown-5m-1768461300",
+      "question": "Bitcoin Up or Down - January 15, 2:15AM-2:20AM ET",
+      "token_id": "13631132388518601286418226826717069694956776019458780143747701845078522583384",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768500000": {
+      "market_id": "btc-updown-5m-1768500000",
+      "question": "Bitcoin Up or Down - January 15, 1:00PM-1:05PM ET",
+      "token_id": "56603839996490195236223414600830735046428442839978183105498490506231897386485",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768495800": {
+      "market_id": "sol-updown-5m-1768495800",
+      "question": "Solana Up or Down - January 15, 11:50AM-11:55AM ET",
+      "token_id": "64755677634883237321508130231943282648153552669551970209132288196578283814190",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768495800": {
+      "market_id": "eth-updown-5m-1768495800",
+      "question": "Ethereum Up or Down - January 15, 11:50AM-11:55AM ET",
+      "token_id": "4158854758445070902619953449251568940868049884731373485883447089849672707366",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768444500": {
+      "market_id": "xrp-updown-5m-1768444500",
+      "question": "XRP Up or Down - January 14, 9:35PM-9:40PM ET",
+      "token_id": "27411379770090400685623663433409438160720641613770191346196543542125641006956",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768444500": {
+      "market_id": "btc-updown-5m-1768444500",
+      "question": "Bitcoin Up or Down - January 14, 9:35PM-9:40PM ET",
+      "token_id": "89625935707082009650627279880193227295344907032207991091232425515054307484448",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768456800": {
+      "market_id": "sol-updown-5m-1768456800",
+      "question": "Solana Up or Down - January 15, 1:00AM-1:05AM ET",
+      "token_id": "96993844355030848945836896486434711941718790769939445761849996888129165407079",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768444500": {
+      "market_id": "eth-updown-5m-1768444500",
+      "question": "Ethereum Up or Down - January 14, 9:35PM-9:40PM ET",
+      "token_id": "31830449166081005554449234568042960410561213610561140172236216259817311296250",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768444500": {
+      "market_id": "sol-updown-5m-1768444500",
+      "question": "Solana Up or Down - January 14, 9:35PM-9:40PM ET",
+      "token_id": "83415256539737616363662825455873875336017279906374778172303262532350576824025",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768463400": {
+      "market_id": "xrp-updown-5m-1768463400",
+      "question": "XRP Up or Down - January 15, 2:50AM-2:55AM ET",
+      "token_id": "93349668687407944740040089417551489276311218992324004132360799064297222859187",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768449900": {
+      "market_id": "sol-updown-5m-1768449900",
+      "question": "Solana Up or Down - January 14, 11:05PM-11:10PM ET",
+      "token_id": "35240578578676173051395418537709531983593557347162332464878414390399138840624",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768449900": {
+      "market_id": "eth-updown-5m-1768449900",
+      "question": "Ethereum Up or Down - January 14, 11:05PM-11:10PM ET",
+      "token_id": "55095462270086584137904052306326715336150926493105797010720066620721830565077",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768456800": {
+      "market_id": "xrp-updown-5m-1768456800",
+      "question": "XRP Up or Down - January 15, 1:00AM-1:05AM ET",
+      "token_id": "72003395098107414682718383065728390904224749429913105773489719893113228020446",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768456800": {
+      "market_id": "btc-updown-5m-1768456800",
+      "question": "Bitcoin Up or Down - January 15, 1:00AM-1:05AM ET",
+      "token_id": "90497604719340844500578524169988860323208587911001528687539143844581768899669",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768463400": {
+      "market_id": "eth-updown-5m-1768463400",
+      "question": "Ethereum Up or Down - January 15, 2:50AM-2:55AM ET",
+      "token_id": "75686046388702343451163138585944554155398174233215710989918487530673027703317",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768460400": {
+      "market_id": "sol-updown-5m-1768460400",
+      "question": "Solana Up or Down - January 15, 2:00AM-2:05AM ET",
+      "token_id": "17288414708677134839676963175393983747072738272522745973000944061679420170310",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768449900": {
+      "market_id": "xrp-updown-5m-1768449900",
+      "question": "XRP Up or Down - January 14, 11:05PM-11:10PM ET",
+      "token_id": "114201909319685628154443296341172639577982155249281810833534561604612327941038",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768449900": {
+      "market_id": "btc-updown-5m-1768449900",
+      "question": "Bitcoin Up or Down - January 14, 11:05PM-11:10PM ET",
+      "token_id": "76178940600468587699366930913446181257984209070725569180796863811915599124599",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768446900": {
+      "market_id": "xrp-updown-5m-1768446900",
+      "question": "XRP Up or Down - January 14, 10:15PM-10:20PM ET",
+      "token_id": "88134499817964726080592324113785966885227001720651126375648271235653824946288",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768473300": {
+      "market_id": "btc-updown-5m-1768473300",
+      "question": "Bitcoin Up or Down - January 15, 5:35AM-5:40AM ET",
+      "token_id": "23088703945303324273329602190651597799243784239097405631720972960491192892002",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768457400": {
+      "market_id": "sol-updown-5m-1768457400",
+      "question": "Solana Up or Down - January 15, 1:10AM-1:15AM ET",
+      "token_id": "23333922597871739634757952685619649075809569721135094737660658010622111402490",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768446900": {
+      "market_id": "eth-updown-5m-1768446900",
+      "question": "Ethereum Up or Down - January 14, 10:15PM-10:20PM ET",
+      "token_id": "7653723884945402857712965067473689121952365498949338716692614006195455973984",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768457400": {
+      "market_id": "btc-updown-5m-1768457400",
+      "question": "Bitcoin Up or Down - January 15, 1:10AM-1:15AM ET",
+      "token_id": "18573462563654719822646559052064182776444561126161276091072398418515900797316",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768446900": {
+      "market_id": "btc-updown-5m-1768446900",
+      "question": "Bitcoin Up or Down - January 14, 10:15PM-10:20PM ET",
+      "token_id": "24793582426634828244393904307798055468270059748887124818504338022496610164653",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768446900": {
+      "market_id": "sol-updown-5m-1768446900",
+      "question": "Solana Up or Down - January 14, 10:15PM-10:20PM ET",
+      "token_id": "28429006688531557975570548199433586693147151140309528585125998881094259489241",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768457400": {
+      "market_id": "eth-updown-5m-1768457400",
+      "question": "Ethereum Up or Down - January 15, 1:10AM-1:15AM ET",
+      "token_id": "33269877380672039843794592803571838181193165382763067169620128617583948733734",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768463400": {
+      "market_id": "sol-updown-5m-1768463400",
+      "question": "Solana Up or Down - January 15, 2:50AM-2:55AM ET",
+      "token_id": "22026345354228132563961870579964995917759607808355653460963275740711962662477",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768460400": {
+      "market_id": "btc-updown-5m-1768460400",
+      "question": "Bitcoin Up or Down - January 15, 2:00AM-2:05AM ET",
+      "token_id": "102078274367865013204315526709425205328562461682667983315848863018288554969618",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "sol-updown-5m-1768458300": {
+      "market_id": "sol-updown-5m-1768458300",
+      "question": "Solana Up or Down - January 15, 1:25AM-1:30AM ET",
+      "token_id": "54417533641254904615514581787243209953088534317421480049754863604556619009322",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768458300": {
+      "market_id": "eth-updown-5m-1768458300",
+      "question": "Ethereum Up or Down - January 15, 1:25AM-1:30AM ET",
+      "token_id": "55861860500104207544420593733447231250639346401702720640744795086455012852509",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768460400": {
+      "market_id": "xrp-updown-5m-1768460400",
+      "question": "XRP Up or Down - January 15, 2:00AM-2:05AM ET",
+      "token_id": "60427111974512292912125148348742458256650978593591582448055818172263410161243",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768447500": {
+      "market_id": "eth-updown-5m-1768447500",
+      "question": "Ethereum Up or Down - January 14, 10:25PM-10:30PM ET",
+      "token_id": "71867229020189288575894157476750025558322482785379044874137963055447739523400",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768458300": {
+      "market_id": "btc-updown-5m-1768458300",
+      "question": "Bitcoin Up or Down - January 15, 1:25AM-1:30AM ET",
+      "token_id": "71298452687252665958718101591923048490740664458031104290961635707482147719231",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768447500": {
+      "market_id": "xrp-updown-5m-1768447500",
+      "question": "XRP Up or Down - January 14, 10:25PM-10:30PM ET",
+      "token_id": "103133534491117422843720947949031079757562750575383225273568480266842075229251",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768460400": {
+      "market_id": "eth-updown-5m-1768460400",
+      "question": "Ethereum Up or Down - January 15, 2:00AM-2:05AM ET",
+      "token_id": "64179310827017426433964568758668965130499064199606041527459037689583867335756",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768463400": {
+      "market_id": "btc-updown-5m-1768463400",
+      "question": "Bitcoin Up or Down - January 15, 2:50AM-2:55AM ET",
+      "token_id": "36961635404900117723093708731538556201145239124821247290661168542671093530908",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768464900": {
+      "market_id": "btc-updown-5m-1768464900",
+      "question": "Bitcoin Up or Down - January 15, 3:15AM-3:20AM ET",
+      "token_id": "1758543701541156088514815464992399982393900851274274987972874412380645880497",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768487400": {
+      "market_id": "eth-updown-5m-1768487400",
+      "question": "Ethereum Up or Down - January 15, 9:30AM-9:35AM ET",
+      "token_id": "87405800061257637127699418959417217929315560316966635769343888059721484501060",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768464000": {
+      "market_id": "xrp-updown-5m-1768464000",
+      "question": "XRP Up or Down - January 15, 3:00AM-3:05AM ET",
+      "token_id": "30051896790469152646347530088525906016761143448333963290373359356777801517093",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "xrp-updown-5m-1768487400": {
+      "market_id": "xrp-updown-5m-1768487400",
+      "question": "XRP Up or Down - January 15, 9:30AM-9:35AM ET",
+      "token_id": "9240877620230916259855106552441370403369341155092604882939900663961601891421",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "eth-updown-5m-1768466100": {
+      "market_id": "eth-updown-5m-1768466100",
+      "question": "Ethereum Up or Down - January 15, 3:35AM-3:40AM ET",
+      "token_id": "61506568304737787372998417307696653663350830063828983667969232961783059727963",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "btc-updown-5m-1768453200": {
+      "market_id": "btc-updown-5m-1768453200",
+      "question": "Bitcoin Up or Down - January 15, 12:00AM-12:05AM ET",
+      "token_id": "112330086896323505125984948361461137307627090899874542795589040175149235036468",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:09:26Z"
+    },
+    "elon-musk-of-tweets-january-9-january-16-360-379": {
+      "market_id": "elon-musk-of-tweets-january-9-january-16-360-379",
+      "question": "Will Elon Musk post 360-379 tweets from January 9 to January 16, 2026?",
+      "token_id": "12808355889376625449043674762174781906769136157236763531902488968408887758162",
+      "volume": 461051.712568,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "will-russia-capture-bilytske-by-february-28-2026": {
+      "market_id": "will-russia-capture-bilytske-by-february-28-2026",
+      "question": "Will Russia capture Bilytske by February 28, 2026?",
+      "token_id": "14198420664819580603238555810652932631588491733675417168465407739911632492677",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "will-russia-capture-bilytske-by-march-31-2026": {
+      "market_id": "will-russia-capture-bilytske-by-march-31-2026",
+      "question": "Will Russia capture Bilytske by March 31, 2026?",
+      "token_id": "100441399760622064650840625494872216181329090159239475460428335733835379523137",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "us-strike-on-somalia-by-january-31-338": {
+      "market_id": "us-strike-on-somalia-by-january-31-338",
+      "question": "U.S. strike on Somalia by January 31?",
+      "token_id": "29528844389710526928017985681021162633713395060163164804150436006223818497732",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-vit-fla-2026-02-10-vit": {
+      "market_id": "bra-vit-fla-2026-02-10-vit",
+      "question": "Will EC Vit\u00f3ria win on 2026-02-10?",
+      "token_id": "37583410503858435956821926339170655531329784012343524156584968983350109284745",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-vit-fla-2026-02-10-fla": {
+      "market_id": "bra-vit-fla-2026-02-10-fla",
+      "question": "Will CR Flamengo win on 2026-02-10?",
+      "token_id": "44617737427665355865224404702707590090375057487628982105563706778854695428102",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-vit-fla-2026-02-10-draw": {
+      "market_id": "bra-vit-fla-2026-02-10-draw",
+      "question": "Will EC Vit\u00f3ria vs. CR Flamengo end in a draw?",
+      "token_id": "26587323398798532665520443949817973224589820268318387090718248146395070089265",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cru-cor-2026-02-05-draw": {
+      "market_id": "bra-cru-cor-2026-02-05-draw",
+      "question": "Will Cruzeiro EC vs. Coritiba FBC end in a draw?",
+      "token_id": "108366007227833754252675015255930078887109428177799286043996586756965140581231",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cru-cor-2026-02-05-cru": {
+      "market_id": "bra-cru-cor-2026-02-05-cru",
+      "question": "Will Cruzeiro EC win on 2026-02-05?",
+      "token_id": "94231283405529134317889327181981743284407949137635138741570514188479640508601",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-gre-bot-2026-02-04-bot": {
+      "market_id": "bra-gre-bot-2026-02-04-bot",
+      "question": "Will Botafogo FR win on 2026-02-04?",
+      "token_id": "30671236442844501783124055724342565176725280444599887782567335124273510399102",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cru-cor-2026-02-05-cor": {
+      "market_id": "bra-cru-cor-2026-02-05-cor",
+      "question": "Will Coritiba FBC win on 2026-02-05?",
+      "token_id": "63084735756671376504163662598558082977001517662093107588787617090856242129079",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-gre-bot-2026-02-04-gre": {
+      "market_id": "bra-gre-bot-2026-02-04-gre",
+      "question": "Will Gr\u00eamio FBPA win on 2026-02-04?",
+      "token_id": "95326880158778248291944905922295576405318444981082154625412264072606923709129",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-vas-cha-2026-02-05-cha": {
+      "market_id": "bra-vas-cha-2026-02-05-cha",
+      "question": "Will Associa\u00e7\u00e3o Chapecoense de Futebol win on 2026-02-05?",
+      "token_id": "53921487362231589435909158876166451671913672620127507025383984418060244776312",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-vas-cha-2026-02-05-draw": {
+      "market_id": "bra-vas-cha-2026-02-05-draw",
+      "question": "Will CR Vasco da Gama vs. Associa\u00e7\u00e3o Chapecoense de Futebol end in a draw?",
+      "token_id": "31663750943022122065225503804834245621345539037597469956017736831795338701905",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-gre-bot-2026-02-04-draw": {
+      "market_id": "bra-gre-bot-2026-02-04-draw",
+      "question": "Will Gr\u00eamio FBPA vs. Botafogo FR end in a draw?",
+      "token_id": "967478935912881923139931667989536631703987086062249635063485145285537855093",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-vas-cha-2026-02-05-vas": {
+      "market_id": "bra-vas-cha-2026-02-05-vas",
+      "question": "Will CR Vasco da Gama win on 2026-02-05?",
+      "token_id": "6407632038727249719451145460197603967054187753497894571655325028430764915154",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bah-flu-2026-02-05-flu": {
+      "market_id": "bra-bah-flu-2026-02-05-flu",
+      "question": "Will Fluminense FC win on 2026-02-05?",
+      "token_id": "74432508206330374443960534350080635046709509113383311135441159545046953243505",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bah-flu-2026-02-05-draw": {
+      "market_id": "bra-bah-flu-2026-02-05-draw",
+      "question": "Will EC Bahia vs. Fluminense FC end in a draw?",
+      "token_id": "60382848877727646915229413777618458201391131495718464853157708385531747365520",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bah-flu-2026-02-05-bah": {
+      "market_id": "bra-bah-flu-2026-02-05-bah",
+      "question": "Will EC Bahia win on 2026-02-05?",
+      "token_id": "79855196394432781772043430499194559627809344148153882383662618383575334241413",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-pal-vit-2026-02-04-vit": {
+      "market_id": "bra-pal-vit-2026-02-04-vit",
+      "question": "Will EC Vit\u00f3ria win on 2026-02-04?",
+      "token_id": "78823768068669044928071045023822435594860603348357744098180109024921835723170",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-san-sao-2026-02-04-sao": {
+      "market_id": "bra-san-sao-2026-02-04-sao",
+      "question": "Will S\u00e3o Paulo FC win on 2026-02-04?",
+      "token_id": "44787022004133964288746311577205948556062255512271438822841065185232474867152",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-pal-vit-2026-02-04-draw": {
+      "market_id": "bra-pal-vit-2026-02-04-draw",
+      "question": "Will SE Palmeiras vs. EC Vit\u00f3ria end in a draw?",
+      "token_id": "112129693893532321037726711578189628233806306816690780685333605738542468465024",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-pal-vit-2026-02-04-pal": {
+      "market_id": "bra-pal-vit-2026-02-04-pal",
+      "question": "Will SE Palmeiras win on 2026-02-04?",
+      "token_id": "71290485551181663374170277436640692241760692744808372694739379295894279764952",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cre-mir-2026-02-04-mir": {
+      "market_id": "bra-cre-mir-2026-02-04-mir",
+      "question": "Will Mirassol FC win on 2026-02-04?",
+      "token_id": "80514327883379078386642466992911926763405301697217105446040506822478333194076",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-san-sao-2026-02-04-draw": {
+      "market_id": "bra-san-sao-2026-02-04-draw",
+      "question": "Will Santos FC vs. S\u00e3o Paulo FC end in a draw?",
+      "token_id": "20486459740520189914848499036131123218994971082247994153172117040946548092832",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-san-sao-2026-02-04-san": {
+      "market_id": "bra-san-sao-2026-02-04-san",
+      "question": "Will Santos FC win on 2026-02-04?",
+      "token_id": "113966336354355921089530539989831443523364417143512839372659639825469292793841",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cre-mir-2026-02-04-draw": {
+      "market_id": "bra-cre-mir-2026-02-04-draw",
+      "question": "Will Clube do Remo vs. Mirassol FC end in a draw?",
+      "token_id": "51743646307547858651134868512240586445293882340235249025512819422306538463984",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cre-mir-2026-02-04-cre": {
+      "market_id": "bra-cre-mir-2026-02-04-cre",
+      "question": "Will Clube do Remo win on 2026-02-04?",
+      "token_id": "86126860926672658863821163917368516408818020615103240513675977129864226824463",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-fla-int-2026-02-04-int": {
+      "market_id": "bra-fla-int-2026-02-04-int",
+      "question": "Will SC Internacional win on 2026-02-04?",
+      "token_id": "42687373923369899562919591751657878210417223846429104319669357116193086716603",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-fla-int-2026-02-04-fla": {
+      "market_id": "bra-fla-int-2026-02-04-fla",
+      "question": "Will CR Flamengo win on 2026-02-04?",
+      "token_id": "35461252560354113861508354991900681364888294288686864226591404106665037774227",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-fla-int-2026-02-04-draw": {
+      "market_id": "bra-fla-int-2026-02-04-draw",
+      "question": "Will CR Flamengo vs. SC Internacional end in a draw?",
+      "token_id": "6449740243105352986820666246774636216676922767932169145830786912042818632124",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bra-cam-2026-02-04-cam": {
+      "market_id": "bra-bra-cam-2026-02-04-cam",
+      "question": "Will CA Mineiro win on 2026-02-04?",
+      "token_id": "105314759605915226966436526529191784088679654568660205542680434411055083665378",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bra-cam-2026-02-04-bra": {
+      "market_id": "bra-bra-cam-2026-02-04-bra",
+      "question": "Will Red Bull Bragantino win on 2026-02-04?",
+      "token_id": "3914100346374549041281205966451611209535938265919662848195711953674567628452",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bra-cam-2026-02-04-draw": {
+      "market_id": "bra-bra-cam-2026-02-04-draw",
+      "question": "Will Red Bull Bragantino vs. CA Mineiro end in a draw?",
+      "token_id": "82297662435941444460986315373321421735127895114503176539171274210133962057434",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "sol-updown-15m-1768507200": {
+      "market_id": "sol-updown-15m-1768507200",
+      "question": "Solana Up or Down - January 15, 3:00PM-3:15PM ET",
+      "token_id": "26302862236118444710646346499898421331329841007242206088604415406555593265982",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "eth-updown-15m-1768507200": {
+      "market_id": "eth-updown-15m-1768507200",
+      "question": "Ethereum Up or Down - January 15, 3:00PM-3:15PM ET",
+      "token_id": "49316265052815194862479004088900802490807711562918677081549647483278492527496",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "btc-updown-15m-1768507200": {
+      "market_id": "btc-updown-15m-1768507200",
+      "question": "Bitcoin Up or Down - January 15, 3:00PM-3:15PM ET",
+      "token_id": "73159340516269107377747197573030393525109900978486713368056220927325491831605",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cor1-bah-2026-01-29-draw": {
+      "market_id": "bra-cor1-bah-2026-01-29-draw",
+      "question": "Will SC Corinthians Paulista vs. EC Bahia end in a draw?",
+      "token_id": "73242040098957344669959262282417357210458430191140662523400607693174943650528",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cor1-bah-2026-01-29-bah": {
+      "market_id": "bra-cor1-bah-2026-01-29-bah",
+      "question": "Will EC Bahia win on 2026-01-29?",
+      "token_id": "115299936283490060561778265021022168154629728259284190016149804190219688617963",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "xrp-updown-15m-1768507200": {
+      "market_id": "xrp-updown-15m-1768507200",
+      "question": "XRP Up or Down - January 15, 3:00PM-3:15PM ET",
+      "token_id": "1095685402395016336455357737163288058301757639631125466504528152176793784113",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cor1-bah-2026-01-29-cor1": {
+      "market_id": "bra-cor1-bah-2026-01-29-cor1",
+      "question": "Will SC Corinthians Paulista win on 2026-01-29?",
+      "token_id": "45060084159442285609916054066209849811677081693157959893664862853193862142790",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-sao-fla-2026-01-28-draw": {
+      "market_id": "bra-sao-fla-2026-01-28-draw",
+      "question": "Will S\u00e3o Paulo FC vs. CR Flamengo end in a draw?",
+      "token_id": "84204866119703260511840422049382588955653808894651087900395306990454141807249",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-sao-fla-2026-01-28-fla": {
+      "market_id": "bra-sao-fla-2026-01-28-fla",
+      "question": "Will CR Flamengo win on 2026-01-28?",
+      "token_id": "104156510039038012615711569226787806916037627814769442437945716411409080575353",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bot-cru-2026-01-29-cru": {
+      "market_id": "bra-bot-cru-2026-01-29-cru",
+      "question": "Will Cruzeiro EC win on 2026-01-29?",
+      "token_id": "31708715818708059765550885288017511748251417345105500635227685306050710050449",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bot-cru-2026-01-29-bot": {
+      "market_id": "bra-bot-cru-2026-01-29-bot",
+      "question": "Will Botafogo FR win on 2026-01-29?",
+      "token_id": "5098311833681569401865471502954087227331992649475736195278758824114582117629",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-sao-fla-2026-01-28-sao": {
+      "market_id": "bra-sao-fla-2026-01-28-sao",
+      "question": "Will S\u00e3o Paulo FC win on 2026-01-28?",
+      "token_id": "91510997074286318930048447996955556966024726999331001292833415437929845800293",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-bot-cru-2026-01-29-draw": {
+      "market_id": "bra-bot-cru-2026-01-29-draw",
+      "question": "Will Botafogo FR vs. Cruzeiro EC end in a draw?",
+      "token_id": "112529537724636045786656917829827751379057147272584743840729964292804117836737",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cor-bra-2026-01-28-draw": {
+      "market_id": "bra-cor-bra-2026-01-28-draw",
+      "question": "Will Coritiba FBC vs. Red Bull Bragantino end in a draw?",
+      "token_id": "102912004528098752962112277250557795859435007708201092841419757123706817190192",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cor-bra-2026-01-28-cor": {
+      "market_id": "bra-cor-bra-2026-01-28-cor",
+      "question": "Will Coritiba FBC win on 2026-01-28?",
+      "token_id": "60847971370854376809974694180336968762907109189621585808362512979754516093059",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-cor-bra-2026-01-28-bra": {
+      "market_id": "bra-cor-bra-2026-01-28-bra",
+      "question": "Will Red Bull Bragantino win on 2026-01-28?",
+      "token_id": "64535192881808579156475700509317014448250749731056134046803342840118458368268",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "bra-mir-vas-2026-01-28-vas": {
+      "market_id": "bra-mir-vas-2026-01-28-vas",
+      "question": "Will CR Vasco da Gama win on 2026-01-28?",
+      "token_id": "107284001884706327346231465712213938225591650111855226042359358880030853911750",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:15:52Z"
+    },
+    "will-avatar-fire-and-ash-be-the-2025-film-with-the-highest-domestic-gross-on-march-15": {
+      "market_id": "will-avatar-fire-and-ash-be-the-2025-film-with-the-highest-domestic-gross-on-march-15",
+      "question": "Will Avatar: Fire and Ash be the 2025 film with the highest domestic gross on March 15?",
+      "token_id": "46771505922162712792275569984604184987923736112262888319721719757221041640393",
+      "added_at": "2026-01-14T20:17:59Z"
+    },
+    "will-apple-be-the-second-largest-company-in-the-world-by-market-cap-on-march-31": {
+      "market_id": "will-apple-be-the-second-largest-company-in-the-world-by-market-cap-on-march-31",
+      "question": "Will Apple be the second-largest company in the world by market cap on March 31?",
+      "token_id": "17650734816192148631865413008800631441117184835523441879314036970940465064230",
+      "added_at": "2026-01-14T20:18:01Z"
+    },
+    "will-bitcoin-reach-110k-in-january-2026": {
+      "market_id": "will-bitcoin-reach-110k-in-january-2026",
+      "question": "Will Bitcoin reach $110,000 in January?",
+      "token_id": "20531387499622280624565131343909144040611189010965548703918621101054785337790",
+      "added_at": "2026-01-14T20:16:06Z"
+    },
+    "elon-musk-of-tweets-january-16-january-23-460-479": {
+      "market_id": "elon-musk-of-tweets-january-16-january-23-460-479",
+      "question": "Will Elon Musk post 460-479 tweets from January 16 to January 23, 2026?",
+      "token_id": "2491007959297850003024323132194497711663553741483899022125772368732732331287",
+      "added_at": "2026-01-14T20:16:07Z"
+    },
+    "will-bitcoin-dip-to-88k-january-12-18": {
+      "market_id": "will-bitcoin-dip-to-88k-january-12-18",
+      "question": "Will Bitcoin dip to $88,000 January 12-18?",
+      "token_id": "23447240815813580591316982267179220984615517928943413699166275568404504678178",
+      "added_at": "2026-01-14T21:03:37Z"
+    },
+    "will-dont-be-dumb-debut-week-album-sales-be-less-than-75k": {
+      "market_id": "will-dont-be-dumb-debut-week-album-sales-be-less-than-75k",
+      "question": "Will 'Don't Be Dumb' debut week album sales be less than 75k?",
+      "token_id": "21904035858859438352302364389253057937770611615354282744992504571698106669843",
+      "added_at": "2026-01-14T20:44:44Z"
+    },
+    "will-the-supreme-court-rule-in-favor-of-trumps-tariffs": {
+      "market_id": "will-the-supreme-court-rule-in-favor-of-trumps-tariffs",
+      "question": "Supreme Court rules in favor of Trump's tariffs?",
+      "token_id": "51171279104285400909666677762285621845926753560865042481170667672124752488918",
+      "added_at": "2026-01-14T20:16:45Z"
+    },
+    "us-strikes-iran-by-january-23-2026-494-711-798-734-155": {
+      "market_id": "us-strikes-iran-by-january-23-2026-494-711-798-734-155",
+      "question": "US strikes Iran by January 23, 2026?",
+      "token_id": "96124460752878534670732876488971566706915333497625444460159142837915173249659",
+      "added_at": "2026-01-14T20:17:51Z"
+    },
+    "will-coca-cola-run-an-ad-during-super-bowl-lx": {
+      "market_id": "will-coca-cola-run-an-ad-during-super-bowl-lx",
+      "question": "Will Coca Cola run an Ad during Super Bowl LX?",
+      "token_id": "4026953404559259710414560755390506399861531447647221407041760867778741323952",
+      "added_at": "2026-01-14T20:17:58Z"
+    },
+    "will-mrbeasts-next-video-get-between-45-and-50-million-views-on-day-1-561": {
+      "market_id": "will-mrbeasts-next-video-get-between-45-and-50-million-views-on-day-1-561",
+      "question": "Will MrBeast's next video get between 45 and 50 million views on day 1?",
+      "token_id": "108763949769222267011581719264453905537473512638356722047615905327476691216152",
+      "added_at": "2026-01-14T20:18:01Z"
+    },
+    "spacex-starship-fully-reusable-before-2027": {
+      "market_id": "spacex-starship-fully-reusable-before-2027",
+      "question": "SpaceX Starship fully reusable before 2027?",
+      "token_id": "68841043137419682742407917950323128757425564408860523030307999893432460743024",
+      "added_at": "2026-01-14T20:18:03Z"
+    },
+    "gensyn-fdv-above-800m-one-day-after-launch-189": {
+      "market_id": "gensyn-fdv-above-800m-one-day-after-launch-189",
+      "question": "Gensyn FDV above $800M one day after launch?",
+      "token_id": "40255612412335227396631254417809181471209084100749547920842166691872144744490",
+      "added_at": "2026-01-14T20:18:04Z"
+    },
+    "will-vivek-ramaswamy-win-the-2028-republican-presidential-nomination": {
+      "market_id": "will-vivek-ramaswamy-win-the-2028-republican-presidential-nomination",
+      "question": "Will Vivek Ramaswamy win the 2028 Republican presidential nomination?",
+      "token_id": "7847177314809025001842027337093046201021185723933452855314998541165696902642",
+      "volume": 7154936.182714,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "xrp-updown-5m-1768508700": {
+      "market_id": "xrp-updown-5m-1768508700",
+      "question": "XRP Up or Down - January 15, 3:25PM-3:30PM ET",
+      "token_id": "79918868839038796581108979012555707804815033568904238712839755529705376638802",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "eth-updown-5m-1768508700": {
+      "market_id": "eth-updown-5m-1768508700",
+      "question": "Ethereum Up or Down - January 15, 3:25PM-3:30PM ET",
+      "token_id": "57773674562543599485988293948745019425578230561648769195657935958403499706948",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "sol-updown-5m-1768508700": {
+      "market_id": "sol-updown-5m-1768508700",
+      "question": "Solana Up or Down - January 15, 3:25PM-3:30PM ET",
+      "token_id": "102151538747560166691143892481468422933029064628531384453938718355016060399742",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "btc-updown-5m-1768508700": {
+      "market_id": "btc-updown-5m-1768508700",
+      "question": "Bitcoin Up or Down - January 15, 3:25PM-3:30PM ET",
+      "token_id": "18034216028389232920303303258357078246500906279809790759502670000983786378174",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-ban2-myth-2026-01-15": {
+      "market_id": "lol-ban2-myth-2026-01-15",
+      "question": "LoL: The Bandits vs Myth Esports (BO1)",
+      "token_id": "102653126250942508789867370478520874766966626666348609184249479086301900221557",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-dyn1-fec-2026-01-15": {
+      "market_id": "lol-dyn1-fec-2026-01-15",
+      "question": "LoL: Dynasty vs Frites Esports Club (BO1)",
+      "token_id": "102920322585189174222454534783929545782552444885005376843409973607812053267161",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-myth-sec-2026-01-15": {
+      "market_id": "lol-myth-sec-2026-01-15",
+      "question": "LoL: Myth Esports vs Senshi Esports Club (BO1)",
+      "token_id": "78909131154257273446327305172741497358784003810911501022383607115566220006524",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-ouat-sec-2026-01-15": {
+      "market_id": "lol-ouat-sec-2026-01-15",
+      "question": "LoL: Once Upon A Team vs Senshi Esports Club (BO1)",
+      "token_id": "61183228850206745299058922669993164025334477538444999162015953330518590850791",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-ig1-al-2026-01-15-kill-handicap-home-13pt5": {
+      "market_id": "lol-ig1-al-2026-01-15-kill-handicap-home-13pt5",
+      "question": "Series: Anyone's Legend Kill Handicap (-13.5)",
+      "token_id": "29498873555573745536652091833592278758097536077758483972299040648500885904386",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-znt-mcn-2026-01-15": {
+      "market_id": "lol-znt-mcn-2026-01-15",
+      "question": "LoL: ZennIT vs mCon esports (BO1)",
+      "token_id": "33374432822742444231790155414944018128797305532947614823753421356817636632254",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-fec-znt-2026-01-15": {
+      "market_id": "lol-fec-znt-2026-01-15",
+      "question": "LoL: Frites Esports Club vs ZennIT (BO1)",
+      "token_id": "114292945549343328186831163516207230428715244450283834501708127256163563203413",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-dyn1-myth-2026-01-15": {
+      "market_id": "lol-dyn1-myth-2026-01-15",
+      "question": "LoL: Dynasty vs Myth Esports (BO1)",
+      "token_id": "35921207062143648564769037865278359246860837281142643391374932250490672903222",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-fec-ban2-2026-01-15": {
+      "market_id": "lol-fec-ban2-2026-01-15",
+      "question": "LoL: Frites Esports Club vs The Bandits (BO1)",
+      "token_id": "91252260289253419233094074907426064577594561705490999220357329060240456132220",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-dyn1-mcn-2026-01-15": {
+      "market_id": "lol-dyn1-mcn-2026-01-15",
+      "question": "LoL: Dynasty vs mCon esports (BO1)",
+      "token_id": "105822816189366763694182616317893529191396527463715265382545893434863457438585",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-ban2-ouat-2026-01-15": {
+      "market_id": "lol-ban2-ouat-2026-01-15",
+      "question": "LoL: The Bandits vs Once Upon A Team (BO1)",
+      "token_id": "87539575638427090426514883318335819663144249642774177121101957321614579839727",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-mcn-sec-2026-01-15": {
+      "market_id": "lol-mcn-sec-2026-01-15",
+      "question": "LoL: mCon esports vs Senshi Esports Club (BO1)",
+      "token_id": "44872799619315706403280619042777716406174518817124819928350760808673094259090",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-znt-ouat-2026-01-15": {
+      "market_id": "lol-znt-ouat-2026-01-15",
+      "question": "LoL: ZennIT vs Once Upon A Team (BO1)",
+      "token_id": "41765847138004700158287244511672729809527938443922601264801766398983405693793",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "sol-updown-5m-1768508400": {
+      "market_id": "sol-updown-5m-1768508400",
+      "question": "Solana Up or Down - January 15, 3:20PM-3:25PM ET",
+      "token_id": "43681927584903110461685405154587261228873406604922798335485281255030426023588",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "eth-updown-5m-1768508400": {
+      "market_id": "eth-updown-5m-1768508400",
+      "question": "Ethereum Up or Down - January 15, 3:20PM-3:25PM ET",
+      "token_id": "58184297402264826922025316482047364012113697027194342442018581763800690596842",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "xrp-updown-5m-1768508400": {
+      "market_id": "xrp-updown-5m-1768508400",
+      "question": "XRP Up or Down - January 15, 3:20PM-3:25PM ET",
+      "token_id": "67011476792539908962034721921865307855531932323529416273737652231828109809262",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "btc-updown-5m-1768508400": {
+      "market_id": "btc-updown-5m-1768508400",
+      "question": "Bitcoin Up or Down - January 15, 3:20PM-3:25PM ET",
+      "token_id": "23478310245375642713242295246608786648532723699249558407537759815407129969304",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "lol-ig1-al-2026-01-15-tower-handicap-home-8pt5": {
+      "market_id": "lol-ig1-al-2026-01-15-tower-handicap-home-8pt5",
+      "question": "Series: Anyone's Legend Tower Handicap (-8.5)",
+      "token_id": "74604167659454316129179085940012237391747275777650174980802426274730085992926",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "xrp-updown-15m-1768508100": {
+      "market_id": "xrp-updown-15m-1768508100",
+      "question": "XRP Up or Down - January 15, 3:15PM-3:30PM ET",
+      "token_id": "1528269878596969228339985898110735751143137188617417052504387726343239149482",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "sol-updown-15m-1768508100": {
+      "market_id": "sol-updown-15m-1768508100",
+      "question": "Solana Up or Down - January 15, 3:15PM-3:30PM ET",
+      "token_id": "42431061650943546021830759056411525696341633663980773208125178154345494120809",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "btc-updown-15m-1768508100": {
+      "market_id": "btc-updown-15m-1768508100",
+      "question": "Bitcoin Up or Down - January 15, 3:15PM-3:30PM ET",
+      "token_id": "22255826042245650496618604814633012663403397416771288313804454777483667211566",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "eth-updown-15m-1768508100": {
+      "market_id": "eth-updown-15m-1768508100",
+      "question": "Ethereum Up or Down - January 15, 3:15PM-3:30PM ET",
+      "token_id": "45708138285240360933795260960771280678982510262562536692244393298480656584014",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "btc-updown-5m-1768508100": {
+      "market_id": "btc-updown-5m-1768508100",
+      "question": "Bitcoin Up or Down - January 15, 3:15PM-3:20PM ET",
+      "token_id": "55597968539563031165225837669050414075460251456089009652411685371367324799087",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "sol-updown-5m-1768508100": {
+      "market_id": "sol-updown-5m-1768508100",
+      "question": "Solana Up or Down - January 15, 3:15PM-3:20PM ET",
+      "token_id": "8746315076027939104562555533963958229128515513411932540142232554594645076902",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "eth-updown-5m-1768508100": {
+      "market_id": "eth-updown-5m-1768508100",
+      "question": "Ethereum Up or Down - January 15, 3:15PM-3:20PM ET",
+      "token_id": "94177891357537518025432355350781046537371133557929706635669189184377596388861",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "xrp-updown-5m-1768508100": {
+      "market_id": "xrp-updown-5m-1768508100",
+      "question": "XRP Up or Down - January 15, 3:15PM-3:20PM ET",
+      "token_id": "23422429930972116137584599970349065068560084781560804001058027902963475965863",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-international-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-international-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"International\" during the next Prime Minister's Questions?",
+      "token_id": "1308943569444704603050993766893055129013368177753043037900780889007819951638",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-iran-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-iran-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Iran\" during the next Prime Minister's Questions?",
+      "token_id": "42426805764628557214327519402153567951848944063105091900695886294262781765653",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-denmark-or-greenland-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-denmark-or-greenland-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Denmark\" or \"Greenland\" during the next Prime Minister's Questions?",
+      "token_id": "28982667736585178149044006640616239186329238019578549175786039718077923029721",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-dialogue-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-dialogue-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Dialogue\" during the next Prime Minister's Questions?",
+      "token_id": "32163962226093148230038121576202018086836139224214447700288694362901614710509",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-affordable-or-affordability-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-affordable-or-affordability-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Affordable\" or \"Affordability\" during the next Prime Minister's Questions?",
+      "token_id": "1917331977407281198604602565814260810079823302917576427881105778436263671423",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "eth-updown-5m-1768507800": {
+      "market_id": "eth-updown-5m-1768507800",
+      "question": "Ethereum Up or Down - January 15, 3:10PM-3:15PM ET",
+      "token_id": "65031485809841964852441947848422577229587518382048003986103590785792663160622",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "btc-updown-5m-1768507800": {
+      "market_id": "btc-updown-5m-1768507800",
+      "question": "Bitcoin Up or Down - January 15, 3:10PM-3:15PM ET",
+      "token_id": "83131825148487101888486730873358296599685241914413715881177469355533920930842",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "xrp-updown-5m-1768507800": {
+      "market_id": "xrp-updown-5m-1768507800",
+      "question": "XRP Up or Down - January 15, 3:10PM-3:15PM ET",
+      "token_id": "89125543638188847302857001713975531502159723986461784153253824446448738450189",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "sol-updown-5m-1768507800": {
+      "market_id": "sol-updown-5m-1768507800",
+      "question": "Solana Up or Down - January 15, 3:10PM-3:15PM ET",
+      "token_id": "30562714910798236479818946656277486885016687462619483573343415817243776471170",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-ally-or-allied-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-ally-or-allied-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Ally\" or \"Allied\" during the next Prime Minister's Questions?",
+      "token_id": "99158288059719790490119627300346518885104057343135189228297066312260475427203",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-opportunity-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-opportunity-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Opportunity\" during the next Prime Minister's Questions?",
+      "token_id": "65499186521801185192454454174356764395224446213047198640587535937764933040105",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-constructive-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-constructive-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Constructive\" during the next Prime Minister's Questions?",
+      "token_id": "61350509071068169240503614017629085615095873140295862502255026171849426671747",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-mr-speaker-15-times-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-mr-speaker-15-times-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Mr. Speaker\" 15+ times during the next Prime Minister's Questions?",
+      "token_id": "31812731798588944381952020508565255812129596969083640781717231749980424836662",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-thank-you-10-times-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-thank-you-10-times-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Thank you\" 10+ times during the next Prime Minister's Questions?",
+      "token_id": "114544123982756502224393308178391625245137003518657902093649477018621754648942",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-rules-based-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-rules-based-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Rules-based\" during the next Prime Minister's Questions?",
+      "token_id": "113841800455699811472301521101395592561774524596725425695119169772654903739118",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-keir-starmer-say-venezuela-during-the-next-prime-ministers-questions": {
+      "market_id": "will-keir-starmer-say-venezuela-during-the-next-prime-ministers-questions",
+      "question": "Will Keir Starmer say \"Venezuela\" during the next Prime Minister's Questions?",
+      "token_id": "94719369039518775295032286955037782233360348759145815478023769523516521482963",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-another-content-creator-get-exposed-for-cheating-732": {
+      "market_id": "will-another-content-creator-get-exposed-for-cheating-732",
+      "question": "Will another content creator get exposed for cheating?",
+      "token_id": "68276955556974729671047500000238884035939866286660744790580105330272670533664",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-tweekcsgo-get-exposed-for-cheating-457": {
+      "market_id": "will-tweekcsgo-get-exposed-for-cheating-457",
+      "question": "Will TweekCSGO get exposed for cheating?",
+      "token_id": "33956584663642391338332397344801831145469598200457200492755039392887121734216",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-dimawallhacks-get-exposed-for-cheating-278": {
+      "market_id": "will-dimawallhacks-get-exposed-for-cheating-278",
+      "question": "Will dimawallhacks get exposed for cheating?",
+      "token_id": "66355674730487905915044371270363587726142603501134139919751577993291744838970",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-psp1g-get-exposed-for-cheating-847": {
+      "market_id": "will-psp1g-get-exposed-for-cheating-847",
+      "question": "Will psp1g get exposed for cheating?",
+      "token_id": "21139067222248875351097986755346030895984507224288142606616539974944564190991",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:39:00Z"
+    },
+    "will-extended-launch-a-token-by-june-30-2026": {
+      "market_id": "will-extended-launch-a-token-by-june-30-2026",
+      "question": "Will Extended launch a token by June 30 2026?",
+      "token_id": "97810380598984230073510712149328815224323004659751915825510020701419744372084",
+      "added_at": "2026-01-14T20:41:09Z"
+    },
+    "will-the-median-home-value-in-the-austin-texas-metro-area-be-less-than-412000-by-february-1": {
+      "market_id": "will-the-median-home-value-in-the-austin-texas-metro-area-be-less-than-412000-by-february-1",
+      "question": "Will the median home value in the Austin, Texas metro area be less than $412,000 by February 1?",
+      "token_id": "111350756387945895725802311981853306332369983901769568759105325167870297950918",
+      "added_at": "2026-01-14T20:43:01Z"
+    },
+    "cbb-sdst-wyom-2026-01-14-spread-away-1pt5": {
+      "market_id": "cbb-sdst-wyom-2026-01-14-spread-away-1pt5",
+      "question": "Spread: San Diego State Aztecs (-1.5)",
+      "token_id": "113324018021879727662838097540992704676134324576723824440328883456284862111253",
+      "added_at": "2026-01-14T20:41:15Z"
+    },
+    "will-googl-reach-355-in-january": {
+      "market_id": "will-googl-reach-355-in-january",
+      "question": "Will Google reach $355 in January?",
+      "token_id": "24419442265520194427438803584855765125335271916421139975110900380889423900264",
+      "added_at": "2026-01-14T20:44:44Z"
+    },
+    "will-solana-reach-170-january-12-18": {
+      "market_id": "will-solana-reach-170-january-12-18",
+      "question": "Will Solana reach $170 January 12-18?",
+      "token_id": "27419435578094055635234043092684425234269027980398242050224124599454721860005",
+      "added_at": "2026-01-14T20:44:44Z"
+    },
+    "will-mrbeasts-next-video-get-between-25-and-30-million-views-on-day-1-786": {
+      "market_id": "will-mrbeasts-next-video-get-between-25-and-30-million-views-on-day-1-786",
+      "question": "Will MrBeast's next video get between 25 and 30 million views on day 1?",
+      "token_id": "63233729693283173872888518842578594433209824066352054483761855480703774808331",
+      "added_at": "2026-01-14T20:44:44Z"
+    },
+    "eth-updown-15m-1768509900": {
+      "market_id": "eth-updown-15m-1768509900",
+      "question": "Ethereum Up or Down - January 15, 3:45PM-4:00PM ET",
+      "token_id": "88134134709937825099081240743969506355923331016612924121537405283375894048225",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "xrp-updown-15m-1768509900": {
+      "market_id": "xrp-updown-15m-1768509900",
+      "question": "XRP Up or Down - January 15, 3:45PM-4:00PM ET",
+      "token_id": "87020035707947074123427986981765870044651476014132656782255862714099765955128",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "sol-updown-15m-1768509900": {
+      "market_id": "sol-updown-15m-1768509900",
+      "question": "Solana Up or Down - January 15, 3:45PM-4:00PM ET",
+      "token_id": "4943030893730579431789095462902231349336597010169191562258617718395534338439",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "btc-updown-15m-1768509900": {
+      "market_id": "btc-updown-15m-1768509900",
+      "question": "Bitcoin Up or Down - January 15, 3:45PM-4:00PM ET",
+      "token_id": "52747680240351338515046010713756415989298456193713362794516565078109419215641",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-safe-or-safety-during-the-next-nyc-mayors-office-announcement": {
+      "market_id": "will-mamdani-say-safe-or-safety-during-the-next-nyc-mayors-office-announcement",
+      "question": "Will Mamdani say \"Safe\" or \"Safety\" during the next NYC Mayor's Office announcement?",
+      "token_id": "27107623328914270870162235356151347125571003352811052245036541811552033546437",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-immigrant-during-the-next-nyc-mayors-office-announcement-149": {
+      "market_id": "will-mamdani-say-immigrant-during-the-next-nyc-mayors-office-announcement-149",
+      "question": "Will Mamdani say \"Immigrant\" during the next NYC Mayor's Office announcement?",
+      "token_id": "113968201994530188264613790345633141802955384838383123367187858860094701628085",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-home-or-housing-during-the-next-nyc-mayors-office-announcement": {
+      "market_id": "will-mamdani-say-home-or-housing-during-the-next-nyc-mayors-office-announcement",
+      "question": "Will Mamdani say \"Home\" or \"Housing\" during the next NYC Mayor's Office announcement?",
+      "token_id": "24640782239532820107870140232152063552169906594103653004821138520004292993693",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-subway-or-transit-during-the-next-nyc-mayors-office-announcement": {
+      "market_id": "will-mamdani-say-subway-or-transit-during-the-next-nyc-mayors-office-announcement",
+      "question": "Will Mamdani say \"Subway\" or \"Transit\" during the next NYC Mayor's Office announcement?",
+      "token_id": "57286946679373967003273330682468096406795795153153396979560609762424001158514",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-eric-or-adams-during-the-next-nyc-mayors-office-announcement-858": {
+      "market_id": "will-mamdani-say-eric-or-adams-during-the-next-nyc-mayors-office-announcement-858",
+      "question": "Will Mamdani say \"Eric\" or \"Adams\" during the next NYC Mayor's Office announcement?",
+      "token_id": "92471689474148114632820030276943751019470548435990464269898301733378322212641",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-politics-during-the-next-nyc-mayors-office-announcement-833": {
+      "market_id": "will-mamdani-say-politics-during-the-next-nyc-mayors-office-announcement-833",
+      "question": "Will Mamdani say \"Politics\" during the next NYC Mayor's Office announcement?",
+      "token_id": "2944843224444392140810023024155239851000439188399992211997342993112143981069",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-kathy-or-hochul-during-the-next-nyc-mayors-office-announcement": {
+      "market_id": "will-mamdani-say-kathy-or-hochul-during-the-next-nyc-mayors-office-announcement",
+      "question": "Will Mamdani say \"Kathy\" or \"Hochul\" during the next NYC Mayor's Office announcement?",
+      "token_id": "19179991810956906985346802357366226720842583668485142916189983242288099898040",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-queens-or-manhattan-or-brooklyn-during-the-next-nyc-mayors-office-announcement": {
+      "market_id": "will-mamdani-say-queens-or-manhattan-or-brooklyn-during-the-next-nyc-mayors-office-announcement",
+      "question": "Will Mamdani say \"Queens\" or \"Manhattan\" or \"Brooklyn\" during the next NYC Mayor's Office announcement?",
+      "token_id": "8885609698824417436044454444533423216811329013829025887155186430097607853791",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-civic-during-the-next-nyc-mayors-office-announcement-932": {
+      "market_id": "will-mamdani-say-civic-during-the-next-nyc-mayors-office-announcement-932",
+      "question": "Will Mamdani say \"Civic\" during the next NYC Mayor's Office announcement?",
+      "token_id": "91046437743733407119653601149507368564431556033428002143804988175371528226743",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-trump-or-the-president-during-the-next-nyc-mayors-office-announcement-397": {
+      "market_id": "will-mamdani-say-trump-or-the-president-during-the-next-nyc-mayors-office-announcement-397",
+      "question": "Will Mamdani say \"Trump\" or \"The President\" during the next NYC Mayor's Office announcement?",
+      "token_id": "46115747020605420854097930407140473376145029769030118708519820784126277311283",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-ice-or-national-guard-during-the-next-nyc-mayors-office-announcement": {
+      "market_id": "will-mamdani-say-ice-or-national-guard-during-the-next-nyc-mayors-office-announcement",
+      "question": "Will Mamdani say \"ICE\" or \"National Guard\" during the next NYC Mayor's Office announcement?",
+      "token_id": "57274735790889666827731857972756655211453927931576306791879051198792110526240",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-crisis-during-the-next-nyc-mayors-office-announcement-724": {
+      "market_id": "will-mamdani-say-crisis-during-the-next-nyc-mayors-office-announcement-724",
+      "question": "Will Mamdani say \"Crisis\" during the next NYC Mayor's Office announcement?",
+      "token_id": "107827882483710701810187315557024148445872999719299498502147333198638851786793",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-mamdani-say-affordable-or-affordability-during-the-next-nyc-mayors-office-announcement-755": {
+      "market_id": "will-mamdani-say-affordable-or-affordability-during-the-next-nyc-mayors-office-announcement-755",
+      "question": "Will Mamdani say \"Affordable\" or \"Affordability\" during the next NYC Mayor's Office announcement?",
+      "token_id": "108907896885254482953657639273962356598100240391191602599898412641320495672104",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "sol-updown-5m-1768509900": {
+      "market_id": "sol-updown-5m-1768509900",
+      "question": "Solana Up or Down - January 15, 3:45PM-3:50PM ET",
+      "token_id": "91864335242523645709994771765784628749366015154625289945124761216072607165637",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "xrp-updown-5m-1768509900": {
+      "market_id": "xrp-updown-5m-1768509900",
+      "question": "XRP Up or Down - January 15, 3:45PM-3:50PM ET",
+      "token_id": "22884337329153264436654281484950063640777904942799475155301103262638439559612",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "eth-updown-5m-1768509900": {
+      "market_id": "eth-updown-5m-1768509900",
+      "question": "Ethereum Up or Down - January 15, 3:45PM-3:50PM ET",
+      "token_id": "102613979458784969363418173495792925561658509602825637287809008628926951739192",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "btc-updown-5m-1768509900": {
+      "market_id": "btc-updown-5m-1768509900",
+      "question": "Bitcoin Up or Down - January 15, 3:45PM-3:50PM ET",
+      "token_id": "28114000432678410335254423441373458532700221713341930768353098516283307270649",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "xrp-updown-5m-1768509600": {
+      "market_id": "xrp-updown-5m-1768509600",
+      "question": "XRP Up or Down - January 15, 3:40PM-3:45PM ET",
+      "token_id": "23400774738486132758356709994275944549358466403645508048736937432541667835507",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "eth-updown-5m-1768509600": {
+      "market_id": "eth-updown-5m-1768509600",
+      "question": "Ethereum Up or Down - January 15, 3:40PM-3:45PM ET",
+      "token_id": "114438121970521421892673725165490838372452862129532247472475951055547350942350",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "btc-updown-5m-1768509600": {
+      "market_id": "btc-updown-5m-1768509600",
+      "question": "Bitcoin Up or Down - January 15, 3:40PM-3:45PM ET",
+      "token_id": "54062602679254726927957838061192717029218497740401046012628915082481788825595",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "sol-updown-5m-1768509600": {
+      "market_id": "sol-updown-5m-1768509600",
+      "question": "Solana Up or Down - January 15, 3:40PM-3:45PM ET",
+      "token_id": "83063865121484051912322029884389660705957279288031887560384804311115312660462",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "xrp-updown-5m-1768509300": {
+      "market_id": "xrp-updown-5m-1768509300",
+      "question": "XRP Up or Down - January 15, 3:35PM-3:40PM ET",
+      "token_id": "67566172476284954367613189072872898590421667751228963412385475493096828737172",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "btc-updown-5m-1768509300": {
+      "market_id": "btc-updown-5m-1768509300",
+      "question": "Bitcoin Up or Down - January 15, 3:35PM-3:40PM ET",
+      "token_id": "40899883797263769151598738883186692432842709447810018652086557691466593816458",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "sol-updown-5m-1768509300": {
+      "market_id": "sol-updown-5m-1768509300",
+      "question": "Solana Up or Down - January 15, 3:35PM-3:40PM ET",
+      "token_id": "36930517947854732439154176737572560778596010516462368380757057756673727438300",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "eth-updown-5m-1768509300": {
+      "market_id": "eth-updown-5m-1768509300",
+      "question": "Ethereum Up or Down - January 15, 3:35PM-3:40PM ET",
+      "token_id": "105763672748485663597656990629260836839702527679555274779751344973346556735277",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "xrp-updown-15m-1768509000": {
+      "market_id": "xrp-updown-15m-1768509000",
+      "question": "XRP Up or Down - January 15, 3:30PM-3:45PM ET",
+      "token_id": "69064443317940139855977889033864291287095702826962058852994936618641829158216",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "eth-updown-15m-1768509000": {
+      "market_id": "eth-updown-15m-1768509000",
+      "question": "Ethereum Up or Down - January 15, 3:30PM-3:45PM ET",
+      "token_id": "105596653703757952738163166711492419631892936528501109629677843460784644476171",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "btc-updown-15m-1768509000": {
+      "market_id": "btc-updown-15m-1768509000",
+      "question": "Bitcoin Up or Down - January 15, 3:30PM-3:45PM ET",
+      "token_id": "85495711244951559710302447569038564784842298007872324556162537613809713536796",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "sol-updown-15m-1768509000": {
+      "market_id": "sol-updown-15m-1768509000",
+      "question": "Solana Up or Down - January 15, 3:30PM-3:45PM ET",
+      "token_id": "57003431120209269475202811525281478375453370335557147415880188767013173585475",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "sol-updown-5m-1768509000": {
+      "market_id": "sol-updown-5m-1768509000",
+      "question": "Solana Up or Down - January 15, 3:30PM-3:35PM ET",
+      "token_id": "93439100258432585673608655239131455314843516698730542767701035075959200074724",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "xrp-updown-5m-1768509000": {
+      "market_id": "xrp-updown-5m-1768509000",
+      "question": "XRP Up or Down - January 15, 3:30PM-3:35PM ET",
+      "token_id": "110542272581587276158963264504765662230122422647628592772989237087019368470084",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "btc-updown-5m-1768509000": {
+      "market_id": "btc-updown-5m-1768509000",
+      "question": "Bitcoin Up or Down - January 15, 3:30PM-3:35PM ET",
+      "token_id": "102849946348791162464120987520813404157377509444628615039526464644770093181840",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "eth-updown-5m-1768509000": {
+      "market_id": "eth-updown-5m-1768509000",
+      "question": "Ethereum Up or Down - January 15, 3:30PM-3:35PM ET",
+      "token_id": "4432267559163705692734408845328493877613593640823400569050473714344769401586",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-3pt1-in-january-163": {
+      "market_id": "will-annual-inflation-increase-by-3pt1-in-january-163",
+      "question": "Will annual inflation increase by \u22653.1% in January?",
+      "token_id": "25937238694749298855265917250290853995502953885272488014164340272830055743753",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-3pt0-in-january-566": {
+      "market_id": "will-annual-inflation-increase-by-3pt0-in-january-566",
+      "question": "Will annual inflation increase by 3.0% in January?",
+      "token_id": "74668610361188047397875525781096079764783567430488481375625885160176667737750",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-2pt6-in-january": {
+      "market_id": "will-annual-inflation-increase-by-2pt6-in-january",
+      "question": "Will annual inflation increase by 2.6% in January?",
+      "token_id": "4208384262942361054782564425589914886925876293474000861703095604598848671636",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-2pt9-in-january-369": {
+      "market_id": "will-annual-inflation-increase-by-2pt9-in-january-369",
+      "question": "Will annual inflation increase by 2.9% in January?",
+      "token_id": "9320690855225665671583205139744878781065754266175103696754479780464865363287",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-2pt7-in-january-512": {
+      "market_id": "will-annual-inflation-increase-by-2pt7-in-january-512",
+      "question": "Will annual inflation increase by 2.7% in January?",
+      "token_id": "65960085599073741396608361367176714234233608860119424338590803384064271170372",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-2pt8-in-january-711": {
+      "market_id": "will-annual-inflation-increase-by-2pt8-in-january-711",
+      "question": "Will annual inflation increase by 2.8% in January?",
+      "token_id": "35490591416711257542933664654663132099197796964697004548945384750868296995656",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-annual-inflation-increase-by-2pt5-in-january": {
+      "market_id": "will-annual-inflation-increase-by-2pt5-in-january",
+      "question": "Will annual inflation increase by \u22642.5% in January?",
+      "token_id": "35029262900262945141965386212314009186214555573676424953536919374755592533621",
+      "volume": 0.0,
+      "added_at": "2026-01-14T20:56:16Z"
+    },
+    "will-the-upper-bound-of-the-target-federal-funds-rate-be-3pt0-at-the-end-of-2026-593": {
+      "market_id": "will-the-upper-bound-of-the-target-federal-funds-rate-be-3pt0-at-the-end-of-2026-593",
+      "question": "Will the upper bound of the target federal funds rate be 3.0% at the end of 2026?",
+      "token_id": "22030816399818413560467152256926658656366292051273475071688151582132139764281",
+      "added_at": "2026-01-14T21:03:31Z"
+    },
+    "lol-gen-drx-2026-01-15-game1": {
+      "market_id": "lol-gen-drx-2026-01-15-game1",
+      "question": "LoL: Gen.G vs DRX - Game 1 Winner",
+      "token_id": "98048724137316741237959822871600431943594514256380408068726908390941000240299",
+      "added_at": "2026-01-14T20:56:49Z"
+    },
+    "will-the-number-of-republican-house-members-who-retire-in-2026-be-between-36-and-39-inclusive": {
+      "market_id": "will-the-number-of-republican-house-members-who-retire-in-2026-be-between-36-and-39-inclusive",
+      "question": "Will the number of Republican House members who retire in 2026 be between 36 and 39 inclusive?",
+      "token_id": "35728543926876832227758010997325479102150155332621985448512538195119929531554",
+      "added_at": "2026-01-14T21:03:36Z"
+    },
+    "nba-was-lac-2026-01-14": {
+      "market_id": "nba-was-lac-2026-01-14",
+      "question": "Wizards vs. Clippers",
+      "token_id": "62166473551363427143364141985069784396858617171727006466754542765921832027378",
+      "added_at": "2026-01-14T20:56:55Z"
+    },
+    "will-antnio-jos-seguro-win-more-than-22-of-votes-in-the-first-round": {
+      "market_id": "will-antnio-jos-seguro-win-more-than-22-of-votes-in-the-first-round",
+      "question": "Will Ant\u00f3nio Jos\u00e9 Seguro win more than 22% of votes in the first round?",
+      "token_id": "106765748946354214388149516104781323857404350654924510707980595991734488884909",
+      "added_at": "2026-01-14T21:03:39Z"
+    },
+    "mmm-quarterly-earnings-nongaap-eps-01-20-2026-1pt81": {
+      "market_id": "mmm-quarterly-earnings-nongaap-eps-01-20-2026-1pt81",
+      "question": "Will 3M (MMM) beat quarterly earnings?",
+      "token_id": "28233311832074378256038579887234457345921698383889414782445199180685915049313",
+      "added_at": "2026-01-14T21:03:34Z"
+    },
+    "trump-cabinet-member-out-by-june-30": {
+      "market_id": "trump-cabinet-member-out-by-june-30",
+      "question": "Trump cabinet member out by June 30, 2026?",
+      "token_id": "27531780206291776010386379301372790522287717835229457422788949143216321811670",
+      "added_at": "2026-01-14T20:58:38Z"
+    },
+    "will-lus-marques-mendes-win-the-2026-portugal-presidential-election": {
+      "market_id": "will-lus-marques-mendes-win-the-2026-portugal-presidential-election",
+      "question": "Will Lu\u00eds Marques Mendes win the 2026 Portugal presidential election?",
+      "token_id": "4370640939548049160201828166293191503482026064792352053936490018661409706941",
+      "added_at": "2026-01-14T20:58:36Z"
+    },
+    "will-karmine-corp-win-the-lec-2026-versus": {
+      "market_id": "will-karmine-corp-win-the-lec-2026-versus",
+      "question": "Will Karmine Corp win the LEC 2026 Versus?",
+      "token_id": "69725595401734871946640393748307275302620810898516399969699022063840566972319",
+      "added_at": "2026-01-14T21:03:33Z"
     }
   },
   "market_volume_history": {}

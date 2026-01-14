@@ -50,11 +50,16 @@ except ImportError:
 
 # Paths - Use absolute paths based on script location to avoid working directory issues
 _SCRIPT_DIR = Path(__file__).parent.resolve()
+_DATA_DIR = _SCRIPT_DIR / "data"
+
+# Ensure data directory exists
+_DATA_DIR.mkdir(exist_ok=True)
+
 CONFIG_PATH = _SCRIPT_DIR / "config.yaml"
-BOT_STATE_PATH = _SCRIPT_DIR / "bot_state.json"
-NOTIFICATIONS_PATH = _SCRIPT_DIR / "notifications.json"
-INSIDER_PATH = _SCRIPT_DIR / "insider_alerts.json"
-MARKETS_PATH = _SCRIPT_DIR / "tracked_markets.json"
+BOT_STATE_PATH = _DATA_DIR / "bot_state.json"
+NOTIFICATIONS_PATH = _DATA_DIR / "notifications.json"
+INSIDER_PATH = _DATA_DIR / "insider_alerts.json"
+MARKETS_PATH = _DATA_DIR / "tracked_markets.json"
 LOCK_FILE = _SCRIPT_DIR / ".bot_running.lock"
 
 
@@ -773,6 +778,10 @@ class TradingBotApp(tk.Tk):
                 swing_trade_enabled=True,  # Enable swing trading
                 prefer_high_volume=False,  # DON'T just focus on popular markets
                 use_news_analysis=NEWS_ANALYZER_AVAILABLE,  # Use news if available
+                # Verbose logging - show bot "thoughts"
+                verbose_logging=True,
+                log_rejected_markets=False,  # Set to True for ALL market evaluations
+                log_calculation_details=True,  # Show g-score/confidence breakdown
             ),
             storage_path=BOT_STATE_PATH,
             on_trade=self._on_bot_trade,
@@ -1156,16 +1165,6 @@ class TradingBotApp(tk.Tk):
         )
         self.ov_positions_value_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        self.ov_realized_card = self._create_overview_card(
-            row2, "✅ Realized P&L", "$0.00", "From closed trades"
-        )
-        self.ov_realized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        self.ov_unrealized_card = self._create_overview_card(
-            row2, "📉 Unrealized P&L", "$0.00", "Open positions gain/loss"
-        )
-        self.ov_unrealized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
         # =====================================================================
         # Row 3: Trading Performance
         # =====================================================================
@@ -1325,23 +1324,9 @@ class TradingBotApp(tk.Tk):
                 fg=profit_color
             )
             
-            # Row 2: Cash, Positions Value, Realized P&L, Unrealized P&L
+            # Row 2: Cash, Positions Value
             self.ov_cash_card.value_label.configure(text=f"${stats['cash_balance']:,.2f}")
             self.ov_positions_value_card.value_label.configure(text=f"${positions_value:,.2f}")
-            
-            realized_color = Theme.ACCENT_GREEN if tracked_realized_pnl >= 0 else Theme.ACCENT_RED
-            realized_sign = "+" if tracked_realized_pnl >= 0 else ""
-            self.ov_realized_card.value_label.configure(
-                text=f"{realized_sign}${tracked_realized_pnl:,.2f}",
-                fg=realized_color
-            )
-            
-            unrealized_color = Theme.ACCENT_GREEN if unrealized_pnl >= 0 else Theme.ACCENT_RED
-            unrealized_sign = "+" if unrealized_pnl >= 0 else ""
-            self.ov_unrealized_card.value_label.configure(
-                text=f"{unrealized_sign}${unrealized_pnl:,.2f}",
-                fg=unrealized_color
-            )
             
             # Row 3: Position Stats & Performance
             open_count = len(self.bot.open_trades)
@@ -2388,15 +2373,18 @@ class TradingBotApp(tk.Tk):
 
     def _build_positions_tab(self, parent: tk.Frame) -> None:
         """Build the positions tab."""
-        # Stats row
+        # Stats row - P&L breakdown
         stats = tk.Frame(parent, bg=Theme.BG_PRIMARY)
         stats.pack(fill=tk.X, pady=10)
         
-        self.stat_value = StatDisplay(stats, "Portfolio Value", "$10,000.00")
-        self.stat_value.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
+        self.stat_unrealized_pnl = StatDisplay(stats, "📈 Unrealized P&L", "$0.00")
+        self.stat_unrealized_pnl.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
         
-        self.stat_pnl = StatDisplay(stats, "Total P&L", "$0.00")
-        self.stat_pnl.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 0))
+        self.stat_realized_pnl = StatDisplay(stats, "✅ Realized P&L", "$0.00")
+        self.stat_realized_pnl.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
+        
+        self.stat_total_pnl = StatDisplay(stats, "💰 Total P&L", "$0.00")
+        self.stat_total_pnl.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(5, 0))
         
         # Positions header
         header = tk.Frame(parent, bg=Theme.BG_PRIMARY)
@@ -4103,22 +4091,30 @@ class TradingBotApp(tk.Tk):
             text=f"Portfolio: ${stats['portfolio_value']:,.2f}"
         )
         
-        pnl = stats['total_pnl'] + stats['unrealized_pnl']
+        unrealized_pnl = stats['unrealized_pnl']
+        realized_pnl = stats['total_pnl']
+        total_pnl = unrealized_pnl + realized_pnl
         pnl_pct = stats['total_return_pct']
-        pnl_color = Theme.PROFIT if pnl >= 0 else Theme.LOSS
-        pnl_text = f"+${pnl:.2f}" if pnl >= 0 else f"-${abs(pnl):.2f}"
+        pnl_color = Theme.PROFIT if total_pnl >= 0 else Theme.LOSS
+        pnl_text = f"+${total_pnl:.2f}" if total_pnl >= 0 else f"-${abs(total_pnl):.2f}"
         
         self.pnl_label.configure(
             text=f"P&L: {pnl_text} ({pnl_pct:+.1f}%)",
             fg=pnl_color
         )
         
-        self.stat_value.set_value(f"${stats['portfolio_value']:,.2f}")
-        self.stat_pnl.set_value(
-            pnl_text,
-            f"Win rate: {stats['win_rate']:.0f}%",
-            pnl_color
-        )
+        # Update holdings page P&L stats
+        unrealized_color = Theme.PROFIT if unrealized_pnl >= 0 else Theme.LOSS
+        unrealized_text = f"+${unrealized_pnl:.2f}" if unrealized_pnl >= 0 else f"-${abs(unrealized_pnl):.2f}"
+        self.stat_unrealized_pnl.set_value(unrealized_text, "Open positions", unrealized_color)
+        
+        realized_color = Theme.PROFIT if realized_pnl >= 0 else Theme.LOSS
+        realized_text = f"+${realized_pnl:.2f}" if realized_pnl >= 0 else f"-${abs(realized_pnl):.2f}"
+        self.stat_realized_pnl.set_value(realized_text, "Closed trades", realized_color)
+        
+        total_color = Theme.PROFIT if total_pnl >= 0 else Theme.LOSS
+        total_text = f"+${total_pnl:.2f}" if total_pnl >= 0 else f"-${abs(total_pnl):.2f}"
+        self.stat_total_pnl.set_value(total_text, f"Win rate: {stats['win_rate']:.0f}%", total_color)
     
     def _update_alerts_display(self) -> None:
         """Update the alerts list - OPTIMIZED with caching."""
@@ -4464,17 +4460,23 @@ class TradingBotApp(tk.Tk):
         
         # Otherwise just update the stat displays (much faster)
         try:
-            total_value = sum(t.shares * t.current_price for t in trades)
-            total_pnl = sum(t.pnl for t in trades)
-            pnl_pct = (total_pnl / (total_value - total_pnl) * 100) if (total_value - total_pnl) > 0 else 0
+            stats = self.bot.get_stats()
+            unrealized_pnl = stats['unrealized_pnl']
+            realized_pnl = stats['total_pnl']
+            total_pnl = unrealized_pnl + realized_pnl
             
-            self.stat_value.set_value(f"${self.bot.cash_balance + total_value:,.2f}")
-            pnl_color = Theme.PROFIT if total_pnl >= 0 else Theme.LOSS
-            self.stat_pnl.set_value(
-                f"${total_pnl:+,.2f}",
-                f"({pnl_pct:+.1f}%)",
-                pnl_color
-            )
+            # Update holdings page P&L stats
+            unrealized_color = Theme.PROFIT if unrealized_pnl >= 0 else Theme.LOSS
+            unrealized_text = f"+${unrealized_pnl:.2f}" if unrealized_pnl >= 0 else f"-${abs(unrealized_pnl):.2f}"
+            self.stat_unrealized_pnl.set_value(unrealized_text, "Open positions", unrealized_color)
+            
+            realized_color = Theme.PROFIT if realized_pnl >= 0 else Theme.LOSS
+            realized_text = f"+${realized_pnl:.2f}" if realized_pnl >= 0 else f"-${abs(realized_pnl):.2f}"
+            self.stat_realized_pnl.set_value(realized_text, "Closed trades", realized_color)
+            
+            total_color = Theme.PROFIT if total_pnl >= 0 else Theme.LOSS
+            total_text = f"+${total_pnl:.2f}" if total_pnl >= 0 else f"-${abs(total_pnl):.2f}"
+            self.stat_total_pnl.set_value(total_text, f"Win rate: {stats['win_rate']:.0f}%", total_color)
         except Exception:
             pass
     

@@ -59,8 +59,14 @@ class Notification:
 class NotificationManager:
     """Manages notifications and alerts for the application."""
     
+    _DEFAULT_DATA_DIR = Path(__file__).parent / "data"
+    
     def __init__(self, storage_path: Optional[Path] = None):
-        self.storage_path = storage_path or Path("notifications.json")
+        if storage_path is None:
+            self._DEFAULT_DATA_DIR.mkdir(exist_ok=True)
+            self.storage_path = self._DEFAULT_DATA_DIR / "notifications.json"
+        else:
+            self.storage_path = storage_path
         self.notifications: List[Notification] = []
         self.listeners: List[Callable[[Notification], None]] = []
         self._counter = 0

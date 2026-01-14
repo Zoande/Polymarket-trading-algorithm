@@ -4,7 +4,7 @@ Headless Trading Bot Runner
 Runs the trading bot without UI for minimal resource usage (overnight mode).
 
 Usage:
-    python headless_runner.py    # Interactive setup prompts
+    python scripts/headless_runner.py    # Interactive setup prompts
 
 IMPORTANT: Do not run this while the UI (trading_bot_v2.py) is running!
            Both use the same bot_state.json file.
@@ -19,11 +19,15 @@ from datetime import datetime, timezone
 
 # Ensure we're running from the correct directory
 SCRIPT_DIR = Path(__file__).parent.resolve()
-os.chdir(SCRIPT_DIR)
+PROJECT_DIR = SCRIPT_DIR.parent  # Parent folder with main code
+os.chdir(PROJECT_DIR)
 
-# Paths (relative to script directory)
-LOCK_FILE = SCRIPT_DIR / ".bot_running.lock"
-BOT_STATE_PATH = SCRIPT_DIR / "bot_state.json"
+# Add parent directory to path for imports
+sys.path.insert(0, str(PROJECT_DIR))
+
+# Paths (relative to project directory)
+LOCK_FILE = PROJECT_DIR / ".bot_running.lock"
+BOT_STATE_PATH = PROJECT_DIR / "data" / "bot_state.json"
 
 def check_lock():
     """Check if another instance is running."""
@@ -179,7 +183,7 @@ class HeadlessRunner:
             return False
         
         self._log("Starting headless trading bot...", "info")
-        self._log(f"Working directory: {SCRIPT_DIR}", "info")
+        self._log(f"Working directory: {PROJECT_DIR}", "info")
         self._log(f"State file: {BOT_STATE_PATH}", "info")
         
         # Create bot
@@ -379,7 +383,7 @@ def main():
 ╚═══════════════════════════════════════════════════════════════╝
     """)
     
-    print(f"📂 Working directory: {SCRIPT_DIR}\n")
+    print(f"📂 Working directory: {PROJECT_DIR}\n")
     
     # Interactive setup
     settings = interactive_setup()

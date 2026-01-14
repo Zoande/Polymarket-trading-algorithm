@@ -11,11 +11,13 @@ from typing import List, Dict, Optional, Any
 from dataclasses import dataclass
 from pathlib import Path
 
+_SCRIPT_DIR = Path(__file__).parent
+
 
 @dataclass
 class LogManagerConfig:
     """Configuration for log manager."""
-    logs_directory: str = "logs"
+    logs_directory: str = str(_SCRIPT_DIR / "logs")
     export_interval_minutes: int = 60  # Export every hour
     max_memory_entries: int = 100  # Keep max entries in memory
     max_log_files: int = 168  # Keep 7 days of hourly files

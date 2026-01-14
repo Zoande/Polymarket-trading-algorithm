@@ -1,4 +1,10 @@
 """Test P&L tracking with fixed API."""
+import sys
+from pathlib import Path
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import requests
 from auto_trader import AutoTradingBot, BotConfig, BotTrade, GAMMA_API_BASE
 from datetime import datetime, timezone
