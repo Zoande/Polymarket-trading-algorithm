@@ -4078,6 +4078,424 @@
       "token_id": "25169256015244420527677649582406013779555210011815705156535769731418776458507",
       "volume": 0.0,
       "added_at": "2026-01-13T20:36:14Z"
+    },
+    "will-oprah-winfrey-win-the-2028-democratic-presidential-nomination": {
+      "market_id": "will-oprah-winfrey-win-the-2028-democratic-presidential-nomination",
+      "question": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?",
+      "token_id": "2213957649161627793381994368131485505647723208738124952452819345058597751695",
+      "volume": 26935259.621017,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-tom-brady-win-the-2028-republican-presidential-nomination": {
+      "market_id": "will-tom-brady-win-the-2028-republican-presidential-nomination",
+      "question": "Will Tom Brady win the 2028 Republican presidential nomination?",
+      "token_id": "45742939946094874824687417208711661205131461760422331277735745393193805349457",
+      "volume": 12767970.502671,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "eth-updown-5m-1768429800": {
+      "market_id": "eth-updown-5m-1768429800",
+      "question": "Ethereum Up or Down - January 14, 5:30PM-5:35PM ET",
+      "token_id": "30855763366689209682289825984417341521490501217779976299512747849132533930529",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "btc-updown-5m-1768429800": {
+      "market_id": "btc-updown-5m-1768429800",
+      "question": "Bitcoin Up or Down - January 14, 5:30PM-5:35PM ET",
+      "token_id": "5463601011850648486962951160332403417921910477233246522439532686711656396156",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "xrp-updown-5m-1768429800": {
+      "market_id": "xrp-updown-5m-1768429800",
+      "question": "XRP Up or Down - January 14, 5:30PM-5:35PM ET",
+      "token_id": "36245052608057537425543853009884788213140152522759666877928745478661897673106",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "sol-updown-5m-1768429800": {
+      "market_id": "sol-updown-5m-1768429800",
+      "question": "Solana Up or Down - January 14, 5:30PM-5:35PM ET",
+      "token_id": "2814478382301047391951697452696420826301215435250503030037368346799154015670",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "cs2-bmb-777-2026-01-14-map-handicap-away-1pt5": {
+      "market_id": "cs2-bmb-777-2026-01-14-map-handicap-away-1pt5",
+      "question": "Map Handicap: BMB (-1.5)",
+      "token_id": "52568412272499204351610560308647862013270335598778813860216925269800663816832",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "cs2-bmb-777-2026-01-14-total-games-2pt5": {
+      "market_id": "cs2-bmb-777-2026-01-14-total-games-2pt5",
+      "question": "Games Total: O/U 2.5",
+      "token_id": "16000919407477102535938897704636704881666724500930401008630311084181726531806",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "cs2-bmb-777-2026-01-14": {
+      "market_id": "cs2-bmb-777-2026-01-14",
+      "question": "Counter-Strike: BASEMENT BOYS vs 777 (BO3)",
+      "token_id": "92336294142689745780062543020188059143547964665901436776922321586535768015305",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "cs2-bmb-777-2026-01-14-game2": {
+      "market_id": "cs2-bmb-777-2026-01-14-game2",
+      "question": "Counter-Strike: BASEMENT BOYS vs 777 - Map 2 Winner",
+      "token_id": "39344605245395885782028031543612110963155857045467064308552819116043333465998",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "cs2-bmb-777-2026-01-14-game1": {
+      "market_id": "cs2-bmb-777-2026-01-14-game1",
+      "question": "Counter-Strike: BASEMENT BOYS vs 777 - Map 1 Winner",
+      "token_id": "17007559238509084939579922825450983223758140598843048990457709709384914580566",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-robert-saleh-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-robert-saleh-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Robert Saleh be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "49427113483614581575434795684605214063312160252058304412389271557285225371646",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-john-harbaugh-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-john-harbaugh-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will John Harbaugh be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "62607010078879619761609880035647802652387701662470992769219095004873827555074",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-chris-shula-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-chris-shula-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Chris Shula be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "20205009744817043372333097431084374120206719883200580162490511344744587540738",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-kevin-stefanski-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-kevin-stefanski-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Kevin Stefanski be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "91963721858642540265112757721573318626102987021904793000678915953686189015208",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-mike-mccarthy-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-mike-mccarthy-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Mike McCarthy be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "21714748742103886631973706697144588308551840660913464207797796645638049985546",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-vance-joseph-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-vance-joseph-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Vance Joseph be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "50245184962728594130261653195453713765776092815130842007945228034650822756196",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-arthur-smith-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-arthur-smith-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Arthur Smith be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "66725633053139786348017288680908882734182092528390270362590671993122130748183",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-klint-kubiak-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-klint-kubiak-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Klint Kubiak be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "26459631561626873844428708363820475891516617273279428198479650147611818196747",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-jesse-minter-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-jesse-minter-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Jesse Minter be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "44988543341646570657995310537732948850348445553079662419227849260017557401841",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-marcus-freeman-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-marcus-freeman-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Marcus Freeman be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "63830422808964769525386374493468734553033394431365773342731976569271537710689",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-brian-flores-be-the-next-pittsburgh-steelers-head-coach": {
+      "market_id": "will-brian-flores-be-the-next-pittsburgh-steelers-head-coach",
+      "question": "Will Brian Flores be the next Pittsburgh Steelers Head Coach?",
+      "token_id": "29766790668361334940367067489275253388268674761939584621196943132879987612057",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "val-kru1-fur-2026-01-16-total-rounds-over-under-53pt5": {
+      "market_id": "val-kru1-fur-2026-01-16-total-rounds-over-under-53pt5",
+      "question": "Total Rounds Over/Under 53.5",
+      "token_id": "33431582782532997288392925735426439520847877219620844147025295429606621203505",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-back-to-my-roots-candi-staton-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-back-to-my-roots-candi-staton-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Back To My Roots - Candi Staton\" win Best Roots Gospel Album at the 68th annual GRAMMY Awards?",
+      "token_id": "108413452800590492069312081705471615611027381930053075938772313645382647612401",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-good-answers-karen-peck-new-river-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-good-answers-karen-peck-new-river-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Good Answers - Karen Peck & New River\" win Best Roots Gospel Album at the 68th annual GRAMMY Awards?",
+      "token_id": "59009964539502948225987726082195898422826595101981928570702593626868670381914",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-then-came-the-morning-gaither-vocal-band-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-then-came-the-morning-gaither-vocal-band-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Then Came The Morning - Gaither Vocal Band\" win Best Roots Gospel Album at the 68th annual GRAMMY Awards?",
+      "token_id": "74693258652236315691053008380298427295231915941874046002332452741599890407358",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-i-will-not-be-moved-live-the-brooklyn-tabernacle-choir-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-i-will-not-be-moved-live-the-brooklyn-tabernacle-choir-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"I Will Not Be Moved \u2014 Live - The Brooklyn Tabernacle Choir\" win Best Roots Gospel Album at the 68th annual GRAMMY Awards?",
+      "token_id": "26830042446497241804150894260012285277936155751873966860859652573144944626776",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-praise-worship-more-than-a-hollow-hallelujah-the-isaacs-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-praise-worship-more-than-a-hollow-hallelujah-the-isaacs-win-best-roots-gospel-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Praise & Worship: More Than A Hollow Hallelujah - The Isaacs\" win Best Roots Gospel Album at the 68th annual GRAMMY Awards?",
+      "token_id": "85673777686616908709798637585594421564637888426838204854742945440778486158340",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "xrp-updown-5m-1768429500": {
+      "market_id": "xrp-updown-5m-1768429500",
+      "question": "XRP Up or Down - January 14, 5:25PM-5:30PM ET",
+      "token_id": "27776345276021826209316073839082905851865833844050841726231465163617856845833",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "eth-updown-5m-1768429500": {
+      "market_id": "eth-updown-5m-1768429500",
+      "question": "Ethereum Up or Down - January 14, 5:25PM-5:30PM ET",
+      "token_id": "104177409353259812651231320295997571248517240118216333024196266590017097344318",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "sol-updown-5m-1768429500": {
+      "market_id": "sol-updown-5m-1768429500",
+      "question": "Solana Up or Down - January 14, 5:25PM-5:30PM ET",
+      "token_id": "59118333872796465586460026433042940759820030642708316040321710195215818554215",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "btc-updown-5m-1768429500": {
+      "market_id": "btc-updown-5m-1768429500",
+      "question": "Bitcoin Up or Down - January 14, 5:25PM-5:30PM ET",
+      "token_id": "44419822795169176604315821282537481135135694831188010040796291146897521702386",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-nyk-sac-2026-01-14-total-231pt5": {
+      "market_id": "nba-nyk-sac-2026-01-14-total-231pt5",
+      "question": "Knicks vs. Kings: O/U 231.5",
+      "token_id": "109274039714299850825846571173190880078530466919507823237829952620924774611757",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-por-gsw-2026-01-13-assists-jrue-holiday-4pt5": {
+      "market_id": "nba-por-gsw-2026-01-13-assists-jrue-holiday-4pt5",
+      "question": "Jrue Holiday: Assists Over 4.5",
+      "token_id": "61779997476694466802889728943179659076987152148485903716211189563249982602946",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-chi-hou-2026-01-13-1h-spread-home-8pt5": {
+      "market_id": "nba-chi-hou-2026-01-13-1h-spread-home-8pt5",
+      "question": "1H Spread: Rockets (-8.5)",
+      "token_id": "100831478368444299993779656261155277918661404679854058945644959772600030883067",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-uta-chi-2026-01-14-total-244pt5": {
+      "market_id": "nba-uta-chi-2026-01-14-total-244pt5",
+      "question": "Jazz vs. Bulls: O/U 244.5",
+      "token_id": "114429297310638374734211147938800597623907406391034208704225927495319988723764",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-sas-okc-2026-01-13-1h-total-118pt5": {
+      "market_id": "nba-sas-okc-2026-01-13-1h-total-118pt5",
+      "question": "Spurs vs. Thunder: 1H O/U 118.5",
+      "token_id": "54107631337945828691487762815863690803699824219306749067935065732293255171052",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-sas-okc-2026-01-13-spread-home-9pt5": {
+      "market_id": "nba-sas-okc-2026-01-13-spread-home-9pt5",
+      "question": "Spread: Thunder (-9.5)",
+      "token_id": "19317511229133006845680465020914088615279926808163971331377355410494294766990",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-por-gsw-2026-01-13-assists-jimmy-butler-iii-4pt5": {
+      "market_id": "nba-por-gsw-2026-01-13-assists-jimmy-butler-iii-4pt5",
+      "question": "Jimmy Butler III: Assists Over 4.5",
+      "token_id": "97583283168151441000502562693940446122666293185565999974535591293724104626724",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-min-mil-2026-01-13-assists-bones-hyland-5pt5": {
+      "market_id": "nba-min-mil-2026-01-13-assists-bones-hyland-5pt5",
+      "question": "Bones Hyland: Assists Over 5.5",
+      "token_id": "97837913840084639425284654897505020213040929083386687500145003883632446012783",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-min-mil-2026-01-13-assists-jaden-mcdaniels-2pt5": {
+      "market_id": "nba-min-mil-2026-01-13-assists-jaden-mcdaniels-2pt5",
+      "question": "Jaden McDaniels: Assists Over 2.5",
+      "token_id": "86080368679645637474036399166992284287111551240495890754306367221925360173211",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "nba-den-nop-2026-01-13-assists-jamal-murray-9pt5": {
+      "market_id": "nba-den-nop-2026-01-13-assists-jamal-murray-9pt5",
+      "question": "Jamal Murray: Assists Over 9.5",
+      "token_id": "100609570167582212695541497887917962503912474604282023966309864190502597126903",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "btc-updown-5m-1768429200": {
+      "market_id": "btc-updown-5m-1768429200",
+      "question": "Bitcoin Up or Down - January 14, 5:20PM-5:25PM ET",
+      "token_id": "80701265638298823484913385002951665610320679510273414012295679039581744723344",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "sol-updown-5m-1768429200": {
+      "market_id": "sol-updown-5m-1768429200",
+      "question": "Solana Up or Down - January 14, 5:20PM-5:25PM ET",
+      "token_id": "91636483610650558917262085224132834646185556603747037065675159208533212794883",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "eth-updown-5m-1768429200": {
+      "market_id": "eth-updown-5m-1768429200",
+      "question": "Ethereum Up or Down - January 14, 5:20PM-5:25PM ET",
+      "token_id": "66152749628448099173611315820551656468406782643733376531472275169323977471892",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "xrp-updown-5m-1768429200": {
+      "market_id": "xrp-updown-5m-1768429200",
+      "question": "XRP Up or Down - January 14, 5:20PM-5:25PM ET",
+      "token_id": "52831817523049883142644706927885842095802174421548351139610189761266486515515",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-let-the-church-sing-tauren-wells-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-let-the-church-sing-tauren-wells-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Let The Church Sing - Tauren Wells\" win Best Contemporary Christian Music Album at the 68th annual GRAMMY Awards?",
+      "token_id": "3976848359132749793514501607555496114241714797206251765947785746163620954847",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-child-of-god-ii-forrest-frank-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-child-of-god-ii-forrest-frank-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"CHILD OF GOD II - Forrest Frank\" win Best Contemporary Christian Music Album at the 68th annual GRAMMY Awards?",
+      "token_id": "103074756862904439064200401945894265896419746541105474350891502356433062018256",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-coritos-vol-1-israel-new-breed-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-coritos-vol-1-israel-new-breed-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Coritos Vol. 1 - Israel & New Breed\" win Best Contemporary Christian Music Album at the 68th annual GRAMMY Awards?",
+      "token_id": "32233106148828582236915388830611666210763842573152026736638652056223675734686",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-reconstruction-lecrae-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-reconstruction-lecrae-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"Reconstruction - Lecrae\" win Best Contemporary Christian Music Album at the 68th annual GRAMMY Awards?",
+      "token_id": "82935375403953844503879360545513467271128415298492841838748127553012676083742",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "will-king-of-hearts-brandon-lake-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards": {
+      "market_id": "will-king-of-hearts-brandon-lake-win-best-contemporary-christian-music-album-at-the-68th-annual-grammy-awards",
+      "question": "Will \"King Of Hearts - Brandon Lake\" win Best Contemporary Christian Music Album at the 68th annual GRAMMY Awards?",
+      "token_id": "94333003531691522808465401710288063501197114654079013882806082124903833959732",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "cbb-iowa-pur-2026-01-14-total-143pt5": {
+      "market_id": "cbb-iowa-pur-2026-01-14-total-143pt5",
+      "question": "Iowa Hawkeyes vs. Purdue Boilermakers: O/U 143.5",
+      "token_id": "102683557172432408522793207234454721616801908545792823540340146237901896211695",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "sol-updown-5m-1768370400": {
+      "market_id": "sol-updown-5m-1768370400",
+      "question": "Solana Up or Down - January 14, 1:00AM-1:05AM ET",
+      "token_id": "77177857736585174746284788318690517743023743346663867243594431857653609043542",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "sol-updown-5m-1768364400": {
+      "market_id": "sol-updown-5m-1768364400",
+      "question": "Solana Up or Down - January 13, 11:20PM-11:25PM ET",
+      "token_id": "88958481599004579808885097931215854487921143871028077458480082288394239674117",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "xrp-updown-5m-1768357500": {
+      "market_id": "xrp-updown-5m-1768357500",
+      "question": "XRP Up or Down - January 13, 9:25PM-9:30PM ET",
+      "token_id": "83889734011074046018388372304361299950504651573142411345617476668953951284612",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "eth-updown-5m-1768370400": {
+      "market_id": "eth-updown-5m-1768370400",
+      "question": "Ethereum Up or Down - January 14, 1:00AM-1:05AM ET",
+      "token_id": "28386547549181443348211846673769797108249686658701372005787591390929211909713",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "eth-updown-5m-1768410300": {
+      "market_id": "eth-updown-5m-1768410300",
+      "question": "Ethereum Up or Down - January 14, 12:05PM-12:10PM ET",
+      "token_id": "24345134330630513863537736651677380694774095336263260350163086548370187318470",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "sol-updown-5m-1768365000": {
+      "market_id": "sol-updown-5m-1768365000",
+      "question": "Solana Up or Down - January 13, 11:30PM-11:35PM ET",
+      "token_id": "42190072103012842742000418577826371810098210902680016618673772676791044863820",
+      "volume": 0.0,
+      "added_at": "2026-01-13T22:44:46Z"
+    },
+    "ethereum-above-3500-on-january-14": {
+      "market_id": "ethereum-above-3500-on-january-14",
+      "question": "Will the price of Ethereum be above $3,500 on January 14?",
+      "token_id": "44527102734045444665236083269543399574130794806651596472404999057502791210131",
+      "added_at": "2026-01-13T22:44:54Z"
+    },
+    "ai-industry-downturn-by-march-31-2026-547": {
+      "market_id": "ai-industry-downturn-by-march-31-2026-547",
+      "question": "AI Industry Downturn by March 31, 2026?",
+      "token_id": "61299930917982336025435641130574656076572546351772293236236392565933346041027",
+      "added_at": "2026-01-13T22:44:56Z"
     }
   },
   "market_volume_history": {}

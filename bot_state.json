@@ -1,66 +1,6 @@
 {
-  "cash_balance": 2174.0454460919273,
+  "cash_balance": 3334.3852800750865,
   "open_trades": {
-    "bot_20260113065913_37": {
-      "id": "bot_20260113065913_37",
-      "timestamp": "2026-01-13T06:59:13Z",
-      "market_id": "will-bitcoin-reach-110k-in-january-2026",
-      "question": "Will Bitcoin reach $110,000 in January?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 12500.0,
-      "entry_price": 0.04,
-      "current_price": 0.054,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 174.99999999999997,
-      "pnl_pct": 0.35,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 0.0,
-      "resolution_days": 0.0,
-      "category": "other"
-    },
-    "bot_20260113181935_83": {
-      "id": "bot_20260113181935_83",
-      "timestamp": "2026-01-13T18:19:35Z",
-      "market_id": "us-strikes-iran-by-january-23-2026-494-711-798-734-155",
-      "question": "US strikes Iran by January 23, 2026?",
-      "outcome": "No",
-      "action": "buy",
-      "shares": 671.1946675741367,
-      "entry_price": 0.305,
-      "current_price": 0.41,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 70.47544009528434,
-      "pnl_pct": 0.34426229508196715,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 249904.227071,
-      "resolution_days": 17.23641257491898,
-      "category": "world_events"
-    },
-    "bot_20260113191037_183": {
-      "id": "bot_20260113191037_183",
-      "timestamp": "2026-01-13T19:10:37Z",
-      "market_id": "us-strikes-iran-by-january-31-2026-165-644-953-482-164-893-945",
-      "question": "US strikes Iran by January 31, 2026?",
-      "outcome": "No",
-      "action": "buy",
-      "shares": 765.7214849007797,
-      "entry_price": 0.255,
-      "current_price": 0.325,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 53.60050394305458,
-      "pnl_pct": 0.27450980392156865,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 6222245.226703,
-      "resolution_days": 17.20095636920139,
-      "category": "world_events"
-    },
     "bot_20260113202334_380": {
       "id": "bot_20260113202334_380",
       "timestamp": "2026-01-13T20:23:34Z",
@@ -70,36 +10,17 @@
       "action": "buy",
       "shares": 436.16287782642166,
       "entry_price": 0.415,
-      "current_price": 0.415,
+      "current_price": 0.425,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 4.361628778264221,
+      "pnl_pct": 0.024096385542168697,
       "status": "open",
       "trade_type": "swing",
       "volume": 793055.160532,
       "resolution_days": 0.2961398118171296,
-      "category": "sports"
-    },
-    "bot_20260113202334_381": {
-      "id": "bot_20260113202334_381",
-      "timestamp": "2026-01-13T20:23:34Z",
-      "market_id": "will-andr-ventura-win-the-1st-round-of-the-2026-portugal-presidential-election-in-the-lisbon-district",
-      "question": "Will Andr\u00e9 Ventura win the 1st round of the 2026 Portugal presidential election in the Lisbon district?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 3202.442052963995,
-      "entry_price": 0.065,
-      "current_price": 0.065,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 646.200593,
-      "resolution_days": 11.15037681752315,
-      "category": "politics"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113202351_384": {
       "id": "bot_20260113202351_384",
@@ -110,16 +31,17 @@
       "action": "buy",
       "shares": 6163.844193288355,
       "entry_price": 0.0455,
-      "current_price": 0.0455,
+      "current_price": 0.0435,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -12.327688386576721,
+      "pnl_pct": -0.043956043956043994,
       "status": "open",
       "trade_type": "long",
       "volume": 33203456.652142,
       "resolution_days": 14.150110148275463,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     "bot_20260113202351_385": {
       "id": "bot_20260113202351_385",
@@ -130,16 +52,17 @@
       "action": "buy",
       "shares": 1231.2654620251617,
       "entry_price": 0.205,
-      "current_price": 0.205,
+      "current_price": 0.175,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -36.93796386075485,
+      "pnl_pct": -0.14634146341463414,
       "status": "open",
       "trade_type": "long",
       "volume": 1694804.340841,
       "resolution_days": 18.358454099375,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     "bot_20260113202351_386": {
       "id": "bot_20260113202351_386",
@@ -150,16 +73,17 @@
       "action": "buy",
       "shares": 119.04761904761905,
       "entry_price": 0.21,
-      "current_price": 0.2175,
+      "current_price": 0.21,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.8928571428571437,
-      "pnl_pct": 0.03571428571428575,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
       "status": "open",
       "trade_type": "long",
       "volume": 1440.60997,
       "resolution_days": 290.150115912581,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     "bot_20260113202410_388": {
       "id": "bot_20260113202410_388",
@@ -170,16 +94,17 @@
       "action": "buy",
       "shares": 7776.027772525951,
       "entry_price": 0.0355,
-      "current_price": 0.0355,
+      "current_price": 0.036,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 3.888013886262979,
+      "pnl_pct": 0.014084507042253535,
       "status": "open",
       "trade_type": "long",
       "volume": 12750224.997635,
       "resolution_days": 17.149884255462965,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     "bot_20260113202410_390": {
       "id": "bot_20260113202410_390",
@@ -190,16 +115,17 @@
       "action": "buy",
       "shares": 1788.7974287918694,
       "entry_price": 0.125,
-      "current_price": 0.125,
+      "current_price": 0.115,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -17.887974287918684,
+      "pnl_pct": -0.07999999999999996,
       "status": "open",
       "trade_type": "long",
       "volume": 3933883.714481,
       "resolution_days": 17.149927715451387,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     "bot_20260113202426_393": {
       "id": "bot_20260113202426_393",
@@ -219,7 +145,8 @@
       "trade_type": "long",
       "volume": 7517091.496403,
       "resolution_days": 351.1496942233218,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113202426_394": {
       "id": "bot_20260113202426_394",
@@ -239,7 +166,8 @@
       "trade_type": "long",
       "volume": 906.206575,
       "resolution_days": 351.14969425359953,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113202443_395": {
       "id": "bot_20260113202443_395",
@@ -250,16 +178,17 @@
       "action": "buy",
       "shares": 6103.623857099397,
       "entry_price": 0.0425,
-      "current_price": 0.0425,
+      "current_price": 0.0405,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -12.207247714198806,
+      "pnl_pct": -0.047058823529411806,
       "status": "open",
       "trade_type": "long",
       "volume": 32637813.361272,
       "resolution_days": 14.149501826516204,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     "bot_20260113203109_397": {
       "id": "bot_20260113203109_397",
@@ -270,16 +199,17 @@
       "action": "buy",
       "shares": 431.00974621671133,
       "entry_price": 0.39,
-      "current_price": 0.39,
+      "current_price": 0.4,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 4.310097462167117,
+      "pnl_pct": 0.025641025641025664,
       "status": "open",
       "trade_type": "swing",
       "volume": 160437.256187,
       "resolution_days": 0.18672928924768517,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     "bot_20260113203109_398": {
       "id": "bot_20260113203109_398",
@@ -290,36 +220,17 @@
       "action": "buy",
       "shares": 840.4690051225871,
       "entry_price": 0.23,
-      "current_price": 0.23,
+      "current_price": 0.26,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 25.21407015367761,
+      "pnl_pct": 0.13043478260869565,
       "status": "open",
       "trade_type": "long",
       "volume": 1247.946998,
       "resolution_days": 4.853371717418981,
-      "category": "other"
-    },
-    "bot_20260113203109_399": {
-      "id": "bot_20260113203109_399",
-      "timestamp": "2026-01-13T20:31:09Z",
-      "market_id": "enhanced-aca-premium-tax-credits-extended-by-january-31",
-      "question": "Enhanced ACA premium tax credits extended by January 31?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 1933.0787117819507,
-      "entry_price": 0.09,
-      "current_price": 0.09,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 89899.258066,
-      "resolution_days": 17.1450691522338,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     "bot_20260113203131_400": {
       "id": "bot_20260113203131_400",
@@ -339,7 +250,8 @@
       "trade_type": "swing",
       "volume": 858131.965189,
       "resolution_days": 0.18646794234953704,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203131_401": {
       "id": "bot_20260113203131_401",
@@ -359,7 +271,8 @@
       "trade_type": "swing",
       "volume": 473449.914704,
       "resolution_days": 0.3114960114814815,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203131_403": {
       "id": "bot_20260113203131_403",
@@ -379,7 +292,8 @@
       "trade_type": "swing",
       "volume": 526876.20227,
       "resolution_days": 0.14484368518518517,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203131_404": {
       "id": "bot_20260113203131_404",
@@ -390,16 +304,17 @@
       "action": "buy",
       "shares": 508.5821243009773,
       "entry_price": 0.445,
-      "current_price": 0.445,
+      "current_price": 0.45,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 2.542910621504889,
+      "pnl_pct": 0.011235955056179785,
       "status": "open",
       "trade_type": "swing",
       "volume": 204207.078913,
       "resolution_days": 0.18648457261574072,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     "bot_20260113203146_405": {
       "id": "bot_20260113203146_405",
@@ -419,67 +334,8 @@
       "trade_type": "long",
       "volume": 2062.625533,
       "resolution_days": 3.1446021939583333,
-      "category": "politics"
-    },
-    "bot_20260113203146_406": {
-      "id": "bot_20260113203146_406",
-      "timestamp": "2026-01-13T20:31:46Z",
-      "market_id": "will-lus-marques-mendes-qualify-for-the-second-round-of-the-2026-portugal-presidential-election",
-      "question": "Will Lu\u00eds Marques Mendes qualify for the second round of the 2026 Portugal presidential election?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 2342.4021189992263,
-      "entry_price": 0.08,
-      "current_price": 0.08,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "swing",
-      "volume": 299023.787462,
-      "resolution_days": 4.144602168032407,
-      "category": "politics"
-    },
-    "bot_20260113203146_409": {
-      "id": "bot_20260113203146_409",
-      "timestamp": "2026-01-13T20:31:46Z",
-      "market_id": "will-dogecoin-reach-0pt2-in-january-2026",
-      "question": "Will Dogecoin reach $0.20 in January?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 1837.429535871814,
-      "entry_price": 0.095,
-      "current_price": 0.095,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 1345.534666,
-      "resolution_days": 18.352935365393517,
-      "category": "crypto"
-    },
-    "bot_20260113203206_410": {
-      "id": "bot_20260113203206_410",
-      "timestamp": "2026-01-13T20:32:06Z",
-      "market_id": "ethereum-up-or-down-january-13-4pm-et",
-      "question": "Ethereum Up or Down - January 13, 4PM ET",
-      "outcome": "Up",
-      "action": "buy",
-      "shares": 526.3157894736843,
-      "entry_price": 0.475,
-      "current_price": 0.475,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "swing",
-      "volume": 422775.823093,
-      "resolution_days": 0.061052602905092596,
-      "category": "crypto"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113203206_411": {
       "id": "bot_20260113203206_411",
@@ -490,16 +346,17 @@
       "action": "buy",
       "shares": 568.1818181818181,
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.435,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -2.840909090909093,
+      "pnl_pct": -0.011363636363636374,
       "status": "open",
       "trade_type": "swing",
       "volume": 588655.560611,
       "resolution_days": 0.18604785333333335,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203206_412": {
       "id": "bot_20260113203206_412",
@@ -510,16 +367,17 @@
       "action": "buy",
       "shares": 547.1193711808115,
       "entry_price": 0.445,
-      "current_price": 0.445,
+      "current_price": 0.45,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 2.73559685590406,
+      "pnl_pct": 0.011235955056179785,
       "status": "open",
       "trade_type": "swing",
       "volume": 271112.12456,
       "resolution_days": 0.18606884042824073,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203206_413": {
       "id": "bot_20260113203206_413",
@@ -530,16 +388,17 @@
       "action": "buy",
       "shares": 481.70036679876176,
       "entry_price": 0.465,
-      "current_price": 0.465,
+      "current_price": 0.475,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 4.817003667987596,
+      "pnl_pct": 0.02150537634408592,
       "status": "open",
       "trade_type": "swing",
       "volume": 440297.74128,
       "resolution_days": 0.18606308994212964,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203206_414": {
       "id": "bot_20260113203206_414",
@@ -559,7 +418,8 @@
       "trade_type": "swing",
       "volume": 1099132.553701,
       "resolution_days": 0.16524935230324075,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203221_415": {
       "id": "bot_20260113203221_415",
@@ -570,16 +430,17 @@
       "action": "buy",
       "shares": 4308.7659900724875,
       "entry_price": 0.055,
-      "current_price": 0.055,
+      "current_price": 0.06,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 21.543829950362426,
+      "pnl_pct": 0.09090909090909087,
       "status": "open",
       "trade_type": "long",
       "volume": 1355.909694,
       "resolution_days": 46.14419880972222,
-      "category": "entertainment"
+      "category": "entertainment",
+      "token_id": null
     },
     "bot_20260113203221_417": {
       "id": "bot_20260113203221_417",
@@ -590,16 +451,17 @@
       "action": "buy",
       "shares": 853.1356660343524,
       "entry_price": 0.225,
-      "current_price": 0.225,
+      "current_price": 0.23,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 4.265678330171766,
+      "pnl_pct": 0.02222222222222224,
       "status": "open",
       "trade_type": "long",
       "volume": 120077.733159,
       "resolution_days": 76.1441989947338,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113203221_418": {
       "id": "bot_20260113203221_418",
@@ -610,16 +472,17 @@
       "action": "buy",
       "shares": 3562.0612860197193,
       "entry_price": 0.0485,
-      "current_price": 0.0485,
+      "current_price": 0.048,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -1.7810306430098612,
+      "pnl_pct": -0.010309278350515472,
       "status": "open",
       "trade_type": "long",
       "volume": 200373.276886,
       "resolution_days": 352.352532374456,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     "bot_20260113203221_419": {
       "id": "bot_20260113203221_419",
@@ -630,16 +493,17 @@
       "action": "buy",
       "shares": 2006.2448404485258,
       "entry_price": 0.0775,
-      "current_price": 0.0775,
+      "current_price": 0.0735,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -8.02497936179411,
+      "pnl_pct": -0.0516129032258065,
       "status": "open",
       "trade_type": "long",
       "volume": 3430895.892731,
       "resolution_days": 351.1441989435879,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113203237_421": {
       "id": "bot_20260113203237_421",
@@ -650,16 +514,17 @@
       "action": "buy",
       "shares": 502.74621658282297,
       "entry_price": 0.44,
-      "current_price": 0.44,
+      "current_price": 0.555,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 57.81581490702467,
+      "pnl_pct": 0.26136363636363646,
       "status": "open",
       "trade_type": "long",
       "volume": 14271.243997,
       "resolution_days": 3.019005256111111,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     "bot_20260113203237_423": {
       "id": "bot_20260113203237_423",
@@ -670,16 +535,17 @@
       "action": "buy",
       "shares": 58.82352941176471,
       "entry_price": 0.425,
-      "current_price": 0.425,
+      "current_price": 0.395,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -1.7647058823529396,
+      "pnl_pct": -0.07058823529411758,
       "status": "open",
       "trade_type": "long",
       "volume": 15803.336039,
       "resolution_days": 352.3523386513079,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     "bot_20260113203508_424": {
       "id": "bot_20260113203508_424",
@@ -699,7 +565,8 @@
       "trade_type": "swing",
       "volume": 175351.60274,
       "resolution_days": 0.30893129516203705,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     "bot_20260113203534_426": {
       "id": "bot_20260113203534_426",
@@ -719,27 +586,8 @@
       "trade_type": "swing",
       "volume": 1381806.430469,
       "resolution_days": 0.18365058231481482,
-      "category": "sports"
-    },
-    "bot_20260113203534_427": {
-      "id": "bot_20260113203534_427",
-      "timestamp": "2026-01-13T20:35:34Z",
-      "market_id": "israel-strikes-iran-by-january-16-2026-418",
-      "question": "Israel strikes Iran by January 16, 2026?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 927.7459721901295,
-      "entry_price": 0.195,
-      "current_price": 0.195,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "swing",
-      "volume": 1253299.537871,
-      "resolution_days": 2.1419707196412037,
-      "category": "world_events"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203534_429": {
       "id": "bot_20260113203534_429",
@@ -750,16 +598,17 @@
       "action": "buy",
       "shares": 3499.8566511639797,
       "entry_price": 0.0535,
-      "current_price": 0.0545,
+      "current_price": 0.0535,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 3.4998566511639826,
-      "pnl_pct": 0.018691588785046745,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
       "status": "open",
       "trade_type": "long",
       "volume": 8934114.399341,
       "resolution_days": 25.642026081238427,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     "bot_20260113203552_431": {
       "id": "bot_20260113203552_431",
@@ -770,16 +619,17 @@
       "action": "buy",
       "shares": 4530.3398290036075,
       "entry_price": 0.0555,
-      "current_price": 0.0555,
+      "current_price": 0.0515,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": -18.121359316014445,
+      "pnl_pct": -0.07207207207207214,
       "status": "open",
       "trade_type": "long",
       "volume": 4984720.692218,
       "resolution_days": 11.725101315451388,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113203552_432": {
       "id": "bot_20260113203552_432",
@@ -790,16 +640,17 @@
       "action": "buy",
       "shares": 1367.3140450678561,
       "entry_price": 0.1655,
-      "current_price": 0.166,
+      "current_price": 0.191,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.6836570225339287,
-      "pnl_pct": 0.003021148036253779,
+      "pnl": 34.86650814923033,
+      "pnl_pct": 0.15407854984894256,
       "status": "open",
       "trade_type": "long",
       "volume": 1793639.282516,
       "resolution_days": 11.72511761201389,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     "bot_20260113203552_433": {
       "id": "bot_20260113203552_433",
@@ -810,16 +661,17 @@
       "action": "buy",
       "shares": 502.86772101940045,
       "entry_price": 0.405,
-      "current_price": 0.405,
+      "current_price": 0.51,
       "exit_price": null,
       "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
+      "pnl": 52.80111070703704,
+      "pnl_pct": 0.2592592592592592,
       "status": "open",
       "trade_type": "long",
       "volume": 2871877.153654,
       "resolution_days": 18.3501176884375,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     "bot_20260113203552_434": {
       "id": "bot_20260113203552_434",
@@ -839,27 +691,8 @@
       "trade_type": "long",
       "volume": 8399.137237,
       "resolution_days": 76.14177456403935,
-      "category": "other"
-    },
-    "bot_20260113203608_435": {
-      "id": "bot_20260113203608_435",
-      "timestamp": "2026-01-13T20:36:08Z",
-      "market_id": "will-the-price-of-ethereum-be-between-3300-3400-on-january-14",
-      "question": "Will the price of Ethereum be between $3,300 and $3,400 on January 14?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 2684.0067235702804,
-      "entry_price": 0.1,
-      "current_price": 0.1,
-      "exit_price": null,
-      "exit_timestamp": null,
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "open",
-      "trade_type": "long",
-      "volume": 3174.53636,
-      "resolution_days": 0.8499005485879629,
-      "category": "crypto"
+      "category": "other",
+      "token_id": null
     },
     "bot_20260113203608_436": {
       "id": "bot_20260113203608_436",
@@ -870,239 +703,230 @@
       "action": "buy",
       "shares": 680.4524087924656,
       "entry_price": 0.355,
-      "current_price": 0.355,
+      "current_price": 0.36,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": 3.402262043962331,
+      "pnl_pct": 0.014084507042253534,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 9072344.715039,
+      "resolution_days": 351.14156726180556,
+      "category": "politics",
+      "token_id": null
+    },
+    "bot_20260113222553_437": {
+      "id": "bot_20260113222553_437",
+      "timestamp": "2026-01-13T22:25:53Z",
+      "market_id": "israel-strikes-iran-by-january-16-2026-418",
+      "question": "Israel strikes Iran by January 16, 2026?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 1460.5616666666665,
+      "entry_price": 0.1716381636925838,
+      "current_price": 0.16,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": -16.998255759779685,
+      "pnl_pct": -0.06780638665785649,
+      "status": "open",
+      "trade_type": "swing",
+      "volume": 1281186.670563,
+      "resolution_days": 2.065524769212963,
+      "category": "world_events",
+      "token_id": "104663890405767427718480543493833762398617970079292208022284840939078090957432"
+    },
+    "bot_20260113222555_439": {
+      "id": "bot_20260113222555_439",
+      "timestamp": "2026-01-13T22:25:55Z",
+      "market_id": "us-strikes-iran-by-january-13-2026-771",
+      "question": "US strikes Iran by January 13, 2026?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 12613.955249999999,
+      "entry_price": 0.039088934997313744,
+      "current_price": 0.036,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": -38.96368782627447,
+      "pnl_pct": -0.07902325805310438,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 2568592.39906,
+      "resolution_days": 17.06544507980324,
+      "category": "world_events",
+      "token_id": "60372915345155031730275666528053985906403141215617526950460028144443852637171"
+    },
+    "bot_20260113222557_440": {
+      "id": "bot_20260113222557_440",
+      "timestamp": "2026-01-13T22:25:57Z",
+      "market_id": "us-strikes-iran-by-january-31-2026-165-644-953-482-164-893-945",
+      "question": "US strikes Iran by January 31, 2026?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 1282.051282051282,
+      "entry_price": 0.3842633165757921,
+      "current_price": 0.385,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": 0.9444659284716753,
+      "pnl_pct": 0.0019171318011111877,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 6623663.308735,
+      "resolution_days": 17.06547873939815,
+      "category": "world_events",
+      "token_id": "13294549611854156060952327202052855585194847446707854951585060180328600525494"
+    },
+    "bot_20260113222558_441": {
+      "id": "bot_20260113222558_441",
+      "timestamp": "2026-01-13T22:25:58Z",
+      "market_id": "israel-strikes-iran-by-january-31-2026-894-994-453",
+      "question": "Israel strikes Iran by January 31, 2026?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 1228.0655641288072,
+      "entry_price": 0.4093213786968404,
+      "current_price": 0.395,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": -17.587592008437536,
+      "pnl_pct": -0.034988103339325796,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 8075758.591058,
+      "resolution_days": 17.065502467094905,
+      "category": "world_events",
+      "token_id": "15091760884604171309203489618212539770109612407760305338364320626709285790409"
+    },
+    "bot_20260113222703_442": {
+      "id": "bot_20260113222703_442",
+      "timestamp": "2026-01-13T22:27:03Z",
+      "market_id": "bitcoin-above-90k-on-january-19",
+      "question": "Will the price of Bitcoin be above $90,000 on January 19?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 3592.5243010183463,
+      "entry_price": 0.1275460405883468,
+      "current_price": 0.105,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": -80.99719870538182,
+      "pnl_pct": -0.17676785954582352,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 1148.824836,
+      "resolution_days": 5.77294601425926,
+      "category": "crypto",
+      "token_id": "107923808868690965725395996718416653036939852949700352245625320857592911819712"
+    },
+    "bot_20260113222706_443": {
+      "id": "bot_20260113222706_443",
+      "timestamp": "2026-01-13T22:27:06Z",
+      "market_id": "trump-cabinet-member-out-by-june-30",
+      "question": "Trump cabinet member out by June 30, 2026?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 71.42857142857143,
+      "entry_price": 0.3491839305483651,
+      "current_price": 0.315,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": -2.441709324883222,
+      "pnl_pct": -0.09789663142482533,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 1337.357264,
+      "resolution_days": 167.56459974461805,
+      "category": "politics",
+      "token_id": "27531780206291776010386379301372790522287717835229457422788949143216321811670"
+    },
+    "bot_20260113223547_444": {
+      "id": "bot_20260113223547_444",
+      "timestamp": "2026-01-13T22:35:47Z",
+      "market_id": "sea-cag-juv-2026-01-17-juv",
+      "question": "Will Juventus FC win on 2026-01-17?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 1108.6135347872278,
+      "entry_price": 0.3711083934564936,
+      "current_price": 0.3711083934564936,
       "exit_price": null,
       "exit_timestamp": null,
       "pnl": 0.0,
       "pnl_pct": 0.0,
       "status": "open",
       "trade_type": "long",
-      "volume": 9072344.715039,
-      "resolution_days": 351.14156726180556,
-      "category": "politics"
+      "volume": 1979.428681,
+      "resolution_days": 3.8814442640972224,
+      "category": "other",
+      "token_id": "98973084904726294176858484691428160988022011351380877678384134838288605931898"
+    },
+    "bot_20260113223548_445": {
+      "id": "bot_20260113223548_445",
+      "timestamp": "2026-01-13T22:35:48Z",
+      "market_id": "bun-lei-bay-2026-01-17-bay",
+      "question": "Will FC Bayern M\u00fcnchen win on 2026-01-17?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 983.7307722430799,
+      "entry_price": 0.38007140247429155,
+      "current_price": 0.38007140247429155,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 1487.294208,
+      "resolution_days": 3.787718104027778,
+      "category": "other",
+      "token_id": "59171162242966153126080872515951515531067113816561175089573293355110728361510"
+    },
+    "bot_20260113223548_446": {
+      "id": "bot_20260113223548_446",
+      "timestamp": "2026-01-13T22:35:48Z",
+      "market_id": "will-the-median-home-value-in-the-us-be-between-412000-and-414000-by-february-1",
+      "question": "Will the median home value in the US be between $412,000 and $414,000 by February 1?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 216.4655172413793,
+      "entry_price": 0.11760949499855781,
+      "current_price": 0.11760949499855781,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 1693.046835,
+      "resolution_days": 18.058505758900463,
+      "category": "other",
+      "token_id": "71895175856739014104247601978810131906505162727603642893301459769823029898804"
+    },
+    "bot_20260113223552_447": {
+      "id": "bot_20260113223552_447",
+      "timestamp": "2026-01-13T22:35:52Z",
+      "market_id": "will-trump-sell-0-gold-cards-in-2026",
+      "question": "Will Trump sell 0 Gold Cards in 2026?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 239.10818181818183,
+      "entry_price": 0.10370502928285324,
+      "current_price": 0.10370502928285324,
+      "exit_price": null,
+      "exit_timestamp": null,
+      "pnl": 0.0,
+      "pnl_pct": 0.0,
+      "status": "open",
+      "trade_type": "long",
+      "volume": 10483.536055,
+      "resolution_days": 351.0585844750347,
+      "category": "politics",
+      "token_id": "7465944841767583018291499747334711307126986423404813304527234412438530575641"
     }
   },
   "closed_trades": [
-    {
-      "id": "bot_20260113200944_327",
-      "timestamp": "2026-01-13T20:09:44Z",
-      "market_id": "will-trump-nominate-rick-rieder-as-the-next-fed-chair",
-      "question": "Will Trump nominate Rick Rieder as the next Fed chair?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 2586.6833872728917,
-      "entry_price": 0.077,
-      "current_price": 0.0765,
-      "exit_price": 0.0765,
-      "exit_timestamp": "2026-01-13T20:15:16Z",
-      "pnl": -1.293341693636447,
-      "pnl_pct": -0.006493506493506499,
-      "status": "closed",
-      "trade_type": "long",
-      "volume": 3430201.380167,
-      "resolution_days": 351.15990643988425,
-      "category": "politics"
-    },
-    {
-      "id": "bot_20260113201149_334",
-      "timestamp": "2026-01-13T20:11:49Z",
-      "market_id": "will-joo-cotrim-figueiredo-win-the-2026-portugal-presidential-election-643",
-      "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 1179.5660302380923,
-      "entry_price": 0.1965,
-      "current_price": 0.1955,
-      "exit_price": 0.1955,
-      "exit_timestamp": "2026-01-13T20:15:16Z",
-      "pnl": -1.1795660302380933,
-      "pnl_pct": -0.005089058524173033,
-      "status": "closed",
-      "trade_type": "long",
-      "volume": 1779530.494702,
-      "resolution_days": 11.741793447523149,
-      "category": "politics"
-    },
-    {
-      "id": "bot_20260113200723_294",
-      "timestamp": "2026-01-13T20:07:23Z",
-      "market_id": "will-kendrick-lamar-perform-at-the-2026-grammy-awards",
-      "question": "Will Kendrick Lamar perform at the 2026 Grammy Awards?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 541.1230660742729,
-      "entry_price": 0.33,
-      "current_price": 0.33,
-      "exit_price": 0.33,
-      "exit_timestamp": "2026-01-13T20:15:16Z",
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "closed",
-      "trade_type": "long",
-      "volume": 9069.53342,
-      "resolution_days": 18.16154051608796,
-      "category": "entertainment"
-    },
-    {
-      "id": "bot_20260113200741_295",
-      "timestamp": "2026-01-13T20:07:41Z",
-      "market_id": "nba-chi-hou-2026-01-13",
-      "question": "Bulls vs. Rockets",
-      "outcome": "Bulls",
-      "action": "buy",
-      "shares": 1428.5714285714287,
-      "entry_price": 0.175,
-      "current_price": 0.175,
-      "exit_price": 0.175,
-      "exit_timestamp": "2026-01-13T20:15:16Z",
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "closed",
-      "trade_type": "swing",
-      "volume": 846008.531604,
-      "resolution_days": 0.203015471875,
-      "category": "sports"
-    },
-    {
-      "id": "bot_20260113201517_344",
-      "timestamp": "2026-01-13T20:15:17Z",
-      "market_id": "will-tom-steyer-get-the-first-or-second-most-votes-in-the-2026-california-governor-primary-election",
-      "question": "Will Tom Steyer advance from the 2026 California Governor primary election?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 877.062905814777,
-      "entry_price": 0.22,
-      "current_price": 0.21,
-      "exit_price": 0.21,
-      "exit_timestamp": "2026-01-13T20:15:32Z",
-      "pnl": -8.770629058147778,
-      "pnl_pct": -0.0454545454545455,
-      "status": "closed",
-      "trade_type": "long",
-      "volume": 8467.780308,
-      "resolution_days": 139.15605180001157,
-      "category": "politics"
-    },
-    {
-      "id": "bot_20260113201517_342",
-      "timestamp": "2026-01-13T20:15:17Z",
-      "market_id": "will-joo-cotrim-figueiredo-win-the-2026-portugal-presidential-election-643",
-      "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 1212.2881241431908,
-      "entry_price": 0.1965,
-      "current_price": 0.1955,
-      "exit_price": 0.1955,
-      "exit_timestamp": "2026-01-13T20:15:32Z",
-      "pnl": -1.2122881241431918,
-      "pnl_pct": -0.005089058524173033,
-      "status": "closed",
-      "trade_type": "long",
-      "volume": 1779530.494702,
-      "resolution_days": 11.739385164664352,
-      "category": "politics"
-    },
-    {
-      "id": "bot_20260113200741_296",
-      "timestamp": "2026-01-13T20:07:41Z",
-      "market_id": "nba-por-gsw-2026-01-13",
-      "question": "Trail Blazers vs. Warriors",
-      "outcome": "Trail Blazers",
-      "action": "buy",
-      "shares": 1219.5121951219512,
-      "entry_price": 0.205,
-      "current_price": 0.205,
-      "exit_price": 0.205,
-      "exit_timestamp": "2026-01-13T20:15:32Z",
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "closed",
-      "trade_type": "swing",
-      "volume": 471273.327219,
-      "resolution_days": 0.3280231587037037,
-      "category": "sports"
-    },
-    {
-      "id": "bot_20260113200741_297",
-      "timestamp": "2026-01-13T20:07:41Z",
-      "market_id": "nba-sas-okc-2026-01-13",
-      "question": "Spurs vs. Thunder",
-      "outcome": "Spurs",
-      "action": "buy",
-      "shares": 874.8412663670482,
-      "entry_price": 0.265,
-      "current_price": 0.265,
-      "exit_price": 0.265,
-      "exit_timestamp": "2026-01-13T20:15:32Z",
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "closed",
-      "trade_type": "swing",
-      "volume": 1273068.515162,
-      "resolution_days": 0.20302708930555557,
-      "category": "sports"
-    },
-    {
-      "id": "bot_20260113200741_298",
-      "timestamp": "2026-01-13T20:07:41Z",
-      "market_id": "nhl-mon-wsh-2026-01-13",
-      "question": "Canadiens vs. Capitals",
-      "outcome": "Canadiens",
-      "action": "buy",
-      "shares": 479.2950578433401,
-      "entry_price": 0.445,
-      "current_price": 0.445,
-      "exit_price": 0.445,
-      "exit_timestamp": "2026-01-13T20:15:32Z",
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "closed",
-      "trade_type": "swing",
-      "volume": 510710.442759,
-      "resolution_days": 0.16132475770833332,
-      "category": "sports"
-    },
-    {
-      "id": "bot_20260113201532_351",
-      "timestamp": "2026-01-13T20:15:32Z",
-      "market_id": "will-joo-cotrim-figueiredo-win-the-2026-portugal-presidential-election-643",
-      "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal presidential election?",
-      "outcome": "Yes",
-      "action": "buy",
-      "shares": 919.804178242034,
-      "entry_price": 0.1965,
-      "current_price": 0.1955,
-      "exit_price": 0.1955,
-      "exit_timestamp": "2026-01-13T20:15:47Z",
-      "pnl": -0.9198041782420349,
-      "pnl_pct": -0.005089058524173033,
-      "status": "closed",
-      "trade_type": "long",
-      "volume": 1779530.494702,
-      "resolution_days": 11.739205668275464,
-      "category": "politics"
-    },
-    {
-      "id": "bot_20260113200741_299",
-      "timestamp": "2026-01-13T20:07:41Z",
-      "market_id": "mex-pac-leo-2026-01-13-pac",
-      "question": "Will CF Pachuca win on 2026-01-13?",
-      "outcome": "No",
-      "action": "buy",
-      "shares": 440.95145321587296,
-      "entry_price": 0.445,
-      "current_price": 0.445,
-      "exit_price": 0.445,
-      "exit_timestamp": "2026-01-13T20:15:47Z",
-      "pnl": 0.0,
-      "pnl_pct": 0.0,
-      "status": "closed",
-      "trade_type": "swing",
-      "volume": 202821.921773,
-      "resolution_days": 0.20299461171296296,
-      "category": "other"
-    },
     {
       "id": "bot_20260113200756_300",
       "timestamp": "2026-01-13T20:07:56Z",
@@ -1121,7 +945,8 @@
       "trade_type": "long",
       "volume": 1979.428681,
       "resolution_days": 3.984065332604166,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113200756_301",
@@ -1141,7 +966,8 @@
       "trade_type": "long",
       "volume": 2435.189392,
       "resolution_days": 17.161154335972224,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200756_302",
@@ -1161,7 +987,8 @@
       "trade_type": "long",
       "volume": 3767.66461,
       "resolution_days": 17.036148328877317,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113201548_355",
@@ -1181,7 +1008,8 @@
       "trade_type": "long",
       "volume": 8467.780308,
       "resolution_days": 139.15569292921296,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201548_353",
@@ -1201,7 +1029,8 @@
       "trade_type": "long",
       "volume": 1779530.494702,
       "resolution_days": 11.739026400729166,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200756_303",
@@ -1221,7 +1050,8 @@
       "trade_type": "long",
       "volume": 3082.375336,
       "resolution_days": 76.1611484133912,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200756_304",
@@ -1241,7 +1071,8 @@
       "trade_type": "long",
       "volume": 8399.137237,
       "resolution_days": 76.16115429237269,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113200813_305",
@@ -1261,7 +1092,8 @@
       "trade_type": "long",
       "volume": 200371.178252,
       "resolution_days": 352.36929280805555,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201604_358",
@@ -1281,7 +1113,8 @@
       "trade_type": "long",
       "volume": 8467.780308,
       "resolution_days": 139.15549869377315,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201604_356",
@@ -1301,7 +1134,8 @@
       "trade_type": "long",
       "volume": 1779530.494702,
       "resolution_days": 11.738831959560185,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200813_306",
@@ -1321,7 +1155,8 @@
       "trade_type": "long",
       "volume": 10483.536055,
       "resolution_days": 351.1609595103588,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200837_307",
@@ -1341,7 +1176,8 @@
       "trade_type": "swing",
       "volume": 543549.254973,
       "resolution_days": 0.2024305285648148,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113200837_308",
@@ -1361,7 +1197,8 @@
       "trade_type": "swing",
       "volume": 779310.231631,
       "resolution_days": 0.30658526560185184,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201620_364",
@@ -1381,7 +1218,8 @@
       "trade_type": "long",
       "volume": 6245621.270271,
       "resolution_days": 25.65531523534722,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201620_363",
@@ -1401,7 +1239,8 @@
       "trade_type": "long",
       "volume": 1779530.494702,
       "resolution_days": 11.738653735034722,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200837_309",
@@ -1421,7 +1260,8 @@
       "trade_type": "swing",
       "volume": 422377.237825,
       "resolution_days": 0.07742299233796296,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113200837_310",
@@ -1441,7 +1281,8 @@
       "trade_type": "swing",
       "volume": 431726.697528,
       "resolution_days": 0.20237486185185188,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113200837_311",
@@ -1461,7 +1302,8 @@
       "trade_type": "swing",
       "volume": 1089514.670596,
       "resolution_days": 0.18160588430555555,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201636_369",
@@ -1481,7 +1323,8 @@
       "trade_type": "long",
       "volume": 6245621.270271,
       "resolution_days": 25.65513753731482,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201636_368",
@@ -1501,7 +1344,8 @@
       "trade_type": "long",
       "volume": 1779530.494702,
       "resolution_days": 11.738470640335649,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200853_312",
@@ -1521,7 +1365,8 @@
       "trade_type": "long",
       "volume": 17965.014084,
       "resolution_days": 4.160492156458333,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113200853_314",
@@ -1541,7 +1386,8 @@
       "trade_type": "long",
       "volume": 16813.143169,
       "resolution_days": 9.868825512071759,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113200853_316",
@@ -1561,7 +1407,8 @@
       "trade_type": "long",
       "volume": 3923162.745196,
       "resolution_days": 17.160492134201387,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260112203620_30",
@@ -1581,7 +1428,8 @@
       "trade_type": "long",
       "volume": 0.0,
       "resolution_days": 0.0,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113200723_292",
@@ -1601,7 +1449,8 @@
       "trade_type": "long",
       "volume": 2710.411381,
       "resolution_days": 0.869872751238426,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201620_361",
@@ -1621,7 +1470,8 @@
       "trade_type": "swing",
       "volume": 779527.099707,
       "resolution_days": 0.30114854362268517,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113200929_319",
@@ -1641,7 +1491,8 @@
       "trade_type": "swing",
       "volume": 665931.026003,
       "resolution_days": 0.1601269767361111,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201651_370",
@@ -1661,7 +1512,8 @@
       "trade_type": "long",
       "volume": 1779530.494702,
       "resolution_days": 11.738294254606481,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200909_317",
@@ -1681,7 +1533,8 @@
       "trade_type": "long",
       "volume": 7509119.60487,
       "resolution_days": 351.1603115064352,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200909_318",
@@ -1701,7 +1554,8 @@
       "trade_type": "long",
       "volume": 1040.538942,
       "resolution_days": 352.3686447994213,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113200929_320",
@@ -1721,7 +1575,8 @@
       "trade_type": "swing",
       "volume": 271103.19599,
       "resolution_days": 0.2017658831365741,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113200929_321",
@@ -1741,7 +1596,8 @@
       "trade_type": "long",
       "volume": 32626556.435455,
       "resolution_days": 14.160119781724537,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     {
       "id": "bot_20260113200929_322",
@@ -1761,7 +1617,8 @@
       "trade_type": "long",
       "volume": 33199339.078286,
       "resolution_days": 14.160080779305556,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     {
       "id": "bot_20260113200929_323",
@@ -1781,7 +1638,8 @@
       "trade_type": "swing",
       "volume": 598820.62207,
       "resolution_days": 6.160080829027778,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113200944_325",
@@ -1801,7 +1659,8 @@
       "trade_type": "long",
       "volume": 1691768.460366,
       "resolution_days": 18.368239863090277,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201117_329",
@@ -1821,7 +1680,8 @@
       "trade_type": "swing",
       "volume": 1252143.657522,
       "resolution_days": 2.158837281724537,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113201117_330",
@@ -1841,7 +1701,8 @@
       "trade_type": "long",
       "volume": 12749728.784121,
       "resolution_days": 17.158842353622685,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113201117_331",
@@ -1861,7 +1722,8 @@
       "trade_type": "long",
       "volume": 2045543.636082,
       "resolution_days": 17.15883719244213,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113201117_333",
@@ -1881,7 +1743,8 @@
       "trade_type": "long",
       "volume": 8436371.449418,
       "resolution_days": 76.15883733844908,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113201445_336",
@@ -1901,7 +1764,8 @@
       "trade_type": "long",
       "volume": 41189.2965,
       "resolution_days": 22.15642304599537,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     {
       "id": "bot_20260113194249_258",
@@ -1921,7 +1785,8 @@
       "trade_type": "long",
       "volume": 4923735.750627,
       "resolution_days": 11.761927487106481,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113202351_383",
@@ -1941,7 +1806,8 @@
       "trade_type": "long",
       "volume": 32637813.361272,
       "resolution_days": 14.150115866238425,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     {
       "id": "bot_20260113202334_382",
@@ -1961,7 +1827,8 @@
       "trade_type": "long",
       "volume": 1782144.84181,
       "resolution_days": 11.7336696621875,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113202410_391",
@@ -1981,7 +1848,8 @@
       "trade_type": "long",
       "volume": 20097253.489491,
       "resolution_days": 17.149897573310184,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113201445_337",
@@ -2001,7 +1869,8 @@
       "trade_type": "long",
       "volume": 1345.534666,
       "resolution_days": 18.364767468842594,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201445_338",
@@ -2021,7 +1890,8 @@
       "trade_type": "long",
       "volume": 276377.196515,
       "resolution_days": 18.36477231840278,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201446_339",
@@ -2041,7 +1911,8 @@
       "trade_type": "long",
       "volume": 7192.689928,
       "resolution_days": 18.364762447974538,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113201501_341",
@@ -2061,7 +1932,8 @@
       "trade_type": "long",
       "volume": 836.048902,
       "resolution_days": 76.15623247497685,
-      "category": "entertainment"
+      "category": "entertainment",
+      "token_id": null
     },
     {
       "id": "bot_20260113201517_343",
@@ -2081,7 +1953,8 @@
       "trade_type": "long",
       "volume": 9069.53342,
       "resolution_days": 18.156051897037038,
-      "category": "entertainment"
+      "category": "entertainment",
+      "token_id": null
     },
     {
       "id": "bot_20260113201517_345",
@@ -2101,7 +1974,8 @@
       "trade_type": "long",
       "volume": 16020.662088,
       "resolution_days": 139.15605193012732,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201532_347",
@@ -2121,7 +1995,8 @@
       "trade_type": "swing",
       "volume": 855223.385828,
       "resolution_days": 0.19753924510416668,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201532_348",
@@ -2141,7 +2016,8 @@
       "trade_type": "swing",
       "volume": 471544.696265,
       "resolution_days": 0.3225392112962963,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201532_349",
@@ -2161,7 +2037,8 @@
       "trade_type": "swing",
       "volume": 1274780.97461,
       "resolution_days": 0.19753917899305554,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201532_350",
@@ -2181,7 +2058,8 @@
       "trade_type": "swing",
       "volume": 511670.267202,
       "resolution_days": 0.15587244570601852,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201548_352",
@@ -2201,7 +2079,8 @@
       "trade_type": "swing",
       "volume": 203095.001773,
       "resolution_days": 0.19735967774305554,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113201604_357",
@@ -2221,7 +2100,8 @@
       "trade_type": "long",
       "volume": 3082.375336,
       "resolution_days": 76.15549859598379,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201604_359",
@@ -2241,7 +2121,8 @@
       "trade_type": "long",
       "volume": 200371.178252,
       "resolution_days": 352.36383199215277,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201620_362",
@@ -2261,7 +2142,8 @@
       "trade_type": "long",
       "volume": 2051.928793,
       "resolution_days": 3.978236870520833,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113201636_366",
@@ -2281,7 +2163,8 @@
       "trade_type": "swing",
       "volume": 431802.615906,
       "resolution_days": 0.19680428960648147,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201651_371",
@@ -2301,7 +2184,8 @@
       "trade_type": "long",
       "volume": 8467.780308,
       "resolution_days": 139.1549608909259,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201149_335",
@@ -2321,7 +2205,8 @@
       "trade_type": "long",
       "volume": 9071742.335322,
       "resolution_days": 351.1584601761111,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201620_360",
@@ -2341,7 +2226,8 @@
       "trade_type": "swing",
       "volume": 551501.712704,
       "resolution_days": 0.19698179708333333,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201517_346",
@@ -2361,7 +2247,8 @@
       "trade_type": "long",
       "volume": 3430201.380167,
       "resolution_days": 351.1560518637384,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113201548_354",
@@ -2381,7 +2268,8 @@
       "trade_type": "long",
       "volume": 3767.66461,
       "resolution_days": 17.030693122951387,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113201501_340",
@@ -2401,7 +2289,8 @@
       "trade_type": "long",
       "volume": 602.182609,
       "resolution_days": 113.15623251056712,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113200944_326",
@@ -2421,7 +2310,8 @@
       "trade_type": "long",
       "volume": 2837910.260621,
       "resolution_days": 18.36823961554398,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201636_367",
@@ -2441,7 +2331,8 @@
       "trade_type": "swing",
       "volume": 1090065.76164,
       "resolution_days": 0.1759706713310185,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113201636_365",
@@ -2461,7 +2352,8 @@
       "trade_type": "swing",
       "volume": 422383.943706,
       "resolution_days": 0.07180425761574075,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113201651_372",
@@ -2481,7 +2373,8 @@
       "trade_type": "long",
       "volume": 10483.536055,
       "resolution_days": 351.15496086609954,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113202410_389",
@@ -2501,7 +2394,8 @@
       "trade_type": "long",
       "volume": 2347252.198896,
       "resolution_days": 17.149916465127315,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113203131_402",
@@ -2521,7 +2415,8 @@
       "trade_type": "swing",
       "volume": 1360431.751262,
       "resolution_days": 0.18647942204861112,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113202426_392",
@@ -2541,7 +2436,8 @@
       "trade_type": "long",
       "volume": 4977314.797273,
       "resolution_days": 11.733027529652777,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113203146_407",
@@ -2561,7 +2457,8 @@
       "trade_type": "long",
       "volume": 14271.243997,
       "resolution_days": 3.0196020846180556,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113202255_376",
@@ -2581,7 +2478,8 @@
       "trade_type": "long",
       "volume": 2301.985523,
       "resolution_days": 17.150752154050924,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113203109_396",
@@ -2601,7 +2499,8 @@
       "trade_type": "long",
       "volume": 3174.53636,
       "resolution_days": 0.853455448761574,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113202410_387",
@@ -2621,7 +2520,8 @@
       "trade_type": "swing",
       "volume": 1252753.623763,
       "resolution_days": 2.149903353229167,
-      "category": "world_events"
+      "category": "world_events",
+      "token_id": null
     },
     {
       "id": "bot_20260113203221_416",
@@ -2641,7 +2541,8 @@
       "trade_type": "long",
       "volume": 2848973.782436,
       "resolution_days": 18.352532419675924,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113203237_422",
@@ -2661,7 +2562,8 @@
       "trade_type": "long",
       "volume": 9072344.715039,
       "resolution_days": 351.1440053642014,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113202334_378",
@@ -2681,7 +2583,8 @@
       "trade_type": "long",
       "volume": 643.26,
       "resolution_days": 2.108652273576389,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113203534_425",
@@ -2701,7 +2604,8 @@
       "trade_type": "long",
       "volume": 3174.53636,
       "resolution_days": 0.850363835636574,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113203534_428",
@@ -2721,7 +2625,8 @@
       "trade_type": "long",
       "volume": 6249968.691494,
       "resolution_days": 25.64200266920139,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
     },
     {
       "id": "bot_20260113203237_420",
@@ -2741,7 +2646,8 @@
       "trade_type": "long",
       "volume": 4979037.221599,
       "resolution_days": 11.727338533055555,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113203146_408",
@@ -2761,7 +2667,8 @@
       "trade_type": "long",
       "volume": 1785465.438371,
       "resolution_days": 11.727935471435186,
-      "category": "politics"
+      "category": "politics",
+      "token_id": null
     },
     {
       "id": "bot_20260113202255_373",
@@ -2781,7 +2688,8 @@
       "trade_type": "long",
       "volume": 1979.428681,
       "resolution_days": 3.973691074560185,
-      "category": "other"
+      "category": "other",
+      "token_id": null
     },
     {
       "id": "bot_20260113203552_430",
@@ -2801,7 +2709,8 @@
       "trade_type": "long",
       "volume": 3174.53636,
       "resolution_days": 0.8500920974305555,
-      "category": "crypto"
+      "category": "crypto",
+      "token_id": null
     },
     {
       "id": "bot_20260113202255_374",
@@ -2821,7 +2730,8 @@
       "trade_type": "long",
       "volume": 2630.111511,
       "resolution_days": 18.359113663055556,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113202255_375",
@@ -2841,7 +2751,8 @@
       "trade_type": "long",
       "volume": 1766.63,
       "resolution_days": 17.025762840127314,
-      "category": "technology"
+      "category": "technology",
+      "token_id": null
     },
     {
       "id": "bot_20260113202310_377",
@@ -2861,7 +2772,8 @@
       "trade_type": "long",
       "volume": 23073.773797,
       "resolution_days": 76.15057008563657,
-      "category": "finance"
+      "category": "finance",
+      "token_id": null
     },
     {
       "id": "bot_20260113202334_379",
@@ -2881,214 +2793,248 @@
       "trade_type": "swing",
       "volume": 786390.422832,
       "resolution_days": 0.15033289645833334,
-      "category": "sports"
+      "category": "sports",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113065913_37",
+      "timestamp": "2026-01-13T06:59:13Z",
+      "market_id": "will-bitcoin-reach-110k-in-january-2026",
+      "question": "Will Bitcoin reach $110,000 in January?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 12500.0,
+      "entry_price": 0.04,
+      "current_price": 0.078,
+      "exit_price": 0.07644,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 455.49999999999994,
+      "pnl_pct": 0.9109999999999998,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 0.0,
+      "resolution_days": 0.0,
+      "category": "other",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113181935_83",
+      "timestamp": "2026-01-13T18:19:35Z",
+      "market_id": "us-strikes-iran-by-january-23-2026-494-711-798-734-155",
+      "question": "US strikes Iran by January 23, 2026?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 671.1946675741367,
+      "entry_price": 0.305,
+      "current_price": 0.505,
+      "exit_price": 0.4949,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 127.45986737232857,
+      "pnl_pct": 0.6226229508196722,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 249904.227071,
+      "resolution_days": 17.23641257491898,
+      "category": "world_events",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113191037_183",
+      "timestamp": "2026-01-13T19:10:37Z",
+      "market_id": "us-strikes-iran-by-january-31-2026-165-644-953-482-164-893-945",
+      "question": "US strikes Iran by January 31, 2026?",
+      "outcome": "No",
+      "action": "buy",
+      "shares": 765.7214849007797,
+      "entry_price": 0.255,
+      "current_price": 0.395,
+      "exit_price": 0.3871,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 101.151808155393,
+      "pnl_pct": 0.5180392156862745,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 6222245.226703,
+      "resolution_days": 17.20095636920139,
+      "category": "world_events",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113202334_381",
+      "timestamp": "2026-01-13T20:23:34Z",
+      "market_id": "will-andr-ventura-win-the-1st-round-of-the-2026-portugal-presidential-election-in-the-lisbon-district",
+      "question": "Will Andr\u00e9 Ventura win the 1st round of the 2026 Portugal presidential election in the Lisbon district?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 3202.442052963995,
+      "entry_price": 0.065,
+      "current_price": 0.15,
+      "exit_price": 0.147,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 262.60024834304755,
+      "pnl_pct": 1.2615384615384613,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 646.200593,
+      "resolution_days": 11.15037681752315,
+      "category": "politics",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113203109_399",
+      "timestamp": "2026-01-13T20:31:09Z",
+      "market_id": "enhanced-aca-premium-tax-credits-extended-by-january-31",
+      "question": "Enhanced ACA premium tax credits extended by January 31?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 1933.0787117819507,
+      "entry_price": 0.09,
+      "current_price": 0.045,
+      "exit_price": 0.0441,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": -88.72831287079153,
+      "pnl_pct": -0.51,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 89899.258066,
+      "resolution_days": 17.1450691522338,
+      "category": "other",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113203146_406",
+      "timestamp": "2026-01-13T20:31:46Z",
+      "market_id": "will-lus-marques-mendes-qualify-for-the-second-round-of-the-2026-portugal-presidential-election",
+      "question": "Will Lu\u00eds Marques Mendes qualify for the second round of the 2026 Portugal presidential election?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 2342.4021189992263,
+      "entry_price": 0.08,
+      "current_price": 0.07,
+      "exit_price": 0.06860000000000001,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": -26.703384156591166,
+      "pnl_pct": -0.1424999999999999,
+      "status": "closed",
+      "trade_type": "swing",
+      "volume": 299023.787462,
+      "resolution_days": 4.144602168032407,
+      "category": "politics",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113203146_409",
+      "timestamp": "2026-01-13T20:31:46Z",
+      "market_id": "will-dogecoin-reach-0pt2-in-january-2026",
+      "question": "Will Dogecoin reach $0.20 in January?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 1837.429535871814,
+      "entry_price": 0.095,
+      "current_price": 0.159,
+      "exit_price": 0.15582,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 111.7524643717237,
+      "pnl_pct": 0.6402105263157893,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 1345.534666,
+      "resolution_days": 18.352935365393517,
+      "category": "crypto",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113203206_410",
+      "timestamp": "2026-01-13T20:32:06Z",
+      "market_id": "ethereum-up-or-down-january-13-4pm-et",
+      "question": "Ethereum Up or Down - January 13, 4PM ET",
+      "outcome": "Up",
+      "action": "buy",
+      "shares": 526.3157894736843,
+      "entry_price": 0.475,
+      "current_price": 0.9995,
+      "exit_price": 0.98,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 265.7894736842106,
+      "pnl_pct": 1.063157894736842,
+      "status": "closed",
+      "trade_type": "swing",
+      "volume": 422775.823093,
+      "resolution_days": 0.061052602905092596,
+      "category": "crypto",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113203534_427",
+      "timestamp": "2026-01-13T20:35:34Z",
+      "market_id": "israel-strikes-iran-by-january-16-2026-418",
+      "question": "Israel strikes Iran by January 16, 2026?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 927.7459721901295,
+      "entry_price": 0.195,
+      "current_price": 0.165,
+      "exit_price": 0.1617,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": -30.893940873931307,
+      "pnl_pct": -0.17076923076923076,
+      "status": "closed",
+      "trade_type": "swing",
+      "volume": 1253299.537871,
+      "resolution_days": 2.1419707196412037,
+      "category": "world_events",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113203608_435",
+      "timestamp": "2026-01-13T20:36:08Z",
+      "market_id": "will-the-price-of-ethereum-be-between-3300-3400-on-january-14",
+      "question": "Will the price of Ethereum be between $3,300 and $3,400 on January 14?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 2684.0067235702804,
+      "entry_price": 0.1,
+      "current_price": 0.3905,
+      "exit_price": 0.38269000000000003,
+      "exit_timestamp": "2026-01-13T22:25:05Z",
+      "pnl": 758.7418606860825,
+      "pnl_pct": 2.8268999999999997,
+      "status": "closed",
+      "trade_type": "long",
+      "volume": 3174.53636,
+      "resolution_days": 0.8499005485879629,
+      "category": "crypto",
+      "token_id": null
+    },
+    {
+      "id": "bot_20260113222554_438",
+      "timestamp": "2026-01-13T22:25:54Z",
+      "market_id": "will-bitcoin-reach-100k-january-12-18",
+      "question": "Will Bitcoin reach $100,000 January 12-18?",
+      "outcome": "Yes",
+      "action": "buy",
+      "shares": 793.9475,
+      "entry_price": 0.31246017906945217,
+      "current_price": 0.28,
+      "exit_price": 0.2665241211648777,
+      "exit_timestamp": "2026-01-13T22:26:22Z",
+      "pnl": -36.47081833319212,
+      "pnl_pct": -0.1470141188594915,
+      "status": "closed",
+      "trade_type": "swing",
+      "volume": 63434.912393,
+      "resolution_days": 5.273829393796296,
+      "category": "crypto",
+      "token_id": "69416472955477749243864842378128436844521234982347300439416092289635373172914"
     }
   ],
-  "total_trades": 436,
-  "winning_trades": 261,
-  "losing_trades": 133,
-  "total_pnl": 743.3032558679515,
+  "total_trades": 447,
+  "winning_trades": 268,
+  "losing_trades": 137,
+  "total_pnl": 2643.502522246231,
   "blacklist": [],
-  "trade_counter": 436,
+  "trade_counter": 447,
   "trade_log": [
-    {
-      "timestamp": "2026-01-13T20:24:05Z",
-      "action": "SELL",
-      "question": "No change in Bank of England's interest rates afte",
-      "amount": 187.74562720284598,
-      "price": 0.048,
-      "pnl": 0.0,
-      "result": "WIN"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:10Z",
-      "action": "BUY",
-      "question": "Israel strikes Iran by January 16, 2026?",
-      "amount": 240.04259645623586,
-      "price": 0.205,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:10Z",
-      "action": "BUY",
-      "question": "Russia x Ukraine ceasefire by January 31, 2026?",
-      "amount": 276.04898592467123,
-      "price": 0.0355,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:10Z",
-      "action": "BUY",
-      "question": "US strikes Iran by January 13, 2026?",
-      "amount": 248.44408733220408,
-      "price": 0.0455,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:10Z",
-      "action": "BUY",
-      "question": "Will the Iranian regime fall by January 31?",
-      "amount": 223.59967859898367,
-      "price": 0.125,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:10Z",
-      "action": "BUY",
-      "question": "Khamenei out as Supreme Leader of Iran by January ",
-      "amount": 201.2397107390853,
-      "price": 0.21,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:25Z",
-      "action": "SELL",
-      "question": "Will Andr\u00e9 Ventura win the 2026 Portugal president",
-      "amount": 201.14441566471277,
-      "price": 0.057,
-      "pnl": 17.644246988132714,
-      "result": "WIN"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:26Z",
-      "action": "BUY",
-      "question": "Will Andr\u00e9 Ventura win the 2026 Portugal president",
-      "amount": 201.23018123164806,
-      "price": 0.057,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:26Z",
-      "action": "BUY",
-      "question": "Will Trump acquire Greenland before 2027?",
-      "amount": 181.10716310848326,
-      "price": 0.165,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:26Z",
-      "action": "BUY",
-      "question": "Will Donald Trump visit Mexico in 2026?",
-      "amount": 25.0,
-      "price": 0.4,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:24:42Z",
-      "action": "SELL",
-      "question": "Fed decreases interest rates by 25 bps after Janua",
-      "amount": 289.620103957843,
-      "price": 0.0395,
-      "pnl": -21.99646359173493,
-      "result": "LOSS"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:42Z",
-      "action": "SELL",
-      "question": "Will Jo\u00e3o Cotrim Figueiredo win the 2026 Portugal ",
-      "amount": 181.96225576136416,
-      "price": 0.186,
-      "pnl": -5.38060433702959,
-      "result": "LOSS"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:42Z",
-      "action": "SELL",
-      "question": "Khamenei out as Supreme Leader of Iran by January ",
-      "amount": 196.44828905482137,
-      "price": 0.205,
-      "pnl": -4.79142168426394,
-      "result": "LOSS"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:42Z",
-      "action": "SELL",
-      "question": "Will Dogecoin reach $0.20 in January?",
-      "amount": 168.97106448256136,
-      "price": 0.095,
-      "pnl": 0.0,
-      "result": "WIN"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:42Z",
-      "action": "SELL",
-      "question": "Will Ethereum reach $3,800 in January?",
-      "amount": 152.07395803430524,
-      "price": 0.12,
-      "pnl": 0.0,
-      "result": "WIN"
-    },
-    {
-      "timestamp": "2026-01-13T20:24:43Z",
-      "action": "BUY",
-      "question": "Fed decreases interest rates by 25 bps after Janua",
-      "amount": 259.4040139267244,
-      "price": 0.0425,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:31:09Z",
-      "action": "BUY",
-      "question": "Will the price of Ethereum be between $3,300 and $",
-      "amount": 233.463612534052,
-      "price": 0.1,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:31:09Z",
-      "action": "BUY",
-      "question": "Will Club Puebla win on 2026-01-13?",
-      "amount": 168.09380102451743,
-      "price": 0.39,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:31:09Z",
-      "action": "BUY",
-      "question": "Will Torino FC win on 2026-01-18?",
-      "amount": 193.30787117819503,
-      "price": 0.23,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:31:09Z",
-      "action": "BUY",
-      "question": "Enhanced ACA premium tax credits extended by Janua",
-      "amount": 173.97708406037555,
-      "price": 0.09,
-      "pnl": null,
-      "result": null
-    },
-    {
-      "timestamp": "2026-01-13T20:31:24Z",
-      "action": "SELL",
-      "question": "Will Tesla dip to $375 in January?",
-      "amount": 136.8665622308747,
-      "price": 0.165,
-      "pnl": 0.0,
-      "result": "WIN"
-    },
-    {
-      "timestamp": "2026-01-13T20:31:24Z",
-      "action": "SELL",
-      "question": "Will Alan Dershowitz be named in newly released Ep",
-      "amount": 148.09752129671892,
-      "price": 0.235,
-      "pnl": 0.0,
-      "result": "WIN"
-    },
     {
       "timestamp": "2026-01-13T20:31:24Z",
       "action": "SELL",
@@ -3790,6 +3736,204 @@
       "price": 0.355,
       "pnl": null,
       "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Will Bitcoin reach $110,000 in January?",
+      "amount": 955.4999999999999,
+      "price": 0.07644,
+      "pnl": 455.49999999999994,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "US strikes Iran by January 23, 2026?",
+      "amount": 332.17424098244027,
+      "price": 0.4949,
+      "pnl": 127.45986737232857,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "US strikes Iran by January 31, 2026?",
+      "amount": 296.41078680509185,
+      "price": 0.3871,
+      "pnl": 101.151808155393,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Will Andr\u00e9 Ventura win the 1st round of the 2026 P",
+      "amount": 470.75898178570725,
+      "price": 0.147,
+      "pnl": 262.60024834304755,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Enhanced ACA premium tax credits extended by Janua",
+      "amount": 85.24877118958402,
+      "price": 0.0441,
+      "pnl": -88.72831287079153,
+      "result": "LOSS"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Will Lu\u00eds Marques Mendes qualify for the second ro",
+      "amount": 160.68878536334694,
+      "price": 0.06860000000000001,
+      "pnl": -26.703384156591166,
+      "result": "LOSS"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Will Dogecoin reach $0.20 in January?",
+      "amount": 286.30827027954604,
+      "price": 0.15582,
+      "pnl": 111.7524643717237,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Ethereum Up or Down - January 13, 4PM ET",
+      "amount": 515.7894736842106,
+      "price": 0.98,
+      "pnl": 265.7894736842106,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Israel strikes Iran by January 16, 2026?",
+      "amount": 150.01652370314395,
+      "price": 0.1617,
+      "pnl": -30.893940873931307,
+      "result": "LOSS"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:05Z",
+      "action": "SELL",
+      "question": "Will the price of Ethereum be between $3,300 and $",
+      "amount": 1027.1425330431107,
+      "price": 0.38269000000000003,
+      "pnl": 758.7418606860825,
+      "result": "WIN"
+    },
+    {
+      "timestamp": "2026-01-13T22:25:53Z",
+      "action": "BUY",
+      "question": "Israel strikes Iran by January 16, 2026?",
+      "amount": 250.0,
+      "price": 0.1716381636925838,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:25:54Z",
+      "action": "BUY",
+      "question": "Will Bitcoin reach $100,000 January 12-18?",
+      "amount": 250.0,
+      "price": 0.31246017906945217,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:25:55Z",
+      "action": "BUY",
+      "question": "US strikes Iran by January 13, 2026?",
+      "amount": 500.0,
+      "price": 0.039088934997313744,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:25:57Z",
+      "action": "BUY",
+      "question": "US strikes Iran by January 31, 2026?",
+      "amount": 500.0,
+      "price": 0.3842633165757921,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:25:58Z",
+      "action": "BUY",
+      "question": "Israel strikes Iran by January 31, 2026?",
+      "amount": 495.40838129281093,
+      "price": 0.4093213786968404,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:26:22Z",
+      "action": "SELL",
+      "question": "Will Bitcoin reach $100,000 January 12-18?",
+      "amount": 211.60615968855174,
+      "price": 0.2665241211648777,
+      "pnl": -36.47081833319212,
+      "result": "LOSS"
+    },
+    {
+      "timestamp": "2026-01-13T22:27:03Z",
+      "action": "BUY",
+      "question": "Will the price of Bitcoin be above $90,000 on Janu",
+      "amount": 467.02815913238504,
+      "price": 0.1275460405883468,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:27:06Z",
+      "action": "BUY",
+      "question": "Trump cabinet member out by June 30, 2026?",
+      "amount": 25.0,
+      "price": 0.3491839305483651,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:35:47Z",
+      "action": "BUY",
+      "question": "Will Juventus FC win on 2026-01-17?",
+      "amount": 417.8253432191466,
+      "price": 0.3711083934564936,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:35:48Z",
+      "action": "BUY",
+      "question": "Will FC Bayern M\u00fcnchen win on 2026-01-17?",
+      "amount": 376.0428088972319,
+      "price": 0.38007140247429155,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:35:48Z",
+      "action": "BUY",
+      "question": "Will the median home value in the US be between $4",
+      "amount": 25.0,
+      "price": 0.11760949499855781,
+      "pnl": null,
+      "result": null
+    },
+    {
+      "timestamp": "2026-01-13T22:35:52Z",
+      "action": "BUY",
+      "question": "Will Trump sell 0 Gold Cards in 2026?",
+      "amount": 25.0,
+      "price": 0.10370502928285324,
+      "pnl": null,
+      "result": null
     }
   ],
   "market_categories": {
@@ -4170,6 +4314,57 @@
     "will-ahn-cheol-soo-win-the-2026-seoul-mayoral-election": "politics",
     "will-mrbeasts-celebrity-challenge-video-get-85-million-or-more-views-on-week-1": "entertainment",
     "will-giannis-antetokounmpo-be-traded-to-the-miami-heat": "sports",
-    "ethereum-up-or-down-january-13-10pm-et": "crypto"
+    "ethereum-up-or-down-january-13-10pm-et": "crypto",
+    "will-trump-nominate-larry-lindsey-as-the-next-fed-chair": "politics",
+    "will-the-los-angeles-rams-win-super-bowl-2026": "sports",
+    "will-saudi-aramco-be-the-second-largest-company-in-the-world-by-market-cap-on-january-31": "finance",
+    "will-bitcoin-reach-95k-in-january-2026": "crypto",
+    "will-glenn-close-win-best-supporting-actress-at-the-98th-academy-awards": "entertainment",
+    "will-nvda-reach-200-in-january": "technology",
+    "will-bitcoin-reach-100k-january-12-18": "crypto",
+    "will-anthony-albanese-be-the-next-leader-out-before-2027-557": "other",
+    "elon-musk-of-tweets-january-9-january-16-420-439": "other",
+    "will-databricks-market-cap-be-between-125b-and-150b-at-market-close-on-ipo-day": "finance",
+    "nhl-2025-26-calder-memorial-trophy-cutter-gauthier": "sports",
+    "will-the-number-of-republican-senate-members-who-retire-in-2026-be-exactly-10-938": "politics",
+    "will-open-close-below-2-week-january-16-2026": "other",
+    "will-nancy-dahlstrom-win-the-2026-alaska-governor-election": "politics",
+    "will-the-fed-decide-differently-in-the-next-three-decisions-octdecjan": "finance",
+    "will-norway-win-the-2026-fifa-world-cup-893": "other",
+    "atp-mejia-wu-2026-01-14": "sports",
+    "nba-2025-26-clutch-player-of-the-year-de-aaron-fox": "sports",
+    "highest-temperature-in-buenos-aires-on-january-15-33c": "technology",
+    "will-freecs-win-the-lck-2026-season-playoffs": "sports",
+    "us-x-russia-military-clash-by-june-30-2026-249": "world_events",
+    "cbb-ballst-akron-2026-01-13": "sports",
+    "cl-hit-75-high-jan-2026": "other",
+    "bitcoin-above-90k-on-january-19": "crypto",
+    "will-shelley-hughes-advance-from-the-2026-alaska-governor-primary-election": "politics",
+    "will-scotiabank-fail-by-june-30-2026": "finance",
+    "nhl-2025-26-art-ross-trophy-david-pastrnak-winner": "sports",
+    "will-jalen-duren-win-the-20252026-nba-most-improved-player": "sports",
+    "will-june-squibb-be-nominated-for-best-actress-at-the-98th-academy-awards": "entertainment",
+    "will-bnp-paribas-fail-by-june-30-2026": "technology",
+    "will-the-price-of-bitcoin-be-between-90000-92000-on-january-15": "crypto",
+    "will-the-price-of-bitcoin-be-between-84000-86000-on-january-17": "crypto",
+    "solana-all-time-high-by-march-31-2026": "crypto",
+    "will-the-price-of-bitcoin-be-less-than-82000-on-january-15": "crypto",
+    "mex-nec-mon1-2026-01-13-draw": "sports",
+    "trump-cabinet-member-out-by-june-30": "politics",
+    "will-bernadette-wilson-win-the-2026-alaska-governor-election": "politics",
+    "will-ethgas-launch-a-token-by-december-31-2026": "crypto",
+    "will-trumps-approval-rating-be-between-41pt5-and-41pt9-on-january-16-2026": "politics",
+    "will-croatia-win-group-l-in-the-2026-fifa-world-cup": "other",
+    "atp-giron-michels-2026-01-13-first-set-winner-Giron-vs-Michelsen": "sports",
+    "will-the-us-strike-4-countries-in-2026": "world_events",
+    "nhl-2025-26-calder-memorial-trophy-will-smith": "sports",
+    "will-rose-mciver-win-best-actress-in-a-comedy-series-at-the-2026-sag-awards": "entertainment",
+    "nba-2025-26-sixth-man-of-the-year-jared-mccain": "sports",
+    "elon-musk-of-tweets-january-16-january-23-580-599": "other",
+    "nhl-2025-26-calder-memorial-trophy-bradly-nadeau": "sports",
+    "will-the-median-home-value-in-the-us-be-between-412000-and-414000-by-february-1": "other",
+    "will-amzn-reach-268-in-january": "technology",
+    "nba-2025-26-ppg-leader-alperen-sengun": "sports",
+    "bun-lei-bay-2026-01-17-bay": "other"
   }
 }

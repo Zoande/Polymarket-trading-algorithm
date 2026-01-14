@@ -48,12 +48,14 @@ except ImportError:
     NEWS_ANALYZER_AVAILABLE = False
 
 
-# Paths
-CONFIG_PATH = Path("config.yaml")
-BOT_STATE_PATH = Path("bot_state.json")
-NOTIFICATIONS_PATH = Path("notifications.json")
-INSIDER_PATH = Path("insider_alerts.json")
-MARKETS_PATH = Path("tracked_markets.json")
+# Paths - Use absolute paths based on script location to avoid working directory issues
+_SCRIPT_DIR = Path(__file__).parent.resolve()
+CONFIG_PATH = _SCRIPT_DIR / "config.yaml"
+BOT_STATE_PATH = _SCRIPT_DIR / "bot_state.json"
+NOTIFICATIONS_PATH = _SCRIPT_DIR / "notifications.json"
+INSIDER_PATH = _SCRIPT_DIR / "insider_alerts.json"
+MARKETS_PATH = _SCRIPT_DIR / "tracked_markets.json"
+LOCK_FILE = _SCRIPT_DIR / ".bot_running.lock"
 
 
 # ============================================================================
@@ -97,7 +99,7 @@ class Theme:
 # ============================================================================
 
 class SmoothScrollText(tk.Frame):
-    """A text widget with smooth scrolling for the chat feed."""
+    """A text widget with smooth scrolling for the chat feed - OPTIMIZED."""
     
     def __init__(self, parent, **kwargs):
         super().__init__(parent, bg=Theme.BG_SECONDARY)
@@ -136,17 +138,25 @@ class SmoothScrollText(tk.Frame):
         self.text.tag_configure("info", foreground=Theme.TEXT_SECONDARY)
         self.text.tag_configure("title", foreground=Theme.TEXT_PRIMARY, font=("Consolas", 10, "bold"))
         
-        # Store messages for export
+        # Store messages for export - REDUCED for memory
         self.message_log: List[Dict] = []
-        self.max_messages = 200  # Keep max 200 messages in memory
+        self.max_messages = 100  # REDUCED: Keep max 100 messages (was 200)
+        self._message_count = 0
+        self._pending_scroll = False
     
     def add_message(self, message: str, msg_type: str = "info", title: str = "") -> None:
-        """Add a message to the feed."""
+        """Add a message to the feed - OPTIMIZED for performance."""
+        self._message_count += 1
+        
+        # Batch trim: only check every 20 messages
+        if self._message_count % 20 == 0:
+            self._trim_old_messages()
+        
         self.text.configure(state=tk.NORMAL)
         
         timestamp = datetime.now().strftime("%H:%M:%S")
         
-        # Store for potential export
+        # Store for potential export (lightweight)
         self.message_log.append({
             'timestamp': datetime.now().isoformat(),
             'type': msg_type,
@@ -154,11 +164,9 @@ class SmoothScrollText(tk.Frame):
             'message': message,
         })
         
-        # Memory management: keep only last N messages
+        # Trim message log
         if len(self.message_log) > self.max_messages:
             self.message_log = self.message_log[-self.max_messages:]
-            # Also trim the text widget to avoid memory bloat
-            self._trim_old_messages()
         
         # Add timestamp
         self.text.insert(tk.END, f"[{timestamp}] ", "timestamp")
@@ -172,15 +180,21 @@ class SmoothScrollText(tk.Frame):
         
         self.text.configure(state=tk.DISABLED)
         
-        # Force scroll to bottom after a short delay to ensure rendering
-        self.after(10, self._scroll_to_bottom)
+        # Debounced scroll - only schedule once
+        if not self._pending_scroll:
+            self._pending_scroll = True
+            self.after(50, self._scroll_to_bottom)
     
     def _trim_old_messages(self) -> None:
-        """Remove oldest messages from text widget to save memory."""
-        # Count lines and remove oldest 50 if over 300
-        line_count = int(self.text.index('end-1c').split('.')[0])
-        if line_count > 300:
-            self.text.delete('1.0', f'{line_count - 200}.0')
+        """Remove oldest messages from text widget to save memory - AGGRESSIVE."""
+        try:
+            line_count = int(self.text.index('end-1c').split('.')[0])
+            if line_count > 150:  # REDUCED threshold (was 300)
+                self.text.configure(state=tk.NORMAL)
+                self.text.delete('1.0', f'{line_count - 100}.0')
+                self.text.configure(state=tk.DISABLED)
+        except Exception:
+            pass
     
     def get_messages_for_export(self) -> List[Dict]:
         """Get messages and clear log."""
@@ -190,14 +204,284 @@ class SmoothScrollText(tk.Frame):
     
     def _scroll_to_bottom(self) -> None:
         """Scroll to the bottom of the text widget."""
+        self._pending_scroll = False
         self.text.see(tk.END)
-        self.text.yview_moveto(1.0)
     
     def clear(self) -> None:
         """Clear all messages."""
         self.text.configure(state=tk.NORMAL)
         self.text.delete(1.0, tk.END)
         self.text.configure(state=tk.DISABLED)
+        self._message_count = 0
+
+
+class ToolTip:
+    """Creates a tooltip for a given widget with hover delay."""
+    
+    def __init__(self, widget, text: str, delay: int = 500):
+        self.widget = widget
+        self.text = text
+        self.delay = delay
+        self.tooltip_window = None
+        self.scheduled_id = None
+        
+        widget.bind("<Enter>", self._schedule_tooltip)
+        widget.bind("<Leave>", self._hide_tooltip)
+        widget.bind("<ButtonPress>", self._hide_tooltip)
+    
+    def _schedule_tooltip(self, event=None):
+        self._hide_tooltip()
+        self.scheduled_id = self.widget.after(self.delay, self._show_tooltip)
+    
+    def _show_tooltip(self, event=None):
+        if self.tooltip_window:
+            return
+        
+        x = self.widget.winfo_rootx() + 20
+        y = self.widget.winfo_rooty() + self.widget.winfo_height() + 5
+        
+        self.tooltip_window = tw = tk.Toplevel(self.widget)
+        tw.wm_overrideredirect(True)
+        tw.wm_geometry(f"+{x}+{y}")
+        tw.configure(bg=Theme.BG_TERTIARY)
+        
+        # Create tooltip frame with border effect
+        frame = tk.Frame(tw, bg=Theme.BORDER, padx=1, pady=1)
+        frame.pack()
+        
+        inner = tk.Frame(frame, bg=Theme.BG_TERTIARY, padx=8, pady=6)
+        inner.pack()
+        
+        label = tk.Label(
+            inner,
+            text=self.text,
+            font=("Segoe UI", 9),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            justify=tk.LEFT,
+            wraplength=300,
+        )
+        label.pack()
+    
+    def _hide_tooltip(self, event=None):
+        if self.scheduled_id:
+            self.widget.after_cancel(self.scheduled_id)
+            self.scheduled_id = None
+        if self.tooltip_window:
+            self.tooltip_window.destroy()
+            self.tooltip_window = None
+
+
+class CollapsibleSection(tk.Frame):
+    """A collapsible section with header and content."""
+    
+    def __init__(self, parent, title: str, initially_open: bool = True, **kwargs):
+        super().__init__(parent, bg=Theme.BG_PRIMARY, **kwargs)
+        
+        self.is_open = initially_open
+        
+        # Header frame (clickable)
+        self.header = tk.Frame(self, bg=Theme.BG_TERTIARY, cursor="hand2")
+        self.header.pack(fill=tk.X, pady=(0, 1))
+        
+        # Arrow indicator
+        self.arrow_var = tk.StringVar(value="▼" if initially_open else "▶")
+        self.arrow = tk.Label(
+            self.header,
+            textvariable=self.arrow_var,
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.ACCENT_BLUE,
+            padx=10,
+            pady=8,
+        )
+        self.arrow.pack(side=tk.LEFT)
+        
+        # Title
+        self.title_label = tk.Label(
+            self.header,
+            text=title,
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            pady=8,
+        )
+        self.title_label.pack(side=tk.LEFT)
+        
+        # Content frame
+        self.content = tk.Frame(self, bg=Theme.BG_SECONDARY, padx=15, pady=10)
+        if initially_open:
+            self.content.pack(fill=tk.X)
+        
+        # Bind click events
+        self.header.bind("<Button-1>", self._toggle)
+        self.arrow.bind("<Button-1>", self._toggle)
+        self.title_label.bind("<Button-1>", self._toggle)
+        
+        # Hover effects
+        self.header.bind("<Enter>", lambda e: self.header.configure(bg=Theme.BG_HOVER))
+        self.header.bind("<Leave>", lambda e: self.header.configure(bg=Theme.BG_TERTIARY))
+        self.arrow.bind("<Enter>", lambda e: self._on_hover(True))
+        self.arrow.bind("<Leave>", lambda e: self._on_hover(False))
+        self.title_label.bind("<Enter>", lambda e: self._on_hover(True))
+        self.title_label.bind("<Leave>", lambda e: self._on_hover(False))
+    
+    def _on_hover(self, entering: bool):
+        bg = Theme.BG_HOVER if entering else Theme.BG_TERTIARY
+        self.header.configure(bg=bg)
+        self.arrow.configure(bg=bg)
+        self.title_label.configure(bg=bg)
+    
+    def _toggle(self, event=None):
+        self.is_open = not self.is_open
+        if self.is_open:
+            self.content.pack(fill=tk.X)
+            self.arrow_var.set("▼")
+        else:
+            self.content.pack_forget()
+            self.arrow_var.set("▶")
+    
+    def get_content_frame(self) -> tk.Frame:
+        return self.content
+
+
+class ConfigEntry(tk.Frame):
+    """A single configuration entry with label, input, and tooltip."""
+    
+    def __init__(
+        self, 
+        parent, 
+        label: str, 
+        tooltip: str,
+        var_type: str = "float",  # "float", "int", "bool", "percent"
+        default_value = None,
+        min_value = None,
+        max_value = None,
+        **kwargs
+    ):
+        super().__init__(parent, bg=Theme.BG_SECONDARY, **kwargs)
+        
+        self.var_type = var_type
+        self.min_value = min_value
+        self.max_value = max_value
+        
+        # Create variable based on type
+        if var_type == "bool":
+            self.var = tk.BooleanVar(value=default_value if default_value is not None else False)
+        else:
+            self.var = tk.StringVar(value=str(default_value) if default_value is not None else "")
+        
+        # Main row
+        row = tk.Frame(self, bg=Theme.BG_SECONDARY)
+        row.pack(fill=tk.X, pady=3)
+        
+        # Label with tooltip
+        self.label = tk.Label(
+            row,
+            text=label,
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_PRIMARY,
+            width=25,
+            anchor="w",
+        )
+        self.label.pack(side=tk.LEFT)
+        
+        # Add tooltip to label
+        ToolTip(self.label, tooltip)
+        
+        # Input based on type
+        if var_type == "bool":
+            self.input = tk.Checkbutton(
+                row,
+                variable=self.var,
+                bg=Theme.BG_SECONDARY,
+                fg=Theme.TEXT_PRIMARY,
+                activebackground=Theme.BG_SECONDARY,
+                selectcolor=Theme.BG_TERTIARY,
+                highlightthickness=0,
+            )
+            self.input.pack(side=tk.RIGHT)
+        else:
+            self.input = tk.Entry(
+                row,
+                textvariable=self.var,
+                font=("Segoe UI", 9),
+                bg=Theme.BG_INPUT,
+                fg=Theme.TEXT_PRIMARY,
+                insertbackground=Theme.TEXT_PRIMARY,
+                relief=tk.FLAT,
+                width=12,
+                highlightthickness=1,
+                highlightbackground=Theme.BORDER,
+                highlightcolor=Theme.ACCENT_BLUE,
+            )
+            self.input.pack(side=tk.RIGHT)
+            
+            # Add unit label for percent type
+            if var_type == "percent":
+                tk.Label(
+                    row,
+                    text="%",
+                    font=("Segoe UI", 9),
+                    bg=Theme.BG_SECONDARY,
+                    fg=Theme.TEXT_MUTED,
+                ).pack(side=tk.RIGHT, padx=(0, 5))
+            elif var_type == "dollar":
+                tk.Label(
+                    row,
+                    text="$",
+                    font=("Segoe UI", 9),
+                    bg=Theme.BG_SECONDARY,
+                    fg=Theme.TEXT_MUTED,
+                ).pack(side=tk.RIGHT, padx=(0, 5))
+            elif var_type == "seconds":
+                tk.Label(
+                    row,
+                    text="sec",
+                    font=("Segoe UI", 9),
+                    bg=Theme.BG_SECONDARY,
+                    fg=Theme.TEXT_MUTED,
+                ).pack(side=tk.RIGHT, padx=(0, 5))
+            elif var_type == "minutes":
+                tk.Label(
+                    row,
+                    text="min",
+                    font=("Segoe UI", 9),
+                    bg=Theme.BG_SECONDARY,
+                    fg=Theme.TEXT_MUTED,
+                ).pack(side=tk.RIGHT, padx=(0, 5))
+    
+    def get_value(self):
+        """Get the current value with proper type conversion."""
+        try:
+            if self.var_type == "bool":
+                return self.var.get()
+            elif self.var_type == "int":
+                return int(self.var.get())
+            elif self.var_type in ("float", "dollar"):
+                return float(self.var.get())
+            elif self.var_type in ("percent",):
+                return float(self.var.get()) / 100.0  # Convert percentage to decimal
+            elif self.var_type in ("seconds", "minutes"):
+                return int(self.var.get())
+            else:
+                return self.var.get()
+        except (ValueError, TypeError):
+            return None
+    
+    def set_value(self, value):
+        """Set the value with proper formatting."""
+        if self.var_type == "bool":
+            self.var.set(bool(value))
+        elif self.var_type == "percent":
+            self.var.set(str(round(value * 100, 1)))  # Convert decimal to percentage
+        elif self.var_type == "dollar":
+            self.var.set(str(round(value, 2)))
+        elif self.var_type == "float":
+            self.var.set(str(round(value, 4)))
+        else:
+            self.var.set(str(value))
 
 
 class StatDisplay(tk.Frame):
@@ -474,13 +758,17 @@ class TradingBotApp(tk.Tk):
         self.config = ensure_config(CONFIG_PATH)
         self.notifications = NotificationManager(NOTIFICATIONS_PATH)
         
-        # Initialize auto-trading bot with improved config
+        # Initialize auto-trading bot with DUAL-SPEED config:
+        # - FAST: Held positions update every 5 seconds (critical for stop-loss)
+        # - SLOW: Market discovery every 30 seconds (reduces API load)
         self.bot = AutoTradingBot(
             config=BotConfig(
                 initial_capital=10000.0,
                 max_position_size=500.0,
                 min_volume=500.0,       # Lowered for diversity
-                scan_interval_seconds=10,  # FASTER scanning (10 sec)
+                scan_interval_seconds=30,  # Discovery: 30 sec (new markets)
+                max_markets_per_scan=100,  # Discovery: 100 markets per scan
+                price_update_interval=5,   # Positions: 5 sec (held positions - FAST)
                 max_positions=50,  # Allow many positions
                 swing_trade_enabled=True,  # Enable swing trading
                 prefer_high_volume=False,  # DON'T just focus on popular markets
@@ -496,8 +784,8 @@ class TradingBotApp(tk.Tk):
         self.insider_detector = InsiderDetector(
             config=InsiderDetectorConfig(
                 large_trade_threshold=10000.0,  # Alert on trades $10,000+
-                poll_interval_seconds=10,  # Fast polling
-                max_alerts_stored=200,
+                poll_interval_seconds=30,  # Discovery speed (not critical)
+                max_alerts_stored=100,
             ),
             storage_path=INSIDER_PATH,
         )
@@ -735,9 +1023,19 @@ class TradingBotApp(tk.Tk):
             expand=[("selected", [1, 1, 1, 0])],
         )
         
-        # Tab 1: Trading (Markets)
+        # Tab 0: Overview (Dashboard)
+        overview_tab = tk.Frame(self.notebook, bg=Theme.BG_PRIMARY)
+        self.notebook.add(overview_tab, text="  Overview  ")
+        self._build_overview_tab(overview_tab)
+        
+        # Tab 1: Orders (Mass Actions)
+        orders_tab = tk.Frame(self.notebook, bg=Theme.BG_PRIMARY)
+        self.notebook.add(orders_tab, text="  Orders  ")
+        self._build_orders_tab(orders_tab)
+        
+        # Tab 2: Watched Markets
         markets_tab = tk.Frame(self.notebook, bg=Theme.BG_PRIMARY)
-        self.notebook.add(markets_tab, text="  Trading  ")
+        self.notebook.add(markets_tab, text="  Watched Markets  ")
         self._build_markets_tab(markets_tab)
         
         # Tab 2: Bot Positions
@@ -749,7 +1047,1205 @@ class TradingBotApp(tk.Tk):
         alerts_tab = tk.Frame(self.notebook, bg=Theme.BG_PRIMARY)
         self.notebook.add(alerts_tab, text="  Alerts  ")
         self._build_alerts_tab(alerts_tab)
+        
+        # Tab 4: Config
+        config_tab = tk.Frame(self.notebook, bg=Theme.BG_PRIMARY)
+        self.notebook.add(config_tab, text="  Config  ")
+        self._build_config_tab(config_tab)
     
+    def _build_overview_tab(self, parent: tk.Frame) -> None:
+        """Build the overview/dashboard tab."""
+        # Create scrollable container
+        canvas = tk.Canvas(parent, bg=Theme.BG_PRIMARY, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(parent, orient="vertical", command=canvas.yview)
+        scrollable_frame = tk.Frame(canvas, bg=Theme.BG_PRIMARY)
+        
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
+        canvas_window = canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        
+        def on_canvas_configure(event):
+            canvas.itemconfig(canvas_window, width=event.width)
+        canvas.bind("<Configure>", on_canvas_configure)
+        
+        def on_mousewheel(event):
+            canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+        canvas.bind("<MouseWheel>", on_mousewheel)
+        scrollable_frame.bind("<MouseWheel>", on_mousewheel)
+        
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        
+        # =====================================================================
+        # Header
+        # =====================================================================
+        header_frame = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        header_frame.pack(fill=tk.X, padx=15, pady=(15, 10))
+        
+        tk.Label(
+            header_frame,
+            text="📊 Portfolio Overview",
+            font=("Segoe UI", 16, "bold"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_PRIMARY,
+        ).pack(side=tk.LEFT)
+        
+        # Bot status indicator
+        self.overview_status_frame = tk.Frame(header_frame, bg=Theme.BG_PRIMARY)
+        self.overview_status_frame.pack(side=tk.RIGHT)
+        
+        self.overview_status_dot = tk.Label(
+            self.overview_status_frame,
+            text="●",
+            font=("Segoe UI", 12),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_MUTED,
+        )
+        self.overview_status_dot.pack(side=tk.LEFT, padx=(0, 5))
+        
+        self.overview_status_text = tk.Label(
+            self.overview_status_frame,
+            text="Bot Idle",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_MUTED,
+        )
+        self.overview_status_text.pack(side=tk.LEFT)
+        
+        # =====================================================================
+        # Row 1: Key Portfolio Metrics (Large Cards)
+        # =====================================================================
+        row1 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row1.pack(fill=tk.X, padx=10, pady=5)
+        
+        # Total Portfolio Value (Big hero card)
+        self.ov_portfolio_card = self._create_overview_card(
+            row1, "💰 Total Portfolio", "$0.00", "Cash + Positions", wide=True
+        )
+        self.ov_portfolio_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # Profit/Loss Card
+        self.ov_profit_card = self._create_overview_card(
+            row1, "📈 Total Return", "$0.00 (0.0%)", "From initial capital", wide=True
+        )
+        self.ov_profit_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 2: Cash & Position Values
+        # =====================================================================
+        row2 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row2.pack(fill=tk.X, padx=10, pady=5)
+        
+        self.ov_cash_card = self._create_overview_card(
+            row2, "💵 Cash Balance", "$0.00", "Available to trade"
+        )
+        self.ov_cash_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_positions_value_card = self._create_overview_card(
+            row2, "📊 Positions Value", "$0.00", "Current market value"
+        )
+        self.ov_positions_value_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_unrealized_card = self._create_overview_card(
+            row2, "📉 Unrealized P&L", "$0.00", "Open positions gain/loss"
+        )
+        self.ov_unrealized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_realized_card = self._create_overview_card(
+            row2, "✅ Realized P&L", "$0.00", "Closed trades profit"
+        )
+        self.ov_realized_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 3: Update Timers
+        # =====================================================================
+        row3 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row3.pack(fill=tk.X, padx=10, pady=5)
+        
+        self.ov_holdings_timer_card = self._create_overview_card(
+            row3, "⏱️ Holdings Update", "—", "Price refresh for positions"
+        )
+        self.ov_holdings_timer_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_scan_timer_card = self._create_overview_card(
+            row3, "🔍 Market Scan", "—", "New opportunity search"
+        )
+        self.ov_scan_timer_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_last_scan_card = self._create_overview_card(
+            row3, "📡 Last Scan", "Never", "Most recent scan time"
+        )
+        self.ov_last_scan_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_markets_scanned_card = self._create_overview_card(
+            row3, "🔎 Markets Analyzed", "0", "This session"
+        )
+        self.ov_markets_scanned_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 4: Position Stats
+        # =====================================================================
+        row4 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row4.pack(fill=tk.X, padx=10, pady=5)
+        
+        self.ov_positions_count_card = self._create_overview_card(
+            row4, "📋 Open Positions", "0 / 0", "Current / Maximum"
+        )
+        self.ov_positions_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_swing_count_card = self._create_overview_card(
+            row4, "⚡ Swing Trades", "0 / 0", "Short-term positions"
+        )
+        self.ov_swing_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_long_count_card = self._create_overview_card(
+            row4, "📅 Long-Term", "0 / 0", "Positions > 7 days"
+        )
+        self.ov_long_count_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_cash_reserve_card = self._create_overview_card(
+            row4, "🛡️ Cash Reserve", "0%", "Uninvested portion"
+        )
+        self.ov_cash_reserve_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 5: Performance Stats
+        # =====================================================================
+        row5 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row5.pack(fill=tk.X, padx=10, pady=5)
+        
+        self.ov_win_rate_card = self._create_overview_card(
+            row5, "🏆 Win Rate", "0%", "Winning / Total trades"
+        )
+        self.ov_win_rate_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_total_trades_card = self._create_overview_card(
+            row5, "🔢 Total Trades", "0", "Lifetime trades"
+        )
+        self.ov_total_trades_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_avg_pnl_card = self._create_overview_card(
+            row5, "📊 Avg Position P&L", "0%", "Average open position"
+        )
+        self.ov_avg_pnl_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_largest_position_card = self._create_overview_card(
+            row5, "⚠️ Largest Position", "0%", "% of portfolio"
+        )
+        self.ov_largest_position_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 6: Best/Worst Performers
+        # =====================================================================
+        row6 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row6.pack(fill=tk.X, padx=10, pady=5)
+        
+        self.ov_best_position_card = self._create_overview_card(
+            row6, "🚀 Best Performer", "—", "Highest P&L %", wide=True
+        )
+        self.ov_best_position_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_worst_position_card = self._create_overview_card(
+            row6, "📉 Worst Performer", "—", "Lowest P&L %", wide=True
+        )
+        self.ov_worst_position_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 7: Expiring Positions & Signals
+        # =====================================================================
+        row7 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        row7.pack(fill=tk.X, padx=10, pady=5)
+        
+        self.ov_expiring_soon_card = self._create_overview_card(
+            row7, "⏳ Expiring < 24h", "0", "Positions resolving soon"
+        )
+        self.ov_expiring_soon_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_expiring_week_card = self._create_overview_card(
+            row7, "📅 Expiring < 7d", "0", "Resolving this week"
+        )
+        self.ov_expiring_week_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_buy_signals_card = self._create_overview_card(
+            row7, "💡 Buy Signals", "0", "Recent opportunities"
+        )
+        self.ov_buy_signals_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        self.ov_alerts_card = self._create_overview_card(
+            row7, "🔔 Active Alerts", "0", "Insider activity alerts"
+        )
+        self.ov_alerts_card.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=5, pady=5)
+        
+        # =====================================================================
+        # Row 8: Category Distribution
+        # =====================================================================
+        category_section = tk.Frame(scrollable_frame, bg=Theme.BG_SECONDARY)
+        category_section.pack(fill=tk.X, padx=15, pady=10)
+        
+        tk.Label(
+            category_section,
+            text="📊 Position Distribution by Category",
+            font=("Segoe UI", 11, "bold"),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_PRIMARY,
+        ).pack(anchor="w", padx=15, pady=(10, 5))
+        
+        self.ov_category_frame = tk.Frame(category_section, bg=Theme.BG_SECONDARY)
+        self.ov_category_frame.pack(fill=tk.X, padx=15, pady=(0, 10))
+        
+        # Will be populated by update function
+        self.ov_category_bars = {}
+        
+        # =====================================================================
+        # Initialize timers for countdown display
+        # =====================================================================
+        self._last_holdings_update = time.time()
+        self._last_scan_update = time.time()
+        self._markets_scanned_count = 0
+        self._buy_signals_count = 0
+        
+        # Start overview update timer
+        self._update_overview_display()
+    
+    def _create_overview_card(self, parent: tk.Frame, title: str, value: str, 
+                               subtitle: str, wide: bool = False) -> tk.Frame:
+        """Create a metric card for the overview tab."""
+        card = tk.Frame(parent, bg=Theme.BG_SECONDARY, relief=tk.FLAT)
+        card.configure(highlightbackground=Theme.BG_TERTIARY, highlightthickness=1)
+        
+        # Store references for updating
+        card.title_label = tk.Label(
+            card,
+            text=title,
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        )
+        card.title_label.pack(anchor="w", padx=12, pady=(10, 2))
+        
+        card.value_label = tk.Label(
+            card,
+            text=value,
+            font=("Segoe UI", 16 if wide else 14, "bold"),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_PRIMARY,
+        )
+        card.value_label.pack(anchor="w", padx=12, pady=(0, 2))
+        
+        card.subtitle_label = tk.Label(
+            card,
+            text=subtitle,
+            font=("Segoe UI", 8),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        )
+        card.subtitle_label.pack(anchor="w", padx=12, pady=(0, 10))
+        
+        return card
+    
+    def _update_overview_display(self) -> None:
+        """Update all overview metrics."""
+        try:
+            stats = self.bot.get_stats()
+            
+            # Calculate additional metrics
+            positions_value = sum(t.shares * t.current_price for t in self.bot.open_trades.values())
+            portfolio_value = stats['portfolio_value']
+            initial_capital = self.bot.config.initial_capital
+            profit_dollars = portfolio_value - initial_capital
+            profit_pct = (profit_dollars / initial_capital * 100) if initial_capital > 0 else 0
+            
+            # Update bot status
+            if self.bot.is_running():
+                self.overview_status_dot.configure(fg=Theme.ACCENT_GREEN)
+                self.overview_status_text.configure(text="Bot Running", fg=Theme.ACCENT_GREEN)
+            else:
+                self.overview_status_dot.configure(fg=Theme.TEXT_MUTED)
+                self.overview_status_text.configure(text="Bot Idle", fg=Theme.TEXT_MUTED)
+            
+            # Row 1: Portfolio & Profit
+            self.ov_portfolio_card.value_label.configure(text=f"${portfolio_value:,.2f}")
+            
+            profit_color = Theme.ACCENT_GREEN if profit_dollars >= 0 else Theme.ACCENT_RED
+            profit_sign = "+" if profit_dollars >= 0 else ""
+            self.ov_profit_card.value_label.configure(
+                text=f"{profit_sign}${profit_dollars:,.2f} ({profit_sign}{profit_pct:.1f}%)",
+                fg=profit_color
+            )
+            
+            # Row 2: Cash & Positions
+            self.ov_cash_card.value_label.configure(text=f"${stats['cash_balance']:,.2f}")
+            self.ov_positions_value_card.value_label.configure(text=f"${positions_value:,.2f}")
+            
+            unrealized = stats['unrealized_pnl']
+            unrealized_color = Theme.ACCENT_GREEN if unrealized >= 0 else Theme.ACCENT_RED
+            unrealized_sign = "+" if unrealized >= 0 else ""
+            self.ov_unrealized_card.value_label.configure(
+                text=f"{unrealized_sign}${unrealized:,.2f}",
+                fg=unrealized_color
+            )
+            
+            realized = stats['total_pnl']
+            realized_color = Theme.ACCENT_GREEN if realized >= 0 else Theme.ACCENT_RED
+            realized_sign = "+" if realized >= 0 else ""
+            self.ov_realized_card.value_label.configure(
+                text=f"{realized_sign}${realized:,.2f}",
+                fg=realized_color
+            )
+            
+            # Row 3: Update Timers
+            now = time.time()
+            holdings_interval = self.bot.config.price_update_interval
+            scan_interval = self.bot.config.scan_interval_seconds
+            
+            holdings_remaining = max(0, holdings_interval - (now - self._last_holdings_update))
+            scan_remaining = max(0, scan_interval - (now - self._last_scan_update))
+            
+            if self.bot.is_running():
+                self.ov_holdings_timer_card.value_label.configure(text=f"{holdings_remaining:.0f}s")
+                self.ov_scan_timer_card.value_label.configure(text=f"{scan_remaining:.0f}s")
+            else:
+                self.ov_holdings_timer_card.value_label.configure(text="Paused")
+                self.ov_scan_timer_card.value_label.configure(text="Paused")
+            
+            # Last scan time from bot's scanned markets
+            if self.bot._scanned_times:
+                last_scan_time = max(self.bot._scanned_times.values())
+                last_scan_str = last_scan_time.strftime("%H:%M:%S")
+                self.ov_last_scan_card.value_label.configure(text=last_scan_str)
+            
+            self.ov_markets_scanned_card.value_label.configure(text=str(len(self.bot.scanned_markets)))
+            
+            # Row 4: Position Stats
+            open_count = len(self.bot.open_trades)
+            max_positions = self.bot.config.max_positions
+            self.ov_positions_count_card.value_label.configure(text=f"{open_count} / {max_positions}")
+            
+            swing_count = sum(1 for t in self.bot.open_trades.values() if getattr(t, 'trade_type', 'long') == 'swing')
+            long_count = open_count - swing_count
+            max_swing = self.bot.config.max_swing_positions
+            max_long = self.bot.config.max_long_term_positions
+            
+            self.ov_swing_count_card.value_label.configure(text=f"{swing_count} / {max_swing}")
+            self.ov_long_count_card.value_label.configure(text=f"{long_count} / {max_long}")
+            
+            cash_reserve_pct = (stats['cash_balance'] / portfolio_value * 100) if portfolio_value > 0 else 100
+            self.ov_cash_reserve_card.value_label.configure(text=f"{cash_reserve_pct:.1f}%")
+            
+            # Row 5: Performance Stats
+            win_rate = stats['win_rate']
+            self.ov_win_rate_card.value_label.configure(
+                text=f"{win_rate:.1f}%",
+                fg=Theme.ACCENT_GREEN if win_rate >= 50 else Theme.ACCENT_RED if win_rate > 0 else Theme.TEXT_PRIMARY
+            )
+            self.ov_win_rate_card.subtitle_label.configure(
+                text=f"{stats['winning_trades']}W / {stats['losing_trades']}L"
+            )
+            
+            self.ov_total_trades_card.value_label.configure(text=str(stats['total_trades']))
+            
+            # Average P&L of open positions
+            if self.bot.open_trades:
+                avg_pnl = sum(t.pnl_pct for t in self.bot.open_trades.values()) / len(self.bot.open_trades) * 100
+                avg_color = Theme.ACCENT_GREEN if avg_pnl >= 0 else Theme.ACCENT_RED
+                self.ov_avg_pnl_card.value_label.configure(
+                    text=f"{avg_pnl:+.1f}%",
+                    fg=avg_color
+                )
+            else:
+                self.ov_avg_pnl_card.value_label.configure(text="—", fg=Theme.TEXT_PRIMARY)
+            
+            # Largest position
+            if self.bot.open_trades and portfolio_value > 0:
+                largest = max(self.bot.open_trades.values(), key=lambda t: t.shares * t.current_price)
+                largest_pct = (largest.shares * largest.current_price) / portfolio_value * 100
+                self.ov_largest_position_card.value_label.configure(
+                    text=f"{largest_pct:.1f}%",
+                    fg=Theme.ACCENT_YELLOW if largest_pct > self.bot.config.max_portfolio_pct * 100 else Theme.TEXT_PRIMARY
+                )
+                self.ov_largest_position_card.subtitle_label.configure(
+                    text=largest.question[:25] + "..."
+                )
+            else:
+                self.ov_largest_position_card.value_label.configure(text="—")
+                self.ov_largest_position_card.subtitle_label.configure(text="No positions")
+            
+            # Row 6: Best/Worst Performers
+            if self.bot.open_trades:
+                sorted_by_pnl = sorted(self.bot.open_trades.values(), key=lambda t: t.pnl_pct, reverse=True)
+                
+                best = sorted_by_pnl[0]
+                self.ov_best_position_card.value_label.configure(
+                    text=f"+{best.pnl_pct*100:.1f}%" if best.pnl_pct >= 0 else f"{best.pnl_pct*100:.1f}%",
+                    fg=Theme.ACCENT_GREEN if best.pnl_pct >= 0 else Theme.ACCENT_RED
+                )
+                self.ov_best_position_card.subtitle_label.configure(text=best.question[:35] + "...")
+                
+                worst = sorted_by_pnl[-1]
+                self.ov_worst_position_card.value_label.configure(
+                    text=f"{worst.pnl_pct*100:+.1f}%",
+                    fg=Theme.ACCENT_GREEN if worst.pnl_pct >= 0 else Theme.ACCENT_RED
+                )
+                self.ov_worst_position_card.subtitle_label.configure(text=worst.question[:35] + "...")
+            else:
+                self.ov_best_position_card.value_label.configure(text="—", fg=Theme.TEXT_PRIMARY)
+                self.ov_best_position_card.subtitle_label.configure(text="No positions")
+                self.ov_worst_position_card.value_label.configure(text="—", fg=Theme.TEXT_PRIMARY)
+                self.ov_worst_position_card.subtitle_label.configure(text="No positions")
+            
+            # Row 7: Expiring & Signals
+            now_dt = datetime.now(timezone.utc)
+            expiring_24h = 0
+            expiring_7d = 0
+            
+            for trade in self.bot.open_trades.values():
+                days_left = getattr(trade, 'resolution_days', 999)
+                if days_left < 1:
+                    expiring_24h += 1
+                if days_left < 7:
+                    expiring_7d += 1
+            
+            self.ov_expiring_soon_card.value_label.configure(
+                text=str(expiring_24h),
+                fg=Theme.ACCENT_RED if expiring_24h > 0 else Theme.TEXT_PRIMARY
+            )
+            self.ov_expiring_week_card.value_label.configure(text=str(expiring_7d))
+            
+            # Buy signals from scanned markets
+            buy_signals = sum(1 for opp in self.bot.scanned_markets.values() 
+                             if opp.decision.value == 'buy')
+            self.ov_buy_signals_card.value_label.configure(text=str(buy_signals))
+            
+            # Alerts count
+            alerts_count = len(self.insider_detector.get_alerts())
+            self.ov_alerts_card.value_label.configure(
+                text=str(alerts_count),
+                fg=Theme.ACCENT_YELLOW if alerts_count > 0 else Theme.TEXT_PRIMARY
+            )
+            
+            # Row 8: Category distribution
+            self._update_category_distribution()
+            
+        except Exception as e:
+            pass  # Silently handle errors during update
+        
+        # Schedule next update (every 1 second for smooth countdown)
+        self.after(1000, self._update_overview_display)
+    
+    def _update_category_distribution(self) -> None:
+        """Update the category distribution bars."""
+        # Clear existing bars
+        for widget in self.ov_category_frame.winfo_children():
+            widget.destroy()
+        
+        # Count positions by category
+        category_counts = {}
+        category_values = {}
+        
+        for trade in self.bot.open_trades.values():
+            cat = getattr(trade, 'category', 'other')
+            category_counts[cat] = category_counts.get(cat, 0) + 1
+            category_values[cat] = category_values.get(cat, 0) + (trade.shares * trade.current_price)
+        
+        if not category_counts:
+            tk.Label(
+                self.ov_category_frame,
+                text="No positions to display",
+                font=("Segoe UI", 9, "italic"),
+                bg=Theme.BG_SECONDARY,
+                fg=Theme.TEXT_MUTED,
+            ).pack(anchor="w")
+            return
+        
+        total_value = sum(category_values.values())
+        
+        # Category colors and emojis
+        cat_styles = {
+            'sports': ('🏈', '#FF6B6B'),
+            'politics': ('🏛️', '#4ECDC4'),
+            'crypto': ('₿', '#FFE66D'),
+            'entertainment': ('🎬', '#95E1D3'),
+            'finance': ('📈', '#DDA0DD'),
+            'technology': ('💻', '#87CEEB'),
+            'world_events': ('🌍', '#F38181'),
+            'other': ('📋', '#AA96DA'),
+        }
+        
+        # Create bars for each category
+        for cat, count in sorted(category_counts.items(), key=lambda x: -x[1]):
+            limit = self.bot.config.category_limits.get(cat, 5)
+            value = category_values.get(cat, 0)
+            pct = (value / total_value * 100) if total_value > 0 else 0
+            
+            emoji, color = cat_styles.get(cat, ('📋', '#888888'))
+            
+            row = tk.Frame(self.ov_category_frame, bg=Theme.BG_SECONDARY)
+            row.pack(fill=tk.X, pady=2)
+            
+            # Label
+            tk.Label(
+                row,
+                text=f"{emoji} {cat.replace('_', ' ').title()}",
+                font=("Segoe UI", 9),
+                bg=Theme.BG_SECONDARY,
+                fg=Theme.TEXT_PRIMARY,
+                width=15,
+                anchor="w",
+            ).pack(side=tk.LEFT)
+            
+            # Bar container
+            bar_container = tk.Frame(row, bg=Theme.BG_TERTIARY, height=16)
+            bar_container.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=5)
+            bar_container.pack_propagate(False)
+            
+            # Filled bar
+            fill_pct = min(count / limit, 1.0) if limit > 0 else 0
+            bar_fill = tk.Frame(bar_container, bg=color)
+            bar_fill.place(relwidth=fill_pct, relheight=1.0)
+            
+            # Stats
+            tk.Label(
+                row,
+                text=f"{count}/{limit}",
+                font=("Segoe UI", 9),
+                bg=Theme.BG_SECONDARY,
+                fg=Theme.ACCENT_YELLOW if count >= limit else Theme.TEXT_SECONDARY,
+                width=6,
+            ).pack(side=tk.LEFT)
+            
+            tk.Label(
+                row,
+                text=f"${value:,.0f} ({pct:.0f}%)",
+                font=("Segoe UI", 9),
+                bg=Theme.BG_SECONDARY,
+                fg=Theme.TEXT_MUTED,
+                width=14,
+                anchor="e",
+            ).pack(side=tk.RIGHT)
+    
+    def _on_holdings_updated(self) -> None:
+        """Called when holdings prices are updated."""
+        self._last_holdings_update = time.time()
+    
+    def _on_scan_completed(self) -> None:
+        """Called when a market scan is completed."""
+        self._last_scan_update = time.time()
+
+    # =========================================================================
+    # ORDERS TAB - Mass Actions
+    # =========================================================================
+    
+    def _build_orders_tab(self, parent: tk.Frame) -> None:
+        """Build the orders tab with mass action buttons."""
+        # Create scrollable container
+        canvas = tk.Canvas(parent, bg=Theme.BG_PRIMARY, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(parent, orient="vertical", command=canvas.yview)
+        scrollable_frame = tk.Frame(canvas, bg=Theme.BG_PRIMARY)
+        
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
+        canvas_window = canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        
+        def on_canvas_configure(event):
+            canvas.itemconfig(canvas_window, width=event.width)
+        canvas.bind("<Configure>", on_canvas_configure)
+        
+        def on_mousewheel(event):
+            canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+        canvas.bind("<MouseWheel>", on_mousewheel)
+        scrollable_frame.bind("<MouseWheel>", on_mousewheel)
+        
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        
+        # Header
+        header = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        header.pack(fill=tk.X, padx=15, pady=(15, 10))
+        
+        tk.Label(
+            header,
+            text="⚡ Mass Orders & Actions",
+            font=("Segoe UI", 14, "bold"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_PRIMARY,
+        ).pack(side=tk.LEFT)
+        
+        tk.Label(
+            header,
+            text="Execute bulk actions on your portfolio",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.RIGHT)
+        
+        # Status indicator for pause state
+        self.orders_buy_status = tk.StringVar(value="● Buys: Active")
+        self.orders_buy_status_label = tk.Label(
+            header,
+            textvariable=self.orders_buy_status,
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.ACCENT_GREEN,
+        )
+        self.orders_buy_status_label.pack(side=tk.RIGHT, padx=20)
+        
+        # =====================================================================
+        # Section 1: Sell Actions (DANGER ZONE)
+        # =====================================================================
+        sell_section = CollapsibleSection(scrollable_frame, "🔴 Sell Actions", initially_open=True)
+        sell_section.pack(fill=tk.X, padx=10, pady=5)
+        sell_content = sell_section.get_content_frame()
+        
+        # Warning label
+        tk.Label(
+            sell_content,
+            text="⚠️ These actions will immediately close positions. Use with caution!",
+            font=("Segoe UI", 9, "italic"),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.ACCENT_YELLOW,
+        ).pack(fill=tk.X, pady=(0, 10))
+        
+        # Sell All button
+        sell_all_frame = tk.Frame(sell_content, bg=Theme.BG_SECONDARY)
+        sell_all_frame.pack(fill=tk.X, pady=5)
+        
+        tk.Button(
+            sell_all_frame,
+            text="🛑 SELL ALL POSITIONS",
+            font=("Segoe UI", 11, "bold"),
+            bg="#8B0000",  # Dark red
+            fg=Theme.TEXT_PRIMARY,
+            activebackground="#A52A2A",
+            relief=tk.FLAT,
+            padx=20,
+            pady=10,
+            cursor="hand2",
+            command=self._order_sell_all,
+        ).pack(side=tk.LEFT)
+        
+        tk.Label(
+            sell_all_frame,
+            text="Emergency exit: Close ALL open positions immediately",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT, padx=15)
+        
+        # Sell Profitable button
+        sell_profit_frame = tk.Frame(sell_content, bg=Theme.BG_SECONDARY)
+        sell_profit_frame.pack(fill=tk.X, pady=5)
+        
+        tk.Button(
+            sell_profit_frame,
+            text="💰 Sell All Profitable",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.ACCENT_GREEN,
+            fg=Theme.TEXT_PRIMARY,
+            activebackground="#2ea043",
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_sell_profitable,
+        ).pack(side=tk.LEFT)
+        
+        tk.Label(
+            sell_profit_frame,
+            text="Lock in gains: Sell all positions currently in profit (P&L > 0)",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT, padx=15)
+        
+        # Sell Losing button
+        sell_loss_frame = tk.Frame(sell_content, bg=Theme.BG_SECONDARY)
+        sell_loss_frame.pack(fill=tk.X, pady=5)
+        
+        tk.Button(
+            sell_loss_frame,
+            text="📉 Sell All Losing",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.ACCENT_RED,
+            fg=Theme.TEXT_PRIMARY,
+            activebackground="#da3633",
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_sell_losing,
+        ).pack(side=tk.LEFT)
+        
+        tk.Label(
+            sell_loss_frame,
+            text="Cut losses: Sell all positions currently at a loss (P&L < 0)",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT, padx=15)
+        
+        # Sell by Category
+        sell_cat_frame = tk.Frame(sell_content, bg=Theme.BG_SECONDARY)
+        sell_cat_frame.pack(fill=tk.X, pady=5)
+        
+        tk.Button(
+            sell_cat_frame,
+            text="🏷️ Sell Category:",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            activebackground=Theme.BG_HOVER,
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_sell_category,
+        ).pack(side=tk.LEFT)
+        
+        self.orders_category_var = tk.StringVar(value="sports")
+        category_menu = ttk.Combobox(
+            sell_cat_frame,
+            textvariable=self.orders_category_var,
+            values=["sports", "politics", "crypto", "entertainment", "finance", "technology", "world_events", "other"],
+            state="readonly",
+            width=15,
+        )
+        category_menu.pack(side=tk.LEFT, padx=10)
+        
+        tk.Label(
+            sell_cat_frame,
+            text="Sell all positions in the selected category",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT, padx=10)
+        
+        # =====================================================================
+        # Section 2: Buy Controls
+        # =====================================================================
+        buy_section = CollapsibleSection(scrollable_frame, "🟢 Buy Controls", initially_open=True)
+        buy_section.pack(fill=tk.X, padx=10, pady=5)
+        buy_content = buy_section.get_content_frame()
+        
+        buy_control_frame = tk.Frame(buy_content, bg=Theme.BG_SECONDARY)
+        buy_control_frame.pack(fill=tk.X, pady=5)
+        
+        self.pause_buys_btn = tk.Button(
+            buy_control_frame,
+            text="⏸️ Pause New Buys",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.ACCENT_YELLOW,
+            fg=Theme.BG_PRIMARY,
+            activebackground="#c9922a",
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_toggle_pause_buys,
+        )
+        self.pause_buys_btn.pack(side=tk.LEFT)
+        
+        tk.Label(
+            buy_control_frame,
+            text="Stop opening new positions (existing positions still monitored)",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT, padx=15)
+        
+        # Initialize pause state
+        self._buys_paused = False
+        
+        # =====================================================================
+        # Section 3: Cleanup Actions
+        # =====================================================================
+        cleanup_section = CollapsibleSection(scrollable_frame, "🧹 Cleanup Actions", initially_open=True)
+        cleanup_section.pack(fill=tk.X, padx=10, pady=5)
+        cleanup_content = cleanup_section.get_content_frame()
+        
+        cleanup_frame = tk.Frame(cleanup_content, bg=Theme.BG_SECONDARY)
+        cleanup_frame.pack(fill=tk.X, pady=5)
+        
+        tk.Button(
+            cleanup_frame,
+            text="🧹 Clear Stagnant Now",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            activebackground=Theme.BG_HOVER,
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_clear_stagnant,
+        ).pack(side=tk.LEFT)
+        
+        tk.Label(
+            cleanup_frame,
+            text="Manually trigger cleanup of flat/stagnant positions to free up slots",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT, padx=15)
+        
+        # =====================================================================
+        # Section 4: Export
+        # =====================================================================
+        export_section = CollapsibleSection(scrollable_frame, "📁 Export Data", initially_open=False)
+        export_section.pack(fill=tk.X, padx=10, pady=5)
+        export_content = export_section.get_content_frame()
+        
+        export_frame = tk.Frame(export_content, bg=Theme.BG_SECONDARY)
+        export_frame.pack(fill=tk.X, pady=5)
+        
+        tk.Button(
+            export_frame,
+            text="📊 Export Positions to CSV",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            activebackground=Theme.BG_HOVER,
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_export_positions,
+        ).pack(side=tk.LEFT, padx=(0, 10))
+        
+        tk.Button(
+            export_frame,
+            text="📜 Export Trade History",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            activebackground=Theme.BG_HOVER,
+            relief=tk.FLAT,
+            padx=15,
+            pady=8,
+            cursor="hand2",
+            command=self._order_export_history,
+        ).pack(side=tk.LEFT)
+        
+        # =====================================================================
+        # Live Summary
+        # =====================================================================
+        summary_section = CollapsibleSection(scrollable_frame, "📊 Current Portfolio Summary", initially_open=True)
+        summary_section.pack(fill=tk.X, padx=10, pady=5)
+        summary_content = summary_section.get_content_frame()
+        
+        self.orders_summary_frame = tk.Frame(summary_content, bg=Theme.BG_SECONDARY)
+        self.orders_summary_frame.pack(fill=tk.X, pady=5)
+        
+        # Update summary initially
+        self._update_orders_summary()
+    
+    def _update_orders_summary(self) -> None:
+        """Update the orders tab portfolio summary."""
+        # Clear existing
+        for widget in self.orders_summary_frame.winfo_children():
+            widget.destroy()
+        
+        # Count positions
+        total = len(self.bot.open_trades)
+        profitable = sum(1 for t in self.bot.open_trades.values() if t.pnl >= 0)
+        losing = total - profitable
+        
+        # Count by category
+        cat_counts = {}
+        for trade in self.bot.open_trades.values():
+            cat = getattr(trade, 'category', 'other')
+            cat_counts[cat] = cat_counts.get(cat, 0) + 1
+        
+        # Count by type
+        swing = sum(1 for t in self.bot.open_trades.values() if getattr(t, 'trade_type', 'long') == 'swing')
+        long_term = total - swing
+        
+        # Create summary rows
+        row1 = tk.Frame(self.orders_summary_frame, bg=Theme.BG_SECONDARY)
+        row1.pack(fill=tk.X, pady=2)
+        
+        tk.Label(row1, text=f"Total Positions: {total}", font=("Segoe UI", 10, "bold"),
+                bg=Theme.BG_SECONDARY, fg=Theme.TEXT_PRIMARY).pack(side=tk.LEFT, padx=10)
+        tk.Label(row1, text=f"💰 Profitable: {profitable}", font=("Segoe UI", 10),
+                bg=Theme.BG_SECONDARY, fg=Theme.ACCENT_GREEN).pack(side=tk.LEFT, padx=10)
+        tk.Label(row1, text=f"📉 Losing: {losing}", font=("Segoe UI", 10),
+                bg=Theme.BG_SECONDARY, fg=Theme.ACCENT_RED).pack(side=tk.LEFT, padx=10)
+        
+        row2 = tk.Frame(self.orders_summary_frame, bg=Theme.BG_SECONDARY)
+        row2.pack(fill=tk.X, pady=2)
+        
+        tk.Label(row2, text=f"⚡ Swing: {swing}", font=("Segoe UI", 10),
+                bg=Theme.BG_SECONDARY, fg=Theme.ACCENT_BLUE).pack(side=tk.LEFT, padx=10)
+        tk.Label(row2, text=f"📈 Long-term: {long_term}", font=("Segoe UI", 10),
+                bg=Theme.BG_SECONDARY, fg=Theme.TEXT_SECONDARY).pack(side=tk.LEFT, padx=10)
+        
+        # Category breakdown
+        if cat_counts:
+            row3 = tk.Frame(self.orders_summary_frame, bg=Theme.BG_SECONDARY)
+            row3.pack(fill=tk.X, pady=(5, 2))
+            tk.Label(row3, text="By Category:", font=("Segoe UI", 9, "bold"),
+                    bg=Theme.BG_SECONDARY, fg=Theme.TEXT_MUTED).pack(side=tk.LEFT, padx=10)
+            
+            for cat, count in sorted(cat_counts.items(), key=lambda x: -x[1]):
+                tk.Label(row3, text=f"{cat}: {count}", font=("Segoe UI", 9),
+                        bg=Theme.BG_SECONDARY, fg=Theme.TEXT_SECONDARY).pack(side=tk.LEFT, padx=5)
+    
+    # =========================================================================
+    # Order Action Handlers
+    # =========================================================================
+    
+    def _order_sell_all(self) -> None:
+        """Sell all positions."""
+        count = len(self.bot.open_trades)
+        if count == 0:
+            messagebox.showinfo("No Positions", "There are no open positions to sell.")
+            return
+        
+        if not messagebox.askyesno(
+            "⚠️ Confirm SELL ALL",
+            f"Are you sure you want to sell ALL {count} positions?\n\n"
+            "This action cannot be undone!",
+            icon="warning"
+        ):
+            return
+        
+        sold = 0
+        for trade_id in list(self.bot.open_trades.keys()):
+            if self.bot.sell_position(trade_id):
+                sold += 1
+        
+        self.chat.add_message(f"🛑 SOLD ALL: Closed {sold} positions", "alert", "Orders")
+        self._update_orders_summary()
+        self._update_positions_display()
+    
+    def _order_sell_profitable(self) -> None:
+        """Sell all profitable positions."""
+        profitable = [tid for tid, t in self.bot.open_trades.items() if t.pnl >= 0]
+        
+        if not profitable:
+            messagebox.showinfo("No Profitable Positions", "There are no profitable positions to sell.")
+            return
+        
+        if not messagebox.askyesno(
+            "Confirm Sell Profitable",
+            f"Sell all {len(profitable)} profitable positions?\n\n"
+            "This will lock in your current gains."
+        ):
+            return
+        
+        sold = 0
+        total_pnl = 0
+        for trade_id in profitable:
+            trade = self.bot.open_trades.get(trade_id)
+            if trade:
+                total_pnl += trade.pnl
+            if self.bot.sell_position(trade_id):
+                sold += 1
+        
+        self.chat.add_message(f"💰 Sold {sold} profitable positions (realized ~${total_pnl:.2f})", "success", "Orders")
+        self._update_orders_summary()
+        self._update_positions_display()
+    
+    def _order_sell_losing(self) -> None:
+        """Sell all losing positions."""
+        losing = [tid for tid, t in self.bot.open_trades.items() if t.pnl < 0]
+        
+        if not losing:
+            messagebox.showinfo("No Losing Positions", "There are no losing positions to sell.")
+            return
+        
+        total_loss = sum(self.bot.open_trades[tid].pnl for tid in losing)
+        
+        if not messagebox.askyesno(
+            "Confirm Sell Losing",
+            f"Sell all {len(losing)} losing positions?\n\n"
+            f"This will realize approximately ${abs(total_loss):.2f} in losses."
+        ):
+            return
+        
+        sold = 0
+        for trade_id in losing:
+            if self.bot.sell_position(trade_id):
+                sold += 1
+        
+        self.chat.add_message(f"📉 Cut losses: Sold {sold} losing positions", "alert", "Orders")
+        self._update_orders_summary()
+        self._update_positions_display()
+    
+    def _order_sell_category(self) -> None:
+        """Sell all positions in a category."""
+        category = self.orders_category_var.get()
+        
+        in_category = [
+            tid for tid, t in self.bot.open_trades.items() 
+            if getattr(t, 'category', 'other') == category
+        ]
+        
+        if not in_category:
+            messagebox.showinfo("No Positions", f"There are no positions in the '{category}' category.")
+            return
+        
+        if not messagebox.askyesno(
+            f"Confirm Sell {category.title()}",
+            f"Sell all {len(in_category)} positions in '{category}'?"
+        ):
+            return
+        
+        sold = 0
+        for trade_id in in_category:
+            if self.bot.sell_position(trade_id):
+                sold += 1
+        
+        self.chat.add_message(f"🏷️ Sold {sold} positions in '{category}'", "info", "Orders")
+        self._update_orders_summary()
+        self._update_positions_display()
+    
+    def _order_toggle_pause_buys(self) -> None:
+        """Toggle pause/resume buying."""
+        # Toggle both UI state and bot state
+        self._buys_paused = not self._buys_paused
+        if self.bot:
+            self.bot._buys_paused = self._buys_paused
+        
+        if self._buys_paused:
+            self.pause_buys_btn.configure(
+                text="▶️ Resume Buys",
+                bg=Theme.ACCENT_GREEN,
+            )
+            self.orders_buy_status.set("● Buys: PAUSED")
+            self.orders_buy_status_label.configure(fg=Theme.ACCENT_RED)
+            self.chat.add_message("⏸️ New buys PAUSED - existing positions still monitored", "alert", "Orders")
+        else:
+            self.pause_buys_btn.configure(
+                text="⏸️ Pause New Buys",
+                bg=Theme.ACCENT_YELLOW,
+            )
+            self.orders_buy_status.set("● Buys: Active")
+            self.orders_buy_status_label.configure(fg=Theme.ACCENT_GREEN)
+            self.chat.add_message("▶️ Buys RESUMED - bot will open new positions", "success", "Orders")
+    
+    def _order_clear_stagnant(self) -> None:
+        """Manually trigger stagnant position cleanup."""
+        if not self.bot.open_trades:
+            messagebox.showinfo("No Positions", "There are no positions to clean up.")
+            return
+        
+        before = len(self.bot.open_trades)
+        freed = self.bot._cleanup_stagnant_positions(min_positions_to_free=10)
+        
+        if freed > 0:
+            self.chat.add_message(f"🧹 Cleared {freed} stagnant positions ({before} → {len(self.bot.open_trades)})", "info", "Orders")
+        else:
+            self.chat.add_message("🧹 No stagnant positions found to clear", "info", "Orders")
+        
+        self._update_orders_summary()
+        self._update_positions_display()
+    
+    def _order_export_positions(self) -> None:
+        """Export current positions to CSV."""
+        if not self.bot.open_trades:
+            messagebox.showinfo("No Data", "There are no open positions to export.")
+            return
+        
+        filepath = filedialog.asksaveasfilename(
+            defaultextension=".csv",
+            filetypes=[("CSV files", "*.csv")],
+            title="Export Positions",
+            initialfile=f"positions_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        )
+        
+        if not filepath:
+            return
+        
+        try:
+            import csv
+            with open(filepath, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    'ID', 'Timestamp', 'Market', 'Question', 'Outcome', 'Shares', 
+                    'Entry Price', 'Current Price', 'Cost Basis', 'Current Value',
+                    'P&L $', 'P&L %', 'Trade Type', 'Category'
+                ])
+                
+                for trade in self.bot.open_trades.values():
+                    writer.writerow([
+                        trade.id,
+                        trade.timestamp,
+                        trade.market_id,
+                        trade.question,
+                        trade.outcome,
+                        f"{trade.shares:.4f}",
+                        f"{trade.entry_price:.4f}",
+                        f"{trade.current_price:.4f}",
+                        f"{trade.cost_basis:.2f}",
+                        f"{trade.value:.2f}",
+                        f"{trade.pnl:.2f}",
+                        f"{trade.pnl_pct*100:.2f}%",
+                        getattr(trade, 'trade_type', 'long'),
+                        getattr(trade, 'category', 'other'),
+                    ])
+            
+            self.chat.add_message(f"📊 Exported {len(self.bot.open_trades)} positions to CSV", "success", "Orders")
+            messagebox.showinfo("Export Complete", f"Positions exported to:\n{filepath}")
+        except Exception as e:
+            messagebox.showerror("Export Failed", f"Failed to export: {e}")
+    
+    def _order_export_history(self) -> None:
+        """Export trade history to CSV."""
+        if not self.bot.closed_trades and not self.bot.trade_log:
+            messagebox.showinfo("No Data", "There is no trade history to export.")
+            return
+        
+        filepath = filedialog.asksaveasfilename(
+            defaultextension=".csv",
+            filetypes=[("CSV files", "*.csv")],
+            title="Export Trade History",
+            initialfile=f"trade_history_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+        )
+        
+        if not filepath:
+            return
+        
+        try:
+            import csv
+            with open(filepath, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow([
+                    'ID', 'Open Time', 'Close Time', 'Market', 'Question', 'Outcome',
+                    'Shares', 'Entry Price', 'Exit Price', 'P&L $', 'P&L %', 
+                    'Trade Type', 'Category', 'Status'
+                ])
+                
+                for trade in self.bot.closed_trades:
+                    writer.writerow([
+                        trade.id,
+                        trade.timestamp,
+                        trade.exit_timestamp or '',
+                        trade.market_id,
+                        trade.question,
+                        trade.outcome,
+                        f"{trade.shares:.4f}",
+                        f"{trade.entry_price:.4f}",
+                        f"{trade.exit_price:.4f}" if trade.exit_price else '',
+                        f"{trade.pnl:.2f}",
+                        f"{trade.pnl_pct*100:.2f}%",
+                        getattr(trade, 'trade_type', 'long'),
+                        getattr(trade, 'category', 'other'),
+                        trade.status,
+                    ])
+            
+            self.chat.add_message(f"📜 Exported {len(self.bot.closed_trades)} closed trades to CSV", "success", "Orders")
+            messagebox.showinfo("Export Complete", f"Trade history exported to:\n{filepath}")
+        except Exception as e:
+            messagebox.showerror("Export Failed", f"Failed to export: {e}")
+
     def _build_markets_tab(self, parent: tk.Frame) -> None:
         """Build the markets tab."""
         # Header with add button
@@ -1122,6 +2618,1186 @@ class TradingBotApp(tk.Tk):
         
         self._update_alerts_display()
     
+    def _build_config_tab(self, parent: tk.Frame) -> None:
+        """Build the configuration tab with all settings."""
+        # Create scrollable container
+        canvas = tk.Canvas(parent, bg=Theme.BG_PRIMARY, highlightthickness=0)
+        scrollbar = ttk.Scrollbar(parent, orient="vertical", command=canvas.yview)
+        scrollable_frame = tk.Frame(canvas, bg=Theme.BG_PRIMARY)
+        
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        
+        canvas_window = canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        
+        # Make canvas expand to fill width
+        def on_canvas_configure(event):
+            canvas.itemconfig(canvas_window, width=event.width)
+        canvas.bind("<Configure>", on_canvas_configure)
+        
+        # Mouse wheel scrolling
+        def on_mousewheel(event):
+            canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+        canvas.bind("<MouseWheel>", on_mousewheel)
+        scrollable_frame.bind("<MouseWheel>", on_mousewheel)
+        
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        
+        # Header
+        header = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        header.pack(fill=tk.X, padx=10, pady=(10, 5))
+        
+        tk.Label(
+            header,
+            text="⚙️ Bot Configuration",
+            font=("Segoe UI", 14, "bold"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_PRIMARY,
+        ).pack(side=tk.LEFT)
+        
+        tk.Label(
+            header,
+            text="Hover over settings for descriptions",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.RIGHT)
+        
+        # Store all config entries for later access
+        self.config_entries = {}
+        
+        # =====================================================================
+        # Section 1: Capital & Position Sizing
+        # =====================================================================
+        section1 = CollapsibleSection(scrollable_frame, "💰 Capital & Position Sizing", initially_open=True)
+        section1.pack(fill=tk.X, padx=10, pady=5)
+        content1 = section1.get_content_frame()
+        
+        self.config_entries['initial_capital'] = ConfigEntry(
+            content1, "Initial Capital", 
+            "The starting capital for the simulation. This is the amount of money the bot starts with. "
+            "⚠️ REQUIRES RESTART: Changes only apply when you reset/restart the bot. Does not affect current cash balance.",
+            var_type="dollar", default_value=self.bot.config.initial_capital
+        )
+        self.config_entries['initial_capital'].pack(fill=tk.X)
+        
+        self.config_entries['max_position_size'] = ConfigEntry(
+            content1, "Max Position Size",
+            "Maximum dollar amount the bot will invest in a single trade. "
+            "Larger values = more risk per trade, but potentially higher returns. "
+            "✓ IMMEDIATE: Applies to new trades only, does not affect existing positions.",
+            var_type="dollar", default_value=self.bot.config.max_position_size
+        )
+        self.config_entries['max_position_size'].pack(fill=tk.X)
+        
+        self.config_entries['max_portfolio_pct'] = ConfigEntry(
+            content1, "Max Portfolio %",
+            "Maximum percentage of total portfolio that can be allocated to a single market. "
+            "Helps prevent over-concentration in one position. "
+            "✓ IMMEDIATE: Applies to new trades. Use 'Force Holdings' to reduce existing oversized positions.",
+            var_type="percent", default_value=self.bot.config.max_portfolio_pct
+        )
+        self.config_entries['max_portfolio_pct'].pack(fill=tk.X)
+        
+        self.config_entries['test_trade_size'] = ConfigEntry(
+            content1, "Test Trade Size",
+            "Dollar amount for low-confidence 'test' trades. These smaller trades are used "
+            "when the bot is less certain about an opportunity, limiting potential losses.",
+            var_type="dollar", default_value=self.bot.config.test_trade_size
+        )
+        self.config_entries['test_trade_size'].pack(fill=tk.X)
+        
+        self.config_entries['test_trade_enabled'] = ConfigEntry(
+            content1, "Enable Test Trades",
+            "When enabled, the bot will make smaller 'test' trades on opportunities "
+            "that don't meet the high confidence threshold. Good for diversification.",
+            var_type="bool", default_value=self.bot.config.test_trade_enabled
+        )
+        self.config_entries['test_trade_enabled'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 2: Position Limits
+        # =====================================================================
+        section2 = CollapsibleSection(scrollable_frame, "📊 Position Limits", initially_open=True)
+        section2.pack(fill=tk.X, padx=10, pady=5)
+        content2 = section2.get_content_frame()
+        
+        self.config_entries['max_positions'] = ConfigEntry(
+            content2, "Max Total Positions",
+            "Maximum number of open positions the bot can hold at once. "
+            "Higher values = more diversification but harder to monitor. "
+            "✓ IMMEDIATE: Reducing this does NOT auto-close positions. Bot just won't open new ones until below limit.",
+            var_type="int", default_value=self.bot.config.max_positions
+        )
+        self.config_entries['max_positions'].pack(fill=tk.X)
+        
+        self.config_entries['max_long_term_positions'] = ConfigEntry(
+            content2, "Max Long-Term Positions",
+            "Maximum positions for markets resolving in more than 7 days. "
+            "Long-term positions tie up capital but can have larger payoffs. "
+            "✓ IMMEDIATE: Reducing this does NOT auto-close positions.",
+            var_type="int", default_value=self.bot.config.max_long_term_positions
+        )
+        self.config_entries['max_long_term_positions'].pack(fill=tk.X)
+        
+        self.config_entries['max_swing_positions'] = ConfigEntry(
+            content2, "Max Swing Positions",
+            "Maximum positions for short-term swing trades (< 7 days). "
+            "Swing trades aim for quick profits but require more active management. "
+            "✓ IMMEDIATE: Reducing this does NOT auto-close positions.",
+            var_type="int", default_value=self.bot.config.max_swing_positions
+        )
+        self.config_entries['max_swing_positions'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 3: Trading Filters
+        # =====================================================================
+        section3 = CollapsibleSection(scrollable_frame, "🎯 Trading Filters", initially_open=False)
+        section3.pack(fill=tk.X, padx=10, pady=5)
+        content3 = section3.get_content_frame()
+        
+        self.config_entries['min_price'] = ConfigEntry(
+            content3, "Min Price",
+            "Don't buy outcomes priced below this value. Very low prices often indicate "
+            "unlikely outcomes with high risk. Range: 0.01 - 0.50",
+            var_type="float", default_value=self.bot.config.min_price
+        )
+        self.config_entries['min_price'].pack(fill=tk.X)
+        
+        self.config_entries['max_price'] = ConfigEntry(
+            content3, "Max Price",
+            "Don't buy outcomes priced above this value. Very high prices have limited "
+            "upside potential. Range: 0.50 - 0.99",
+            var_type="float", default_value=self.bot.config.max_price
+        )
+        self.config_entries['max_price'].pack(fill=tk.X)
+        
+        self.config_entries['min_days'] = ConfigEntry(
+            content3, "Min Days to Resolution",
+            "Minimum days until market resolves. Very short timeframes may not allow "
+            "enough time for price movement.",
+            var_type="float", default_value=self.bot.config.min_days
+        )
+        self.config_entries['min_days'].pack(fill=tk.X)
+        
+        self.config_entries['max_days'] = ConfigEntry(
+            content3, "Max Days to Resolution",
+            "Maximum days until market resolves. Very long timeframes tie up capital "
+            "and have more uncertainty.",
+            var_type="float", default_value=self.bot.config.max_days
+        )
+        self.config_entries['max_days'].pack(fill=tk.X)
+        
+        self.config_entries['min_volume'] = ConfigEntry(
+            content3, "Min Volume",
+            "Minimum total trading volume in dollars. Low volume markets may have "
+            "poor liquidity and wider spreads.",
+            var_type="dollar", default_value=self.bot.config.min_volume
+        )
+        self.config_entries['min_volume'].pack(fill=tk.X)
+        
+        self.config_entries['min_liquidity'] = ConfigEntry(
+            content3, "Min Liquidity",
+            "Minimum available liquidity in dollars. Low liquidity means larger trades "
+            "may significantly move the price (slippage).",
+            var_type="dollar", default_value=self.bot.config.min_liquidity
+        )
+        self.config_entries['min_liquidity'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 4: Strategy Thresholds
+        # =====================================================================
+        section4 = CollapsibleSection(scrollable_frame, "📈 Strategy Thresholds", initially_open=False)
+        section4.pack(fill=tk.X, padx=10, pady=5)
+        content4 = section4.get_content_frame()
+        
+        self.config_entries['min_g_score'] = ConfigEntry(
+            content4, "Min G-Score",
+            "Minimum growth rate (g) score required. G-score measures expected return per day "
+            "until resolution. Higher = better risk-adjusted opportunity. Typical range: 0.0001 - 0.01",
+            var_type="float", default_value=self.bot.config.min_g_score
+        )
+        self.config_entries['min_g_score'].pack(fill=tk.X)
+        
+        self.config_entries['min_expected_roi'] = ConfigEntry(
+            content4, "Min Expected ROI",
+            "Minimum expected return on investment. The bot won't buy if the potential "
+            "profit is below this threshold.",
+            var_type="percent", default_value=self.bot.config.min_expected_roi
+        )
+        self.config_entries['min_expected_roi'].pack(fill=tk.X)
+        
+        self.config_entries['confidence_threshold'] = ConfigEntry(
+            content4, "Confidence Threshold",
+            "Minimum confidence score (0-1) required to make any trade. "
+            "Below this, opportunities are skipped entirely.",
+            var_type="percent", default_value=self.bot.config.confidence_threshold
+        )
+        self.config_entries['confidence_threshold'].pack(fill=tk.X)
+        
+        self.config_entries['high_confidence_threshold'] = ConfigEntry(
+            content4, "High Confidence Threshold",
+            "Confidence score required for full-size trades. Between this and the minimum "
+            "threshold, only test trades are made.",
+            var_type="percent", default_value=self.bot.config.high_confidence_threshold
+        )
+        self.config_entries['high_confidence_threshold'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 5: Risk Management - Long Term
+        # =====================================================================
+        section5 = CollapsibleSection(scrollable_frame, "🛡️ Risk Management - Long Term", initially_open=True)
+        section5.pack(fill=tk.X, padx=10, pady=5)
+        content5 = section5.get_content_frame()
+        
+        self.config_entries['stop_loss_pct'] = ConfigEntry(
+            content5, "Stop Loss",
+            "Automatically sell if position drops by this percentage. "
+            "Protects against large losses. Example: 30% means sell if down 30%. "
+            "⚡ IMMEDIATE: Applies to ALL existing positions on next price update! "
+            "Lowering this may trigger immediate sells on positions already below the new threshold.",
+            var_type="percent", default_value=self.bot.config.stop_loss_pct
+        )
+        self.config_entries['stop_loss_pct'].pack(fill=tk.X)
+        
+        self.config_entries['take_profit_pct'] = ConfigEntry(
+            content5, "Take Profit",
+            "Automatically sell if position gains this percentage. "
+            "Locks in profits. Example: 50% means sell when up 50%. "
+            "⚡ IMMEDIATE: Applies to ALL existing positions on next price update! "
+            "Lowering this may trigger immediate sells on profitable positions.",
+            var_type="percent", default_value=self.bot.config.take_profit_pct
+        )
+        self.config_entries['take_profit_pct'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 6: Risk Management - Swing Trades
+        # =====================================================================
+        section6 = CollapsibleSection(scrollable_frame, "⚡ Risk Management - Swing Trades", initially_open=True)
+        section6.pack(fill=tk.X, padx=10, pady=5)
+        content6 = section6.get_content_frame()
+        
+        self.config_entries['swing_trade_enabled'] = ConfigEntry(
+            content6, "Enable Swing Trading",
+            "Allow short-term swing trades on high-volume markets. "
+            "Swing trades aim for quick 10-15% profits within days.",
+            var_type="bool", default_value=self.bot.config.swing_trade_enabled
+        )
+        self.config_entries['swing_trade_enabled'].pack(fill=tk.X)
+        
+        self.config_entries['swing_stop_loss_pct'] = ConfigEntry(
+            content6, "Swing Stop Loss",
+            "Stop loss percentage for swing trades. Usually tighter than long-term "
+            "since swing trades have shorter timeframes. "
+            "⚡ IMMEDIATE: Applies to ALL existing swing positions on next price update!",
+            var_type="percent", default_value=self.bot.config.swing_stop_loss_pct
+        )
+        self.config_entries['swing_stop_loss_pct'].pack(fill=tk.X)
+        
+        self.config_entries['swing_take_profit_pct'] = ConfigEntry(
+            content6, "Swing Take Profit",
+            "Take profit percentage for swing trades. Usually lower than long-term "
+            "to capture quick gains. "
+            "⚡ IMMEDIATE: Applies to ALL existing swing positions on next price update!",
+            var_type="percent", default_value=self.bot.config.swing_take_profit_pct
+        )
+        self.config_entries['swing_take_profit_pct'].pack(fill=tk.X)
+        
+        self.config_entries['swing_min_volume'] = ConfigEntry(
+            content6, "Swing Min Volume",
+            "Minimum market volume required for swing trades. High volume ensures "
+            "liquidity for quick entry and exit.",
+            var_type="dollar", default_value=self.bot.config.swing_min_volume
+        )
+        self.config_entries['swing_min_volume'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 6.5: Realistic Execution Simulation
+        # =====================================================================
+        section6_5 = CollapsibleSection(scrollable_frame, "📊 Realistic Execution", initially_open=False)
+        section6_5.pack(fill=tk.X, padx=10, pady=5)
+        content6_5 = section6_5.get_content_frame()
+        
+        self.config_entries['realistic_execution'] = ConfigEntry(
+            content6_5, "Enable Realistic Execution",
+            "Simulate realistic trade execution by walking the order book. "
+            "When enabled, trades account for slippage, liquidity depth, and execution delays. "
+            "Disable for faster (but less realistic) simulation. "
+            "✓ IMMEDIATE: Applies to new trades only.",
+            var_type="bool", default_value=self.bot.config.realistic_execution
+        )
+        self.config_entries['realistic_execution'].pack(fill=tk.X)
+        
+        self.config_entries['max_slippage_pct'] = ConfigEntry(
+            content6_5, "Max Slippage %",
+            "Maximum acceptable slippage percentage. Trades that would cause more "
+            "slippage than this are rejected. Higher = more trades execute, but at worse prices. "
+            "✓ IMMEDIATE: Applies to new trades only.",
+            var_type="float", default_value=self.bot.config.max_slippage_pct
+        )
+        self.config_entries['max_slippage_pct'].pack(fill=tk.X)
+        
+        self.config_entries['min_book_depth_multiplier'] = ConfigEntry(
+            content6_5, "Min Liquidity Multiplier",
+            "Required order book depth as multiplier of trade size. "
+            "Example: 1.5 means the book must have 1.5x your order size available. "
+            "Higher = safer but fewer trades. "
+            "✓ IMMEDIATE: Applies to new trades only.",
+            var_type="float", default_value=self.bot.config.min_book_depth_multiplier
+        )
+        self.config_entries['min_book_depth_multiplier'].pack(fill=tk.X)
+        
+        self.config_entries['execution_delay_enabled'] = ConfigEntry(
+            content6_5, "Simulate Execution Delay",
+            "Add random price movement to simulate the time between decision and fill. "
+            "In real trading, prices can move while your order is being placed. "
+            "✓ IMMEDIATE: Applies to new trades only.",
+            var_type="bool", default_value=self.bot.config.execution_delay_enabled
+        )
+        self.config_entries['execution_delay_enabled'].pack(fill=tk.X)
+        
+        self.config_entries['execution_delay_max_pct'] = ConfigEntry(
+            content6_5, "Max Delay Movement %",
+            "Maximum random price movement (±) during simulated execution delay. "
+            "Example: 2.0 means price can move ±2% between decision and fill. "
+            "✓ IMMEDIATE: Applies to new trades only.",
+            var_type="float", default_value=self.bot.config.execution_delay_max_pct
+        )
+        self.config_entries['execution_delay_max_pct'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 7: Timing & Performance
+        # =====================================================================
+        section7 = CollapsibleSection(scrollable_frame, "⏱️ Timing & Performance", initially_open=False)
+        section7.pack(fill=tk.X, padx=10, pady=5)
+        content7 = section7.get_content_frame()
+        
+        self.config_entries['scan_interval_seconds'] = ConfigEntry(
+            content7, "Scan Interval",
+            "Seconds between market scans for new opportunities. Lower = more responsive "
+            "but higher API usage and CPU load. Recommended: 20-60 seconds.",
+            var_type="seconds", default_value=self.bot.config.scan_interval_seconds
+        )
+        self.config_entries['scan_interval_seconds'].pack(fill=tk.X)
+        
+        self.config_entries['max_markets_per_scan'] = ConfigEntry(
+            content7, "Markets Per Scan",
+            "Maximum number of markets to analyze each scan cycle. "
+            "Higher = more opportunities but slower scans.",
+            var_type="int", default_value=self.bot.config.max_markets_per_scan
+        )
+        self.config_entries['max_markets_per_scan'].pack(fill=tk.X)
+        
+        self.config_entries['price_update_interval'] = ConfigEntry(
+            content7, "Position Update Interval",
+            "⚠️ DISPLAY ONLY: This setting controls the Overview tab timer display. "
+            "Actual position updates run on a fixed 5-second cycle for responsiveness. "
+            "This value does NOT change actual update frequency.",
+            var_type="seconds", default_value=self.bot.config.price_update_interval
+        )
+        self.config_entries['price_update_interval'].pack(fill=tk.X)
+        
+        self.config_entries['market_cooldown_minutes'] = ConfigEntry(
+            content7, "Market Cooldown",
+            "Minutes before re-scanning the same market. Prevents repeatedly analyzing "
+            "markets that were just rejected.",
+            var_type="minutes", default_value=self.bot.config.market_cooldown_minutes
+        )
+        self.config_entries['market_cooldown_minutes'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 8: Insider Detection
+        # =====================================================================
+        section8 = CollapsibleSection(scrollable_frame, "🔔 Insider Detection", initially_open=False)
+        section8.pack(fill=tk.X, padx=10, pady=5)
+        content8 = section8.get_content_frame()
+        
+        self.config_entries['large_trade_threshold'] = ConfigEntry(
+            content8, "Large Trade Alert",
+            "Alert when a single trade exceeds this dollar amount. "
+            "Large trades may indicate insider knowledge.",
+            var_type="dollar", default_value=self.insider_detector.config.large_trade_threshold
+        )
+        self.config_entries['large_trade_threshold'].pack(fill=tk.X)
+        
+        self.config_entries['insider_poll_interval'] = ConfigEntry(
+            content8, "Insider Poll Interval",
+            "Seconds between checks for suspicious trading activity. "
+            "Lower = faster alerts but more API usage.",
+            var_type="seconds", default_value=self.insider_detector.config.poll_interval_seconds
+        )
+        self.config_entries['insider_poll_interval'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 9: News Analysis
+        # =====================================================================
+        section9 = CollapsibleSection(scrollable_frame, "📰 News Analysis", initially_open=False)
+        section9.pack(fill=tk.X, padx=10, pady=5)
+        content9 = section9.get_content_frame()
+        
+        self.config_entries['use_news_analysis'] = ConfigEntry(
+            content9, "Enable News Analysis",
+            "Use news sentiment to influence trading decisions. "
+            "When news aligns with a position, confidence is boosted. "
+            "⚠️ PARTIAL: Disabling works immediately. Enabling mid-simulation may require restart if it wasn't enabled at startup.",
+            var_type="bool", default_value=self.bot.config.use_news_analysis
+        )
+        self.config_entries['use_news_analysis'].pack(fill=tk.X)
+        
+        self.config_entries['news_confidence_boost'] = ConfigEntry(
+            content9, "News Confidence Boost",
+            "How much to boost confidence when news sentiment aligns with the trade direction. "
+            "Example: 15% means add 0.15 to confidence score.",
+            var_type="percent", default_value=self.bot.config.news_confidence_boost
+        )
+        self.config_entries['news_confidence_boost'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Section 10: Category Limits
+        # =====================================================================
+        section10 = CollapsibleSection(scrollable_frame, "🏷️ Category Limits", initially_open=False)
+        section10.pack(fill=tk.X, padx=10, pady=5)
+        content10 = section10.get_content_frame()
+        
+        # Add info label
+        tk.Label(
+            content10,
+            text="Maximum positions allowed per market category (for diversification). ✓ All limits apply immediately to new trades only.",
+            font=("Segoe UI", 8, "italic"),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(fill=tk.X, pady=(0, 10))
+        
+        category_descriptions = {
+            'sports': "Sports events including NBA, NFL, MLB, soccer, etc.",
+            'politics': "Political events, elections, legislation, government actions.",
+            'crypto': "Cryptocurrency prices, events, regulations.",
+            'entertainment': "Movies, music, awards shows, celebrities.",
+            'finance': "Stock market, economic indicators, corporate events.",
+            'technology': "Tech companies, product launches, AI developments.",
+            'world_events': "International affairs, conflicts, treaties.",
+            'other': "Markets that don't fit other categories.",
+        }
+        
+        for category, limit in self.bot.config.category_limits.items():
+            self.config_entries[f'category_{category}'] = ConfigEntry(
+                content10, f"{category.replace('_', ' ').title()}",
+                category_descriptions.get(category, f"Maximum positions for {category} markets."),
+                var_type="int", default_value=limit
+            )
+            self.config_entries[f'category_{category}'].pack(fill=tk.X)
+        
+        # =====================================================================
+        # Buttons - Row 1
+        # =====================================================================
+        button_frame = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        button_frame.pack(fill=tk.X, padx=10, pady=(20, 5))
+        
+        tk.Button(
+            button_frame,
+            text="✓ Apply Changes",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.ACCENT_GREEN,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            padx=20,
+            pady=8,
+            cursor="hand2",
+            command=self._apply_config_changes,
+        ).pack(side=tk.LEFT, padx=(0, 10))
+        
+        tk.Button(
+            button_frame,
+            text="↺ Reset to Defaults",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            padx=20,
+            pady=8,
+            cursor="hand2",
+            command=self._reset_config_to_defaults,
+        ).pack(side=tk.LEFT, padx=(0, 10))
+        
+        tk.Button(
+            button_frame,
+            text="↻ Reload Current",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            padx=20,
+            pady=8,
+            cursor="hand2",
+            command=self._reload_config_display,
+        ).pack(side=tk.LEFT)
+        
+        # =====================================================================
+        # Buttons - Row 2 (Force Holdings)
+        # =====================================================================
+        button_frame2 = tk.Frame(scrollable_frame, bg=Theme.BG_PRIMARY)
+        button_frame2.pack(fill=tk.X, padx=10, pady=(5, 10))
+        
+        tk.Button(
+            button_frame2,
+            text="⚠️ Force Holdings to Settings",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.ACCENT_RED,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            padx=20,
+            pady=8,
+            cursor="hand2",
+            command=self._show_force_holdings_warning,
+        ).pack(side=tk.LEFT, padx=(0, 10))
+        
+        tk.Label(
+            button_frame2,
+            text="Sells positions to enforce all limits (position count, size, categories)",
+            font=("Segoe UI", 8, "italic"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.TEXT_MUTED,
+        ).pack(side=tk.LEFT)
+        
+        # Status label
+        self.config_status = tk.Label(
+            button_frame2,
+            text="",
+            font=("Segoe UI", 9),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.ACCENT_GREEN,
+        )
+        self.config_status.pack(side=tk.RIGHT)
+    
+    def _apply_config_changes(self) -> None:
+        """Apply all configuration changes from the Config tab."""
+        try:
+            # Capital & Position Sizing
+            self.bot.config.initial_capital = self.config_entries['initial_capital'].get_value() or 10000.0
+            self.bot.config.max_position_size = self.config_entries['max_position_size'].get_value() or 500.0
+            self.bot.config.max_portfolio_pct = self.config_entries['max_portfolio_pct'].get_value() or 0.10
+            self.bot.config.test_trade_size = self.config_entries['test_trade_size'].get_value() or 25.0
+            self.bot.config.test_trade_enabled = self.config_entries['test_trade_enabled'].get_value()
+            
+            # Position Limits
+            self.bot.config.max_positions = self.config_entries['max_positions'].get_value() or 50
+            self.bot.config.max_long_term_positions = self.config_entries['max_long_term_positions'].get_value() or 40
+            self.bot.config.max_swing_positions = self.config_entries['max_swing_positions'].get_value() or 30
+            
+            # Trading Filters
+            self.bot.config.min_price = self.config_entries['min_price'].get_value() or 0.03
+            self.bot.config.max_price = self.config_entries['max_price'].get_value() or 0.85
+            self.bot.config.min_days = self.config_entries['min_days'].get_value() or 0.05
+            self.bot.config.max_days = self.config_entries['max_days'].get_value() or 365.0
+            self.bot.config.min_volume = self.config_entries['min_volume'].get_value() or 500.0
+            self.bot.config.min_liquidity = self.config_entries['min_liquidity'].get_value() or 200.0
+            
+            # Strategy Thresholds
+            self.bot.config.min_g_score = self.config_entries['min_g_score'].get_value() or 0.0003
+            self.bot.config.min_expected_roi = self.config_entries['min_expected_roi'].get_value() or 0.03
+            self.bot.config.confidence_threshold = self.config_entries['confidence_threshold'].get_value() or 0.45
+            self.bot.config.high_confidence_threshold = self.config_entries['high_confidence_threshold'].get_value() or 0.65
+            
+            # Risk Management - Long Term
+            self.bot.config.stop_loss_pct = self.config_entries['stop_loss_pct'].get_value() or 0.30
+            self.bot.config.take_profit_pct = self.config_entries['take_profit_pct'].get_value() or 0.50
+            
+            # Risk Management - Swing Trades
+            self.bot.config.swing_trade_enabled = self.config_entries['swing_trade_enabled'].get_value()
+            self.bot.config.swing_stop_loss_pct = self.config_entries['swing_stop_loss_pct'].get_value() or 0.10
+            self.bot.config.swing_take_profit_pct = self.config_entries['swing_take_profit_pct'].get_value() or 0.15
+            self.bot.config.swing_min_volume = self.config_entries['swing_min_volume'].get_value() or 50000.0
+            
+            # Timing & Performance
+            self.bot.config.scan_interval_seconds = self.config_entries['scan_interval_seconds'].get_value() or 30
+            self.bot.config.max_markets_per_scan = self.config_entries['max_markets_per_scan'].get_value() or 100
+            self.bot.config.price_update_interval = self.config_entries['price_update_interval'].get_value() or 5
+            self.bot.config.market_cooldown_minutes = self.config_entries['market_cooldown_minutes'].get_value() or 3
+            
+            # Insider Detection
+            self.insider_detector.config.large_trade_threshold = self.config_entries['large_trade_threshold'].get_value() or 10000.0
+            self.insider_detector.config.poll_interval_seconds = self.config_entries['insider_poll_interval'].get_value() or 30
+            
+            # News Analysis
+            self.bot.config.use_news_analysis = self.config_entries['use_news_analysis'].get_value()
+            self.bot.config.news_confidence_boost = self.config_entries['news_confidence_boost'].get_value() or 0.15
+            
+            # Realistic Execution
+            self.bot.config.realistic_execution = self.config_entries['realistic_execution'].get_value()
+            self.bot.config.max_slippage_pct = self.config_entries['max_slippage_pct'].get_value() or 5.0
+            self.bot.config.min_book_depth_multiplier = self.config_entries['min_book_depth_multiplier'].get_value() or 1.5
+            self.bot.config.execution_delay_enabled = self.config_entries['execution_delay_enabled'].get_value()
+            self.bot.config.execution_delay_max_pct = self.config_entries['execution_delay_max_pct'].get_value() or 2.0
+            
+            # Category Limits
+            for category in self.bot.config.category_limits.keys():
+                entry_key = f'category_{category}'
+                if entry_key in self.config_entries:
+                    self.bot.config.category_limits[category] = self.config_entries[entry_key].get_value() or 5
+            
+            # Show success message
+            self.config_status.configure(text="✓ Changes applied!", fg=Theme.ACCENT_GREEN)
+            self.chat.add_message("Configuration updated successfully!", "success", "Config")
+            
+            # Clear status after 3 seconds
+            self.after(3000, lambda: self.config_status.configure(text=""))
+            
+        except Exception as e:
+            self.config_status.configure(text=f"✗ Error: {e}", fg=Theme.ACCENT_RED)
+            self.chat.add_message(f"Config error: {e}", "error", "Config")
+    
+    def _reset_config_to_defaults(self) -> None:
+        """Reset all configuration to default values."""
+        if not messagebox.askyesno("Confirm Reset", "Reset all settings to default values?"):
+            return
+        
+        # Create fresh config
+        from auto_trader import BotConfig
+        default_config = BotConfig()
+        
+        # Apply defaults to entries
+        defaults = {
+            'initial_capital': default_config.initial_capital,
+            'max_position_size': default_config.max_position_size,
+            'max_portfolio_pct': default_config.max_portfolio_pct,
+            'test_trade_size': default_config.test_trade_size,
+            'test_trade_enabled': default_config.test_trade_enabled,
+            'max_positions': default_config.max_positions,
+            'max_long_term_positions': default_config.max_long_term_positions,
+            'max_swing_positions': default_config.max_swing_positions,
+            'min_price': default_config.min_price,
+            'max_price': default_config.max_price,
+            'min_days': default_config.min_days,
+            'max_days': default_config.max_days,
+            'min_volume': default_config.min_volume,
+            'min_liquidity': default_config.min_liquidity,
+            'min_g_score': default_config.min_g_score,
+            'min_expected_roi': default_config.min_expected_roi,
+            'confidence_threshold': default_config.confidence_threshold,
+            'high_confidence_threshold': default_config.high_confidence_threshold,
+            'stop_loss_pct': default_config.stop_loss_pct,
+            'take_profit_pct': default_config.take_profit_pct,
+            'swing_trade_enabled': default_config.swing_trade_enabled,
+            'swing_stop_loss_pct': default_config.swing_stop_loss_pct,
+            'swing_take_profit_pct': default_config.swing_take_profit_pct,
+            'swing_min_volume': default_config.swing_min_volume,
+            'scan_interval_seconds': default_config.scan_interval_seconds,
+            'max_markets_per_scan': default_config.max_markets_per_scan,
+            'price_update_interval': default_config.price_update_interval,
+            'market_cooldown_minutes': default_config.market_cooldown_minutes,
+            'large_trade_threshold': 10000.0,
+            'insider_poll_interval': 30,
+            'use_news_analysis': default_config.use_news_analysis,
+            'news_confidence_boost': default_config.news_confidence_boost,
+            # Realistic Execution
+            'realistic_execution': default_config.realistic_execution,
+            'max_slippage_pct': default_config.max_slippage_pct,
+            'min_book_depth_multiplier': default_config.min_book_depth_multiplier,
+            'execution_delay_enabled': default_config.execution_delay_enabled,
+            'execution_delay_max_pct': default_config.execution_delay_max_pct,
+        }
+        
+        # Add category defaults
+        for category, limit in default_config.category_limits.items():
+            defaults[f'category_{category}'] = limit
+        
+        # Update entries
+        for key, value in defaults.items():
+            if key in self.config_entries:
+                self.config_entries[key].set_value(value)
+        
+        self.config_status.configure(text="↺ Reset to defaults", fg=Theme.ACCENT_YELLOW)
+        self.after(3000, lambda: self.config_status.configure(text=""))
+    
+    def _reload_config_display(self) -> None:
+        """Reload config display with current bot values."""
+        # Capital & Position Sizing
+        self.config_entries['initial_capital'].set_value(self.bot.config.initial_capital)
+        self.config_entries['max_position_size'].set_value(self.bot.config.max_position_size)
+        self.config_entries['max_portfolio_pct'].set_value(self.bot.config.max_portfolio_pct)
+        self.config_entries['test_trade_size'].set_value(self.bot.config.test_trade_size)
+        self.config_entries['test_trade_enabled'].set_value(self.bot.config.test_trade_enabled)
+        
+        # Position Limits
+        self.config_entries['max_positions'].set_value(self.bot.config.max_positions)
+        self.config_entries['max_long_term_positions'].set_value(self.bot.config.max_long_term_positions)
+        self.config_entries['max_swing_positions'].set_value(self.bot.config.max_swing_positions)
+        
+        # Trading Filters
+        self.config_entries['min_price'].set_value(self.bot.config.min_price)
+        self.config_entries['max_price'].set_value(self.bot.config.max_price)
+        self.config_entries['min_days'].set_value(self.bot.config.min_days)
+        self.config_entries['max_days'].set_value(self.bot.config.max_days)
+        self.config_entries['min_volume'].set_value(self.bot.config.min_volume)
+        self.config_entries['min_liquidity'].set_value(self.bot.config.min_liquidity)
+        
+        # Strategy Thresholds
+        self.config_entries['min_g_score'].set_value(self.bot.config.min_g_score)
+        self.config_entries['min_expected_roi'].set_value(self.bot.config.min_expected_roi)
+        self.config_entries['confidence_threshold'].set_value(self.bot.config.confidence_threshold)
+        self.config_entries['high_confidence_threshold'].set_value(self.bot.config.high_confidence_threshold)
+        
+        # Risk Management
+        self.config_entries['stop_loss_pct'].set_value(self.bot.config.stop_loss_pct)
+        self.config_entries['take_profit_pct'].set_value(self.bot.config.take_profit_pct)
+        self.config_entries['swing_trade_enabled'].set_value(self.bot.config.swing_trade_enabled)
+        self.config_entries['swing_stop_loss_pct'].set_value(self.bot.config.swing_stop_loss_pct)
+        self.config_entries['swing_take_profit_pct'].set_value(self.bot.config.swing_take_profit_pct)
+        self.config_entries['swing_min_volume'].set_value(self.bot.config.swing_min_volume)
+        
+        # Timing
+        self.config_entries['scan_interval_seconds'].set_value(self.bot.config.scan_interval_seconds)
+        self.config_entries['max_markets_per_scan'].set_value(self.bot.config.max_markets_per_scan)
+        self.config_entries['price_update_interval'].set_value(self.bot.config.price_update_interval)
+        self.config_entries['market_cooldown_minutes'].set_value(self.bot.config.market_cooldown_minutes)
+        
+        # Insider Detection
+        self.config_entries['large_trade_threshold'].set_value(self.insider_detector.config.large_trade_threshold)
+        self.config_entries['insider_poll_interval'].set_value(self.insider_detector.config.poll_interval_seconds)
+        
+        # News Analysis
+        self.config_entries['use_news_analysis'].set_value(self.bot.config.use_news_analysis)
+        self.config_entries['news_confidence_boost'].set_value(self.bot.config.news_confidence_boost)
+        
+        # Realistic Execution
+        self.config_entries['realistic_execution'].set_value(self.bot.config.realistic_execution)
+        self.config_entries['max_slippage_pct'].set_value(self.bot.config.max_slippage_pct)
+        self.config_entries['min_book_depth_multiplier'].set_value(self.bot.config.min_book_depth_multiplier)
+        self.config_entries['execution_delay_enabled'].set_value(self.bot.config.execution_delay_enabled)
+        self.config_entries['execution_delay_max_pct'].set_value(self.bot.config.execution_delay_max_pct)
+        
+        # Category Limits
+        for category, limit in self.bot.config.category_limits.items():
+            entry_key = f'category_{category}'
+            if entry_key in self.config_entries:
+                self.config_entries[entry_key].set_value(limit)
+        
+        self.config_status.configure(text="↻ Reloaded current values", fg=Theme.ACCENT_BLUE)
+        self.after(3000, lambda: self.config_status.configure(text=""))
+    
+    def _show_force_holdings_warning(self) -> None:
+        """Show warning dialog before forcing holdings to settings."""
+        # Create warning window
+        warning_window = tk.Toplevel(self)
+        warning_window.title("⚠️ Force Holdings to Settings")
+        warning_window.geometry("500x400")
+        warning_window.configure(bg=Theme.BG_PRIMARY)
+        warning_window.transient(self)
+        warning_window.grab_set()
+        
+        # Center the window
+        warning_window.update_idletasks()
+        x = self.winfo_x() + (self.winfo_width() - 500) // 2
+        y = self.winfo_y() + (self.winfo_height() - 400) // 2
+        warning_window.geometry(f"+{x}+{y}")
+        
+        # Warning icon and title
+        header_frame = tk.Frame(warning_window, bg=Theme.BG_PRIMARY)
+        header_frame.pack(fill=tk.X, padx=20, pady=(20, 10))
+        
+        tk.Label(
+            header_frame,
+            text="⚠️ WARNING: Massive Trade Changes",
+            font=("Segoe UI", 14, "bold"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.ACCENT_RED,
+        ).pack()
+        
+        # Calculate what will happen
+        changes = self._calculate_force_holdings_changes()
+        
+        # Summary frame
+        summary_frame = tk.Frame(warning_window, bg=Theme.BG_SECONDARY, relief=tk.FLAT)
+        summary_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
+        
+        tk.Label(
+            summary_frame,
+            text="This action will make the following changes:",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.BG_SECONDARY,
+            fg=Theme.TEXT_PRIMARY,
+        ).pack(anchor="w", padx=15, pady=(15, 10))
+        
+        # Changes list with scrollbar
+        changes_text = tk.Text(
+            summary_frame,
+            font=("Consolas", 9),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            wrap=tk.WORD,
+            height=12,
+        )
+        changes_text.pack(fill=tk.BOTH, expand=True, padx=15, pady=(0, 15))
+        
+        # Populate changes
+        if changes['positions_to_close']:
+            changes_text.insert(tk.END, f"🔴 POSITIONS TO CLOSE ({len(changes['positions_to_close'])}):\n", "header")
+            for pos in changes['positions_to_close']:
+                changes_text.insert(tk.END, f"  • {pos['question'][:40]}...\n")
+                changes_text.insert(tk.END, f"    Reason: {pos['reason']}\n", "reason")
+                changes_text.insert(tk.END, f"    Value: ${pos['value']:.2f} | P&L: {pos['pnl_pct']:+.1%}\n\n", "value")
+        
+        if changes['positions_to_reduce']:
+            changes_text.insert(tk.END, f"🟡 POSITIONS TO REDUCE ({len(changes['positions_to_reduce'])}):\n", "header")
+            for pos in changes['positions_to_reduce']:
+                changes_text.insert(tk.END, f"  • {pos['question'][:40]}...\n")
+                changes_text.insert(tk.END, f"    Reason: {pos.get('reason', 'Exceeds size limit')}\n", "reason")
+                changes_text.insert(tk.END, f"    Reduce by: ${pos['reduce_amount']:.2f} ({pos['reduce_pct']:.0%} of position)\n", "reason")
+                changes_text.insert(tk.END, f"    Current: ${pos['current_value']:.2f} → ${pos['new_value']:.2f}\n\n", "value")
+        
+        if not changes['positions_to_close'] and not changes['positions_to_reduce']:
+            changes_text.insert(tk.END, "✅ No changes needed!\n\n", "header")
+            changes_text.insert(tk.END, "All current holdings already comply with settings.\n")
+        
+        # Summary stats
+        changes_text.insert(tk.END, "\n" + "="*50 + "\n")
+        changes_text.insert(tk.END, f"📊 SUMMARY:\n", "header")
+        changes_text.insert(tk.END, f"  Total positions to close: {len(changes['positions_to_close'])}\n")
+        changes_text.insert(tk.END, f"  Total positions to reduce: {len(changes['positions_to_reduce'])}\n")
+        changes_text.insert(tk.END, f"  Estimated cash freed: ${changes['total_value_freed']:.2f}\n")
+        changes_text.insert(tk.END, f"  Estimated realized P&L: ${changes['total_pnl']:.2f}\n")
+        
+        changes_text.configure(state=tk.DISABLED)
+        
+        # Configure text tags for colors
+        changes_text.tag_configure("header", foreground=Theme.ACCENT_YELLOW, font=("Consolas", 9, "bold"))
+        changes_text.tag_configure("reason", foreground=Theme.TEXT_MUTED)
+        changes_text.tag_configure("value", foreground=Theme.TEXT_SECONDARY)
+        
+        # Warning text
+        tk.Label(
+            warning_window,
+            text="This cannot be undone! Positions will be sold at current market prices.",
+            font=("Segoe UI", 9, "italic"),
+            bg=Theme.BG_PRIMARY,
+            fg=Theme.ACCENT_RED,
+        ).pack(pady=(0, 10))
+        
+        # Buttons
+        btn_frame = tk.Frame(warning_window, bg=Theme.BG_PRIMARY)
+        btn_frame.pack(fill=tk.X, padx=20, pady=(0, 20))
+        
+        tk.Button(
+            btn_frame,
+            text="❌ I'm Not Sure - Cancel",
+            font=("Segoe UI", 10),
+            bg=Theme.BG_TERTIARY,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            padx=20,
+            pady=10,
+            cursor="hand2",
+            command=warning_window.destroy,
+        ).pack(side=tk.LEFT, expand=True, fill=tk.X, padx=(0, 5))
+        
+        def execute_and_close():
+            warning_window.destroy()
+            self._execute_force_holdings(changes)
+        
+        # Only enable confirm if there are changes
+        confirm_state = tk.NORMAL if (changes['positions_to_close'] or changes['positions_to_reduce']) else tk.DISABLED
+        
+        tk.Button(
+            btn_frame,
+            text="✓ I'm Sure - Execute",
+            font=("Segoe UI", 10, "bold"),
+            bg=Theme.ACCENT_RED,
+            fg=Theme.TEXT_PRIMARY,
+            relief=tk.FLAT,
+            padx=20,
+            pady=10,
+            cursor="hand2",
+            command=execute_and_close,
+            state=confirm_state,
+        ).pack(side=tk.RIGHT, expand=True, fill=tk.X, padx=(5, 0))
+    
+    def _calculate_force_holdings_changes(self) -> dict:
+        """Calculate what changes would be needed to force holdings to settings."""
+        changes = {
+            'positions_to_close': [],
+            'positions_to_reduce': [],
+            'total_value_freed': 0.0,
+            'total_pnl': 0.0,
+        }
+        
+        if not self.bot.open_trades:
+            return changes
+        
+        # Get all trades as list with scores for ranking
+        trades_with_scores = []
+        for trade_id, trade in self.bot.open_trades.items():
+            # Calculate a score for each position (lower = worse, sell first)
+            # Score based on: P&L %, time held, volume, g-score potential
+            score = trade.pnl_pct * 100  # P&L is main factor
+            score += min(trade.volume / 10000, 5)  # Volume bonus (max 5)
+            score += min(trade.resolution_days / 30, 3)  # Time value (max 3)
+            
+            trades_with_scores.append({
+                'trade_id': trade_id,
+                'trade': trade,
+                'score': score,
+                'category': getattr(trade, 'category', 'other'),
+                'trade_type': getattr(trade, 'trade_type', 'long'),
+            })
+        
+        # Sort by score (worst first - to sell first)
+        trades_with_scores.sort(key=lambda x: x['score'])
+        
+        # Track what we're keeping
+        remaining_trades = list(trades_with_scores)
+        
+        # 1. Check total position limit
+        max_positions = self.bot.config.max_positions
+        if len(remaining_trades) > max_positions:
+            excess = len(remaining_trades) - max_positions
+            for item in remaining_trades[:excess]:
+                trade = item['trade']
+                changes['positions_to_close'].append({
+                    'trade_id': item['trade_id'],
+                    'question': trade.question,
+                    'reason': f"Exceeds max positions ({max_positions})",
+                    'value': trade.shares * trade.current_price,
+                    'pnl': trade.pnl,
+                    'pnl_pct': trade.pnl_pct,
+                })
+                changes['total_value_freed'] += trade.shares * trade.current_price
+                changes['total_pnl'] += trade.pnl
+            remaining_trades = remaining_trades[excess:]
+        
+        # 2. Check swing position limit
+        max_swing = self.bot.config.max_swing_positions
+        swing_trades = [t for t in remaining_trades if t['trade_type'] == 'swing']
+        if len(swing_trades) > max_swing:
+            excess = len(swing_trades) - max_swing
+            for item in swing_trades[:excess]:
+                trade = item['trade']
+                if item['trade_id'] not in [c['trade_id'] for c in changes['positions_to_close']]:
+                    changes['positions_to_close'].append({
+                        'trade_id': item['trade_id'],
+                        'question': trade.question,
+                        'reason': f"Exceeds max swing positions ({max_swing})",
+                        'value': trade.shares * trade.current_price,
+                        'pnl': trade.pnl,
+                        'pnl_pct': trade.pnl_pct,
+                    })
+                    changes['total_value_freed'] += trade.shares * trade.current_price
+                    changes['total_pnl'] += trade.pnl
+                    remaining_trades.remove(item)
+        
+        # 3. Check long-term position limit
+        max_long = self.bot.config.max_long_term_positions
+        long_trades = [t for t in remaining_trades if t['trade_type'] == 'long']
+        if len(long_trades) > max_long:
+            excess = len(long_trades) - max_long
+            for item in long_trades[:excess]:
+                trade = item['trade']
+                if item['trade_id'] not in [c['trade_id'] for c in changes['positions_to_close']]:
+                    changes['positions_to_close'].append({
+                        'trade_id': item['trade_id'],
+                        'question': trade.question,
+                        'reason': f"Exceeds max long-term positions ({max_long})",
+                        'value': trade.shares * trade.current_price,
+                        'pnl': trade.pnl,
+                        'pnl_pct': trade.pnl_pct,
+                    })
+                    changes['total_value_freed'] += trade.shares * trade.current_price
+                    changes['total_pnl'] += trade.pnl
+                    remaining_trades.remove(item)
+        
+        # 4. Check category limits
+        category_counts = {}
+        for item in remaining_trades:
+            cat = item['category']
+            category_counts[cat] = category_counts.get(cat, 0) + 1
+        
+        for category, count in category_counts.items():
+            limit = self.bot.config.category_limits.get(category, 5)
+            if count > limit:
+                # Find trades in this category to close
+                cat_trades = [t for t in remaining_trades if t['category'] == category]
+                cat_trades.sort(key=lambda x: x['score'])  # Worst first
+                excess = count - limit
+                for item in cat_trades[:excess]:
+                    trade = item['trade']
+                    if item['trade_id'] not in [c['trade_id'] for c in changes['positions_to_close']]:
+                        changes['positions_to_close'].append({
+                            'trade_id': item['trade_id'],
+                            'question': trade.question,
+                            'reason': f"Exceeds {category} limit ({limit})",
+                            'value': trade.shares * trade.current_price,
+                            'pnl': trade.pnl,
+                            'pnl_pct': trade.pnl_pct,
+                        })
+                        changes['total_value_freed'] += trade.shares * trade.current_price
+                        changes['total_pnl'] += trade.pnl
+                        remaining_trades.remove(item)
+        
+        # 5. Check max position size - reduce oversized positions
+        max_size = self.bot.config.max_position_size
+        closed_ids = [c['trade_id'] for c in changes['positions_to_close']]
+        
+        for item in remaining_trades:
+            if item['trade_id'] in closed_ids:
+                continue
+            trade = item['trade']
+            current_value = trade.shares * trade.current_price
+            
+            if current_value > max_size:
+                reduce_amount = current_value - max_size
+                reduce_pct = reduce_amount / current_value
+                
+                changes['positions_to_reduce'].append({
+                    'trade_id': item['trade_id'],
+                    'question': trade.question,
+                    'current_value': current_value,
+                    'new_value': max_size,
+                    'reduce_amount': reduce_amount,
+                    'reduce_pct': reduce_pct,
+                    'shares_to_sell': reduce_amount / trade.current_price,
+                    'pnl_on_sold': (trade.current_price - trade.entry_price) * (reduce_amount / trade.current_price),
+                    'reason': f"Exceeds max position size (${max_size:.0f})",
+                })
+                changes['total_value_freed'] += reduce_amount
+                changes['total_pnl'] += (trade.current_price - trade.entry_price) * (reduce_amount / trade.current_price)
+        
+        # 6. Check max portfolio percentage - reduce if any position is too large % of portfolio
+        # Calculate total portfolio value first
+        total_portfolio = self.bot.cash_balance + sum(
+            t.shares * t.current_price for t in self.bot.open_trades.values()
+        )
+        max_portfolio_pct = self.bot.config.max_portfolio_pct
+        max_value_by_pct = total_portfolio * max_portfolio_pct
+        
+        # Track already-reduced positions to avoid double-reducing
+        already_reduced_ids = [r['trade_id'] for r in changes['positions_to_reduce']]
+        
+        for item in remaining_trades:
+            if item['trade_id'] in closed_ids:
+                continue
+            trade = item['trade']
+            current_value = trade.shares * trade.current_price
+            
+            # Check if this position exceeds max portfolio %
+            position_pct = current_value / total_portfolio if total_portfolio > 0 else 0
+            
+            if position_pct > max_portfolio_pct:
+                # Check if already being reduced for position size
+                if item['trade_id'] in already_reduced_ids:
+                    # Find the existing reduction and update if this requires more reduction
+                    for reduction in changes['positions_to_reduce']:
+                        if reduction['trade_id'] == item['trade_id']:
+                            # If portfolio % requires more reduction than position size limit
+                            if max_value_by_pct < reduction['new_value']:
+                                additional_reduce = reduction['new_value'] - max_value_by_pct
+                                reduction['new_value'] = max_value_by_pct
+                                reduction['reduce_amount'] = current_value - max_value_by_pct
+                                reduction['reduce_pct'] = reduction['reduce_amount'] / current_value
+                                reduction['shares_to_sell'] = reduction['reduce_amount'] / trade.current_price
+                                reduction['pnl_on_sold'] = (trade.current_price - trade.entry_price) * reduction['shares_to_sell']
+                                reduction['reason'] = f"Exceeds max portfolio % ({max_portfolio_pct:.0%}) AND max size"
+                                # Update totals
+                                changes['total_value_freed'] += additional_reduce
+                                changes['total_pnl'] += (trade.current_price - trade.entry_price) * (additional_reduce / trade.current_price)
+                            break
+                else:
+                    # New reduction needed for portfolio %
+                    reduce_amount = current_value - max_value_by_pct
+                    reduce_pct = reduce_amount / current_value
+                    
+                    changes['positions_to_reduce'].append({
+                        'trade_id': item['trade_id'],
+                        'question': trade.question,
+                        'current_value': current_value,
+                        'new_value': max_value_by_pct,
+                        'reduce_amount': reduce_amount,
+                        'reduce_pct': reduce_pct,
+                        'shares_to_sell': reduce_amount / trade.current_price,
+                        'pnl_on_sold': (trade.current_price - trade.entry_price) * (reduce_amount / trade.current_price),
+                        'reason': f"Exceeds max portfolio % ({max_portfolio_pct:.0%} = ${max_value_by_pct:.0f})",
+                    })
+                    changes['total_value_freed'] += reduce_amount
+                    changes['total_pnl'] += (trade.current_price - trade.entry_price) * (reduce_amount / trade.current_price)
+        
+        return changes
+    
+    def _execute_force_holdings(self, changes: dict) -> None:
+        """Execute the force holdings changes."""
+        closed_count = 0
+        reduced_count = 0
+        total_freed = 0.0
+        total_pnl = 0.0
+        
+        # Close positions
+        for pos in changes['positions_to_close']:
+            trade_id = pos['trade_id']
+            if trade_id in self.bot.open_trades:
+                trade = self.bot.open_trades[trade_id]
+                self.bot._close_trade(trade, trade.current_price, "force_settings")
+                closed_count += 1
+                total_freed += pos['value']
+                total_pnl += pos['pnl']
+        
+        # Reduce oversized positions
+        for pos in changes['positions_to_reduce']:
+            trade_id = pos['trade_id']
+            if trade_id in self.bot.open_trades:
+                trade = self.bot.open_trades[trade_id]
+                shares_to_sell = pos['shares_to_sell']
+                
+                # Calculate proceeds from partial sale
+                proceeds = shares_to_sell * trade.current_price
+                pnl_on_sold = (trade.current_price - trade.entry_price) * shares_to_sell
+                
+                # Update trade
+                trade.shares -= shares_to_sell
+                self.bot.cash_balance += proceeds
+                self.bot.total_pnl += pnl_on_sold
+                
+                if pnl_on_sold >= 0:
+                    self.bot.winning_trades += 1
+                else:
+                    self.bot.losing_trades += 1
+                
+                # Log the reduction
+                self.bot._add_to_trade_log(
+                    action="SELL",
+                    question=trade.question,
+                    amount=proceeds,
+                    price=trade.current_price,
+                    pnl=pnl_on_sold,
+                    result="WIN" if pnl_on_sold >= 0 else "LOSS",
+                )
+                
+                self.chat.add_message(
+                    f"Reduced '{trade.question[:30]}...' by ${proceeds:.0f} (now ${trade.shares * trade.current_price:.0f})",
+                    "trade", "Config"
+                )
+                
+                reduced_count += 1
+                total_freed += proceeds
+                total_pnl += pnl_on_sold
+        
+        # Save state
+        self.bot._save()
+        
+        # Update UI
+        self._update_positions_display()
+        self._update_stats()
+        
+        # Show result
+        pnl_str = f"+${total_pnl:.2f}" if total_pnl >= 0 else f"-${abs(total_pnl):.2f}"
+        result_msg = f"Force applied: {closed_count} closed, {reduced_count} reduced | Freed ${total_freed:.0f} | P&L: {pnl_str}"
+        
+        self.config_status.configure(text=result_msg, fg=Theme.ACCENT_GREEN if total_pnl >= 0 else Theme.ACCENT_RED)
+        self.chat.add_message(result_msg, "success" if total_pnl >= 0 else "alert", "Config")
+        
+        self.after(5000, lambda: self.config_status.configure(text=""))
+
     # =========================================================================
     # Event Handlers
     # =========================================================================
@@ -1186,18 +3862,22 @@ class TradingBotApp(tk.Tk):
             self.message_queue.put(("major_insider_alert", alert))
     
     def _process_messages(self) -> None:
-        """Process messages from the queue (runs on main thread)."""
+        """Process messages from the queue (runs on main thread) - BATCHED for performance."""
+        messages_processed = 0
+        max_per_cycle = 10  # Process max 10 messages per cycle to avoid UI stutter
+        
         try:
-            while True:
+            while messages_processed < max_per_cycle:
                 msg_type, data = self.message_queue.get_nowait()
+                messages_processed += 1
                 
                 if msg_type == "message":
                     message, mtype = data
                     self.chat.add_message(message, mtype)
                 
                 elif msg_type == "trade":
-                    self._update_positions_display()
-                    self._update_stats()
+                    # Don't update UI immediately - let periodic update handle it
+                    pass
                 
                 elif msg_type == "scan_complete":
                     opportunities = data
@@ -1207,11 +3887,18 @@ class TradingBotApp(tk.Tk):
                         "success",
                         "Scan"
                     )
-                    self._update_markets_display()
+                    # Update overview timer
+                    self._on_scan_completed()
+                    # Defer market display update
+                    self.after(500, self._update_markets_display)
+                
+                elif msg_type == "holdings_updated":
+                    # Update overview timer for holdings
+                    self._on_holdings_updated()
                 
                 elif msg_type == "insider_alert":
-                    alert = data
-                    self._update_alerts_display()
+                    # Defer alert display update
+                    pass
                 
                 elif msg_type == "major_insider_alert":
                     alert = data
@@ -1222,13 +3909,12 @@ class TradingBotApp(tk.Tk):
                         "alert",
                         "INSIDER"
                     )
-                    self._update_alerts_display()
                     
         except queue.Empty:
             pass
         
-        # Schedule next check
-        self.after(100, self._process_messages)
+        # Schedule next check - 250ms instead of 100ms (less CPU usage)
+        self.after(250, self._process_messages)
     
     def _add_market_dialog(self) -> None:
         """Show dialog to add a market."""
@@ -1550,7 +4236,14 @@ class TradingBotApp(tk.Tk):
         )
     
     def _update_alerts_display(self) -> None:
-        """Update the alerts list with current time and market info."""
+        """Update the alerts list - OPTIMIZED with caching."""
+        # Check if alerts changed before rebuilding (expensive operation)
+        current_alert_count = len(self.insider_detector.alerts) if hasattr(self.insider_detector, 'alerts') else 0
+        if hasattr(self, '_last_alert_count') and self._last_alert_count == current_alert_count:
+            # Only update timestamp, not whole list
+            return
+        self._last_alert_count = current_alert_count
+        
         for widget in self.alerts_frame.winfo_children():
             widget.destroy()
         
@@ -1567,7 +4260,7 @@ class TradingBotApp(tk.Tk):
             fg=Theme.TEXT_MUTED,
         ).pack(side=tk.RIGHT)
         
-        alerts = self.insider_detector.get_alerts(limit=20)
+        alerts = self.insider_detector.get_alerts(limit=15)  # REDUCED from 20
         
         if not alerts:
             tk.Label(
@@ -1580,7 +4273,7 @@ class TradingBotApp(tk.Tk):
                      "• HIGH: $50k - $100k trades\n"
                      "• CRITICAL: $100k+ trades\n\n"
                      f"Currently monitoring: {len(self.insider_detector.monitored_markets)} markets\n"
-                     f"Scanning every 10 seconds",
+                     f"Scanning every 30 seconds",
                 font=("Segoe UI", 10),
                 bg=Theme.BG_PRIMARY,
                 fg=Theme.TEXT_MUTED,
@@ -1783,61 +4476,122 @@ class TradingBotApp(tk.Tk):
         ).pack(pady=20)
     
     def _start_updates(self) -> None:
-        """Start periodic UI updates - faster refresh for real-time feel."""
-        self._update_counter = 0
+        """Start periodic UI updates - DUAL SPEED: Fast for positions, slow for discovery."""
+        self._slow_counter = 0
         self._log_check_counter = 0
+        self._position_update_pending = False
         
-        def update():
-            self._update_counter += 1
-            self._log_check_counter += 1
+        def fast_update():
+            """FAST LOOP: Updates held positions every 5 seconds."""
+            # Update held positions in background (PRIORITY - these are our money!)
+            if not self._position_update_pending:
+                self._position_update_pending = True
+                threading.Thread(target=self._background_position_update, daemon=True).start()
             
-            # ALWAYS update positions to get fresh prices (even when bot not running)
-            # This ensures P&L is always calculated with current market prices
-            try:
-                self.bot.update_positions()
-            except Exception as e:
-                print(f"[Update] Position update error: {e}")
-            
-            # Update stats every tick (2 seconds) - lightweight operation
+            # Update stats display (lightweight)
             try:
                 self._update_stats()
+                self._update_positions_display_incremental()
             except Exception as e:
-                print(f"[Update] Stats error: {e}")
+                print(f"[FastUpdate] Error: {e}")
             
-            # Update positions every 2 ticks (4 seconds) - heavier operation
-            if self._update_counter % 2 == 0:
-                try:
-                    self._update_positions_display()
-                    self._update_stats_dashboard()
-                except Exception as e:
-                    print(f"[Update] Positions display error: {e}")
+            # Fast refresh: 5 seconds for held positions
+            self.after(5000, fast_update)
+        
+        def slow_update():
+            """SLOW LOOP: Updates UI chrome, alerts, logs every 10-15 seconds."""
+            self._slow_counter += 1
+            self._log_check_counter += 1
             
-            # Update trade log every 3 ticks (6 seconds)
-            if self._update_counter % 3 == 0:
+            # Update stats dashboard every tick (10 seconds)
+            try:
+                self._update_stats_dashboard()
+            except Exception as e:
+                print(f"[SlowUpdate] Stats dashboard error: {e}")
+            
+            # Update trade log every 2 ticks (20 seconds)
+            if self._slow_counter % 2 == 0:
                 try:
                     self._update_trade_log_display()
                 except Exception as e:
-                    print(f"[Update] Trade log error: {e}")
+                    print(f"[SlowUpdate] Trade log error: {e}")
             
-            # Update alerts every 4 ticks (8 seconds)
-            if self._update_counter % 4 == 0:
+            # Update alerts every 3 ticks (30 seconds)
+            if self._slow_counter % 3 == 0:
                 try:
                     self._update_alerts_display()
                 except Exception as e:
-                    print(f"[Update] Alerts error: {e}")
+                    print(f"[SlowUpdate] Alerts error: {e}")
             
-            # Check for log export every 30 minutes (900 ticks at 2s each)
-            if self._log_check_counter >= 900:
+            # Check for log export every 30 minutes (180 ticks at 10s each)
+            if self._log_check_counter >= 180:
                 self._log_check_counter = 0
-                self._perform_log_cleanup()
+                threading.Thread(target=self._perform_log_cleanup, daemon=True).start()
             
-            # Refresh: 2 seconds
-            self.after(2000, update)
+            # Slow refresh: 10 seconds for non-critical UI
+            self.after(10000, slow_update)
         
         # Initial updates
         self._update_trade_log_display()
         self._update_stats_dashboard()
-        self.after(2000, update)
+        
+        # Start both loops with staggered timing
+        self.after(1000, fast_update)   # Fast loop starts after 1s
+        self.after(5000, slow_update)   # Slow loop starts after 5s
+    
+    def _background_position_update(self) -> None:
+        """Update positions in background thread to avoid UI freeze."""
+        try:
+            self.bot.update_positions()
+            # Signal that holdings were updated (for overview timer)
+            self.message_queue.put(("holdings_updated", None))
+        except Exception as e:
+            print(f"[Update] Background position update error: {e}")
+        finally:
+            self._position_update_pending = False
+    
+    def _update_positions_display_incremental(self) -> None:
+        """Update positions display WITHOUT destroying all widgets - incremental update."""
+        trades = self.bot.get_open_trades()
+        
+        # Sort trades
+        sort_by = self.position_sort_var.get() if hasattr(self, 'position_sort_var') else "profit"
+        if sort_by == "profit":
+            trades = sorted(trades, key=lambda t: t.pnl, reverse=True)
+        elif sort_by == "loss":
+            trades = sorted(trades, key=lambda t: t.pnl)
+        elif sort_by == "recent":
+            trades = sorted(trades, key=lambda t: t.timestamp, reverse=True)
+        elif sort_by == "size":
+            trades = sorted(trades, key=lambda t: t.cost_basis, reverse=True)
+        
+        current_count = len(trades)
+        self.positions_count.configure(text=f"{current_count} positions")
+        
+        # Get existing widgets
+        existing_widgets = self.positions_frame.winfo_children()
+        existing_count = len(existing_widgets)
+        
+        # Only do full rebuild if count changed significantly or first time
+        if abs(existing_count - current_count) > 2 or existing_count == 0:
+            self._update_positions_display()
+            return
+        
+        # Otherwise just update the stat displays (much faster)
+        try:
+            total_value = sum(t.shares * t.current_price for t in trades)
+            total_pnl = sum(t.pnl for t in trades)
+            pnl_pct = (total_pnl / (total_value - total_pnl) * 100) if (total_value - total_pnl) > 0 else 0
+            
+            self.stat_value.set_value(f"${self.bot.cash_balance + total_value:,.2f}")
+            pnl_color = Theme.PROFIT if total_pnl >= 0 else Theme.LOSS
+            self.stat_pnl.set_value(
+                f"${total_pnl:+,.2f}",
+                f"({pnl_pct:+.1f}%)",
+                pnl_color
+            )
+        except Exception:
+            pass
     
     def _perform_log_cleanup(self) -> None:
         """Export logs to CSV and clear memory to prevent slowdown."""
@@ -1902,12 +4656,43 @@ class TradingBotApp(tk.Tk):
         """Clean up on close."""
         self.bot.stop()
         self._save_markets()
+        # Remove lock file on exit
+        try:
+            LOCK_FILE.unlink()
+        except:
+            pass
         super().destroy()
 
 
 def main():
-    app = TradingBotApp()
-    app.mainloop()
+    # Check if headless runner is already running
+    if LOCK_FILE.exists():
+        try:
+            with open(LOCK_FILE, 'r') as f:
+                info = f.read().strip()
+            messagebox.showerror(
+                "Bot Already Running",
+                f"Another bot instance is already running!\n\n"
+                f"Lock info: {info}\n\n"
+                f"If this is incorrect, delete:\n{LOCK_FILE}"
+            )
+            return
+        except:
+            pass
+    
+    # Create lock file
+    with open(LOCK_FILE, 'w') as f:
+        f.write(f"trading_bot_v2.py (UI) started at {datetime.now().isoformat()}")
+    
+    try:
+        app = TradingBotApp()
+        app.mainloop()
+    finally:
+        # Clean up lock file
+        try:
+            LOCK_FILE.unlink()
+        except:
+            pass
 
 
 if __name__ == "__main__":
