@@ -20,6 +20,9 @@ from polymarket_api import (
     CLOB_API_BASE,
     fetch_order_book,
     compute_resolution_days,
+    calculate_buy_execution,
+    calculate_sell_execution,
+    get_best_bid,
 )
 
 # Import news analyzer for sentiment-based trading
@@ -98,6 +101,7 @@ class BotTrade:
     volume: float = 0.0  # Market volume when trade was made
     resolution_days: float = 0.0  # Days to resolution when traded
     category: str = "other"  # Market category (politics, crypto, sports, etc.)
+    token_id: Optional[str] = None  # CLOB token ID for realistic exit pricing
     
     @property
     def value(self) -> float:
@@ -127,6 +131,7 @@ class BotTrade:
             "volume": self.volume,
             "resolution_days": self.resolution_days,
             "category": self.category,
+            "token_id": self.token_id,
         }
     
     @staticmethod
@@ -136,6 +141,7 @@ class BotTrade:
         data.setdefault('volume', 0.0)
         data.setdefault('resolution_days', 0.0)
         data.setdefault('category', 'other')
+        data.setdefault('token_id', None)  # Old trades won't have this
         return BotTrade(**data)
 
 
@@ -204,24 +210,13 @@ class BotConfig:
     # News-based trading
     use_news_analysis: bool = True  # Enable news sentiment analysis
     news_confidence_boost: float = 0.15  # Boost confidence when news aligns
-    skip_recently_scanned: bool = False  # Allow re-scanning
-    market_cooldown_minutes: int = 3  # Only 3 min cooldown (was 5)
     
-    # Category diversity - ensure we don't only buy sports
-    category_limits: Dict[str, int] = field(default_factory=lambda: {
-        "sports": 10,      # Max 10 sports positions
-        "politics": 10,    # Max 10 politics positions
-        "crypto": 8,       # Max 8 crypto positions
-        "entertainment": 5,
-        "finance": 5,
-        "technology": 5,
-        "world_events": 5,
-        "other": 7,
-    })
-    
-    # News-based trading
-    use_news_analysis: bool = True  # Enable news sentiment analysis
-    news_confidence_boost: float = 0.15  # Boost confidence when news aligns
+    # Realistic execution simulation
+    realistic_execution: bool = True  # Enable realistic order book simulation
+    max_slippage_pct: float = 5.0  # Reject trades with > 5% slippage
+    min_book_depth_multiplier: float = 1.5  # Need 1.5x liquidity vs order size
+    execution_delay_enabled: bool = True  # Simulate price movement during execution
+    execution_delay_max_pct: float = 2.0  # Max random price movement (±2%)
 
 
 # Category detection keywords for market classification
@@ -316,6 +311,7 @@ class AutoTradingBot:
         
         # Control
         self._running = False
+        self._buys_paused = False  # When True, skip new buy trades but allow sells
         self._thread: Optional[threading.Thread] = None
         self._trade_counter = 0
         
@@ -727,10 +723,28 @@ class AutoTradingBot:
         return best_opportunity
     
     def _compute_g(self, price: float, resolution_days: float, lambda_days: float = 1.0) -> Optional[float]:
-        """Compute growth rate metric."""
+        """
+        Compute growth rate (g) metric for a market opportunity.
+        
+        Formula: g = ln(1 + r) / (resolution_days + lambda)
+        Where r = (1 - fee) * ((1 - price) / price)
+        
+        The 2% fee is included because g-score assumes holding to resolution,
+        which is when Polymarket charges the fee. This makes the metric
+        conservative/realistic for evaluating best-case returns.
+        
+        Args:
+            price: Current ask price (0-1)
+            resolution_days: Days until market resolves
+            lambda_days: Smoothing factor (default 1.0)
+        
+        Returns:
+            Growth rate per day, or None if invalid inputs
+        """
         if price <= 0 or price >= 1 or resolution_days <= 0:
             return None
         
+        # r = expected return if held to resolution (post-fee)
         r = (1 - self.EXCHANGE_FEE) * ((1.0 - price) / price)
         denom = resolution_days + lambda_days
         
@@ -846,7 +860,7 @@ class AutoTradingBot:
     # -------------------------------------------------------------------------
     
     def execute_trade(self, opportunity: MarketOpportunity, force_test: bool = False) -> Optional[BotTrade]:
-        """Execute a paper trade based on opportunity."""
+        """Execute a paper trade based on opportunity with realistic execution simulation."""
         if opportunity.decision != BotDecision.BUY:
             return None
         
@@ -917,7 +931,74 @@ class AutoTradingBot:
             self._log(f"Skip: Not enough cash (need ${position_value:.2f}, have ${self.cash_balance:.2f})", "info")
             return None
         
-        shares = position_value / opportunity.price
+        # =====================================================================
+        # REALISTIC EXECUTION SIMULATION
+        # =====================================================================
+        actual_entry_price = opportunity.price
+        actual_shares = position_value / opportunity.price
+        actual_cost = position_value
+        slippage_info = ""
+        
+        if self.config.realistic_execution:
+            try:
+                # Fetch fresh order book for execution
+                order_book = fetch_order_book(opportunity.token_id)
+                
+                # Calculate realistic buy execution
+                execution = calculate_buy_execution(order_book, position_value)
+                
+                # Check 1: Is there enough liquidity?
+                required_liquidity = position_value * self.config.min_book_depth_multiplier
+                if execution['available_liquidity'] < required_liquidity:
+                    self._log(
+                        f"Skip: Insufficient liquidity for {opportunity.question[:25]}... "
+                        f"(need ${required_liquidity:.0f}, have ${execution['available_liquidity']:.0f})",
+                        "info"
+                    )
+                    return None
+                
+                # Check 2: Can the order be filled?
+                if not execution['can_fill']:
+                    self._log(
+                        f"Skip: Order cannot be fully filled for {opportunity.question[:25]}... "
+                        f"(only ${execution['total_cost']:.0f} of ${position_value:.0f} fillable)",
+                        "info"
+                    )
+                    return None
+                
+                # Check 3: Is slippage acceptable?
+                if execution['slippage_pct'] > self.config.max_slippage_pct:
+                    self._log(
+                        f"Skip: Slippage too high for {opportunity.question[:25]}... "
+                        f"({execution['slippage_pct']:.1f}% > {self.config.max_slippage_pct}%)",
+                        "info"
+                    )
+                    return None
+                
+                # Apply execution delay price movement (simulates time between decision and fill)
+                if self.config.execution_delay_enabled:
+                    # Random price movement during execution delay (can be positive or negative)
+                    delay_movement = random.uniform(
+                        -self.config.execution_delay_max_pct / 100,
+                        self.config.execution_delay_max_pct / 100
+                    )
+                    execution['avg_price'] *= (1 + delay_movement)
+                    if delay_movement != 0:
+                        slippage_info += f" delay:{delay_movement*100:+.1f}%"
+                
+                # Use realistic execution values
+                actual_entry_price = execution['avg_price']
+                actual_shares = execution['total_shares']
+                actual_cost = execution['total_cost']
+                
+                if execution['slippage_pct'] > 0.5:  # Log significant slippage
+                    slippage_info = f" [slip:{execution['slippage_pct']:.1f}%{slippage_info}]"
+                elif slippage_info:
+                    slippage_info = f" [{slippage_info.strip()}]"
+                    
+            except Exception as e:
+                # If order book fetch fails, fall back to displayed price
+                self._log(f"Warning: Could not fetch order book, using displayed price: {e}", "info")
         
         # Detect category before creating trade
         category = self._detect_category(opportunity.question)
@@ -929,17 +1010,18 @@ class AutoTradingBot:
             question=opportunity.question,
             outcome=opportunity.outcome,
             action="buy",
-            shares=shares,
-            entry_price=opportunity.price,
-            current_price=opportunity.price,
+            shares=actual_shares,
+            entry_price=actual_entry_price,
+            current_price=actual_entry_price,
             status="open",
             trade_type="swing" if is_swing else "long",
             volume=opportunity.volume,
             resolution_days=opportunity.resolution_days,
             category=category,
+            token_id=opportunity.token_id,  # Persisted for realistic exit pricing
         )
         
-        self.cash_balance -= position_value
+        self.cash_balance -= actual_cost
         self.open_trades[trade.id] = trade
         self.total_trades += 1
         
@@ -950,8 +1032,8 @@ class AutoTradingBot:
         self._add_to_trade_log(
             action="BUY",
             question=opportunity.question,
-            amount=position_value,
-            price=opportunity.price,
+            amount=actual_cost,
+            price=actual_entry_price,
         )
         
         days_str = f"{opportunity.resolution_days:.1f}d" if opportunity.resolution_days < 30 else f"{opportunity.resolution_days/30:.1f}mo"
@@ -960,7 +1042,7 @@ class AutoTradingBot:
         
         self._log(
             f"[{trade_label}] BOUGHT '{opportunity.question[:30]}...' "
-            f"| ${position_value:.0f} @ ${opportunity.price:.3f} | Vol: ${opportunity.volume/1000:.0f}k | {days_str}",
+            f"| ${actual_cost:.0f} @ ${actual_entry_price:.3f}{slippage_info} | Vol: ${opportunity.volume/1000:.0f}k | {days_str}",
             "trade"
         )
         
@@ -971,49 +1053,59 @@ class AutoTradingBot:
         return trade
     
     def update_positions(self) -> None:
-        """Update prices and check stop-loss/take-profit for open positions."""
+        """Update prices and check stop-loss/take-profit for open positions.
+        PRIORITY SYSTEM: Held positions update FAST, others update slower."""
+        
+        if not self.open_trades:
+            return
+        
+        # ALL held positions get updated every call (priority)
+        market_slugs = list(set(trade.market_id for trade in self.open_trades.values()))
+        
+        # Fetch ALL held position prices (no limit - these are critical)
+        market_prices = {}  # market_id -> {outcome -> price}
+        
+        for slug in market_slugs:
+            try:
+                url = f"{GAMMA_API_BASE}/markets"
+                response = requests.get(url, params={"slug": slug}, timeout=5)  # 5s timeout for held positions
+                if response.ok:
+                    data = response.json()
+                    market_data = data[0] if isinstance(data, list) and data else data if isinstance(data, dict) else None
+                    
+                    if market_data:
+                        prices = market_data.get("outcomePrices")
+                        outcomes = market_data.get("outcomes")
+                        
+                        if prices and outcomes:
+                            try:
+                                if isinstance(prices, str):
+                                    prices = json.loads(prices)
+                                if isinstance(outcomes, str):
+                                    outcomes = json.loads(outcomes)
+                                
+                                market_prices[slug] = {
+                                    outcomes[i]: float(prices[i]) 
+                                    for i in range(len(outcomes)) 
+                                    if i < len(prices)
+                                }
+                            except Exception:
+                                pass
+            except requests.Timeout:
+                self._log(f"⚠️ Timeout fetching {slug} - using cached price", "alert")
+                continue
+            except Exception:
+                continue
+        
+        # Now update all positions with fetched prices
         for trade_id, trade in list(self.open_trades.items()):
             try:
-                # Get market key
                 market_key = f"{trade.market_id}|{trade.outcome}"
-                
-                # Get current price - ALWAYS try to fetch fresh first, then fallback to scanned
                 current_price = None
                 
-                # Try to fetch fresh price from API using slug as query param
-                try:
-                    url = f"{GAMMA_API_BASE}/markets"
-                    response = requests.get(url, params={"slug": trade.market_id}, timeout=10)
-                    if response.ok:
-                        data = response.json()
-                        # Response is a list when using slug param
-                        if isinstance(data, list) and len(data) > 0:
-                            market_data = data[0]
-                        elif isinstance(data, dict):
-                            market_data = data
-                        else:
-                            market_data = None
-                        
-                        if market_data:
-                            prices = market_data.get("outcomePrices")
-                            outcomes = market_data.get("outcomes")
-                            
-                            if prices and outcomes:
-                                try:
-                                    if isinstance(prices, str):
-                                        prices = json.loads(prices)
-                                    if isinstance(outcomes, str):
-                                        outcomes = json.loads(outcomes)
-                                    
-                                    # Find the matching outcome
-                                    for i, outcome in enumerate(outcomes):
-                                        if outcome == trade.outcome and i < len(prices):
-                                            current_price = float(prices[i])
-                                            break
-                                except Exception:
-                                    pass
-                except Exception:
-                    pass
+                # Use batch-fetched price
+                if trade.market_id in market_prices:
+                    current_price = market_prices[trade.market_id].get(trade.outcome)
                 
                 # Fallback to scanned markets if API fetch failed
                 if current_price is None and market_key in self.scanned_markets:
@@ -1049,15 +1141,90 @@ class AutoTradingBot:
                 continue
     
     def _close_trade(self, trade: BotTrade, exit_price: float, reason: str) -> None:
-        """Close a trade."""
-        trade.exit_price = exit_price
+        """Close a trade with realistic execution simulation."""
+        actual_exit_price = exit_price
+        slippage_info = ""
+        fee_applied = False
+        
+        # =====================================================================
+        # DETECT MARKET RESOLUTION
+        # If price is very close to $1.00 or $0.00, the market likely resolved
+        # =====================================================================
+        is_resolution_win = exit_price >= 0.98  # Price ~$1.00 means we won
+        is_resolution_loss = exit_price <= 0.02  # Price ~$0.00 means we lost
+        is_resolution = is_resolution_win or is_resolution_loss
+        
+        # Update reason if this looks like a resolution
+        if is_resolution and reason in ("take_profit", "stop_loss"):
+            reason = "resolution_win" if is_resolution_win else "resolution_loss"
+        
+        # =====================================================================
+        # REALISTIC EXIT EXECUTION - Use BID price, not mid/last price
+        # =====================================================================
+        if self.config.realistic_execution and not is_resolution:
+            # Only apply order book slippage for non-resolution exits
+            # Resolution exits pay out at exactly $1.00 or $0.00
+            try:
+                # Get token_id - check both new field and old runtime attribute for backwards compatibility
+                token_id = trade.token_id or getattr(trade, '_token_id', None)
+                
+                if token_id:
+                    # Fetch order book for realistic sell execution
+                    order_book = fetch_order_book(token_id)
+                    
+                    # Calculate realistic sell execution
+                    execution = calculate_sell_execution(order_book, trade.shares)
+                    
+                    if execution['can_fill'] and execution['avg_price'] > 0:
+                        # Apply execution delay price movement
+                        if self.config.execution_delay_enabled:
+                            delay_movement = random.uniform(
+                                -self.config.execution_delay_max_pct / 100,
+                                self.config.execution_delay_max_pct / 100
+                            )
+                            execution['avg_price'] *= (1 + delay_movement)
+                        
+                        actual_exit_price = execution['avg_price']
+                        
+                        if execution['slippage_pct'] > 0.5:
+                            slippage_info = f" [exit slip:{execution['slippage_pct']:.1f}%]"
+                    else:
+                        # Can't fill on bid side - use best bid with penalty
+                        if execution['best_bid'] > 0:
+                            actual_exit_price = execution['best_bid'] * 0.98  # 2% penalty
+                            slippage_info = " [low bid liquidity]"
+                else:
+                    # No token_id - estimate bid as ~2% below mid price
+                    actual_exit_price = exit_price * 0.98
+                    slippage_info = " [est. bid]"
+                    
+            except Exception as e:
+                # Fallback: estimate bid as ~2% below displayed price
+                actual_exit_price = exit_price * 0.98
+                slippage_info = " [bid est.]"
+        
+        # =====================================================================
+        # APPLY 2% FEE ON RESOLUTION WINS (Polymarket's actual fee structure)
+        # Fee is only charged when you hold shares that resolve to $1.00
+        # =====================================================================
+        if is_resolution_win:
+            # Resolution win: shares pay out at $1.00, minus 2% fee
+            actual_exit_price = 1.00 * (1 - self.EXCHANGE_FEE)  # $0.98 per share
+            fee_applied = True
+            slippage_info = f" [2% resolution fee]"
+        elif is_resolution_loss:
+            # Resolution loss: shares pay out at $0.00, no fee
+            actual_exit_price = 0.00
+            slippage_info = " [resolved $0]"
+        
+        trade.exit_price = actual_exit_price
         trade.exit_timestamp = self._now_iso()
         trade.status = "closed"
-        trade.pnl = (exit_price - trade.entry_price) * trade.shares
-        trade.pnl_pct = (exit_price - trade.entry_price) / trade.entry_price if trade.entry_price > 0 else 0
+        trade.pnl = (actual_exit_price - trade.entry_price) * trade.shares
+        trade.pnl_pct = (actual_exit_price - trade.entry_price) / trade.entry_price if trade.entry_price > 0 else 0
         
         # Update balance
-        proceeds = trade.shares * exit_price
+        proceeds = trade.shares * actual_exit_price
         self.cash_balance += proceeds
         
         # Update stats
@@ -1083,13 +1250,13 @@ class AutoTradingBot:
             action="SELL",
             question=trade.question,
             amount=proceeds,
-            price=exit_price,
+            price=actual_exit_price,
             pnl=trade.pnl,
             result=result,
         )
         
         self._log(
-            f"[{result}] SOLD '{trade.question[:30]}...' - {reason.upper()} - P&L: {pnl_str} ({trade.pnl_pct:+.1%})",
+            f"[{result}] SOLD '{trade.question[:30]}...' - {reason.upper()}{slippage_info} - P&L: {pnl_str} ({trade.pnl_pct:+.1%})",
             "trade"
         )
         
@@ -1263,12 +1430,17 @@ class AutoTradingBot:
                 buy_opportunities = [o for o in opportunities if o.decision == BotDecision.BUY]
                 executed = 0
                 
-                for opp in buy_opportunities[:20]:  # Try up to 20 opportunities
-                    result = self.execute_trade(opp)
-                    if result:
-                        executed += 1
-                        if executed >= 5:  # Max 5 trades per scan cycle
-                            break
+                # Check if buys are paused by UI
+                if self._buys_paused:
+                    if buy_opportunities:
+                        self._log(f"⏸️ Buys paused - skipping {len(buy_opportunities)} buy opportunities", "alert")
+                else:
+                    for opp in buy_opportunities[:20]:  # Try up to 20 opportunities
+                        result = self.execute_trade(opp)
+                        if result:
+                            executed += 1
+                            if executed >= 5:  # Max 5 trades per scan cycle
+                                break
                 
                 if buy_opportunities and executed == 0 and len(self.open_trades) >= positions_limit - 2:
                     self._log(f"⚠️ At capacity ({positions_used}/{positions_limit}). Selling stagnant positions...", "alert")

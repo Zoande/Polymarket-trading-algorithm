@@ -104,6 +104,180 @@ def fetch_order_book(token_id: str) -> Dict[str, List[Tuple[float, float]]]:
     return {"asks": asks, "bids": bids}
 
 
+def calculate_buy_execution(order_book: Dict, dollar_amount: float) -> Dict:
+    """
+    Calculate realistic execution for a BUY order by walking the ask side.
+    
+    Returns:
+        {
+            'can_fill': bool,           # Whether the order can be filled
+            'avg_price': float,         # Volume-weighted average fill price
+            'total_shares': float,      # Total shares that would be bought
+            'total_cost': float,        # Actual cost including slippage
+            'slippage_pct': float,      # Percentage slippage from best ask
+            'best_ask': float,          # Best available ask price
+            'worst_price': float,       # Worst price level hit
+            'levels_used': int,         # Number of price levels consumed
+            'available_liquidity': float,  # Total $ available on ask side
+        }
+    """
+    asks = order_book.get("asks", [])
+    
+    if not asks:
+        return {
+            'can_fill': False,
+            'avg_price': 0,
+            'total_shares': 0,
+            'total_cost': 0,
+            'slippage_pct': 0,
+            'best_ask': 0,
+            'worst_price': 0,
+            'levels_used': 0,
+            'available_liquidity': 0,
+        }
+    
+    best_ask = asks[0][0]
+    total_shares = 0
+    total_cost = 0
+    remaining_dollars = dollar_amount
+    worst_price = best_ask
+    levels_used = 0
+    
+    # Calculate total available liquidity
+    available_liquidity = sum(price * size for price, size in asks)
+    
+    # Walk through ask levels
+    for price, size in asks:
+        if remaining_dollars <= 0:
+            break
+        
+        # How many shares can we buy at this level?
+        level_value = price * size  # Total $ available at this level
+        
+        if level_value >= remaining_dollars:
+            # This level can fill the rest of our order
+            shares_at_level = remaining_dollars / price
+            total_shares += shares_at_level
+            total_cost += remaining_dollars
+            worst_price = price
+            levels_used += 1
+            remaining_dollars = 0
+        else:
+            # Take all shares at this level, continue to next
+            total_shares += size
+            total_cost += level_value
+            remaining_dollars -= level_value
+            worst_price = price
+            levels_used += 1
+    
+    can_fill = remaining_dollars <= 0.01  # Allow tiny rounding errors
+    avg_price = total_cost / total_shares if total_shares > 0 else 0
+    slippage_pct = ((avg_price - best_ask) / best_ask * 100) if best_ask > 0 else 0
+    
+    return {
+        'can_fill': can_fill,
+        'avg_price': avg_price,
+        'total_shares': total_shares,
+        'total_cost': total_cost,
+        'slippage_pct': slippage_pct,
+        'best_ask': best_ask,
+        'worst_price': worst_price,
+        'levels_used': levels_used,
+        'available_liquidity': available_liquidity,
+    }
+
+
+def calculate_sell_execution(order_book: Dict, shares_to_sell: float) -> Dict:
+    """
+    Calculate realistic execution for a SELL order by walking the bid side.
+    
+    Returns:
+        {
+            'can_fill': bool,           # Whether the order can be filled
+            'avg_price': float,         # Volume-weighted average fill price
+            'total_shares': float,      # Total shares that would be sold
+            'total_proceeds': float,    # Actual proceeds from sale
+            'slippage_pct': float,      # Percentage slippage from best bid (negative = worse)
+            'best_bid': float,          # Best available bid price
+            'worst_price': float,       # Worst price level hit
+            'levels_used': int,         # Number of price levels consumed
+            'available_liquidity': float,  # Total shares available on bid side
+        }
+    """
+    bids = order_book.get("bids", [])
+    
+    if not bids:
+        return {
+            'can_fill': False,
+            'avg_price': 0,
+            'total_shares': 0,
+            'total_proceeds': 0,
+            'slippage_pct': 0,
+            'best_bid': 0,
+            'worst_price': 0,
+            'levels_used': 0,
+            'available_liquidity': 0,
+        }
+    
+    best_bid = bids[0][0]
+    total_shares = 0
+    total_proceeds = 0
+    remaining_shares = shares_to_sell
+    worst_price = best_bid
+    levels_used = 0
+    
+    # Calculate total available liquidity (shares)
+    available_liquidity = sum(size for _, size in bids)
+    
+    # Walk through bid levels (highest to lowest)
+    for price, size in bids:
+        if remaining_shares <= 0:
+            break
+        
+        if size >= remaining_shares:
+            # This level can buy all our remaining shares
+            total_shares += remaining_shares
+            total_proceeds += remaining_shares * price
+            worst_price = price
+            levels_used += 1
+            remaining_shares = 0
+        else:
+            # Sell all shares at this level, continue to next
+            total_shares += size
+            total_proceeds += size * price
+            remaining_shares -= size
+            worst_price = price
+            levels_used += 1
+    
+    can_fill = remaining_shares <= 0.01  # Allow tiny rounding errors
+    avg_price = total_proceeds / total_shares if total_shares > 0 else 0
+    slippage_pct = ((best_bid - avg_price) / best_bid * 100) if best_bid > 0 else 0
+    
+    return {
+        'can_fill': can_fill,
+        'avg_price': avg_price,
+        'total_shares': total_shares,
+        'total_proceeds': total_proceeds,
+        'slippage_pct': slippage_pct,
+        'best_bid': best_bid,
+        'worst_price': worst_price,
+        'levels_used': levels_used,
+        'available_liquidity': available_liquidity,
+    }
+
+
+def get_best_bid(token_id: str) -> float:
+    """Get the best bid price for a token (for realistic exit pricing)."""
+    try:
+        book = fetch_order_book(token_id)
+        bids = book.get("bids", [])
+        if bids:
+            return bids[0][0]  # Best bid (highest)
+    except Exception:
+        pass
+    return 0.0
+
+
 def compute_resolution_days(end_date_iso: str) -> float:
     if not end_date_iso:
         raise ValueError("Market metadata is missing endDate.")
